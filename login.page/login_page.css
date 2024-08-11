@@ -1,32 +1,35 @@
 body {
+    /*overflow-x: hidden;*/
     background-image: url("https://www.gracecoe.org/assets/img/admission/why1.jpg");
     background-position: center;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     margin: 0;
     padding: 0;
 }
 
 .login_page{
     width:360px;
-    padding: 15px 30px 30px;
-    margin: 15px auto;
+    padding: 5px 20px 20px;
+    margin: 100px auto;
     background-color: rgb(0, 0, 0, .4);
     color:white ;
     border-radius:20px;
-    font-size: 25px;
+    font-size: 20px;
 }
  
 .login_page h2{
     text-align: center;
     color: rgb(233, 14, 14);
+    margin-top: 7px;
 }
 
 .used_for_display{
     display:block;
+    padding-top: 1px;
 }
 
 .input input{
@@ -39,9 +42,7 @@ body {
     padding : 10px 10px;
 }
 
-.login_page * {
-    padding: 1px; /* Example padding */
-}
+/* css for button login and register*/
 
 .button{
     display: block;
@@ -51,7 +52,7 @@ body {
     margin-left: 75px;
     width: 60%;
     background-color: rgb(233, 14, 14);
-    font-size: 20px; 
+    font-size: 17px; 
     color: white; 
     border: none;
     border-radius: 12px; 
@@ -92,7 +93,46 @@ input[type="text"], input[type="password"]{
 
 
 /* Button for nav bar*/
-.login-page-navbar{
+.login-page-navbar {
+    display: flex;                 
+    align-items: center;           
+    justify-content: space-between;
+    padding: 10px 20px; 
+    background-color: transparent; 
+}
+
+.btn_navbar{
     display: flex;
-    
+    justify-content: flex-end;
+    margin-right: 15px;
+
+}
+
+.btn_navbar button{
+    border-radius: 10px;
+    padding : 5px 10px;
+    margin-right: 8px; 
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+/* logo */
+
+.logo img{
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 200px;
+    height: 50px;
+}
+
+.second{
+    width:20px;
+    height:30px;
+}
+#third{
+    width: auto;
+}
+#fourth{
+    width: auto;
 }
