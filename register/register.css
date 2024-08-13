@@ -12,7 +12,7 @@ body{
 .fixed{
     position: fixed;
     max-width: 100%;
-    background-color:rgb(112, 24, 160);
+    background-color:rgb(123, 21, 178);
     top: 0;
     left: 0;
     width: 100%;
@@ -52,7 +52,7 @@ body{
     margin: 0 10px; /* Space between elements */
     text-align: center; /* Center text in paragraphs */
     white-space: nowrap; /* Prevent text from wrapping */
-    color: rgb(0, 117, 219);
+    color: rgb(7, 136, 249);
 }
 
 .first_line_logo p {
