@@ -1,0 +1,75 @@
+.first_line_logo {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    justify-content: space-between; /* Spreads items evenly across the row */
+    flex-wrap: nowrap; /* Prevents wrapping, keeping all items in a single line */
+    overflow-x: auto; /* Allows horizontal scrolling if content overflows */
+}
+
+.first_line_logo img, 
+.first_line_logo p {
+    flex: 0 0 auto; /* Prevents shrinking, ensuring elements stay the same size */
+    width: 10%; /* Sets a uniform width for images and text */
+    height: auto; /* Maintains aspect ratio for images */
+    margin: 0 10px; /* Adds space between elements */
+    text-align: center; /* Centers the text within the paragraph */
+    font-size: 0.8em; /* Adjusts the font size for text to match the image size */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
+.first_line_logo p {
+    display: flex;
+    align-items: center; /* Aligns text vertically in the center */
+    justify-content: center; /* Centers the text horizontally */
+}
+
+@media screen and (max-width: 768px) {
+    .first_line_logo {
+        justify-content: flex-start; /* Aligns elements to the left for smaller screens */
+        overflow-x: auto; /* Allows horizontal scrolling on small screens */
+    }
+
+    .first_line_logo img, 
+    .first_line_logo p {
+        width: auto; /* Allows images and text to shrink as needed */
+    }
+}
+
+
+
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    justify-content: space-between; /* Spreads items evenly across the row */
+    flex-wrap: nowrap; /* Prevents wrapping, keeping all items in a single line */
+}
+
+.first_line_logo img, 
+.first_line_logo p {
+    max-width: 10%; /* Sets the maximum width for images and text to ensure uniform size */
+    height: auto; /* Maintains aspect ratio for images */
+    margin: 0 10px; /* Adds space between elements */
+    text-align: center; /* Centers the text within the paragraph */
+    font-size: 0.8em; /* Adjusts the font size for text to match the image size */
+    white-space: nowrap; /* Prevents text from wrapping to the next line */
+}
+
+.first_line_logo p {
+    display: flex;
+    align-items: center; /* Aligns text vertically in the center */
+    justify-content: center; /* Centers the text horizontally */
+}
+
+@media screen and (max-width: 768px) {
+    .first_line_logo {
+        flex-direction: column; /* Stacks elements vertically on smaller screens */
+        align-items: center;
+    }
+
+    .first_line_logo img, 
+    .first_line_logo p {
+        max-width: 50%; /* Adjusts size for smaller screens */
+    }
+}
