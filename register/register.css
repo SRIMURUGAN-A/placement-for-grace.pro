@@ -9,58 +9,63 @@ body{
     margin: 0;
     padding: 0;
 }
+.fixed{
+    position: fixed;
+    max-width: 100%;
+    background-color:rgb(112, 24, 160);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    padding: 10px 0;
+}
+.not_fixed{
+    margin-top: 180px;
+}
 
 .first_line_logo {
-    margin-top: 5px;
-    margin-left: 5px;
-    display: flex;               /* Aligns items in a row */
-    justify-content: space-between; /* Distributes space evenly between the images */
-    align-items: center;          /*Aligns images vertically in the center */
-    padding: 10px;               /* Optional padding */
-    overflow-x: auto; 
-               /* Allows horizontal scrolling if content overflows */
+    height: 70px; /* Adjust if necessary */
 }
 
-.first_line_logo img {
-    max-width: 100px;            /* Fixed width for each image, adjust as needed */
-    height: auto;                /* Maintains aspect ratio */
-    margin: 5px;                 /* Optional margin between images */
+.btn_navbar {
+    height: 40px; /* Adjust if necessary */
 }
 
-.first_line_logo::-webkit-scrollbar {
-    display: none;               /* Hides the scrollbar for a cleaner look */
+
+.first_line_logo {
+    display: flex;
+    top: 0%;
+    align-items: center; /* Vertically centers items */
+    justify-content: flex-start; /* Align items to the start of the container */
+    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+    overflow-x: hidden; /* Allows horizontal scrolling if content overflows */
+    width: 100%; 
+    background-color: aliceblue;
+    height: 70px;/* Container takes up full width of its parent */
 }
 
-#first_image{
-    width: 80px;
-}
-#second_image{
-    width: 20px;
-}
-#third_image{
-    width: 20px;
-}
-
-#fourth_image{
-    width: 20px;
-}       
-
-#fifth_image{
-    width: 20px;
+.first_line_logo img, 
+.first_line_logo p {
+    flex: 0 1 auto; /* Allow items to shrink but not grow */
+    max-width: 15%; /* Set a maximum width relative to the container's width */
+    height: 50px; /* Maintain aspect ratio */
+    margin: 0 10px; /* Space between elements */
+    text-align: center; /* Center text in paragraphs */
+    white-space: nowrap; /* Prevent text from wrapping */
+    color: rgb(0, 117, 219);
 }
 
-#sixth_image{
-    width: 50px;
-}
-@media screen and (max-width: 70%) {
-    .first_line_logo img {
-        flex: 1 1 70%;         /* Adjusts image width on smaller screens */
-    }
+.first_line_logo p {
+    display: flex;
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
+    margin: 0 10px; /* Space around text */
 }
 
-@media screen and (min-width: 10px) {
-    .first_line_logo img {
-        flex: 1 1 10%;         /* Adjusts image width on very small screens */
+@media screen and (max-width: 768px) {
+    .first_line_logo img, 
+    .first_line_logo p {
+        max-width: 40%; /* Adjust size for smaller screens */
     }
 }
 
@@ -70,12 +75,12 @@ body{
 .btn_navbar{
     margin-top: 17px;
     display: flex;
-    background-color:blueviolet ;
+    background-color:transparent ;
     color: white;
     padding: 5px 10px;
     width:100%;
     justify-content: flex-end;
-    margin-right: 50px; 
+    margin-right: 5%; 
     height:40px;
 
 }
@@ -87,6 +92,7 @@ body{
     font-size: 15px;
     border: 1px solid rgb(255, 255, 255);
     background-color: transparent;
+    color: white;
 }
 
 h4 {
@@ -100,7 +106,7 @@ h4 {
 .highlight{
     font-size:50px ;
     color:chartreuse;
-    font-family:'Brush Script MT', cursive;
+    font-family:'Brush Script MT', cursive ;
 }
 
 h3{
