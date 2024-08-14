@@ -11,24 +11,15 @@ body{
 }
 .fixed{
     position: fixed;
-    max-width: 100%;
     background-color:rgb(123, 21, 178);
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000; 
-    padding: 10px 0;
+    padding: 1px 0;
 }
 .not_fixed{
-    margin-top: 180px;
-}
-
-.first_line_logo {
-    height: 70px; /* Adjust if necessary */
-}
-
-.btn_navbar {
-    height: 40px; /* Adjust if necessary */
+    margin-top: 165px;
 }
 
 
@@ -81,7 +72,7 @@ body{
     width:100%;
     justify-content: flex-end;
     margin-right: 5%; 
-    height:40px;
+    height:50px;
 
 }
 
@@ -93,6 +84,7 @@ body{
     border: 1px solid rgb(255, 255, 255);
     background-color: transparent;
     color: white;
+    margin-bottom: 4px;
 }
 
 h4 {
