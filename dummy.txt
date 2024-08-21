@@ -73,3 +73,36 @@
         max-width: 50%; /* Adjusts size for smaller screens */
     }
 }
+
+
+nav ul .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color:#333;
+    list-style: none;
+    padding: 20px; /* Increases the padding inside the dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 500px; /* Adjusts the width of the dropdown */
+    height: auto; /* Allows height to adjust based on content, or set a fixed height */
+}
+
+nav ul .dropdown li a {
+    padding: 10px 20px;
+}
+
+nav ul .dropdown li a:hover {
+    background-color: #575757;
+}

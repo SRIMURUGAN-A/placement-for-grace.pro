@@ -1,0 +1,200 @@
+body{
+    width:100%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin: 0;
+    padding: 0;
+    background-color: #a8a8a8;
+}
+
+/*first line*/
+.first_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:0px;
+}
+
+.first_container img{
+    height: 50px;
+    width: 150px;
+    margin-left: 7px;
+}
+
+/* navi */
+nav {
+    background-color: transparent;
+    display: flex;
+    width: 50%;
+    justify-content:end;
+    margin-right: 20px;
+    margin-top: 15px;
+    font-size: 20px;
+    
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: block;
+}
+
+nav ul li a:hover {
+    font-size: 19px;
+    transform: scale(1.1);
+    background-color: #575757;
+    border-radius: 20px;
+    
+}
+
+/*used for the drop down box */
+
+
+nav ul li {
+    position: relative; 
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%; /* Position the dropdown relative to the center of the parent */
+    transform: translateX(-50%); /* Shift it left by 50% of its own width to center it */
+    background-color: #4d4a4a;
+    list-style: none;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-left: -50px; 
+    height: auto; 
+}
+
+nav ul li ul.dropdown li {
+    margin: 10px 0; 
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+
+/* Used for the second line*/
+
+.second_line{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10px;
+    margin-top: 27px;
+}
+
+.toggle-btn{
+    margin-right: 40px;
+    height: 37px;
+    width: 37px;
+    font-size: 25px;
+    display: flex;
+}
+
+.second_line i{
+    margin-right: 20px;
+}
+
+/*use to sidebar*/
+
+.sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206); 
+    overflow-x: hidden; 
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100% ;
+    
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #232121;
+}
+
+
+.toggle-btn:hover {
+    background-color: #8805e0;
+    
+}
+.toggle-btn{
+    cursor: pointer;
+}
+
+.closebtn{
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+
+}
+
+
+/* rolling line */
+
+
+.quote-marquee {
+    width: 100%; /* Full width of the container */
+    white-space: nowrap; /* Prevent line breaks */
+    overflow: hidden; /* Hide the overflow */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.quote-marquee p {
+    font-family:monospace;
+    font-size: 20px;
+    display: inline-block;
+    padding-left: 100%; /* Start from outside the visible area */
+    animation: marquee 10s linear infinite; /* Adjust the duration */
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
