@@ -5,7 +5,19 @@ body{
     margin: 0;
     padding: 0;
     background-color: #a8a8a8;
+    overflow-x: hidden;
 }
+
+.fixed {
+    position: fixed; /* Fixes the element to the viewport */
+    top: 0;          /* Align it to the top of the screen */
+    left: 0;         /* Align it to the left of the screen */
+    width: 100%;     /* Make it span the full width of the screen */
+    z-index: 1000;   /* Ensure it stays on top of other content */
+    background-color: #a8a8a8; /* Set a background color */
+    height: 110px;
+}
+
 
 /*first line*/
 .first_container{
@@ -15,6 +27,13 @@ body{
     justify-content: space-between;
     margin-top:0px;
 }
+
+@media screen and (min-width: 300px) {
+    .first_container  {
+        font-size: 20px;
+    }
+}
+
 
 .first_container img{
     height: 50px;
@@ -30,7 +49,7 @@ nav {
     justify-content:end;
     margin-right: 20px;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 20px
     
 }
 
@@ -52,12 +71,16 @@ nav ul li a {
     text-decoration: none;
     transition: all 0.1s ease;
     display: block;
+    margin-right: 20px;
+    width: 100%;
 }
+
+
 
 nav ul li a:hover {
     font-size: 19px;
     transform: scale(1.1);
-    background-color: #575757;
+    background-color: #a61c1c;
     border-radius: 20px;
     
 }
@@ -93,14 +116,49 @@ nav ul li:hover ul.dropdown {
 }
 
 
+.need_to_invisi {
+    display: none;
+}
+
+
+@media screen and (max-width: 610px) {
+    nav ul li a {
+        text-align: center;
+        font-size: 17px;
+        padding: 15px;
+        justify-content: space-around;
+        margin-right: 10px;
+    }
+    .first_container{
+        height:50px;
+    }
+
+}
+
+@media screen and (max-width: 985px) {
+    .need-to-invisi{
+        display: none;
+    }
+
+    .need_to_invisi {
+        display: block;
+    }
+    
+
+    nav ul .dropdown {
+        position: static;
+        box-shadow: none;
+    }
+}
+
 /* Used for the second line*/
 
-.second_line{
+.second_container{
     display: flex;
     align-items: center;
     width: 100%;
-    height: 10px;
-    margin-top: 27px;
+    height: 20px;
+    margin-top: 20px;
 }
 
 .toggle-btn{
@@ -111,7 +169,7 @@ nav ul li:hover ul.dropdown {
     display: flex;
 }
 
-.second_line i{
+.second_container i{
     margin-right: 20px;
 }
 
@@ -175,14 +233,14 @@ nav ul li:hover ul.dropdown {
 /* rolling line */
 
 
-.quote-marquee {
+.quote-marqu {
     width: 100%; /* Full width of the container */
-    white-space: nowrap; /* Prevent line breaks */
+    white-space: nowrap;  /*Prevent line breaks */
     overflow: hidden; /* Hide the overflow */
     box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-.quote-marquee p {
+.quote-marqu p {
     font-family:monospace;
     font-size: 20px;
     display: inline-block;
@@ -198,3 +256,118 @@ nav ul li:hover ul.dropdown {
         transform: translateX(-100%);
     }
 }
+
+
+
+/*used for third container*/
+.not_fixed{
+    margin-top: 110px;
+}
+
+.third_container{
+    background-image: url(https://png.pngtree.com/background/20230513/original/pngtree-one-studying-on-a-table-in-a-library-picture-image_2505437.jpg );
+    height: 520px;
+    background-size: cover;
+    margin-top: 25px;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+.third_container p {
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    color: aliceblue;
+    padding: 10px 0;
+    background-attachment: fixed;
+}
+
+.third_container span{
+    font-size: 90px;
+    color: brown;
+    font-weight: 600;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 600px; /* Adjust as needed */
+    margin: auto; /* Center the container */
+    margin-top: 20px;
+}
+
+.search-container input[type="text"] {
+    border-radius: 20px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    flex: 1; /* Allow input to grow */
+    transition: border-color 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.search-container button {
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.search-container button i {
+    font-size: 16px;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+#small{
+    font-size: 25px;
+    margin-top: 30px;
+    color: #05d1e0;
+}
+
+
+/*Fourth container*/
+
+
+.fourth_container{
+    display: flex;
+    margin: 15px 8px;
+    width:100%;
+    height:40px;
+    justify-content: space-around;
+    white-space: nowrap;  /*Prevent line breaks */
+    overflow: hidden; /* Hide the overflow */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.fourth_container img {
+    padding-left: 100%; /* Start from outside the visible area */
+    animation: marquee 10s linear infinite; /* Adjust the duration */
+    white-space: nowrap;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
