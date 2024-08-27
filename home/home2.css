@@ -16,6 +16,7 @@ body{
     z-index: 1000;   /* Ensure it stays on top of other content */
     background-color: #a8a8a8; /* Set a background color */
     height: 110px;
+    border: 3px solid rgb(231, 0, 138);
 }
 
 
@@ -78,11 +79,10 @@ nav ul li a {
 
 
 nav ul li a:hover {
-    font-size: 19px;
+    font-size: 21px;
     transform: scale(1.1);
-    background-color: #a61c1c;
     border-radius: 20px;
-    
+    width: 75%;
 }
 
 /*used for the drop down box */
@@ -151,6 +151,8 @@ nav ul li:hover ul.dropdown {
     }
 }
 
+
+
 /* Used for the second line*/
 
 .second_container{
@@ -170,7 +172,7 @@ nav ul li:hover ul.dropdown {
 }
 
 .second_container i{
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 /*use to sidebar*/
@@ -342,32 +344,48 @@ nav ul li:hover ul.dropdown {
 }
 
 
-/*Fourth container*/
+/*Fourth container  image slider*/
 
 
 .fourth_container{
+    width: 100%; /* Set the width you want the container to be */
+    overflow: hidden;
+    position: relative;
+    height:60px;
+    width: 100%;
+    margin:10px
+  }
+  
+  .image-track {
     display: flex;
-    margin: 15px 8px;
-    width:100%;
-    height:40px;
-    justify-content: space-around;
-    white-space: nowrap;  /*Prevent line breaks */
-    overflow: hidden; /* Hide the overflow */
-    box-sizing: border-box; /* Ensure padding is included in width */
-}
-
-.fourth_container img {
-    padding-left: 100%; /* Start from outside the visible area */
-    animation: marquee 10s linear infinite; /* Adjust the duration */
-    white-space: nowrap;
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(100%);
+    width: calc(100% * 2); /* Double the width to account for seamless looping */
+    animation: scroll-left cubic-bezier(0.895, 0.03, 0.685, 0.22) linear infinite;
+  }
+  
+  .image-track img {
+    flex: 0 0 auto;
+    width: auto; /* Adjust based on the number of images */
+    height:50px;
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
     }
-    to {
-        transform: translateX(-100%);
+    75%{
+        transform: translateX(-75%);
     }
+    50%{
+        transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+
+  /* fifth container*/
+.fifth_line{
+    display: flex;
 }
 

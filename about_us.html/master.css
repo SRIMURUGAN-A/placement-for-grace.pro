@@ -1,0 +1,458 @@
+body{
+    overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+.fixed{
+    position: fixed;
+    background-color:rgb(178, 21, 21);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    padding: 1px 0;
+    height: 182px;
+}
+.not_fixed{
+    margin-top: 210px;
+}
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    flex-wrap: nowrap; 
+    overflow-x: hidden; 
+    width: 100%; 
+    background-color: rgb(255, 255, 255);
+    height: 65px;
+    top: 0px;
+    margin: 0px;
+}
+
+.first_line_logo img, 
+.first_line_logo p {
+    flex: 0 1 auto; 
+    width: 100%; 
+    height: 60px; 
+    margin: 0 10px; 
+    text-align: center; 
+    white-space: nowrap; 
+    color: rgb(5, 138, 255);
+}
+
+.first_line_logo p {
+    display: flex;
+    align-items: center; 
+    justify-content: center;  
+}
+
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .first_line_logo img, 
+    .first_line_logo p {
+        width: 100%; /* Adjust size for smaller screens */
+        margin:0px 5px;
+    }
+    .first_line_logo img{
+        width: 70%;
+    }
+    .imag{
+        display: none;
+    }
+
+}
+
+
+/* second line nav_bar*/
+.btn_navbar{
+    display: flex;
+    background-color:rgb(152, 3, 189) ;
+    color: white;
+    padding: 6px 16px;
+    width:100%;
+    justify-content: flex-end;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-right:  60vh;
+}
+
+.btn_navbar button{
+    border-radius: 20px;
+    padding : 5px 10px;
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin-bottom: 1px;
+    cursor: pointer;
+    height: 45px;
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 30px;
+    background-color: #d1cdcd;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.disapear-button{
+    display: flex;
+    width: 100%;
+}
+
+.disapear-button button{
+    margin-right: 80px;
+}
+
+.firstsidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206); 
+    overflow-x: hidden; 
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100% ;
+    
+}
+.firstsidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.firstsidebar a:hover {
+    background-color: #232121;
+}
+
+
+
+
+.toggle-btn:hover {
+    background-color: #15fafa;
+    
+}
+
+.toggle-btn button{
+    display: flex;
+    height: 40px;
+    border-radius: 10px;
+    width: 40px;
+}
+
+
+.toggle-btn {
+    flex-grow: 0; /* Prevent the toggle button from growing */
+    flex-shrink: 0; /* Prevent the toggle button from shrinking */
+    cursor: pointer;
+    width: 25px; /* Set a fixed width */
+    height: 20px; /* Set a fixed height */
+    background-color: transparent;
+    display: none;
+    height: 45px;
+    margin-left: 85%;
+    border-radius: 10px;
+    width: 40px;
+
+}
+
+.toggle-btn i {
+    margin: auto;
+    font-size: 20px;
+    color: #0a0a0a;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.closebtn{
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+
+}
+
+@media screen  and (max-width: 900px){
+    .btn_navbar button{
+        margin-right: 20px;
+    }
+}
+
+
+@media screen  and (max-width: 580px){
+    .disapear-button{
+        display:none ;
+    }
+    .toggle-btn{
+        display: block;
+    }
+}
+
+/*finilize the first two line */
+
+
+
+
+
+
+
+
+
+/*second container*/
+
+.second_container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: #1dadc6;
+    padding: 5px 10px;
+}
+
+.second-container-first-image img{
+    width: auto;
+    height:55px;
+}
+
+
+.second-toggle-btn{
+    height: 37px;
+    width: 37px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*use to sidebar*/
+
+.sidebar {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206); 
+    overflow-x: hidden; 
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100% ;
+    
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #232121;
+}
+
+
+.second-toggle-btn:hover {
+    background-color: #8805e0;
+    
+}
+
+
+.closebtn{
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  font-size: 10px;
+
+}
+
+
+/*second container nav*/
+.second-container-nav{
+    margin-left:20px;
+    width: 40%;
+}
+
+
+.second-container-nav nav{
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    margin-left: auto;
+}
+
+/*right now its ok*/
+
+
+
+
+.second-container-icons-and-button{
+    width: 200px;
+    height: 54px;
+    display: block;
+    background-color: transperent;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0px;
+    top: 127px;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+
+.second-container-icons i{
+    margin-right: 25px;
+    font-size: 20px;
+    color: #0a0a0a;
+}
+
+
+/*used for second container*/
+
+
+
+
+
+
+
+
+/* navi */
+nav {
+    background-color: transparent;
+    display: flex;
+    width: 50%;
+    justify-content:end;
+    margin-right: 20px;
+    margin-top: 15px;
+    font-size: 20px
+    
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: block;
+    margin-right: 20px;
+    width: 100%;
+}
+
+
+
+nav ul li a:hover {
+    font-size: 21px;
+    transform: scale(1.1);
+    border-radius: 20px;
+    width: 75%;
+}
+
+/*used for the drop down box */
+
+
+nav ul li {
+    position: relative; 
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%; /* Position the dropdown relative to the center of the parent */
+    transform: translateX(-50%); /* Shift it left by 50% of its own width to center it */
+    background-color: #4d4a4a;
+    list-style: none;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-left: -50px; 
+    height: auto; 
+}
+
+nav ul li ul.dropdown li {
+    margin: 10px 0; 
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+
+
+@media screen and (max-width: 610px) {
+    nav ul li a {
+        text-align: start;
+        font-size: 17px;
+        padding: 15px;
+        justify-content: space-around;
+        margin-right: 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 985px) {
+    nav ul .dropdown {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+
+
+

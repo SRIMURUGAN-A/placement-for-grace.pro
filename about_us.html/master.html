@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="master.css">
+        <title>HOME</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+    <div class="fixed">
+        <div class="first_line_logo">
+            <img src="https://gracecoe.org/assets/img/g.png" alt="logo" id="image" >
+            <img src="https://gracecoe.org/assets/img/coe.png" alt="logo" id="image">
+            <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="logo" class="imag">
+            <p>Approved by <br> AICTE,New Delhi</p>
+            <img src="https://gracecoe.org/assets/img/au_logo.png" alt="logo" class="imag">
+            <p>Affliate to ANNA <br>UNIVERSITY, Chennai</p>
+            <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="logo" class="imag">
+            <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="logo" class="imag">
+        </div>
+        <div class="btn_navbar">
+            <div class="disapear-button">
+                <button type="button" >HOME</button>
+                <button type="button"  >ADMISSION</button>
+                <button type="button" >CONTACT US</button>
+                <button type="button" >ABOUT US</button>
+            </div>
+            <div class="toggle-btn">
+                <button type="button" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            </div>
+        </div>
+        <div id="firstmySidebar" class="firstsidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="firstcloseSidebar()">×</a>
+            <a href="#home">Student Dashboard</a>
+            <a href="#services">Placement training</a>
+            <a href="#about">Placement resources</a>
+            <a href="#contact">Jop Available for your Course</a>
+            <a href="#about">Skill Development</a>
+            <a href="#about">Placement Updates</a>
+            <a href="#about">Enterprenurship</a>
+            <a href="#about">Blog & News</a>
+        </div>
+
+        <div class="second_container">
+            <div class="second-container-first-image">
+                <img src="https://gracecoe.org/assets/img/g.png" alt="">
+            </div>
+            <div class="second-container-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="courses-link">Courses <i class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="courses-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link">Blog <i class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="about-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <div class="need-to-invisi">
+                            <li><a href="#" class="courses-link">Resources<i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="dropdown" id="Pathways">
+                                    <li><a href="#">Course 1</a></li>
+                                    <li><a href="#">Course 2</a></li>
+                                    <li><a href="#">Course 3</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="second-container-icons-and-button" >
+                <div class="second-container-icons">
+                    <a href="eee"><i class="fa-solid fa-envelope fa-beat"></i></a>
+                    <a href="eee"><i class="fa-solid fa-bell"></i></a>
+                    <a href="eee"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <button class="second-toggle-btn" onclick="secondtoggleSidebar()">☰ </button>
+            </div>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+            <a href="#home">Student Dashboard</a>
+            <a href="#services">Placement training</a>
+            <a href="#about">Placement resources</a>
+            <a href="#contact">Jop Available for your Course</a>
+            <a href="#about">Skill Development</a>
+            <a href="#about">Placement Updates</a>
+            <a href="#about">Enterprenurship</a>
+            <a href="#about">Blog & News</a>
+        </div>
+    </div>
+    <div class="not-fixed"></div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("firstmySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+             }
+        }
+
+
+  function firstcloseSidebar() {
+    const sidebar = document.getElementById("firstmySidebar");
+    sidebar.style.width = "0";  // Set the width to 0 to close the sidebar
+  }
+
+
+        function secondtoggleSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                    sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+            
+        function closeSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            sidebar.style.width = "0";  // Set the width to 0 to close the sidebar
+        }
+    </script>
+    </body>
+</html>
