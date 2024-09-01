@@ -8,6 +8,8 @@ body{
     margin: 0;
     padding: 0;
 }
+
+
 .fixed{
     position: fixed;
     background-color:rgb(178, 21, 21);
@@ -576,4 +578,81 @@ nav ul li:hover ul.dropdown {
     .second-container-nav{
         display: none;
     }
+}
+
+
+
+/*not fixed container*/
+
+.not-fixed{
+    margin-top:210px;
+    color:rgb(48, 3, 76);
+}
+
+.not-fixed h1{
+    text-align: center;
+    font-size: 45px;
+    font-weight:900;
+}
+
+
+.third_container h2{
+    text-align: center;
+    font-size: 40px;
+    font-weight:900;
+    color:rgb(48, 3, 76);
+}
+.third_container p{
+    margin-left: 4%;
+    margin-right: 3%;
+    font-size: 20px;
+    color:rgb(48, 3, 76);
+}
+
+
+
+
+.fourth_container{
+    display: flex;
+    border: 2px solid black;
+    margin-left: 4%;
+    margin-right: 3%;
+    padding:4px 20px;
+    margin-top: 10px;
+}
+
+.fourth_container h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.fourth_container p{
+    font-size: 20px;
+}
+
+.left{
+    margin-right: 20px;
+}
+
+
+.fifth_container{
+    margin-left: 4%;
+    margin-right: 3%;
+    margin-top: 10px;
+}
+
+.fifth_container h3{
+    font-size: 30px;
+    font-weight: 900;
+    text-decoration:underline;
+}
+
+.fifth_container p{
+    font-size: 22px;
+}
+
+.fifth_container span{
+    color: red;
+    text-decoration: underline;
 }

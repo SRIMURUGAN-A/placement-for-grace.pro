@@ -10,10 +10,10 @@ body{
 
 .fixed {
     position: fixed; /* Fixes the element to the viewport */
-    top: 0;          /* Align it to the top of the screen */
-    left: 0;         /* Align it to the left of the screen */
-    width: 100%;     /* Make it span the full width of the screen */
-    z-index: 1000;   /* Ensure it stays on top of other content */
+    top: 0;          
+    left: 0;        
+    width: 100%;     
+    z-index: 1000;  
     background-color: #a8a8a8; /* Set a background color */
     height: 110px;
     border: 3px solid rgb(231, 0, 138);
@@ -150,6 +150,8 @@ nav ul li:hover ul.dropdown {
         box-shadow: none;
     }
 }
+
+
 
 
 
@@ -344,48 +346,89 @@ nav ul li:hover ul.dropdown {
 }
 
 
+
+
 /*Fourth container  image slider*/
-
-
 .fourth_container{
-    width: 100%; /* Set the width you want the container to be */
+    margin-top:35px;
+    margin-left:10px ;
+    margin-right: 10px;
     overflow: hidden;
-    position: relative;
-    height:60px;
-    width: 100%;
-    margin:10px
-  }
-  
-  .image-track {
-    display: flex;
-    width: calc(100% * 2); /* Double the width to account for seamless looping */
-    animation: scroll-left cubic-bezier(0.895, 0.03, 0.685, 0.22) linear infinite;
-  }
-  
-  .image-track img {
-    flex: 0 0 auto;
-    width: auto; /* Adjust based on the number of images */
-    height:50px;
-  }
-  
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    75%{
-        transform: translateX(-75%);
-    }
-    50%{
-        transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
-
-  /* fifth container*/
-.fifth_line{
-    display: flex;
+    white-space:nowrap;
 }
 
+.image-track{
+    display: inline-block;
+    animation: 20s slide infinite linear;
+}
+
+.image-track img{
+    height: 70px;
+    margin-left: 25px;
+}
+
+@keyframes  slide{
+    from{
+        transform: translatex(-100%);
+    }
+    to{
+        transform: translatex(0);
+    }
+}
+
+
+
+
+  /* fifth container*/
+.fifth_container{
+    display: flex;
+    margin-left: 3%;
+    margin-right: 3%;
+    color: #421460;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.fifth_container h1{
+    font-size: 40px;
+
+}
+
+.fifth_container img{
+    width: 100%;
+    height: 100%;
+}
+
+.fifth_container p{
+    font-size: 20px;
+}
+.left{
+    margin-right: 10px;
+}
+
+
+
+
+.sixth_container{
+    display: flex;
+    margin-left: 3%;
+    margin-right: 3%;
+    color: #421460;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+
+.sixth_container h1{
+    font-size: 40px;
+
+}
+
+.sixth_container img{
+    width: 480px;
+    height: 100%;
+}
+
+.sixth_container p{
+    font-size: 20px;
+}
