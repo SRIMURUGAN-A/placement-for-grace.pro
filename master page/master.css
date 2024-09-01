@@ -129,6 +129,7 @@ body{
     padding-top: 60px;
     display: flexbox;
     height: 100% ;
+    z-index: 1;
     
 }
 .firstsidebar a {
@@ -139,12 +140,10 @@ body{
     color: white;
     display: block;
     transition: 0.4s;
-    margin-top: 15px;
+    margin: 20px 10px;
     text-align: center;
     border: 1px solid white;
     border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 /* Links change color on hover */
@@ -153,12 +152,6 @@ body{
 }
 
 
-
-
-.toggle-btn:hover {
-    background-color: #15fafa;
-    
-}
 
 .toggle-btn button{
     display: flex;
@@ -398,7 +391,6 @@ nav ul li a {
 nav ul li a:hover {
     font-size: 21px;
     transform: scale(1.1);
-    border-radius: 20px;
     width: 75%;
 }
 
@@ -434,25 +426,157 @@ nav ul li:hover ul.dropdown {
 
 
 
-@media screen and (max-width: 610px) {
-    nav ul li a {
-        text-align: start;
-        font-size: 17px;
-        padding: 15px;
-        justify-content: space-around;
-        margin-right: 10px;
-    }
 
+
+/* used for sefito*/
+
+.sefito{
+    width: 140px;
+    height: auto;
+}
+
+.sefito-nav{
+    width: 100px;
+    height:auto;
+}
+.sefito-nav ul li{
+    margin-left: 0;
+}
+
+#main-link{
+    width: 80px;
+    height: auto;
+    margin-bottom: 7px;
+}
+
+.sefito-nav-bar {
+    list-style-type: none;
+    background-color:transparent;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    justify-content: start;
 }
 
 
-@media screen and (max-width: 985px) {
-    nav ul .dropdown {
-        position: static;
-        box-shadow: none;
-    }
+.sefito-nav-bar li {
+    float: left;
+}
+.sefito-nav-bar li a:hover {
+    font-size: 20px;
+}
+
+.sefito-nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.sefito-toggle-container {
+    position: absolute;
+    top: 180px; /* Adjust as needed */
+    left: 19px; /* Adjust as needed */
+    width: 200px;
+    height: 168px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(205, 17, 17, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 5px;
 }
 
 
 
+
+.sefito-right-toggle-container1 {
+    position: absolute;
+    top: 185px; /* Align with the main container */
+    left: 170px; /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-right-toggle-container2 {
+    position: absolute;
+    top: 235px; /* Align with the main container */
+    left: 170px; /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-right-toggle-container3 {
+    position: absolute;
+    top: 285px; /* Align with the main container */
+    left: 170px; /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-toggle-bar {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sefito-toggle-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sefito-toggle-bar ul li {
+    padding: 8px 0;
+}
+
+.sefito-toggle-bar ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    display: block;
+}
+
+.sefito-toggle-bar ul li a:hover {
+    background-color: #ddd;
+}
+
+
+/* All other styles remain the same */
+
+
+.sefito{
+    display: none;
+}
+
+
+@media screen  and (max-width: 746px){
+    .sefito{
+        display: block;
+    }
+
+    .second-container-nav{
+        display: none;
+    }
+}
 
