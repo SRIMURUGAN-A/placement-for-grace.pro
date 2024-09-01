@@ -8,8 +8,6 @@ body{
     margin: 0;
     padding: 0;
 }
-
-
 .fixed{
     position: fixed;
     background-color:rgb(178, 21, 21);
