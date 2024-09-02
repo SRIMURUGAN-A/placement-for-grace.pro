@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="master.css">
+        <title>HOME</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="fixed">
+            <div class="first_line_logo">
+                <img src="https://gracecoe.org/assets/img/g.png" alt="logo" id="image" >
+                <img src="https://gracecoe.org/assets/img/coe.png" alt="logo" id="image">
+                <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="logo" class="imag">
+                <p>Approved by <br> AICTE, New Delhi</p>
+                <img src="https://gracecoe.org/assets/img/au_logo.png" alt="logo" class="imag">
+                <p>Affiliate to ANNA <br>UNIVERSITY, Chennai</p>
+                <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="logo" class="imag">
+                <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="logo" class="imag">
+            </div>
+            <div class="btn_navbar">
+                <div class="disapear-button">
+                    <button type="button">HOME</button>
+                    <button type="button">ADMISSION</button>
+                    <button type="button">CONTACT US</button>
+                    <button type="button">ABOUT US</button>
+                </div>
+                <div class="toggle-btn">
+                    <button type="button" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+            </div>
+            <div id="firstmySidebar" class="firstsidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="firstcloseSidebar()">×</a>
+                <a href="#home">HOME</a>
+                <a href="#services">ADMISSIONS</a>
+                <a href="#about">CONTACT US</a>
+                <a href="#contact">ABOUT US</a>
+            </div>
+            <div class="second_container">
+                <div class="second-container-first-image">
+                    <img src="https://gracecoe.org/assets/img/g.png" alt="">
+                </div>
+                <div class="second-container-nav">
+                    <nav>
+                        <ul class="main-nav">
+                            <li><a href="#" class="menu-toggle">Menu <i class="fa-solid fa-bars"></i></a></li>
+                            <div class="nav-links" id="nav-links">
+                                <li>
+                                    <a href="#" class="courses-link" data-submenu="courses">Courses <i class="fa-solid fa-angle-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="courses-link" data-submenu="blog">Blog <i class="fa-solid fa-angle-down"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" class="courses-link" data-submenu="resources">Resources <i class="fa-solid fa-angle-down"></i></a>
+                                </li>
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="second-container-icons-and-button">
+                    <div class="second-container-icons">
+                        <a href="mailto:eee@example.com"><i class="fa-solid fa-envelope fa-beat"></i></a>
+                        <a href="#"><i class="fa-solid fa-bell"></i></a>
+                        <a href="#"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <button class="second-toggle-btn" onclick="secondtoggleSidebar()">☰</button>
+                </div>
+            </div>
+            <div id="mySidebar" class="sidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+                <a href="#dashboard">Student Dashboard</a>
+                <a href="#placement">Placement Training</a>
+                <a href="#resources">Placement Resources</a>
+                <a href="#jobs">Jobs Available for Your Course</a>
+                <a href="#skills">Skill Development</a>
+                <a href="#updates">Placement Updates</a>
+                <a href="#entrepreneurship">Entrepreneurship</a>
+                <a href="#blog">Blog & News</a>
+            </div>
+            <!-- Secondary Sidebar -->
+            <div id="subSidebar" class="subsidebar">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeSubSidebar()">×</a>
+                <div id="subSidebarContent">
+                    <!-- Subheadings will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="quote-marqu">
+                <p>"A journey of a thousand miles starts with a single step."</p>
+            </div>
+        </div>
+        <div class="not-fixed"></div>
+        <!-- JavaScript Code -->
+        <script>
+            // Primary Sidebar Functions
+            function toggleSidebar() {
+                const sidebar = document.getElementById("firstmySidebar");
+                if (sidebar.style.width === "250px") {
+                    sidebar.style.width = "0";
+                } else {
+                    sidebar.style.width = "250px";
+                }
+            }
+
+            function firstcloseSidebar() {
+                const sidebar = document.getElementById("firstmySidebar");
+                sidebar.style.width = "0";  // Close the primary sidebar
+            }
+
+            function secondtoggleSidebar() {
+                const sidebar = document.getElementById("mySidebar");
+                if (sidebar.style.width === "250px") {
+                    sidebar.style.width = "0";
+                } else {
+                    sidebar.style.width = "250px";
+                }
+            }
+
+            function closeSidebar() {
+                const sidebar = document.getElementById("mySidebar");
+                sidebar.style.width = "0";  // Close the secondary sidebar
+            }
+
+            // Submenu Contents
+            const submenus = {
+                courses: [
+                    { name: 'Course 1', link: '#' },
+                    { name: 'Course 2', link: '#' },
+                    { name: 'Course 3', link: '#' }
+                ],
+                blog: [
+                    { name: 'Blog Post 1', link: '#' },
+                    { name: 'Blog Post 2', link: '#' },
+                    { name: 'Blog Post 3', link: '#' }
+                ],
+                resources: [
+                    { name: 'Resource 1', link: '#' },
+                    { name: 'Resource 2', link: '#' },
+                    { name: 'Resource 3', link: '#' }
+                ]
+            };
+
+            // Function to open the secondary sidebar with specific content
+            function openSubSidebar(submenuId) {
+                const subSidebar = document.getElementById("subSidebar");
+                const subContent = document.getElementById("subSidebarContent");
+                
+                // Clear previous content
+                subContent.innerHTML = '';
+                
+                // Populate with new submenu items
+                if(submenus[submenuId]) {
+                    submenus[submenuId].forEach(item => {
+                        const a = document.createElement('a');
+                        a.href = item.link;
+                        a.textContent = item.name;
+                        subContent.appendChild(a);
+                    });
+                } else {
+                    subContent.innerHTML = '<p>No subheadings available.</p>';
+                }
+                
+                // Open the sub sidebar
+                subSidebar.style.width = "250px";
+            }
+
+            // Function to close the secondary sidebar
+            function closeSubSidebar() {
+                const subSidebar = document.getElementById("subSidebar");
+                subSidebar.style.width = "0";
+            }
+
+            // Toggle Navigation Links Display
+            document.querySelector('.menu-toggle').addEventListener('click', function () {
+                var navLinks = document.getElementById('nav-links');
+                if (navLinks.style.display === "flex") {
+                    navLinks.style.display = "none";
+                } else {
+                    navLinks.style.display = "flex";
+                }
+            });
+
+            // Add event listeners to menu items with submenus
+            document.querySelectorAll('.courses-link').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Prevent default link behavior
+                    const submenuId = this.getAttribute('data-submenu');
+                    openSubSidebar(submenuId);
+                });
+            });
+
+            // Optional: Close sidebars when clicking outside
+            window.addEventListener('click', function(event) {
+                const firstSidebar = document.getElementById("firstmySidebar");
+                const secondSidebar = document.getElementById("mySidebar");
+                const subSidebar = document.getElementById("subSidebar");
+                
+                if (!firstSidebar.contains(event.target) && !document.querySelector('.toggle-btn').contains(event.target)) {
+                    firstSidebar.style.width = "0";
+                }
+                
+                if (!secondSidebar.contains(event.target) && !
+
+
+
+
+// html 1-9-24
+
+<div class="second-container-nav">
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="#" class="menu-toggle">Menu<i class="fa-solid fa-bars"></i></a></li>
+                        <div class="nav-links" id="nav-links">
+                            <li><a href="#" class="courses-link">Courses <i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="dropdown" id="courses-dropdown">
+                                    <li><a href="#">Course 1</a></li>
+                                    <li><a href="#">Course 2</a></li>
+                                    <li><a href="#">Course 3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="courses-link">Blog <i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="dropdown" id="about-dropdown">
+                                    <li><a href="#">Course 1</a></li>
+                                    <li><a href="#">Course 2</a></li>
+                                    <li><a href="#">Course 3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="courses-link">Resources<i class="fa-solid fa-angle-down"></i></a>
+                                <ul class="dropdown" id="Pathways">
+                                    <li><a href="#">Course 1</a></li>
+                                    <li><a href="#">Course 2</a></li>
+                                    <li><a href="#">Course 3</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+
+            //css
