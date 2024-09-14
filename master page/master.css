@@ -1,4 +1,4 @@
-body{
+body {
     overflow-x: hidden;
     background-position: center;
     background-size: cover;
@@ -8,71 +8,76 @@ body{
     margin: 0;
     padding: 0;
 }
-.fixed{
+
+.fixed {
     position: fixed;
-    background-color:rgb(178, 21, 21);
+    background-color: rgb(178, 21, 21);
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 1000;
     padding: 1px 0;
     height: 182px;
 }
 
 
 
-.not_fixed{
+.not_fixed {
     margin-top: 210px;
 }
 
 
 .first_line_logo {
     display: flex;
-    align-items: center; 
-    justify-content: flex-start; 
-    flex-wrap: nowrap; 
-    overflow-x: hidden; 
-    width: 100%; 
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
     background-color: rgb(255, 255, 255);
     height: 65px;
     top: 0px;
     margin: 0px;
 }
 
-.first_line_logo img, 
+.first_line_logo img,
 .first_line_logo p {
-    flex: 0 1 auto; 
-    width: 100%; 
-    height: 60px; 
-    margin: 0 10px; 
-    text-align: center; 
-    white-space: nowrap; 
+    flex: 0 1 auto;
+    width: 100%;
+    height: 60px;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
     color: rgb(5, 138, 255);
 }
 
 .first_line_logo p {
     display: flex;
-    align-items: center; 
-    justify-content: center;  
+    align-items: center;
+    justify-content: center;
 }
 
 
 @media screen and (max-width: 874px) {
-    .first_line_logo p{
+    .first_line_logo p {
         display: none;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .first_line_logo img, 
+
+    .first_line_logo img,
     .first_line_logo p {
-        width: 100%; /* Adjust size for smaller screens */
-        margin:0px 5px;
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
     }
-    .first_line_logo img{
+
+    .first_line_logo img {
         width: 70%;
     }
-    .imag{
+
+    .imag {
         display: none;
     }
 
@@ -80,21 +85,21 @@ body{
 
 
 /* second line nav_bar*/
-.btn_navbar{
+.btn_navbar {
     display: flex;
-    background-color:rgb(152, 3, 189) ;
+    background-color: rgb(152, 3, 189);
     color: white;
     padding: 6px 16px;
-    width:100%;
+    width: 100%;
     justify-content: flex-end;
     justify-content: space-between;
     border-radius: 10px;
-    margin-right:  60vh;
+    margin-right: 60vh;
 }
 
-.btn_navbar button{
+.btn_navbar button {
     border-radius: 20px;
-    padding : 5px 10px;
+    padding: 5px 10px;
     font-size: 15px;
     border: 1px solid rgb(255, 255, 255);
     color: rgb(0, 0, 0);
@@ -109,30 +114,31 @@ body{
     font-weight: 500;
 }
 
-.disapear-button{
+.disapear-button {
     display: flex;
     width: 100%;
 }
 
-.disapear-button button{
+.disapear-button button {
     margin-right: 80px;
 }
 
 .firstsidebar {
-    height: 100%; 
-    width: 0; 
-    position: fixed; 
+    height: 100%;
+    width: 0;
+    position: fixed;
     top: 0;
     right: 0;
-    background-color: rgb(120, 28, 206); 
-    overflow-x: hidden; 
+    background-color: rgb(120, 28, 206);
+    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     display: flexbox;
-    height: 100% ;
+    height: 100%;
     z-index: 1;
-    
+
 }
+
 .firstsidebar a {
     padding: 8px 5px;
     background-color: #575757;
@@ -154,7 +160,7 @@ body{
 
 
 
-.toggle-btn button{
+.toggle-btn button {
     display: flex;
     height: 40px;
     border-radius: 10px;
@@ -163,11 +169,15 @@ body{
 
 
 .toggle-btn {
-    flex-grow: 0; /* Prevent the toggle button from growing */
-    flex-shrink: 0; /* Prevent the toggle button from shrinking */
+    flex-grow: 0;
+    /* Prevent the toggle button from growing */
+    flex-shrink: 0;
+    /* Prevent the toggle button from shrinking */
     cursor: pointer;
-    width: 25px; /* Set a fixed width */
-    height: 20px; /* Set a fixed height */
+    width: 25px;
+    /* Set a fixed width */
+    height: 20px;
+    /* Set a fixed height */
     background-color: transparent;
     display: none;
     height: 45px;
@@ -186,27 +196,28 @@ body{
     cursor: pointer;
 }
 
-.closebtn{
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-  font-size: 10px;
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
 
 }
 
-@media screen  and (max-width: 900px){
-    .btn_navbar button{
+@media screen and (max-width: 900px) {
+    .btn_navbar button {
         margin-right: 20px;
     }
 }
 
 
-@media screen  and (max-width: 580px){
-    .disapear-button{
-        display:none ;
+@media screen and (max-width: 580px) {
+    .disapear-button {
+        display: none;
     }
-    .toggle-btn{
+
+    .toggle-btn {
         display: block;
     }
 }
@@ -223,7 +234,7 @@ body{
 
 /*second container*/
 
-.second_container{
+.second_container {
     display: flex;
     align-items: center;
     width: 100%;
@@ -233,13 +244,13 @@ body{
     padding: 5px 10px;
 }
 
-.second-container-first-image img{
+.second-container-first-image img {
     width: auto;
-    height:55px;
+    height: 55px;
 }
 
 
-.second-toggle-btn{
+.second-toggle-btn {
     height: 37px;
     width: 37px;
     font-size: 25px;
@@ -251,18 +262,18 @@ body{
 /*use to sidebar*/
 
 .sidebar {
-    height: 100%; 
-    width: 0; 
-    position: fixed; 
+    height: 100%;
+    width: 0;
+    position: fixed;
     top: 0;
     right: 0;
-    background-color: rgb(120, 28, 206); 
-    overflow-x: hidden; 
+    background-color: rgb(120, 28, 206);
+    overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
     display: flexbox;
-    height: 100% ;
-    
+    height: 100%;
+
 }
 
 .sidebar a {
@@ -289,30 +300,30 @@ body{
 
 .second-toggle-btn:hover {
     background-color: #8805e0;
-    
+
 }
 
 
-.closebtn{
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-  color: white;
-  font-size: 10px;
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
 
 }
 
 
 /*second container nav*/
-.second-container-nav{
-    margin-left:20px;
+.second-container-nav {
+    margin-left: 20px;
     width: 40%;
 }
 
 
-.second-container-nav nav{
+.second-container-nav nav {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     width: 100%;
     margin-left: auto;
 }
@@ -322,7 +333,7 @@ body{
 
 
 
-.second-container-icons-and-button{
+.second-container-icons-and-button {
     width: 200px;
     height: 54px;
     display: block;
@@ -337,7 +348,7 @@ body{
 }
 
 
-.second-container-icons i{
+.second-container-icons i {
     margin-right: 25px;
     font-size: 20px;
     color: #0a0a0a;
@@ -358,11 +369,10 @@ nav {
     background-color: transparent;
     display: flex;
     width: 50%;
-    justify-content:end;
+    justify-content: end;
     margin-right: 20px;
     margin-top: 15px;
     font-size: 20px
-    
 }
 
 nav ul {
@@ -370,7 +380,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    
+
 }
 
 nav ul li {
@@ -399,26 +409,28 @@ nav ul li a:hover {
 
 
 nav ul li {
-    position: relative; 
+    position: relative;
 }
 
 nav ul li ul.dropdown {
     display: none;
     position: absolute;
     top: 100%;
-    left: 50%; /* Position the dropdown relative to the center of the parent */
-    transform: translateX(-50%); /* Shift it left by 50% of its own width to center it */
+    left: 50%;
+    /* Position the dropdown relative to the center of the parent */
+    transform: translateX(-50%);
+    /* Shift it left by 50% of its own width to center it */
     background-color: #4d4a4a;
     list-style: none;
     padding: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     width: 300px;
-    margin-left: -50px; 
-    height: auto; 
+    margin-left: -50px;
+    height: auto;
 }
 
 nav ul li ul.dropdown li {
-    margin: 10px 0; 
+    margin: 10px 0;
 }
 
 nav ul li:hover ul.dropdown {
@@ -431,20 +443,21 @@ nav ul li:hover ul.dropdown {
 
 /* used for sefito*/
 
-.sefito{
+.sefito {
     width: 140px;
     height: auto;
 }
 
-.sefito-nav{
+.sefito-nav {
     width: 100px;
-    height:auto;
+    height: auto;
 }
-.sefito-nav ul li{
+
+.sefito-nav ul li {
     margin-left: 0;
 }
 
-#main-link{
+#main-link {
     width: 80px;
     height: auto;
     margin-bottom: 7px;
@@ -452,7 +465,7 @@ nav ul li:hover ul.dropdown {
 
 .sefito-nav-bar {
     list-style-type: none;
-    background-color:transparent;
+    background-color: transparent;
     overflow: hidden;
     text-align: center;
     width: 100%;
@@ -464,6 +477,7 @@ nav ul li:hover ul.dropdown {
 .sefito-nav-bar li {
     float: left;
 }
+
 .sefito-nav-bar li a:hover {
     font-size: 20px;
 }
@@ -478,8 +492,10 @@ nav ul li:hover ul.dropdown {
 
 .sefito-toggle-container {
     position: absolute;
-    top: 180px; /* Adjust as needed */
-    left: 19px; /* Adjust as needed */
+    top: 180px;
+    /* Adjust as needed */
+    left: 19px;
+    /* Adjust as needed */
     width: 200px;
     height: 168px;
     background-color: #f1f1f1;
@@ -495,8 +511,10 @@ nav ul li:hover ul.dropdown {
 
 .sefito-right-toggle-container1 {
     position: absolute;
-    top: 185px; /* Align with the main container */
-    left: 170px; /* Position it to the right of the main container */
+    top: 185px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
     width: 300px;
     background-color: #f1f1f1;
     display: none;
@@ -508,8 +526,10 @@ nav ul li:hover ul.dropdown {
 
 .sefito-right-toggle-container2 {
     position: absolute;
-    top: 235px; /* Align with the main container */
-    left: 170px; /* Position it to the right of the main container */
+    top: 235px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
     width: 300px;
     background-color: #f1f1f1;
     display: none;
@@ -521,8 +541,10 @@ nav ul li:hover ul.dropdown {
 
 .sefito-right-toggle-container3 {
     position: absolute;
-    top: 285px; /* Align with the main container */
-    left: 170px; /* Position it to the right of the main container */
+    top: 285px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
     width: 300px;
     background-color: #f1f1f1;
     display: none;
@@ -566,17 +588,49 @@ nav ul li:hover ul.dropdown {
 /* All other styles remain the same */
 
 
-.sefito{
+.sefito {
     display: none;
 }
 
 
-@media screen  and (max-width: 746px){
-    .sefito{
+@media screen and (max-width: 746px) {
+    .sefito {
         display: block;
     }
 
-    .second-container-nav{
+    .second-container-nav {
         display: none;
     }
+}
+
+
+/* used for profile dashboard */
+.toggleBar_profile{
+    display: none;
+    background-color: #f0f0f0;
+    margin-top: 5px;
+    margin-right: 17px;
+    width: 170px;
+    height: auto;
+    float: right;
+    font-size: 20px;
+}
+
+.toggleBar_profile ul{
+    list-style: none;
+    margin-top: 2px;
+    float: left;
+    justify-content: center;
+    text-align: center;
+}
+
+.toggleBar_profile ul li{
+    margin-top: 20px;
+}
+
+.toggleBar_profile ul li a{
+    text-decoration: none;
+    margin-top: 3px;
+    width: 100%;
+    margin-left: 1px;
 }
