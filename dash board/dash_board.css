@@ -23,8 +23,9 @@ body {
 
 
 
-.not_fixed {
-    margin-top: 210px;
+.not-fixed {
+    display: block;
+    margin-top: 250px;
 }
 
 
@@ -185,7 +186,7 @@ body {
     margin-left: 85%;
     border-radius: 10px;
     width: 40px;
-
+    
 }
 
 .toggle-btn i {
@@ -635,4 +636,59 @@ nav ul li:hover ul.dropdown {
     margin-top: 3px;
     width: 100%;
     margin-left: 1px;
+}
+
+
+
+
+
+
+
+.third-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    width: fit-content;
+    margin-left: 40%;
+    margin-right: 60%;
+    margin-top: 51px;
+}
+
+.search-box {
+    padding: 10px;
+    border: none;
+    outline: none;
+    width: 135px;
+    font-size: 16px;
+}
+
+.search-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background-color: #45a049;
+}
+
+
+
+.follow-btn:hover {
+    background-color: #45a049;
+}
+
+.not_fixed_h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+.not_fixed_h2{
+    text-align: center;
 }

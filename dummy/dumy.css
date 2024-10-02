@@ -584,3 +584,54 @@ nav ul li:hover ul.dropdown {
 .firstsidebar {
     z-index: 20;
 }
+
+
+
+.profile-card {
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4CAF50;
+}
+
+.profile-info {
+    margin-top: 15px;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.profile-bio {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.follow-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.follow-btn:hover {
+    background-color: #45a049;
+}

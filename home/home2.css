@@ -360,16 +360,24 @@ nav ul li:hover ul.dropdown {
     margin-right: 10px;
     overflow: hidden;
     white-space: nowrap;
+    height: 165px;
 }
 
 .image-track {
     display: inline-block;
-    animation: 15s slide infinite linear;
+    animation: 60s slide infinite linear;
 }
 
 .image-track img {
-    height: 55px;
-    margin-left: 25px;
+    margin-top: 17px;
+    height: 44px;
+    margin-left: 23px;
+    background-color:red;
+    padding:45px 60px;
+    border-radius:17px;
+    width:auto;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slide {
@@ -382,23 +390,89 @@ nav ul li:hover ul.dropdown {
     }
 }
 
+
+/* used to small adjustment of image */
+
+#nissi{
+    padding: 45px 100px;
+}
+
+#foxon{
+    padding: 38px 90px;
+    width:90px;
+    height:60px ;
+}
+
+#hcl{
+    padding: 45px 100px;
+}
+
+#tata{
+    padding: 37px 110px;
+    height:60px ;
+    width: 77px;
+}
+
+#wibro{
+    padding: 37px 110px;
+    height:60px ;
+    width: 97px;
+}
+
+#one_eyes{
+    padding: 45px 100px;
+}
+
+#zoho{
+    padding: 45px 90px;
+}
+
+#hero{
+    padding: 35px 120px;
+    height:65px ;
+}
+
+#infosys{
+    padding: 38px 100px;
+    height:60px ;
+}
+
+#tcs{
+    padding: 37px 90px;
+    height:60px ;
+}
+
+#thozhil{
+    padding: 45px 158px;
+}
+
+
+
+
 .fourth_container2 {
-    margin-top: 20px;
+    margin-top: 1px;
     margin-left: 10px;
     margin-right: 10px;
     overflow: hidden;
     white-space: nowrap;
+    height: 190px;
 }
 
 .image-track2 {
     display: inline-block;
-    animation: 15s slides infinite linear;
+    animation: 55s slides infinite linear;
 }
 
 .image-track2 img {
-    height: 50px;
-    margin-left: 25px;
-    margin-top: 14px;
+    margin-top: 17px;
+    height: 44px;
+    margin-left: 24px;
+    background-color:red;
+    padding:45px 60px;
+    border-radius:17px;
+    width:auto;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes slides {
@@ -410,17 +484,6 @@ nav ul li:hover ul.dropdown {
         transform: translatex(-100%);
     }
 }
-
-@media screen and (max-width: 985px) {
-    .image-track2 img {
-        height: 55px;
-    }
-
-    .image-track img {
-        height: 55px;
-    }
-}
-
 
 /* fifth container*/
 .fifth_container {
@@ -637,6 +700,10 @@ nav ul li:hover ul.dropdown {
 
 
 
+
+
+
+
 /* eight container */
 .eight_container {
     display: flex;
@@ -650,6 +717,15 @@ nav ul li:hover ul.dropdown {
 
 .eight_container h2 {
     font-size: 37px;
+}
+.eight_container .left_ ul li a{
+    text-decoration: none;
+    color: rgb(242, 6, 6);
+    margin-top: 5px;
+}
+
+.eight_container .left_ ul li a:hover{
+    color: black;
 }
 
 .eight_container button {
@@ -668,7 +744,19 @@ nav ul li:hover ul.dropdown {
     background-color: #d5d8d8;
 }
 
-.right_ {
+.box{
+    display: none;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.box.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.right_  {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -694,6 +782,14 @@ nav ul li:hover ul.dropdown {
         margin-top: 10px;
     }
 }
+
+
+
+
+
+
+
+
 
 
 .nineth_container {
