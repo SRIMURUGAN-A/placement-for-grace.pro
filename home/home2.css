@@ -627,7 +627,6 @@ nav ul li:hover ul.dropdown {
 .blurred-image {
     position: relative;
     filter: blur(0px);
-    /* Normal image on the right side */
     -webkit-mask-image: linear-gradient(to left, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%);
     mask-image: linear-gradient(to left, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.2) 80%, rgba(255, 255, 255, 0) 100%);
 }

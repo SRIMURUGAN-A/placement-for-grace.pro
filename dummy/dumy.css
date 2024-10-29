@@ -635,3 +635,148 @@ nav ul li:hover ul.dropdown {
 .follow-btn:hover {
     background-color: #45a049;
 }
+
+
+
+
+
+/* second line nav_bar*/
+.btn_navbar {
+    display: flex;
+    background-color: rgb(152, 3, 189);
+    color: white;
+    padding: 6px 16px;
+    width: 100%;
+    justify-content: flex-end;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-right: 60vh;
+}
+
+.btn_navbar button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin-bottom: 1px;
+    cursor: pointer;
+    height: 45px;
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 30px;
+    background-color: #d1cdcd;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.disapear-button {
+    display: flex;
+    width: 100%;
+}
+
+.disapear-button button {
+    margin-right: 80px;
+}
+
+.firstsidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+    z-index: 1;
+
+}
+
+.firstsidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin: 20px 10px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+/* Links change color on hover */
+.firstsidebar a:hover {
+    background-color: #232121;
+}
+
+
+
+.toggle-btn button {
+    display: flex;
+    height: 40px;
+    border-radius: 10px;
+    width: 40px;
+}
+
+
+.toggle-btn {
+    flex-grow: 0;
+    /* Prevent the toggle button from growing */
+    flex-shrink: 0;
+    /* Prevent the toggle button from shrinking */
+    cursor: pointer;
+    width: 25px;
+    /* Set a fixed width */
+    height: 20px;
+    /* Set a fixed height */
+    background-color: transparent;
+    display: none;
+    height: 45px;
+    margin-left: 85%;
+    border-radius: 10px;
+    width: 40px;
+
+}
+
+.toggle-btn i {
+    margin: auto;
+    font-size: 20px;
+    color: #0a0a0a;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+@media screen and (max-width: 900px) {
+    .btn_navbar button {
+        margin-right: 20px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .disapear-button {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+
+/*finilize the first two line */
+

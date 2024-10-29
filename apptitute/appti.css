@@ -1,0 +1,803 @@
+body {
+    overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed {
+    position: fixed;
+    background-color: rgb(178, 21, 21);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1px 0;
+    height: 182px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.not-fixed{
+    margin-top: 185px;
+}
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 65px;
+    top: 0px;
+    margin: 0px;
+}
+
+.first_line_logo img,
+.first_line_logo p {
+    flex: 0 1 auto;
+    width: 100%;
+    height: 60px;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    color: rgb(5, 138, 255);
+}
+
+.first_line_logo p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .first_line_logo img,
+    .first_line_logo p {
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
+    }
+
+    .first_line_logo img {
+        width: 70%;
+    }
+
+    .imag {
+        display: none;
+    }
+
+}
+
+
+/* second line nav_bar*/
+.btn_navbar {
+    display: flex;
+    background-color: rgb(152, 3, 189);
+    color: white;
+    padding: 6px 16px;
+    width: 100%;
+    justify-content: flex-end;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin-right: 60vh;
+}
+
+.btn_navbar button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin-bottom: 1px;
+    cursor: pointer;
+    height: 45px;
+    flex-grow: 1;
+    text-align: center;
+    margin-right: 30px;
+    background-color: #d1cdcd;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.disapear-button {
+    display: flex;
+    width: 100%;
+}
+
+.disapear-button button {
+    margin-right: 80px;
+}
+
+.firstsidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+    z-index: 1;
+
+}
+
+.firstsidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin: 20px 10px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+/* Links change color on hover */
+.firstsidebar a:hover {
+    background-color: #232121;
+}
+
+
+
+.toggle-btn button {
+    display: flex;
+    height: 40px;
+    border-radius: 10px;
+    width: 40px;
+}
+
+
+.toggle-btn {
+    flex-grow: 0;
+    /* Prevent the toggle button from growing */
+    flex-shrink: 0;
+    /* Prevent the toggle button from shrinking */
+    cursor: pointer;
+    width: 25px;
+    /* Set a fixed width */
+    height: 20px;
+    /* Set a fixed height */
+    background-color: transparent;
+    display: none;
+    height: 45px;
+    margin-left: 85%;
+    border-radius: 10px;
+    width: 40px;
+
+}
+
+.toggle-btn i {
+    margin: auto;
+    font-size: 20px;
+    color: #0a0a0a;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+@media screen and (max-width: 900px) {
+    .btn_navbar button {
+        margin-right: 20px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .disapear-button {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: block;
+    }
+}
+
+/*finilize the first two line */
+
+
+
+
+
+
+
+
+
+/*second container*/
+
+.second_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0px 0px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,7,163,1) 30%, rgba(163,7,73,1) 74%);
+    padding: 5px 10px;
+}
+
+.second-container-first-image img {
+    width: auto;
+    height: 55px;
+}
+
+
+.second-toggle-btn {
+    height: 37px;
+    width: 37px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/*use to sidebar*/
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(120, 28, 206);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #575757;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #232121;
+}
+
+
+.second-toggle-btn:hover {
+    background-color: #8805e0;
+
+}
+
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+
+/*second container nav*/
+.second-container-nav {
+    margin-left: 20px;
+    width: 40%;
+}
+
+
+.second-container-nav nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: auto;
+}
+
+/*right now its ok*/
+
+
+
+
+.second-container-icons-and-button {
+    width: 200px;
+    height: 54px;
+    display: block;
+    background-color: transperent;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0px;
+    top: 127px;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+
+.second-container-icons i {
+    margin-right: 25px;
+    font-size: 20px;
+    color: #0a0a0a;
+}
+
+
+/*used for second container*/
+
+
+
+
+
+
+
+
+/* navi */
+nav {
+    background-color: transparent;
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    margin-right: 20px;
+    margin-top: 15px;
+    font-size: 20px
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: block;
+    margin-right: 20px;
+    width: 100%;
+}
+
+
+
+nav ul li a:hover {
+    font-size: 21px;
+    transform: scale(1.1);
+    width: 75%;
+}
+
+/*used for the drop down box */
+
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    /* Position the dropdown relative to the center of the parent */
+    transform: translateX(-50%);
+    /* Shift it left by 50% of its own width to center it */
+    background-color: #4d4a4a;
+    list-style: none;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-left: -50px;
+    height: auto;
+}
+
+nav ul li ul.dropdown li {
+    margin: 10px 0;
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+
+
+
+
+/* used for sefito*/
+
+.sefito {
+    width: 140px;
+    height: auto;
+}
+
+.sefito-nav {
+    width: 100px;
+    height: auto;
+}
+
+.sefito-nav ul li {
+    margin-left: 0;
+}
+
+#main-link {
+    width: 80px;
+    height: auto;
+    margin-bottom: 7px;
+}
+
+.sefito-nav-bar {
+    list-style-type: none;
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    justify-content: start;
+}
+
+
+.sefito-nav-bar li {
+    float: left;
+}
+
+.sefito-nav-bar li a:hover {
+    font-size: 20px;
+}
+
+.sefito-nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.sefito-toggle-container {
+    position: absolute;
+    top: 180px;
+    /* Adjust as needed */
+    left: 19px;
+    /* Adjust as needed */
+    width: 200px;
+    height: 168px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(205, 17, 17, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 5px;
+}
+
+
+
+
+.sefito-right-toggle-container1 {
+    position: absolute;
+    top: 185px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+
+.sefito-right-toggle-container2 {
+    position: absolute;
+    top: 235px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-right-toggle-container3 {
+    position: absolute;
+    top: 285px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-toggle-bar {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sefito-toggle-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sefito-toggle-bar ul li {
+    padding: 8px 0;
+}
+
+.sefito-toggle-bar ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    display: block;
+}
+
+.sefito-toggle-bar ul li a:hover {
+    background-color: #ddd;
+}
+
+
+/* All other styles remain the same */
+
+
+.sefito {
+    display: none;
+}
+
+
+@media screen and (max-width: 746px) {
+    .sefito {
+        display: block;
+    }
+
+    .second-container-nav {
+        display: none;
+    }
+}
+
+
+/* used for profile dashboard */
+.toggleBar_profile{
+    display: none;
+    background-color: #f0f0f0;
+    margin-top: 5px;
+    margin-right: 17px;
+    width: 170px;
+    height: auto;
+    float: right;
+    font-size: 20px;
+}
+
+.toggleBar_profile ul{
+    list-style: none;
+    margin-top: 2px;
+    float: left;
+    justify-content: center;
+    text-align: center;
+}
+
+.toggleBar_profile ul li{
+    margin-top: 20px;
+}
+
+.toggleBar_profile ul li a{
+    text-decoration: none;
+    margin-top: 3px;
+    width: 100%;
+    margin-left: 1px;
+}
+
+
+
+
+
+
+
+/* Sidebar styles */
+.appti_heading_column {
+    background-color: #eeeeee;
+    padding: 16px 0px;
+    padding-bottom: 10px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    height: 400px; 
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.appti_heading_column h4 {
+    font-size: 30px;
+    color: #3110f0ac;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:50px;
+}
+
+.appti_heading_column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.appti_heading_column ul li {
+    margin-bottom: 5px;
+    padding:18px 30px;
+    box-sizing: border-box;
+}
+
+.appti_heading_column ul li:hover{
+    background-color: #d1cfcf !important;
+}
+
+/* Make text and icon in the same line */
+.appti_heading_column ul li a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+.appti_heading_column ul li i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Close button styles */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Hidden sidebar state */
+.hidden-sidebar {
+    transform: translateX(-100%);
+}
+
+.sub_heading_apptitude{
+    display: none;
+    max-width: 100%;
+   
+}
+
+.link{
+    margin: 0;
+    padding: 13px 0px;
+    width: 100%;
+}
+
+.sub_heading_apptitude ul li{
+    margin: 0;
+    padding: 0;
+}
+
+.sub_heading_apptitude ul li a{
+    padding-left: 70px;
+}
+
+
+/* Toggle button for opening sidebar */
+#toggle-sidebar {
+    position: fixed;
+    margin-left: 27px;
+    margin-top: 20px;
+    padding: 1px 7px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 968px) {
+    .appti_heading_column {
+        /* Ensure this does not hide overflow */
+        width: 250px; /* Example: adjust width for smaller screens */
+        overflow-y: auto; /* Do not use auto if you want scrolling */
+        font-size: 7px;
+        margin-bottom: 50px;
+    }
+    
+    .sub_heading_apptitude ul li a{
+        padding-left: 50px;
+    }
+}
+
+.link {
+    color: blue; /* Initial color */
+    text-decoration: none;
+}
+
+.link.clicked {
+    background-color: rgb(5, 150, 5); /* Color after click */
+    color: #ffffff;
+}
+
+
+
+
+/* maincontent */
+
+#MainContent{
+    margin-top: 20px; 
+    border: 1px solid #ccc; 
+    padding: 20px;
+    color: #8805e0;
+    font-size: 50px;
+    font-family:serif ;
+    border-style:dotted;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="javascript:void(0)" class="info-link" onclick="toggleSubTopics()">Arithmetic Aptitude
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+        </li>
+    </ul>
+    
+    <div class="sub_heading_apptitude" id="subTopics">
+        <ul>
+            <li><a href="javascript:void(0)" class="link" onclick="loadContent('./fetch_content.html')">Problems on Train</a></li>
+            <li><a href="javascript:void(0)" class="link" onclick="loadContent('timeAndDistance.html')">Time and Distance</a></li>
+            <li><a href="javascript:void(0)" class="link" onclick="loadContent('heightAndDistance.html')">Height and Distance</a></li>
+            <!-- Add more subtopics as needed -->
+        </ul>
+    </div>
+    
+    <div id="mainContent" style="margin-top: 20px; border: 1px solid #ccc; padding: 20px;">
+        <p>Select a topic to view details.</p>
+    </div>
+    <script src="fetch.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="appti.css">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="fixed">
+        <div class="first_line_logo">
+            <img src="https://gracecoe.org/assets/img/g.png" alt="logo" id="image">
+            <img src="https://gracecoe.org/assets/img/coe.png" alt="logo" id="image">
+            <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="logo" class="imag">
+            <p>Approved by <br> AICTE,New Delhi</p>
+            <img src="https://gracecoe.org/assets/img/au_logo.png" alt="logo" class="imag">
+            <p>Affliate to ANNA <br>UNIVERSITY, Chennai</p>
+            <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="logo" class="imag">
+            <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="logo" class="imag">
+        </div>
+        <div class="btn_navbar">
+            <div class="disapear-button">
+                <button type="button">HOME</button>
+                <button type="button">ADMISSION</button>
+                <button type="button">CONTACT US</button>
+                <button type="button">ABOUT US</button>
+            </div>
+            <div class="toggle-btn">
+                <button type="button" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            </div>
+        </div>
+        <div id="firstmySidebar" class="firstsidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="firstcloseSidebar()">×</a>
+            <a href="#home">HOME</a>
+            <a href="#services">ADMISSIONS</a>
+            <a href="#about">CONTACT US</a>
+            <a href="#contact">ABOUT US</a>
+        </div>
+
+        <div class="second_container">
+            <div class="second-container-first-image">
+                <img src="https://gracecoe.org/assets/img/g.png" alt="">
+            </div>
+            <div class="second-container-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('courses-dropdown')">Courses <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="courses-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('about-dropdown')">Blog <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="about-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('resources-dropdown')">Resources <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="resources-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sefito">
+                <nav class="sefito-nav">
+                    <ul class="sefito-nav-bar">
+                        <li><a href="#" id="main-link">Menu<i class="fa-solid fa-angle-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div id="toggle-container" class="sefito-toggle-container">
+                    <div id="first-toggle" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#" id="sub-link-1">courses</a></li>
+                            <li><a href="#" id="sub-link-2">Blog</a></li>
+                            <li><a href="#" id="sub-link-3">Resources</a></li> <!-- Added Sub Link 3 -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-1" class="sefito-right-toggle-container1">
+                    <div id="second-toggle-1" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 1</a></li>
+                            <li><a href="#">course 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-2" class="sefito-right-toggle-container2">
+                    <!-- Added Right Toggle Container 2 -->
+                    <div id="second-toggle-2" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 3</a></li>
+                            <li><a href="#">course 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-3" class="sefito-right-toggle-container3">
+                    <!-- Added Right Toggle Container 3 -->
+                    <div id="second-toggle-3" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 5</a></li>
+                            <li><a href="#">course 6</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="second-container-icons-and-button">
+                <div class="second-container-icons">
+                    <a href="eee"><i class="fa-solid fa-envelope fa-beat"></i></a>
+                    <a href="eee"><i class="fa-solid fa-bell"></i></a>
+                    <a href="javascript:void(0)" id="user_link"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <button class="second-toggle-btn" onclick="secondtoggleSidebar()">☰ </button>
+            </div>
+        </div>
+        <div class="toggleBar_profile" id="toggleBar_profile">
+            <ul>
+                <li><i class="fa-solid fa-chart-line"></i><a href="">Dashboard</a></li>
+                <li><i class="fa-solid fa-play"></i><a href="">My learning</a></li>
+                <li><i class="fa-regular fa-user"></i><a href="">My profile</a></li>
+                <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="">Logout</a></li>
+            </ul>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+            <a href="#home">Student Dashboard</a>
+            <a href="#services">Placement training</a>
+            <a href="#about">Placement resources</a>
+            <a href="#contact">Jop Available for your Course</a>
+            <a href="#about">Skill Development</a>
+            <a href="#about">Placement Updates</a>
+            <a href="#about">Enterprenurship</a>
+            <a href="#about">Blog & News</a>
+        </div>
+    </div>
+    <div class="not-fixed">
+        <div class="appti_heading_column" id="sidebar">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <h4>APPTITUDE</h4>
+            <ul>
+                <li><a href="javascript:void(0)" class="info-link" data-info="q_and_a">Arithmetic Aptitude<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="q_and_a">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./content/Proplems_on_Train.html')">Proplems on Train</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Time and distance</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Height and Distance</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Time and Work</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Simple Interest</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Compound Interest</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Profit and Loss</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Partnership</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Percentage</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Proplem on Ages</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Calender</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Clock</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Average</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Area</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Volume and Surface Area</a>
+                        </li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude" onclick="loadContent('./fetch_content.html')">Permutation and
+                                Combination</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Numbers</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Proplem on Numbers</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">problem on H.C.F and
+                                L.C.M</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Decimal Fraction</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Simplification</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Square Root and Cube
+                                Root</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Surds and indices Ratio and
+                                Propotion</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Chain Rule</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Pipes and Cistern</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Boats and streams</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Aligation or Mixture</a>
+                        </li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Logarithm</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Races and Games</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Stocks and shares</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Propabikity</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">True Discount</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Bankers Discount</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Odd Man out and series></a>
+                        </li>
+                    </ul>
+                </div>
+                <li><a href="javascript:void(0)" class="info-link" data-info="quantitative"><i class="fa-solid fa-chart-simple"></i>Data Interpretation<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="quantitative">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Table Charts</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Bar Charts</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Pie Charts</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Line Charts</a></li>
+                    </ul>
+                </div>
+                <li><a href="javascript:void(0)" class="info-link" data-info="logical">Verbal Ability<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="logical">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Spotting Erros</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">synonyms</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Antonyms</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Selecting Words</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Spellings</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Sentence Formation</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">ordering of words</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Sentence Correction</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Sentence improvement</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">sentence Statement</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Completing Statement</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Ordering of Sentences</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Paragraph Formation</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Close Test</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Comprehension</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">One Word substitutes</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Idioms and Pharses</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Change of Voice</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Change of Speech</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Verbal Analogies</a></li>
+                    </ul>
+                </div>
+                <li><a href="javascript:void(0)" class="info-link" data-info="verbal">Logical Reasoning<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="verbal">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Number Series</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Letter and Sympolm Series</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Verbal Classification</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Essential Parts</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Analogies</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">artifical Language</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Matching Definitons</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Marking judgment</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Verbal reasoning</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Logical Proplems</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Logical Games</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Analyzing Arguments</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Statment and Conclusion</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Theme detection</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Cause and Effect</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Statment and Argument</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Logical Deduction</a></li>
+                    </ul>
+                </div>
+                <li><a href="javascript:void(0)" class="info-link" data-info="skills_knowledge">Verbal Reasoning:<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="skills_knowledge">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Logical Sequence of Words</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Blood relation Test</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Syllogism</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Series Completion</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Cause and Effect</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Dice</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Venn Diagrams</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Cube and Cuboid</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Analogy</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Seating Arrangement</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Character Puzzles</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Direction Scense test</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Classification</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Data Sufficiency</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Arithmetic Reasoning</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Verificatio of Truth</a></li>
+
+                    </ul>
+                </div>
+                <li><a href="javascript:void(0)" class="info-link" data-info="skills_knowledge">Non-Verbal Reasoning<i
+                            class="fa-solid fa-angle-down"></i></a></li>
+                <div class="sub_heading_apptitude" id="skills_knowledge">
+                    <ul>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Series</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Analogy</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Classification</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Analytical Reasoning</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Mirror Images</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">water Imaes</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Embedded Images</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Pattern Comletion</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Figure Matrix</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Paper Foldong</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">paper Cutting</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Rule Dection</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Grouping of Images</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Dot sitution</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Shape Construction</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Image Analysis</a></li>
+                        <li><a href="javascript:void(0)" class="link sub_heading_apptitude">Cubes and Dice</a></li>
+                    </ul>
+                </div>
+            </ul>
+
+        </div>
+
+        <!-- Toggle Button to show the sidebar -->
+        <button id="toggle-sidebar">☰ </button>
+        <div id="mainContent">
+            <p class="MainContent" id="MainContent">Select a topic to view details.</p>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="appti.js"></script>
+</body>
+
+</html>
