@@ -42,8 +42,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'Roger Samuel', '$2y$10$nF1M.thqwjMyYe99G17q4OhbimwfFq6ss9EB5xR9v3hMWszmxzA4.', '950322243021@gracecoe.org', '2024-10-23 14:51:03', '2024-10-23 14:51:03'),
-(8, 'Muthu vivek', '$2y$10$Bx76XzWDeMJrXLs4NhR1XOng1RIocIyj1jIkR9qbc7z4aU/SmR5dK', '950322243016@gracecoe.org', '2024-10-23 15:04:47', '2024-10-23 15:04:47'),
-(10, 'porkodi mam', '$2y$10$GMiInAxM.XPwgluCv3ZwN.ziA3TX8DjodDDqOxZOSx5bkjwN5yqOG', '95032224301@gracecoe.org', '2024-10-23 15:08:48', '2024-10-23 15:08:48');
+(2, 'Muthu vivek', '$2y$10$Bx76XzWDeMJrXLs4NhR1XOng1RIocIyj1jIkR9qbc7z4aU/SmR5dK', '950322243016@gracecoe.org', '2024-10-23 15:04:47', '2024-10-23 15:04:47'),
+(3, 'porkodi mam', '$2y$10$GMiInAxM.XPwgluCv3ZwN.ziA3TX8DjodDDqOxZOSx5bkjwN5yqOG', '95032224301@gracecoe.org', '2024-10-23 15:08:48', '2024-10-23 15:08:48');
 
 --
 -- Indexes for dumped tables
