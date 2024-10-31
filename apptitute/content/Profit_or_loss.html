@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and Loss</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 30px;
+            color: #1a73e8;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 20px;
+            color: #e84545;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .example, .solution {
+            background-color: #e8f0fe;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .example h3, .solution h3 {
+            font-size: 18px;
+            color: #333;
+        }
+        .example p, .solution p {
+            font-size: 16px;
+            color: #444;
+        }
+        .next-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #1a73e8;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .next-button:hover {
+            background-color: #1558b0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profit and Loss</h1>
+
+    <h2>Concept Overview:</h2>
+    <p>
+        The concept of Profit and Loss is fundamental in business and daily transactions. When you buy an item for a certain price (Cost Price, or CP) and sell it for a different price (Selling Price, or SP), you can either make a profit or incur a loss. 
+    </p>
+    <p>
+        Here are the basic terms:
+        <ul>
+            <li><strong>Cost Price (CP):</strong> The price at which an item is purchased.</li>
+            <li><strong>Selling Price (SP):</strong> The price at which an item is sold.</li>
+            <li><strong>Profit:</strong> If SP > CP, Profit = SP - CP.</li>
+            <li><strong>Loss:</strong> If CP > SP, Loss = CP - SP.</li>
+            <li><strong>Profit Percentage:</strong> (Profit/CP) * 100</li>
+            <li><strong>Loss Percentage:</strong> (Loss/CP) * 100</li>
+        </ul>
+    </p>
+
+    <h2>Types of Problems</h2>
+    <p>Common types of profit and loss problems include:</p>
+    <ul>
+        <li>Finding profit or loss given the cost price and selling price.</li>
+        <li>Calculating selling price based on desired profit or loss percentage.</li>
+        <li>Determining cost price given selling price and profit/loss percentage.</li>
+    </ul>
+
+    <h2>Detailed Example</h2>
+    <div class="example">
+        <h3>Example Scenario:</h3>
+        <p>
+            Imagine Sarah bought a watch for $80 and later sold it for $100. She wants to know whether she made a profit or incurred a loss and by what percentage.
+        </p>
+        <h3>Solution:</h3>
+        <p>
+            - Cost Price (CP) = $80<br>
+            - Selling Price (SP) = $100<br>
+            - Since SP > CP, Sarah made a profit.
+        </p>
+        <div class="solution">
+            <h3>Solution Steps:</h3>
+            <p>
+                Profit = SP - CP = $100 - $80 = $20<br>
+                Profit Percentage = (Profit / CP) * 100 = (20 / 80) * 100 = 25%<br>
+                <b>Answer:</b> Sarah made a <b>25% profit</b> on the watch.
+            </p>
+        </div>
+    </div>
+
+    <h2>Practice Problems</h2>
+
+    <div class="example">
+        <h3>Problem 1:</h3>
+        <p>
+            John bought a bicycle for $150 and sold it for $180. Did he make a profit or incur a loss? Calculate the percentage.
+        </p>
+        <div class="solution">
+            <h3>Solution:</h3>
+            <p>
+                CP = $150, SP = $180.<br>
+                Profit = SP - CP = 180 - 150 = $30.<br>
+                Profit Percentage = (Profit / CP) * 100 = (30 / 150) * 100 = 20%<br>
+                <b>Answer:</b> John made a <b>20% profit</b>.
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Problem 2:</h3>
+        <p>
+            A shopkeeper bought 20 units of a product for $200 and sold them at $240. What is the profit percentage?
+        </p>
+        <div class="solution">
+            <h3>Solution:</h3>
+            <p>
+                CP = $200, SP = $240.<br>
+                Profit = SP - CP = 240 - 200 = $40.<br>
+                Profit Percentage = (Profit / CP) * 100 = (40 / 200) * 100 = 20%<br>
+                <b>Answer:</b> The profit percentage is <b>20%</b>.
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Problem 3:</h3>
+        <p>
+            Lisa sold a dress for $50 at a loss of 10%. Find the cost price of the dress.
+        </p>
+        <div class="solution">
+            <h3>Solution:</h3>
+            <p>
+                SP = $50, Loss Percentage = 10%<br>
+                Loss = (Loss Percentage / 100) * CP<br>
+                SP = CP - Loss<br>
+                50 = CP - (10/100)*CP<br>
+                50 = 0.9 * CP<br>
+                CP = 50 / 0.9 = $55.56<br>
+                <b>Answer:</b> The cost price of the dress is <b>$55.56</b>.
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Problem 4:</h3>
+        <p>
+            A merchant sold an item for $90 and incurred a 10% loss. What was the original cost price?
+        </p>
+        <div class="solution">
+            <h3>Solution:</h3>
+            <p>
+                SP = $90, Loss Percentage = 10%<br>
+                CP = SP / (1 - Loss Percentage/100) = 90 / (1 - 0.1) = 90 / 0.9 = $100<br>
+                <b>Answer:</b> The cost price was <b>$100</b>.
+            </p>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>Problem 5:</h3>
+        <p>
+            Tom bought a painting for $200 and sold it at a 25% profit. What was the selling price?
+        </p>
+        <div class="solution">
+            <h3>Solution:</h3>
+            <p>
+                CP = $200, Profit Percentage = 25%<br>
+                SP = CP * (1 + Profit Percentage/100) = 200 * 1.25 = $250<br>
+                <b>Answer:</b> The selling price is <b>$250</b>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Next Button -->
+    <a href="Average.html" class="next-button">Next Topic</a>
+
+</body>
+</html>
