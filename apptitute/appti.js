@@ -135,11 +135,19 @@ function closeRightToggle(containerId) {
 }
 
 
-// use  to heading toggle bar
+
+
 // Select the sidebar and buttons
 const sidebar = document.getElementById('sidebar');
 const closeBtn = document.getElementById('close-btn');
 const toggleSidebarBtn = document.getElementById('toggle-sidebar');
+
+// Function to check screen width and automatically open sidebar at 900px or more
+function checkScreenWidth() {
+    if (window.innerWidth >= 900) {
+        sidebar.classList.remove('hidden-sidebar'); // Open sidebar
+    }
+}
 
 // Close sidebar when the X button is clicked
 closeBtn.addEventListener('click', function () {
@@ -151,38 +159,33 @@ toggleSidebarBtn.addEventListener('click', function () {
     sidebar.classList.remove('hidden-sidebar');
 });
 
-
-
-
 // Rotate icon on link click
-// Select all .info-link elements and .sub_heading_apptitude elements
 const links = document.querySelectorAll('.info-link');
-
-// Rotate icon on link click
 links.forEach(link => {
     link.addEventListener('click', function () {
-        const icon = this.querySelector('i'); // Get the <i> tag inside the clicked <a> tag
-        icon.classList.toggle('rotate-180');  // Toggle the rotation class
+        const icon = this.querySelector('i');
+        icon.classList.toggle('rotate-180');
 
         const info = this.getAttribute('data-info');
         const id_info = document.getElementById(info);
-        if (id_info.style.display === 'none' || id_info.style.display === '') {
-            id_info.style.display = 'block'; // Show the subheadings
-        } else {
-            id_info.style.display = 'none'; // Hide the subheadings
-        }
+        id_info.style.display = (id_info.style.display === 'none' || id_info.style.display === '') ? 'block' : 'none';
     });
 });
 
-
+// Highlight clicked link
 const pinks = document.querySelectorAll('.link');
-
 pinks.forEach(pink => {
-    pink.addEventListener('click', function() {
-        pinks.forEach(l => l.classList.remove('clicked')); // Remove the class from other links
-        this.classList.add('clicked'); // Add the class to the clicked link
+    pink.addEventListener('click', function () {
+        pinks.forEach(l => l.classList.remove('clicked'));
+        this.classList.add('clicked');
     });
 });
+
+// Check the screen width initially and when the window is resized
+window.addEventListener('resize', checkScreenWidth);
+checkScreenWidth(); // Initial check on page load
+
+
 
 
 
@@ -210,7 +213,7 @@ function updateContent() {
             contentDisplay.innerHTML = html;
         })
         .catch(error => {
-            contentDisplay.innerHTML = "<p>Select a topic to display the content</p>";
+            contentDisplay.innerHTML = '<p style="color: #1a73e8; font-size: 50px; text-align: center; font-weight: 900; ">Select a topic to display the content</p>';
             console.error("There was a problem loading the content:", error);
         });
 }
@@ -223,6 +226,3 @@ function toggleContent() {
     updateContent();
 }
 
-
-
-  
