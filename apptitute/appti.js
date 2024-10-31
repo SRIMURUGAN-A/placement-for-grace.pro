@@ -184,38 +184,45 @@ pinks.forEach(pink => {
     });
 });
 
-// const info_link_for_bg=document.querySelectorAll('.info-link');
-
-// info_link_for_bg.forEach(info_link_for =>{
-//     info_link_for.addEventListener('click',function(){
-//         info_link_for_bg.forEach(l => l.classList.remove('clicked'));
-//         this.classList.add('clicked');
-//     });
-// });
-
-
-
-
 
 
 // used to main content
 
-function loadContent(filename) {
-    const mainContent = document.getElementById("mainContent");
+let currentTopic = ""; // To track the current topic
+let isTextContent = true; // Track whether we're showing text or video content
 
-    // Fetch the HTML file content
-    fetch(filename)
+function loadContent(topic) {
+    currentTopic = topic;
+    isTextContent = true; // Reset to text content when a new topic is loaded
+    updateContent();
+}
+
+function updateContent() {
+    const contentDisplay = document.getElementById("contentDisplay");
+    const fileToLoad = isTextContent ? `${currentTopic}_text.html` : `${currentTopic}_video.html`;
+
+    fetch(fileToLoad)
         .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
+            if (!response.ok) throw new Error("Network response was not ok");
             return response.text();
         })
         .then(html => {
-            mainContent.innerHTML = html;
+            contentDisplay.innerHTML = html;
         })
         .catch(error => {
-            mainContent.innerHTML = "<p>Content could not be loaded.</p>";
+            contentDisplay.innerHTML = "<p>Select a topic to display the content</p>";
             console.error("There was a problem loading the content:", error);
         });
 }
+
+
+function toggleContent() {
+    isTextContent = !isTextContent;
+    const toggleButton = document.getElementById("toggleContentButton");
+    toggleButton.textContent = isTextContent ? "Switch to Video" : "Switch to Text";
+    updateContent();
+}
+
+
+
+  

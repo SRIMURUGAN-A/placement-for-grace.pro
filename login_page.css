@@ -1,24 +1,83 @@
 body {
-    /*overflow-x: hidden;*/
-    background-image: url("https://www.gracecoe.org/assets/img/admission/why1.jpg");
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100vw;
-    height: 110vh;
-    margin: 0;
-    padding: 0;
+  background-image: url('https://www.gracecoe.org/assets/img/admission/why1.jpg'); 
+  background-blend-mode: overlay; /* Overlay gradient onto the image */
+  background-size: cover; /* Make the image cover the whole background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  height: 100vh;
 }
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: transparent;
+    height: 65px;
+    top: 0px;
+    margin: 0px;
+}
+
+
+.first_line_logo img,
+.first_line_logo p {
+    flex: 0 1 auto;
+    width: 100%;
+    height: 60px;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    color: rgb(5, 138, 255);
+}
+
+
+.first_line_logo p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .first_line_logo img,
+    .first_line_logo p {
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
+    }
+
+    .first_line_logo img {
+        width: 70%;
+    }
+
+    .imag {
+        display: none;
+    }
+
+}
+
+
+
 
 .login_page{
     width:360px;
     padding: 5px 20px 20px;
-    margin: 100px auto;
+    margin: 80px auto;
     background-color: rgb(0, 0, 0, .4);
     color:white ;
     border-radius:20px;
     font-size: 20px;
+    z-index: 10px;
 }
  
 .login_page h2{
@@ -86,6 +145,7 @@ input[type="text"], input[type="password"]{
 .link a {
     text-decoration: none;
     font-size: 20px;
+    color: #ff5733;
 }
 .link a:hover{
     text-decoration: underline; /* Optional: add underline on hover */

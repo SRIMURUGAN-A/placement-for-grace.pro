@@ -22,7 +22,6 @@ body {
 }
 
 
-
 .not-fixed{
     margin-top: 185px;
 }
@@ -52,11 +51,29 @@ body {
     color: rgb(5, 138, 255);
 }
 
+/* 
+.first_line_logo img{
+    width: auto ;
+    height: 60px;
+} */
+
+
+
+
 .first_line_logo p {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (min-width: 1350px){
+    .first_line_logo img{
+        width: auto ;
+        height: 60px;
+    }
+}
+
+
 
 
 @media screen and (max-width: 874px) {
@@ -639,11 +656,6 @@ nav ul li:hover ul.dropdown {
 }
 
 
-
-
-
-
-
 /* Sidebar styles */
 .appti_heading_column {
     background-color: #eeeeee;
@@ -654,7 +666,7 @@ nav ul li:hover ul.dropdown {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: fixed;
     left: 0;
-    height: 400px; 
+    height: 420px; 
     transform: translateX(0);
     transition: transform 0.3s ease-in-out;
     z-index: 1;
@@ -761,10 +773,11 @@ nav ul li:hover ul.dropdown {
     border-radius: 5px;
 }
 
+
 @media (max-width: 968px) {
     .appti_heading_column {
         /* Ensure this does not hide overflow */
-        width: 250px; /* Example: adjust width for smaller screens */
+        width: 280px; /* Example: adjust width for smaller screens */
         overflow-y: auto; /* Do not use auto if you want scrolling */
         font-size: 7px;
         margin-bottom: 50px;
@@ -790,14 +803,40 @@ nav ul li:hover ul.dropdown {
 
 /* maincontent */
 
-#MainContent{
+#mainContent{
     margin-top: 20px; 
-    border: 1px solid #ccc; 
     padding: 20px;
     color: #8805e0;
     font-size: 50px;
-    font-family:serif ;
-    border-style:dotted;
-    display: flex;
-    justify-content: center;
+    font-family:serif;
+    justify-items: center;
+    margin-left: 280px ;
+    width: border-box;
+}
+
+
+@media (min-width: 900px) {
+    .close-btn{
+        display:none;
+    }
+} 
+
+@media (max-width: 900px) {
+    #mainContent{
+        margin-left: 0px ;
+    }
+}
+
+
+#toggleContentButton{
+    position: fixed;
+    right: 40px; 
+    margin-top: 20px; 
+    z-index: 1;
+    border-radius: 9px;
+    color: #ffffff;
+    background-color: #840a6b;
+    font-size: 15px;
+    padding: 10px 13px;
+    border: none;
 }
