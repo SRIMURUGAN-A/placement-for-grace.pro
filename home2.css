@@ -10,13 +10,15 @@ body {
 
 .fixed {
     position: fixed;
-    /* Fixes the element to the viewport */
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #8EC5FC;
-    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    /*background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%) ;*/
+    /* background-color: #5c9ff5; */
+    /* background: rgb(235, 119, 169);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 0%); */
+    background-color: #569af3;
     height: 110px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
 }
@@ -49,10 +51,11 @@ nav {
     background-color: transparent;
     display: flex;
     width: 50%;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 20px;
     margin-top: 15px;
-    font-size: 20px
+    font-size: 20px;
+    font-weight: bold;
 }
 
 nav ul {
@@ -80,10 +83,8 @@ nav ul li a {
 
 
 nav ul li a:hover {
-    font-size: 21px;
-    transform: scale(1.1);
     border-radius: 20px;
-    width: 75%;
+    color: #232121;
 }
 
 /*used for the drop down box */
@@ -159,6 +160,75 @@ nav ul li:hover ul.dropdown {
 
 
 
+/* Used for profile dashboard */
+.toggleBar_profile {
+    display: none;
+    margin-top: 14px;
+    margin-right: 60px;
+    width: 170px;
+    height: 180px;
+    float: right;
+    font-size: 19px;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul li {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+    border-left:1px solid #007bff;
+    border-right:1px solid #007bff;
+}
+
+.toggleBar_profile ul li:hover {
+    background-color: #007bff;
+}
+
+.toggleBar_profile ul li i{
+    margin-right: 15px;
+}
+
+.toggleBar_profile ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 900;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.toggleBar_profile ul li:hover a {
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* Used for the second line*/
 
 .second_container {
@@ -189,7 +259,7 @@ nav ul li:hover ul.dropdown {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: rgb(120, 28, 206);
+    background-color:#1a73e8 ;/* rgb(120, 28, 206);   */
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -200,10 +270,10 @@ nav ul li:hover ul.dropdown {
 
 .sidebar a {
     padding: 8px 5px;
-    background-color: #575757;
+    background-color: #ffffff;
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: rgb(0, 0, 0);
     display: block;
     transition: 0.4s;
     margin-top: 15px;
@@ -216,12 +286,17 @@ nav ul li:hover ul.dropdown {
 
 /* Links change color on hover */
 .sidebar a:hover {
-    background-color: #232121;
+    background-color: #1a73e8;
+    border: 1px solid #ffffff;
+    color: #ffffff;
 }
 
 
 .toggle-btn:hover {
-    background-color: #8805e0;
+    background-color: #1a73e8;
+    border-radius: 13px;
+    border: 1px solid #1a73e8;
+    color: #232121;
 
 }
 
@@ -239,43 +314,44 @@ nav ul li:hover ul.dropdown {
 }
 
 
-/* rolling line */
-
 
 .quote-marqu {
     width: 100%;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     box-sizing: border-box;
+    margin-right: 10px;
+    color:  rgb(192, 216, 235);
 }
 
 .quote-marqu p {
-    font-family: monospace;
-    font-size: 20px;
     display: inline-block;
-    padding-left: 100%;
-    /* Start from outside the visible area */
-    animation: marquee 10s linear infinite;
-    /* Adjust the duration */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 19px;
+    animation: marquee 40s linear infinite;
 }
 
 @keyframes marquee {
     from {
-        transform: translateX(100%);
+        transform: translateX(0);
     }
-
     to {
         transform: translateX(-100%);
     }
 }
 
-
+@media screen and (max-width: 550px) {
+    .second_container i {
+        margin-right: 20px;
+    }
+}
 
 /*used for third container*/
 .not_fixed {
-    margin-top: 110px;
+    margin-top: 112px;
     width: 100%;
     margin-right: 10px;
+    width: border-box;
 }
 
 .third_container {
@@ -283,10 +359,13 @@ nav ul li:hover ul.dropdown {
     height: 520px;
     background-size: cover;
     margin-top: 25px;
+    position: center;
     background-attachment: fixed;
     position: relative;
     z-index: 1;
+    text-align: center;
 }
+
 
 .third_container p {
     font-size: 50px;
@@ -300,7 +379,7 @@ nav ul li:hover ul.dropdown {
 }
 
 .third_container span {
-    font-size: 90px;
+    font-size: 80px;
     color: brown;
     font-weight: 600;
 }
@@ -309,10 +388,9 @@ nav ul li:hover ul.dropdown {
     display: flex;
     align-items: center;
     max-width: 600px;
-    /* Adjust as needed */
     margin: auto;
-    /* Center the container */
-    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px 30px;
 }
 
 .search-container input[type="text"] {
@@ -351,6 +429,24 @@ nav ul li:hover ul.dropdown {
 .search-container button:hover {
     background-color: #0056b3;
 }
+
+
+
+@media screen and (max-width: 520px) {
+    .third_container p{
+        font-size: 34px;
+    }
+    .third_container span {
+        font-size: 60px;
+    }
+    .search-container {
+        margin-top: 30px;
+    }
+    .third_container {
+        height: 450px;
+    }
+}
+
 
 
 /*Fourth container  image slider*/
@@ -485,31 +581,42 @@ nav ul li:hover ul.dropdown {
     }
 }
 
+
 /* fifth container*/
 .fifth_container {
     display: flex;
     margin-left: 3%;
     margin-right: 3%;
-    color: #421460;
     justify-content: space-between;
     margin-top: 70px;
     align-items: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
     padding: 18px;
     border-radius: 10px;
-    background-color: #fff;
+    color: #000000;
+    /* background-color: #007bff; */
+    background-color: #cadbf9;
 }
 
 .fifth_container h1 {
     font-size: 40px;
+    color: #007bff;  
 }
 
 .fifth_container button {
-    background-color: #10d6dd;
-    border-radius: 20px;
+    background-color: #007bff;
+    border-radius: 10px;
     height: 50px;
     width: 130px;
     margin-bottom: 17px;
+    color: #ffffff;
+    font-weight: 900;
+    border: none;
+}
+
+.fifth_container button:hover{
+    background-color: #ffffff;
+    color: #007bff;
 }
 
 
@@ -521,6 +628,7 @@ nav ul li:hover ul.dropdown {
 
 .fifth_container p {
     font-size: 20px;
+    color: #050505;
 }
 
 
@@ -537,20 +645,31 @@ nav ul li:hover ul.dropdown {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
     padding: 18px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .sixth_container h1 {
     font-size: 40px;
+    color: #007bff; 
 }
 
 .sixth_container button {
-    background-color: #10d6dd;
-    border-radius: 20px;
+    background-color: #007bff;
+    border-radius: 10px;
     height: 50px;
     width: 130px;
     margin-bottom: 17px;
+    color: #ffffff;
+    font-weight: 900;
+    border: none;
 }
+
+.sixth_container button:hover{
+    background-color: #ffffff;
+    color: #007bff;
+    border: 1.5px solid #007bff;
+}
+
 
 .sixth_container img {
     width: 100%;
@@ -563,8 +682,8 @@ nav ul li:hover ul.dropdown {
 }
 
 
-/*seventh*/
 
+/*seventh*/
 .seventh_container {
     display: flex;
     margin-left: 3%;
@@ -576,19 +695,28 @@ nav ul li:hover ul.dropdown {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .6);
     padding: 18px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #cadbf9;
 }
 
 .seventh_container h1 {
     font-size: 40px;
+    color: #007bff; 
 }
 
 .seventh_container button {
-    background-color: #10d6dd;
-    border-radius: 20px;
+    background-color: #007bff;
+    border-radius: 10px;
     height: 50px;
     width: 130px;
     margin-bottom: 17px;
+    color: #ffffff;
+    font-weight: 900;
+    border: none;
+}
+
+.seventh_container button:hover{
+    background-color: #ffffff;
+    color: #007bff;
 }
 
 .left {
@@ -733,7 +861,6 @@ nav ul li:hover ul.dropdown {
     height: 50px;
     width: 130px;
     margin-bottom: 17px;
-    ;
 }
 
 .left_ {
@@ -783,14 +910,6 @@ nav ul li:hover ul.dropdown {
 }
 
 
-
-
-
-
-
-
-
-
 .nineth_container {
     margin: 30px;
     margin-top: 80px;
@@ -807,13 +926,40 @@ nav ul li:hover ul.dropdown {
 }
 
 
+
+/*   second slide bar */
+swiper-container {
+    margin-top: 75px;
+    width: 100%;
+    height: auto;
+    padding: 0 2px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* tenth container */
 .tenth_container {
     display: flex;
-    margin-top: 50px;
+    height: 100%;
+    width:  100%;
     background-color: #0093E9;
     background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-    ;
 }
 
 .tenth_container h2 {
@@ -833,16 +979,10 @@ ul span {
     font-family: 'Brush Script MT', cursive;
 }
 
-/* .tenth_container .right{
-    border-radius: 100% 0% 72% 28% / 0% 100% 0% 100%   ;
-    background: rgb(131,58,180);
-    background: linear-gradient(171deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 65%, rgba(252,176,69,1) 100%);
-} */
-
 .tenth_container .right img {
     margin: 30px;
-    border-radius: 49% 51% 53% 47% / 0% 53% 47% 100%;
-    height: auto;
+    border-radius: 49% 51% 53% 47% / 0% 53% 47% 100%; 
+    height: 400px;
     width: 80%;
 }
 
@@ -850,47 +990,22 @@ ul span {
 @media screen and (max-width:900px) {
     .tenth_container {
         flex-direction: column;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .tenth_container .right img {
         height: auto;
         width: 300px;
     }
-
-    .tenth_container .left {
-        margin-right: 50%;
-        margin-left: 0%;
+    .tenth_container .left{
+        order: 1;
+        margin-top: 0;
+    }
+    .tenth_container h2 {
+        margin-top: 0;
     }
 }
-
-
-
-
-
-.the_last_button {
-    justify-items: center;
-    text-align: center;
-    margin: 20px;
-    margin-top: 50px;
-    font-size: 30px;
-    height: auto;
-}
-
-.the_last_button button {
-    width: 140px;
-    height: 40px;
-    border-radius: 20px;
-    background-color: #00dede;
-
-}
-
-
-
-
-
-
-
-
 
 
 

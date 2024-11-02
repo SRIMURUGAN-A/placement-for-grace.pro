@@ -73,7 +73,7 @@ body {
     width:360px;
     padding: 5px 20px 20px;
     margin: 80px auto;
-    background-color: rgb(0, 0, 0, .4);
+    background-color: #00000066;
     color:white ;
     border-radius:20px;
     font-size: 20px;
@@ -131,7 +131,7 @@ input[type="text"], input[type="password"]{
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box; 
-    background-color: transparent; 
+    background-color: aliceblue;
     border-color: white;
 }
 
