@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login_page.css">
+    <link rel="stylesheet" href="register.css">
     <title>GRACE COLLEGE OF Engineering</title>
     <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
 </HEAD>
@@ -24,10 +24,10 @@
         </div>
     </div>
     <div class="login_page">
-        <h2>Login</h2>
-        <form action="">
+        <h2>Register</h2>
+        <form action="" method="post">
             <div class="input">
-                <label class="used_for_display" for="name">Enter Your User_Id</label>
+                <label class="used_for_display" for="name">Enter your Email</label>
                 <input type="text" id="name" name="name">
             </div>
             <div class="input">
@@ -37,17 +37,15 @@
             <div class="link">
                 <div class="radio">
                     <input type="checkbox" name="check_box" id="check_box">
-                    <label for="check_box">Keep Sign in</label>
+                    <label for="check_box">I agree <span>TERMS AND CONTDITION</span></label>
                 </div>
-                <a href="/forget-password">Forgot Password?</a>
             </div>
             <div class="button">
-                <button type="button" onclick="window.location.href='./home2.html'" class="used_for_display">Log
-                    In</button>
-                <button type="button" class="used_for_display" onclick="window.location.href='./register.html'"
+                <button type="button" class="used_for_display" onclick="window.location.href='./login.html'"
                     id="register-btn">Register</button>
             </div>
         </form>
     </div>
 </body>
+
 </HTML>

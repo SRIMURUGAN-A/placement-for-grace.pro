@@ -219,6 +219,7 @@ function updateContent() {
 }
 
 
+
 function toggleContent() {
     isTextContent = !isTextContent;
     const toggleButton = document.getElementById("toggleContentButton");
