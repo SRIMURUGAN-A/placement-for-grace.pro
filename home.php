@@ -84,7 +84,7 @@ require 'config.php';
         </div>
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
-            <a href="#home">Student Dashboard</a>
+            <a href="dashboard.php">Student Dashboard</a>
             <a href="#services">Placement training</a>
             <a href="#about">Placement resources</a>
             <a href="#contact">Jop Available for your Course</a>
