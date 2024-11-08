@@ -2,206 +2,168 @@
 <html>
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRACE Student Dashboard</title>
     <link rel="stylesheet" href="dash_board.css">
-    <title>HOME</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
 </head>
 
 <body>
+    <!-- Fixed Header Section -->
     <div class="fixed">
         <div class="first_line_logo">
             <img src="https://gracecoe.org/assets/img/g.png" alt="logo" id="image">
             <img src="https://gracecoe.org/assets/img/coe.png" alt="logo" id="image">
-            <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="logo" class="imag">
-            <p>Approved by <br> AICTE,New Delhi</p>
-            <img src="https://gracecoe.org/assets/img/au_logo.png" alt="logo" class="imag">
-            <p>Affliate to ANNA <br>UNIVERSITY, Chennai</p>
-            <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="logo" class="imag">
-            <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="logo" class="imag">
+            <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="AICTE" class="imag">
+            <p>Approved by <br> AICTE, New Delhi</p>
+            <img src="https://gracecoe.org/assets/img/au_logo.png" alt="Anna University" class="imag">
+            <p>Affiliated to ANNA <br> UNIVERSITY, Chennai</p>
+            <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="IIC" class="imag">
+            <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="EDII" class="imag">
         </div>
+
+        <!-- Navigation Bar -->
         <div class="btn_navbar">
-            <div class="disapear-button">
-                <button type="button">HOME</button>
-                <button type="button">ADMISSION</button>
-                <button type="button">CONTACT US</button>
-                <button type="button">ABOUT US</button>
-            </div>
-            <div class="toggle-btn">
-                <button type="button" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            <button type="button">HOME</button>
+            <button type="button">ADMISSION</button>
+            <button type="button">CONTACT US</button>
+            <button type="button">ABOUT US</button>
+            <button class="toggle-btn" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+        </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#training">Placement Training</a>
+        <a href="#resources">Resources</a>
+        <a href="#jobs">Job Opportunities</a>
+        <a href="#skills">Skill Development</a>
+        <a href="#news">News & Updates</a>
+        <a href="#entrepreneurship">Entrepreneurship</a>
+        <a href="#blog">Blog</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="not-fixed">
+        <!-- Personalized Greeting & Motivational Quote -->
+        <h1 class="welcome">Good Morning, Roger Samuel!</h1>
+        <p class="quote">"The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt</p>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" placeholder="Search for free resources..." class="search-box">
+            <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+
+        <!-- Skill Development Hub -->
+        <div class="skill-development">
+            <h1>Skill Development Hub</h1>
+            <div class="skill-cards">
+                <div class="skill-card">Python Programming</div>
+                <div class="skill-card">Data Analysis</div>
+                <div class="skill-card">Cybersecurity</div>
+                <div class="skill-card">Machine Learning</div>
             </div>
         </div>
-        <div id="firstmySidebar" class="firstsidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="firstcloseSidebar()">×</a>
-            <a href="#home">HOME</a>
-            <a href="#services">ADMISSIONS</a>
-            <a href="#about">CONTACT US</a>
-            <a href="#contact">ABOUT US</a>
+
+        <!-- Course and Training Progress -->
+        <div class="fourth_container">
+            <h1>Your Courses Progress</h1>
+            <div class="progress-cards">
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/150" alt="Course">
+                    <p>Python Full Course</p>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/150" alt="Course">
+                    <p>Data Science Bootcamp</p>
+                </div>
+                <div class="course-card">
+                    <img src="https://via.placeholder.com/150" alt="Course">
+                    <p>AI Fundamentals</p>
+                </div>
+            </div>
         </div>
 
-        <div class="second_container">
-            <div class="second-container-first-image">
-                <img src="https://gracecoe.org/assets/img/g.png" alt="">
-            </div>
-            <div class="second-container-nav">
-                <nav>
-                    <ul>
-                        <li><a href="#" class="courses-link" onclick="toggleDropdown('courses-dropdown')">Courses <i
-                                    class="fa-solid fa-angle-down"></i></a>
-                            <ul class="dropdown" id="courses-dropdown">
-                                <li><a href="#">Course 1</a></li>
-                                <li><a href="#">Course 2</a></li>
-                                <li><a href="#">Course 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="courses-link" onclick="toggleDropdown('about-dropdown')">Blog <i
-                                    class="fa-solid fa-angle-down"></i></a>
-                            <ul class="dropdown" id="about-dropdown">
-                                <li><a href="#">Course 1</a></li>
-                                <li><a href="#">Course 2</a></li>
-                                <li><a href="#">Course 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#" class="courses-link" onclick="toggleDropdown('resources-dropdown')">Resources <i
-                                    class="fa-solid fa-angle-down"></i></a>
-                            <ul class="dropdown" id="resources-dropdown">
-                                <li><a href="#">Course 1</a></li>
-                                <li><a href="#">Course 2</a></li>
-                                <li><a href="#">Course 3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="sefito">
-                <nav class="sefito-nav">
-                    <ul class="sefito-nav-bar">
-                        <li><a href="#" id="main-link">Menu<i class="fa-solid fa-angle-down"></i></a></li>
-                    </ul>
-                </nav>
-
-                <div id="toggle-container" class="sefito-toggle-container">
-                    <div id="first-toggle" class="sefito-toggle-bar">
-                        <ul>
-                            <li><a href="#" id="sub-link-1">courses</a></li>
-                            <li><a href="#" id="sub-link-2">Blog</a></li>
-                            <li><a href="#" id="sub-link-3">Resources</a></li> <!-- Added Sub Link 3 -->
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="right-toggle-container-1" class="sefito-right-toggle-container1">
-                    <div id="second-toggle-1" class="sefito-toggle-bar">
-                        <ul>
-                            <li><a href="#">course 1</a></li>
-                            <li><a href="#">course 2</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="right-toggle-container-2" class="sefito-right-toggle-container2">
-                    <!-- Added Right Toggle Container 2 -->
-                    <div id="second-toggle-2" class="sefito-toggle-bar">
-                        <ul>
-                            <li><a href="#">course 3</a></li>
-                            <li><a href="#">course 4</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="right-toggle-container-3" class="sefito-right-toggle-container3">
-                    <!-- Added Right Toggle Container 3 -->
-                    <div id="second-toggle-3" class="sefito-toggle-bar">
-                        <ul>
-                            <li><a href="#">course 5</a></li>
-                            <li><a href="#">course 6</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="second-container-icons-and-button">
-                <div class="second-container-icons">
-                    <a href="eee"><i class="fa-solid fa-envelope fa-beat"></i></a>
-                    <a href="eee"><i class="fa-solid fa-bell"></i></a>
-                    <a href="javascript:void(0)" id="user_link"><i class="fa-solid fa-user"></i></a>
-                </div>
-                <button class="second-toggle-btn" onclick="secondtoggleSidebar()">☰ </button>
-            </div>
+        <!-- Graph for Progress Tracking -->
+        <div class="progress-chart-container">
+            <h1>Progress Chart</h1>
+            <canvas id="progressChart"></canvas>
         </div>
-        <div class="toggleBar_profile" id="toggleBar_profile">
+
+        <!-- Upcoming Webinars/Workshops -->
+        <div class="webinars">
+            <h1>Upcoming Webinars & Workshops</h1>
             <ul>
-                <li><i class="fa-solid fa-chart-line"></i><a href="">Dashboard</a></li>
-                <li><i class="fa-solid fa-play"></i><a href="">My learning</a></li>
-                <li><i class="fa-regular fa-user"></i><a href="">My profile</a></li>
-                <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="">Logout</a></li>
+                <li>AI in Healthcare - Nov 15, 2024</li>
+                <li>Cybersecurity Essentials - Nov 20, 2024</li>
+                <li>Financial Planning for Students - Nov 25, 2024</li>
             </ul>
         </div>
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
-            <a href="#home">Student Dashboard</a>
-            <a href="#services">Placement training</a>
-            <a href="#about">Placement resources</a>
-            <a href="#contact">Jop Available for your Course</a>
-            <a href="#about">Skill Development</a>
-            <a href="#about">Placement Updates</a>
-            <a href="#about">Enterprenurship</a>
-            <a href="#about">Blog & News</a>
-        </div>
-    </div>
-    <div class="not-fixed">
-        <h1 class="not_fixed_h1">WELCOME BACK!</h1>
-        <h1 class="not_fixed_h2">___________</h1>
-        <div class="third-container">
-            <input type="text" placeholder="Search..." class="search-box">
-            <button class="search-btn">Search</button>
-        </div>
-        <div class="fourth_container">
-            <h1>Course and Training Progress</h1>
-            <div class="videos_container"></div>
-            <div class="graph"></div>
-        </div>
-        <div class="fifth_container">
-            <h1>Recommended courses for you:</h1>
-            <div class="course_container">
-                <div class="course">
 
-                </div>
+        <!-- Career Path Exploration -->
+        <div class="career-paths">
+            <h1>Explore Career Paths</h1>
+            <div class="career-card">
+                <h2>Data Scientist</h2>
+                <p>Skills: Python, Machine Learning, Data Visualization</p>
+            </div>
+            <div class="career-card">
+                <h2>Web Developer</h2>
+                <p>Skills: HTML, CSS, JavaScript, React</p>
             </div>
         </div>
-        <div class="sixth_container">
-            <canvas id="progressChart" width="400" height="200"></canvas>
-        </div>
-        <div class="seventh_container">
-            <h1>Placement/ Internship Opportunities:</h1>
-        </div>
-        <div class="eight_container">
-            <h1>The Latest Tech-News:</h1>
-            <div class="eight_container">
-                <div class="left">
-                    <h1>Startup</h1>
-                    <p>Travly lets travelers submit videos for a chance to earn a 5% commission from hotel bookings</p>
-                </div>
-                <div class="right">
-                    <img src="" alt="">
-                </div>
-            </div>
-            <div class="ninth_container">
-                <div class="left">
 
+        <!-- News and Updates Section -->
+        <div class="news-container">
+            <h1>Latest Industry News:</h1>
+            <div class="news-carousel">
+                <div class="news-item">
+                    <h3>Finance</h3>
+                    <p>Global markets rally amid economic optimism.</p>
                 </div>
-                <div class="right">
+                <div class="news-item">
+                    <h3>Tech</h3>
+                    <p>New AI chip sets record for speed and efficiency.</p>
+                </div>
+                <div class="news-item">
+                    <h3>Education</h3>
+                    <p>Top universities partner for AI research initiatives.</p>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="dash_board.js">
+    <!-- JavaScript for Sidebar and Chart -->
+    <script src="dashboard.js"></script>
+    <script>
+        // JavaScript for Chart.js integration
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        const progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
+                datasets: [{
+                    label: 'User Progress',
+                    data: [10, 20, 30, 40, 50],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    fill: false,
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 </body>
 
