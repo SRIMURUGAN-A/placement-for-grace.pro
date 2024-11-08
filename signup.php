@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Signup successful!";
             // Redirect based on role
             if ($role == 'admin') {
-                header("Location: admin_page.php");
+                header("Location: admin_dashboard.php");
             } else {
                 header("Location: home.php");
             }
