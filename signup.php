@@ -48,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,6 +57,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="register.css">
     <title>GRACE COLLEGE OF Engineering</title>
     <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
+    <script>
+        // Function to check the checkbox status before form submission
+        function validateForm(event) {
+            var checkbox = document.getElementById('check_box');
+            if (!checkbox.checked) {
+                event.preventDefault();  // Prevent form submission
+                alert('You must agree to the terms and conditions.');
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="login-page-navbar">
@@ -74,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <div class="login_page">
         <h2>Register</h2>
-        <form method="POST" action="signup.php">
+        <form method="POST" action="signup.php" onsubmit="validateForm(event)">
             <div class="input">
                 <label class="used_for_display" for="username">Enter Your Username</label>
                 <input type="text" id="username" name="username" required>
@@ -100,8 +109,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="radio">
                 <input type="checkbox" name="check_box" id="check_box">
-                <label for="check_box">I agree <span>TERMS AND CONDITIONS</span></label>
+                <label for="check_box">I agree <a href="terms.php" target="_blank"><span>TERMS AND CONDITIONS</span></a></label>
             </div>
+
             <div class="button">
                 <button type="submit" class="used_for_display">Register</button>
                 <button type="button" class="used_for_display" onclick="window.location.href='./login.php'" id="login-btn">Log In</button>
