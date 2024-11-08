@@ -1,14 +1,50 @@
+<?php
+// Start the session
+session_start();
+
+// Include the database connection
+require 'config.php'; // Assuming you have a config.php file for database connection
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit;
+}
+
+// Fetch user data from the database
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM signup WHERE id = '$user_id'";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    die("Database query failed: " . mysqli_error($conn));
+}
+
+$user = mysqli_fetch_assoc($result);
+
+// Determine the greeting message based on the current time
+date_default_timezone_set('Asia/Kolkata');
+$hour = date('H');
+if ($hour < 12) {
+    $greeting = "Good Morning";
+} elseif ($hour < 18) {
+    $greeting = "Good Afternoon";
+} else {
+    $greeting = "Good Evening";
+}
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRACE Student Dashboard</title>
-    <link rel="stylesheet" href="dash_board.css">
+    <link rel="stylesheet" href="dash_board.css"> <!-- Corrected CSS file name -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
 </head>
 
 <body>
@@ -46,12 +82,13 @@
         <a href="#news">News & Updates</a>
         <a href="#entrepreneurship">Entrepreneurship</a>
         <a href="#blog">Blog</a>
+        <a href="logout.php">Logout</a>
     </div>
 
     <!-- Main Content Section -->
     <div class="not-fixed">
         <!-- Personalized Greeting & Motivational Quote -->
-        <h1 class="welcome">Good Morning, Roger Samuel!</h1>
+        <h1 class="welcome"><?php echo "$greeting, " . htmlspecialchars($user['email']) . "!"; ?></h1>
         <p class="quote">"The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt</p>
 
         <!-- Search Bar -->
@@ -75,25 +112,22 @@
         <div class="fourth_container">
             <h1>Your Courses Progress</h1>
             <div class="progress-cards">
-                <div class="course-card">
-                    <img src="https://via.placeholder.com/150" alt="Course">
-                    <p>Python Full Course</p>
-                </div>
-                <div class="course-card">
-                    <img src="https://via.placeholder.com/150" alt="Course">
-                    <p>Data Science Bootcamp</p>
-                </div>
-                <div class="course-card">
-                    <img src="https://via.placeholder.com/150" alt="Course">
-                    <p>AI Fundamentals</p>
-                </div>
+                <?php
+                // Fetch user's enrolled courses
+                $course_query = "SELECT * FROM courses WHERE user_id = '$user_id'";
+                $course_result = mysqli_query($conn, $course_query);
+                if ($course_result) {
+                    while ($course = mysqli_fetch_assoc($course_result)) {
+                        echo "<div class='course-card'>
+                                <img src='https://via.placeholder.com/150' alt='Course'>
+                                <p>{$course['course_name']}</p>
+                              </div>";
+                    }
+                } else {
+                    echo "Error fetching courses: " . mysqli_error($conn);
+                }
+                ?>
             </div>
-        </div>
-
-        <!-- Graph for Progress Tracking -->
-        <div class="progress-chart-container">
-            <h1>Progress Chart</h1>
-            <canvas id="progressChart"></canvas>
         </div>
 
         <!-- Upcoming Webinars/Workshops -->
@@ -139,32 +173,8 @@
         </div>
     </div>
 
-    <!-- JavaScript for Sidebar and Chart -->
-    <script src="dashboard.js"></script>
-    <script>
-        // JavaScript for Chart.js integration
-        const ctx = document.getElementById('progressChart').getContext('2d');
-        const progressChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5'],
-                datasets: [{
-                    label: 'User Progress',
-                    data: [10, 20, 30, 40, 50],
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    fill: false,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
+    <!-- JavaScript for Sidebar -->
+    <script src="dash_board.js"></script> <!-- Corrected JS file name -->
 </body>
 
 </html>

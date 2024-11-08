@@ -1,0 +1,139 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+.header {
+    background-color: #a315a8;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.header .logo a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+.navbar .nav-links li a.active {
+    color: #f4a261;
+}
+
+/* Tail Section */
+.tail {
+    padding: 20px;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.images-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.images-section img {
+    max-width: 30%;
+    height: auto;
+}
+
+.offerings {
+    margin-top: 40px;
+}
+
+.offerings li {
+    margin-bottom: 20px;
+}
+
+.offerings span {
+    font-weight: bold;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-content ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin: 0 10px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+}
+
+/* Add Responsive Design for Mobile View */
+@media (max-width: 768px) {
+    .images-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar .nav-links li {
+        display: block;
+        margin: 10px 0;
+    }
+}
