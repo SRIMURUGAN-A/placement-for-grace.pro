@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+    const questions = [
+  {
+    question: "If 5 workers can complete a job in 20 days, how long will it take for 10 workers to complete the same job?",
+    answer: [
+      { text: "10 days", correct: true },
+      { text: "20 days", correct: false },
+      { text: "15 days", correct: false },
+      { text: "5 days", correct: false }
+    ]
+  },
+  {
+    question: "A can do a job in 10 days, and B can do it in 15 days. If they work together, how long will it take to complete the job?",
+    answer: [
+      { text: "6 days", correct: false },
+      { text: "5 days", correct: true },
+      { text: "4 days", correct: false },
+      { text: "7 days", correct: false }
+    ]
+  },
+  {
+    question: "If A can finish a task in 6 hours and B can finish the same task in 12 hours, how long will it take for them to complete the task together?",
+    answer: [
+      { text: "4 hours", correct: false },
+      { text: "3 hours", correct: true },
+      { text: "5 hours", correct: false },
+      { text: "6 hours", correct: false }
+    ]
+  },
+  {
+    question: "A job can be completed in 8 hours if 3 workers are involved. How long will it take if only 2 workers are available?",
+    answer: [
+      { text: "12 hours", correct: true },
+      { text: "16 hours", correct: false },
+      { text: "10 hours", correct: false },
+      { text: "14 hours", correct: false }
+    ]
+  },
+  {
+    question: "A can complete a job in 18 days, and B can complete the same job in 12 days. How many days will it take if they work together?",
+    answer: [
+      { text: "7.2 days", correct: true },
+      { text: "8.5 days", correct: false },
+      { text: "10 days", correct: false },
+      { text: "9 days", correct: false }
+    ]
+  },
+  {
+    question: "If a person can complete 1/4 of a task in 6 days, how many days will it take to complete the entire task?",
+    answer: [
+      { text: "24 days", correct: true },
+      { text: "18 days", correct: false },
+      { text: "20 days", correct: false },
+      { text: "16 days", correct: false }
+    ]
+  },
+  {
+    question: "A team of 8 people can finish a project in 12 days. If the team is reduced to 6 people, how long will it take to complete the project?",
+    answer: [
+      { text: "16 days", correct: true },
+      { text: "14 days", correct: false },
+      { text: "18 days", correct: false },
+      { text: "10 days", correct: false }
+    ]
+  },
+  {
+    question: "If 12 workers can build a wall in 8 days, how long will it take for 6 workers to build the same wall?",
+    answer: [
+      { text: "16 days", correct: true },
+      { text: "10 days", correct: false },
+      { text: "12 days", correct: false },
+      { text: "14 days", correct: false }
+    ]
+  },
+  {
+    question: "A can finish a task in 10 days and B can finish the same task in 20 days. If A works alone for 4 days, how many more days will B need to complete the task?",
+    answer: [
+      { text: "8 days", correct: true },
+      { text: "10 days", correct: false },
+      { text: "6 days", correct: false },
+      { text: "5 days", correct: false }
+    ]
+  },
+  {
+    question: "If A, B, and C together can complete a job in 4 days, and A alone can do it in 10 days, B alone in 12 days, how long will C take alone?",
+    answer: [
+      { text: "15 days", correct: true },
+      { text: "10 days", correct: false },
+      { text: "12 days", correct: false },
+      { text: "14 days", correct: false }
+    ]
+  }
+];
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

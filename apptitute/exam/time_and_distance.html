@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+    const questions = [
+  {
+    question: "If a car travels at 60 km/h, how far will it travel in 4 hours?",
+    answer: [
+      { text: "240 km", correct: true },
+      { text: "180 km", correct: false },
+      { text: "200 km", correct: false },
+      { text: "150 km", correct: false }
+    ]
+  },
+  {
+    question: "A person runs at a speed of 8 km/h for 30 minutes. How far does he run?",
+    answer: [
+      { text: "4 km", correct: false },
+      { text: "6 km", correct: false },
+      { text: "3 km", correct: true },
+      { text: "2 km", correct: false }
+    ]
+  },
+  {
+    question: "A bus travels at 45 km/h and takes 2.5 hours to reach its destination. What is the distance covered?",
+    answer: [
+      { text: "112.5 km", correct: true },
+      { text: "100 km", correct: false },
+      { text: "90 km", correct: false },
+      { text: "80 km", correct: false }
+    ]
+  },
+  {
+    question: "If a cyclist travels 90 km in 3 hours, what is his average speed?",
+    answer: [
+      { text: "25 km/h", correct: false },
+      { text: "30 km/h", correct: true },
+      { text: "35 km/h", correct: false },
+      { text: "40 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train takes 6 hours to travel 540 km. What is its speed?",
+    answer: [
+      { text: "85 km/h", correct: false },
+      { text: "90 km/h", correct: true },
+      { text: "75 km/h", correct: false },
+      { text: "95 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A boat travels downstream at 10 km/h and upstream at 6 km/h. What is the average speed for the round trip?",
+    answer: [
+      { text: "8 km/h", correct: true },
+      { text: "7 km/h", correct: false },
+      { text: "9 km/h", correct: false },
+      { text: "10 km/h", correct: false }
+    ]
+  },
+  {
+    question: "If a vehicle covers 150 km in 3 hours, what is its speed?",
+    answer: [
+      { text: "60 km/h", correct: false },
+      { text: "55 km/h", correct: false },
+      { text: "50 km/h", correct: true },
+      { text: "65 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A man jogs 12 km in 1.5 hours. What is his jogging speed?",
+    answer: [
+      { text: "6 km/h", correct: false },
+      { text: "7 km/h", correct: false },
+      { text: "8 km/h", correct: true },
+      { text: "9 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A car takes 2 hours to travel 150 km. What is the speed of the car?",
+    answer: [
+      { text: "70 km/h", correct: false },
+      { text: "60 km/h", correct: false },
+      { text: "75 km/h", correct: true },
+      { text: "80 km/h", correct: false }
+    ]
+  },
+  {
+    question: "If a person walks at a speed of 5 km/h, how far will he walk in 3 hours?",
+    answer: [
+      { text: "10 km", correct: false },
+      { text: "15 km", correct: true },
+      { text: "20 km", correct: false },
+      { text: "12 km", correct: false }
+    ]
+  }
+];
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>
