@@ -36,14 +36,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            // Role-based redirection
-            if ($user['role'] == 'admin') {
-                header("Location: admin_dashboard.php");
-                exit(); // Ensure no further code is executed
-            } else {
-                header("Location: home.php");
-                exit();
-            }
+            // Store user login details in the `login` table
+            $loginStmt = $conn->prepare("INSERT INTO login (user_id, username, login_time) VALUES (?, ?, NOW())");
+            $loginStmt->bind_param("is", $user['id'], $user['username']);
+            $loginStmt->execute();
+            $loginStmt->close();
+
+           // Role-based redirection
+if ($user['role'] == 'admin') {
+    header("Location: adminlogin.php"); // Corrected redirection for admin
+    exit(); // Ensure no further code is executed
+} else {
+    header("Location: home.php");
+    exit();
+}
+
         } else {
             echo "<script>alert('Incorrect password.');</script>";
         }
@@ -81,7 +88,7 @@ $conn->close();
         <h2>Login</h2>
         <form method="POST" action="login.php">
             <div class="input">
-                <label class="used_for_display" for="username">Enter Your Username</label>
+                <label class="used_for_display" for="username">Enter Your Username or Email</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input">
