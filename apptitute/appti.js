@@ -137,6 +137,7 @@ function closeRightToggle(containerId) {
 
 
 
+
 // Select the sidebar and buttons
 const sidebar = document.getElementById('sidebar');
 const closeBtn = document.getElementById('close-btn');
@@ -189,6 +190,8 @@ checkScreenWidth(); // Initial check on page load
 
 
 
+
+
 // used to main content
 
 let currentTopic = ""; // To track the current topic
@@ -198,7 +201,7 @@ function loadContent(topic) {
     currentTopic = topic;
     isTextContent = true; // Reset to text content when a new topic is loaded
     updateContent();
-}
+}   
 
 function updateContent() {
     const contentDisplay = document.getElementById("contentDisplay");
