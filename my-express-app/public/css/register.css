@@ -1,0 +1,139 @@
+body{
+    overflow-x: hidden;
+    background-image: url("https://images7.alphacoders.com/352/thumb-1920-352092.jpg");
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
+    margin: 0;
+    padding: 0;
+}
+.fixed{
+    position: fixed;
+    background-color:rgb(123, 21, 178);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    padding: 1px 0;
+}
+.not_fixed{
+    margin-top: 165px;
+}
+
+
+.first_line_logo {
+    display: flex;
+    top: 0%;
+    align-items: center; /* Vertically centers items */
+    justify-content: flex-start; /* Align items to the start of the container */
+    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
+    overflow-x: hidden; /* Allows horizontal scrolling if content overflows */
+    width: 100%; 
+    background-color: aliceblue;
+    height: 70px;/* Container takes up full width of its parent */
+}
+
+.first_line_logo img, 
+.first_line_logo p {
+    flex: 0 1 auto; /* Allow items to shrink but not grow */
+    max-width: 15%; /* Set a maximum width relative to the container's width */
+    height: 50px; /* Maintain aspect ratio */
+    margin: 0 10px; /* Space between elements */
+    text-align: center; /* Center text in paragraphs */
+    white-space: nowrap; /* Prevent text from wrapping */
+    color: rgb(7, 136, 249);
+}
+
+.first_line_logo p {
+    display: flex;
+    align-items: center; /* Vertically center text */
+    justify-content: center; /* Horizontally center text */
+    margin: 0 10px; /* Space around text */
+}
+
+@media screen and (max-width: 768px) {
+    .first_line_logo img, 
+    .first_line_logo p {
+        max-width: 40%; /* Adjust size for smaller screens */
+    }
+}
+
+
+/*nav_bar*/
+
+.btn_navbar{
+    margin-top: 17px;
+    display: flex;
+    background-color:transparent ;
+    color: white;
+    padding: 5px 10px;
+    width:100%;
+    justify-content: flex-end;
+    margin-right: 5%; 
+    height:50px;
+
+}
+
+.btn_navbar button{
+    border-radius: 10px;
+    padding : 5px 10px;
+    margin-right: 50px; 
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: white;
+    margin-bottom: 4px;
+}
+
+h4 {
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: aliceblue;
+}
+
+.highlight{
+    font-size:50px ;
+    color:chartreuse;
+    font-family:'Brush Script MT', cursive ;
+}
+
+h3{
+    color: rgb(19, 21, 21);
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.questions {
+    width: 90%;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+    margin-left: 10%;
+}
+
+.question label {
+    flex: 1; /* Takes up the space on the left */
+    margin-right: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.questions .question input{
+    flex: none;
+    width: 32%;
+    height: 38px;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid blueviolet;
+}
