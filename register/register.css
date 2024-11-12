@@ -1,139 +1,198 @@
-body{
-    overflow-x: hidden;
-    background-image: url("https://images7.alphacoders.com/352/thumb-1920-352092.jpg");
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 110vh;
-    margin: 0;
-    padding: 0;
-}
-.fixed{
-    position: fixed;
-    background-color:rgb(123, 21, 178);
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000; 
-    padding: 1px 0;
-}
-.not_fixed{
-    margin-top: 165px;
-}
-
-
-.first_line_logo {
-    display: flex;
-    top: 0%;
-    align-items: center; /* Vertically centers items */
-    justify-content: flex-start; /* Align items to the start of the container */
-    flex-wrap: nowrap; /* Prevents items from wrapping to the next line */
-    overflow-x: hidden; /* Allows horizontal scrolling if content overflows */
-    width: 100%; 
-    background-color: aliceblue;
-    height: 70px;/* Container takes up full width of its parent */
-}
-
-.first_line_logo img, 
-.first_line_logo p {
-    flex: 0 1 auto; /* Allow items to shrink but not grow */
-    max-width: 15%; /* Set a maximum width relative to the container's width */
-    height: 50px; /* Maintain aspect ratio */
-    margin: 0 10px; /* Space between elements */
-    text-align: center; /* Center text in paragraphs */
-    white-space: nowrap; /* Prevent text from wrapping */
-    color: rgb(7, 136, 249);
-}
-
-.first_line_logo p {
-    display: flex;
-    align-items: center; /* Vertically center text */
-    justify-content: center; /* Horizontally center text */
-    margin: 0 10px; /* Space around text */
-}
-
-@media screen and (max-width: 768px) {
-    .first_line_logo img, 
-    .first_line_logo p {
-        max-width: 40%; /* Adjust size for smaller screens */
-    }
-}
-
-
-/*nav_bar*/
-
-.btn_navbar{
-    margin-top: 17px;
-    display: flex;
-    background-color:transparent ;
-    color: white;
-    padding: 5px 10px;
-    width:100%;
-    justify-content: flex-end;
-    margin-right: 5%; 
-    height:50px;
-
-}
-
-.btn_navbar button{
-    border-radius: 10px;
-    padding : 5px 10px;
-    margin-right: 50px; 
-    font-size: 15px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color: transparent;
-    color: white;
-    margin-bottom: 4px;
-}
-
-h4 {
-    margin-top: 30px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 30px;
-    text-align: center;
-    color: aliceblue;
-}
-
-.highlight{
-    font-size:50px ;
-    color:chartreuse;
-    font-family:'Brush Script MT', cursive ;
-}
-
-h3{
-    color: rgb(19, 21, 21);
-    margin-top: 30px;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 4px;
-}
-
-.questions {
-    width: 90%;
-}
-
-.question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 45px;
-    margin-left: 10%;
-}
-
-.question label {
-    flex: 1; /* Takes up the space on the left */
-    margin-right: 10px;
-    color: white;
-    font-size: 30px;
-}
-
-.questions .question input{
-    flex: none;
-    width: 32%;
-    height: 38px;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 10px;
-    border: 2px solid blueviolet;
-}
+body {
+    background-image: url('https://www.gracecoe.org/assets/img/admission/why1.jpg'); 
+    background-blend-mode: overlay; /* Overlay gradient onto the image */
+    background-size: cover; /* Make the image cover the whole background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent background from repeating */
+    height: 100vh;
+  }
+  
+  
+  .first_line_logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      overflow-x: hidden;
+      width: 100%;
+      background-color: transparent;
+      height: 65px;
+      top: 0px;
+      margin: 0px;
+  }
+  
+  
+  .first_line_logo img,
+  .first_line_logo p {
+      flex: 0 1 auto;
+      width: 100%;
+      height: 60px;
+      margin: 0 10px;
+      text-align: center;
+      white-space: nowrap;
+      color: rgb(5, 138, 255);
+  }
+  
+  
+  .first_line_logo p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  
+  @media screen and (max-width: 874px) {
+      .first_line_logo p {
+          display: none;
+      }
+  }
+  
+  @media screen and (max-width: 600px) {
+  
+      .first_line_logo img,
+      .first_line_logo p {
+          width: 100%;
+          /* Adjust size for smaller screens */
+          margin: 0px 5px;
+      }
+  
+      .first_line_logo img {
+          width: 70%;
+      }
+  
+      .imag {
+          display: none;
+      }
+  
+  }
+  
+  
+  
+  
+  .login_page{
+      width:360px;
+      padding: 5px 20px 20px;
+      margin: 80px auto;
+      background-color: #00000066;
+      color:white ;
+      border-radius:20px;
+      font-size: 20px;
+      z-index: 10px;
+  }
+   
+  .login_page h2{
+      text-align: center;
+      color: rgb(233, 14, 14);
+      margin-top: 7px;
+  }
+  
+  .used_for_display{
+      display:block;
+      padding-top: 1px;
+  }
+  
+  .input input{
+      width: 100%;
+      padding-bottom: 10px;
+      border-radius: 12px;
+      font-size: .8em;
+      box-shadow: 4px;
+      border: 1px solid rgb(60, 7, 207);
+      padding : 10px 10px;
+  }
+  
+  /* css for button login and register*/
+  
+  .button{
+      display: block;
+  }
+  .button button {
+      margin-top: 17px;
+      margin-left: 75px;
+      width: 60%;
+      background-color: rgb(233, 14, 14);
+      font-size: 17px; 
+      color: white; 
+      border: none;
+      border-radius: 12px; 
+      padding: 10px 20px; 
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+      transition: background 0.3s ease, transform 0.2s ease-in-out; 
+  }
+  
+  .button button:hover {
+      background-color: #ff5733;
+      transform: scale(1.05); 
+  }
+  
+  input[type="text"], input[type="password"]{
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box; 
+      background-color: aliceblue;
+      border-color: white;
+  }
+  
+  .link{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      
+  }
+  
+  .link a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #ff5733;
+  }
+  .link a:hover{
+      text-decoration: underline; /* Optional: add underline on hover */
+  }
+  
+  
+  /* Button for nav bar*/
+  .login-page-navbar {
+      display: flex;                 
+      align-items: center;           
+      justify-content: space-between;
+      padding: 10px 20px; 
+      background-color: transparent; 
+  }
+  
+  .btn_navbar{
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 15px;
+  
+  }
+  
+  .btn_navbar button{
+      border-radius: 10px;
+      padding : 5px 10px;
+      margin-right: 8px; 
+      font-size: 15px;
+      border: 1px solid rgb(255, 255, 255);
+      background-color: transparent;
+  }
+  
+  /* logo */
+  
+  .logo img{
+      margin-top: 1px;
+      margin-left: 1px;
+      width: 200px;
+      height: 50px;
+  }
+  
+  .second{
+      width:20px;
+      height:30px;
+  }
+  #third{
+      width: auto;
+  }
+  #fourth{
+      width: auto;
+  }
