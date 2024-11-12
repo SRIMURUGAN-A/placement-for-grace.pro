@@ -85,7 +85,7 @@ require 'config.php';
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
             <a href="dashboard.php">Student Dashboard</a>
-            <a href="#services">Placement training</a>
+            <a href="\Graceup\placement-for-grace.pro\phpCode\apptitude\appti.php">Placement Training</a>
             <a href="#about">Placement resources</a>
             <a href="#contact">Jop Available for your Course</a>
             <a href="#about">Skill Development</a>
