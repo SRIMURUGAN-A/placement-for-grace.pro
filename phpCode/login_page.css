@@ -1,0 +1,198 @@
+body {
+  background-image: url('https://www.gracecoe.org/assets/img/admission/why1.jpg'); 
+  background-blend-mode: overlay; /* Overlay gradient onto the image */
+  background-size: cover; /* Make the image cover the whole background */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent background from repeating */
+  height: 100vh;
+}
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: transparent;
+    height: 65px;
+    top: 0px;
+    margin: 0px;
+}
+
+
+.first_line_logo img,
+.first_line_logo p {
+    flex: 0 1 auto;
+    width: 100%;
+    height: 60px;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    color: rgb(5, 138, 255);
+}
+
+
+.first_line_logo p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .first_line_logo img,
+    .first_line_logo p {
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
+    }
+
+    .first_line_logo img {
+        width: 70%;
+    }
+
+    .imag {
+        display: none;
+    }
+
+}
+
+
+
+
+.login_page{
+    width:360px;
+    padding: 5px 20px 20px;
+    margin: 80px auto;
+    background-color: #00000066;
+    color:white ;
+    border-radius:20px;
+    font-size: 20px;
+    z-index: 10px;
+}
+ 
+.login_page h2{
+    text-align: center;
+    color: rgb(233, 14, 14);
+    margin-top: 7px;
+}
+
+.used_for_display{
+    display:block;
+    padding-top: 1px;
+}
+
+.input input{
+    width: 100%;
+    padding-bottom: 10px;
+    border-radius: 12px;
+    font-size: .8em;
+    box-shadow: 4px;
+    border: 1px solid rgb(60, 7, 207);
+    padding : 10px 10px;
+}
+
+/* css for button login and register*/
+
+.button{
+    display: block;
+}
+.button button {
+    margin-top: 17px;
+    margin-left: 75px;
+    width: 60%;
+    background-color: rgb(233, 14, 14);
+    font-size: 17px; 
+    color: white; 
+    border: none;
+    border-radius: 12px; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: background 0.3s ease, transform 0.2s ease-in-out; 
+}
+
+.button button:hover {
+    background-color: #ff5733;
+    transform: scale(1.05); 
+}
+
+input[type="text"], input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box; 
+    background-color: aliceblue;
+    border-color: white;
+}
+
+.link{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    
+}
+
+.link a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #ff5733;
+}
+.link a:hover{
+    text-decoration: underline; /* Optional: add underline on hover */
+}
+
+
+/* Button for nav bar*/
+.login-page-navbar {
+    display: flex;                 
+    align-items: center;           
+    justify-content: space-between;
+    padding: 10px 20px; 
+    background-color: transparent; 
+}
+
+.btn_navbar{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+
+}
+
+.btn_navbar button{
+    border-radius: 10px;
+    padding : 5px 10px;
+    margin-right: 8px; 
+    font-size: 15px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+}
+
+/* logo */
+
+.logo img{
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 200px;
+    height: 50px;
+}
+
+.second{
+    width:20px;
+    height:30px;
+}
+#third{
+    width: auto;
+}
+#fourth{
+    width: auto;
+}
