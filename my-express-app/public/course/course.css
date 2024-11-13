@@ -570,289 +570,187 @@ nav ul li:hover ul.dropdown {
 }
 
 
+/* Main container styling for side-by-side layout */
+.not-fixed {
+    display: flex;
+    align-items: flex-start; /* Aligns items at the start of the container vertically */
+    gap: 20px; /* Space between filter and courses containers */
+    top: 20px;
+    padding: 0 10px;
+}
 
-
-/* Sidebar styles */
-.appti_heading_column {
-    background-color: #eeeeee;
-    padding: 10px 0px;
-    padding-bottom: 10px;
+/* Container styling */
+.filter-container {
     width: 200px;
+    padding: 20px;
+    border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    left: 0;
-    height: 499px;
-    transform: translateX(0);
-    transition: transform 0.3s ease-in-out;
+    background-color: #f9f9f9;
     z-index: 1;
-    overflow-y: auto;
-    box-sizing: border-box;
-    top: 118px;
-}
-.appti_heading_column::-webkit-scrollbar {
-    width: 1px; /* Set the scrollbar width */
 }
 
-
-
-
-.appti_heading_column h4 {
-    font-size: 30px;
-    color: #1a73e8;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top:50px;
+/* Courses container styling */
+.courses {
+    flex: 1; /* Makes the courses container take up remaining space */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
 }
 
-.appti_heading_column ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-.appti_heading_column ul li {
-    margin-bottom: 5px;
-    padding:18px 30px;
-    box-sizing: border-box;
-}
-
-.appti_heading_column ul li:hover{
-    background-color: #d1cfcf !important;
-}
-
-/* Make text and icon in the same line */
-.appti_heading_column ul li a {
-    text-decoration: none;
-    font-size: 22px;
-    color: #000000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-
-.appti_heading_column ul li i {
-    margin-left: 10px;
-    transition: transform 0.3s ease;
-}
-
-.rotate-180 {
-    transform: rotate(180deg);
-}
-
-/* Close button styles */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: transparent;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.close-btn:hover {
-    color: red;
-}
-
-
-.hidden-sidebar {
-    transform: translateX(-100%);
-}
-
-.sub_heading_apptitude{
-    display: none;
-    max-width: 100%;
-   
-}
-
-.link{
-    margin: 0;
-    padding: 13px 0px;
-    width: 100%;
-}
-
-.sub_heading_apptitude ul li{
-    margin: 0;
-    padding: 0;
-}
-
-.sub_heading_apptitude ul li a{
-    padding-left: 70px;
-}
-
-
-/* Toggle button for opening sidebar */
-#toggle-sidebar {
-    position: fixed;
-    margin-left: 27px;
-    padding: 1px 7px;
-    font-size: 22px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-
-@media (max-width: 968px) {
-    .appti_heading_column {
-        width: 280px; /* Example: adjust width for smaller screens */
-        overflow-y: auto; /* Do not use auto if you want scrolling */
-        font-size: 7px;
-        margin-bottom: 50px;
-    }
-    
-    .sub_heading_apptitude ul li a{
-        padding-left: 50px;
-    }
-}
-
-.link {
-    color: blue; /* Initial color */
-    text-decoration: none;
-}
-
-.link.clicked {
-    background-color: #1a73e8; /* Color after click */
-    color: #ffffff;
-}
-
-
-
-
-#contentDisplay{
-    margin-top: 50px; 
-    padding: 20px 40px;
-    font-family: Arial, sans-serif;
+/* Other styling for filter options */
+.filter-container h2, .courses h2 {
+    font-size: 1.5em;
     color: #333;
-    margin-left: 270px;
-    width: border-box;
-}
-
-
-@media (min-width: 900px) {
-    .close-btn{
-        display:none;
-    }
-    .appti_heading_column{
-        width: 280px;
-    }
-} 
-
-@media (max-width: 900px) {
-    #mainContent{
-        margin-left: 0px ;
-    }
-    #contentDisplay{
-        margin-left: 0px ;
-    }
-    .appti_heading_column{
-        width: 280px;
-    } 
-}
-
-
-#toggleContentButton{
-    position: fixed;
-    right: 20px; 
-    margin-top: 1px; 
-    z-index: 1;
-    border-radius: 9px;
-    color: #ffffff;
-    background-color: #1a73e8;
-    font-size: 15px;
-    padding: 10px 13px;
-    border: none;
-    font-weight: 900;
-}
-
-
-
-
-
-
-/* style for content */
-.center{
     text-align: center;
-    font-size: 40px;
-    font-weight: 900;
 }
 
-#contentDisplay h1{
-    font-size: 30px;
-    color: #1a73e8;
+.filter-group {
     margin-bottom: 20px;
 }
-#contentDisplay h2 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 25px;
+
+.filter-group h3 {
+    font-size: 1.2em;
     margin-bottom: 10px;
+    color: #555;
 }
 
-
-
-
-
-
-#contentDisplay p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 15px;
-}
-#contentDisplay .example, #contentDisplay .solution {
-    background-color: #e8f0fe;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-
-#contentDisplay .example h3, #contentDisplay .solution h3 {
-    font-size: 18px;
+.filter-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9em;
     color: #333;
+    cursor: pointer;
 }
-#contentDisplay .example p, #contentDisplay .solution p {
-    font-size: 16px;
-    color: #444;
+
+.filter-group input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #007bff;
 }
-#contentDisplay .next-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #1a73e8;
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: #007bff;
     color: #fff;
-    font-size: 18px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+}
+
+
+
+/* Main courses container */
+.courses {
+    width: 100%;
+    margin: 20px ;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 0px;
+}
+
+/* Courses title styling */
+.courses h2 {
+    font-size: 1.5em;
+    color: #333;
     text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-}
-#contentDisplay .next-button:hover {
-    background-color: #1558b0;
+    margin-bottom: 20px;
 }
 
-#contentDisplay  .select_topic{
-    font-size: 50px;
-    color: #1a73e8;
-    font-weight: 900;
+/* Individual course container */
+.course1 {
+    display: flex;
+    gap: 5px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
+/* Left section styling */
+.course1 .left {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+}
 
-#nxt-btn{
-    background-color: #001e4d;
-    width: 150px;
-    cursor: pointer;
-    border-radius: 10px;
-    font-weight: 500;
-    padding: 10px ;
-    margin: 20px auto 0;
+.course1 .left img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.course1 .left h1 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.course1 .left p {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+}
+
+.course1 .left button {
+    background-color: #007bff;
     color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.9em;
     cursor: pointer;
+    margin-right: 10px;
+}
 
-  }
+.course1 .left button i {
+    margin-right: 5px;
+}
+
+.course1 .left button:hover {
+    background-color: #0056b3;
+}
+
+/* Right section styling */
+.course1 .right {
+    flex: 1;
+    justify-content: center;
+    gap: 1px;
+}
+
+.course1 .right h3 {
+    font-size: 1em;
+    color: #007bff;
+    margin: 0;
+}
+
+.course1 .right p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .course1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .course1 .left, .course1 .right {
+        width: 100%;
+        max-width: 100%;
+    }
+}
