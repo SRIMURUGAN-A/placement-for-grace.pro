@@ -1,3 +1,78 @@
+<<<<<<< HEAD
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.first_line_logo img {
+    margin: 5px;
+    height: 50px;
+}
+
+.btn_navbar button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.not_fixed {
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.heading h4, .heading h3 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.questions .question {
+    margin: 15px 0;
+}
+
+.questions label {
+    font-weight: bold;
+}
+
+.questions input, .questions textarea, .questions select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.questions .question textarea {
+    height: 100px;
+}
+
+.submit_button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.submit_button:hover {
+    background-color: #0056b3;
+}
+=======
 body {
     background-image: url('https://www.gracecoe.org/assets/img/admission/why1.jpg'); 
     background-blend-mode: overlay; /* Overlay gradient onto the image */
@@ -196,3 +271,4 @@ body {
   #fourth{
       width: auto;
   }
+>>>>>>> 8f67d2a3ddafef830780003530a93b64330b6a08

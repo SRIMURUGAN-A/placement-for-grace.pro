@@ -1,3 +1,53 @@
+<?php
+// Include database connection
+include('config.php');
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Capture form data
+    $full_name = $_POST['full_name'];
+    $age = $_POST['age'];
+    $gender = $_POST['gender'];
+    $email = $_POST['email'];
+    $phone_number = $_POST['phone_number'];
+    $department = $_POST['department'];
+    $year_of_study = $_POST['year_of_study'];
+    $career_goal = $_POST['career_goal'];
+    $interested_areas = $_POST['interested_areas'];
+    $financial_goal = $_POST['financial_goal'];
+    $job_interested = $_POST['job_interested'];
+    $startup_interest = $_POST['startup_interest'];
+    $skills = $_POST['skills'];
+    $hobbies = $_POST['hobbies'];
+    $project_interests = $_POST['project_interests'];
+    $additional_notes = $_POST['additional_notes'];
+
+    // Server-side validation (can be expanded as needed)
+    if (empty($full_name) || empty($email) || empty($phone_number)) {
+        echo "Please fill in all required fields.";
+    } else {
+        // Prepare the SQL query to insert data into the database
+        $query = "INSERT INTO student_profiles 
+                    (full_name, age, gender, email, phone_number, department, year_of_study, career_goal, 
+                    interested_areas, financial_goal, job_interested, startup_interest, skills, hobbies, 
+                    project_interests, additional_notes)
+                  VALUES 
+                    ('$full_name', '$age', '$gender', '$email', '$phone_number', '$department', 
+                    '$year_of_study', '$career_goal', '$interested_areas', '$financial_goal', 
+                    '$job_interested', '$startup_interest', '$skills', '$hobbies', '$project_interests', '$additional_notes')";
+
+        // Execute the query and check for success
+        if (mysqli_query($conn, $query)) {
+            // Redirect to a new page and pass the name for the welcome message
+            header("Location: welcome.php?name=" . urlencode($full_name));
+            exit();
+        } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -142,7 +192,7 @@
                     <textarea id="additional_notes" name="additional_notes" placeholder="Any other details you want to share"></textarea>
                 </div>
 
-                <button type="submit" class="submit_button">Submit</button>
+                <button type="submit">Submit</button>
             </div>
         </form>
     </div>

@@ -1,0 +1,822 @@
+body {
+    overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed {
+    position: fixed;
+    background-color: rgb(178, 21, 21);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1px 0;
+    height: 124px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+.not-fixed{
+    margin-top: 135px;
+} 
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 65px;
+    top: 0px;
+    margin: 0px;
+}
+
+.first_line_logo img,
+.first_line_logo p {
+    flex: 0 1 auto;
+    width: 100%;
+    height: 60px;
+    margin: 0 10px;
+    text-align: center;
+    white-space: nowrap;
+    color: rgb(5, 138, 255);
+}
+
+
+.first_line_logo p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1350px){
+    .first_line_logo img{
+        width: auto ;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .first_line_logo img,
+    .first_line_logo p {
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
+    }
+
+    .first_line_logo img {
+        width: 70%;
+    }
+
+    .imag {
+        display: none;
+    }
+
+}
+
+
+
+/*second container*/
+
+.second_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: #1a73e8;
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,7,163,1) 30%, rgba(163,7,73,1) 74%); */
+    padding: 5px 10px;
+}
+
+.second-container-first-image img {
+    width: auto;
+    height: 55px;
+}
+
+
+.second-toggle-btn {
+    height: 37px;
+    width: 37px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+/*use to sidebar*/
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color:#1a73e8 ;/* rgb(120, 28, 206);   */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #1a73e8;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+
+.second-toggle-btn{
+    border:none;
+}
+.second-toggle-btn:hover {
+    background-color: #1a73e8;
+    border-radius: 13px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+
+
+/*second container nav*/
+.second-container-nav {
+    margin-left: 20px;
+    width: 40%;
+}
+
+
+.second-container-nav nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: auto;
+}
+
+/*right now its ok*/
+
+
+
+
+.second-container-icons-and-button {
+    width: 200px;
+    height: 54px;
+    display: block;
+    background-color: transperent;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0px;
+    top: 75px;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+
+.second-container-icons i {
+    margin-right: 25px;
+    font-size: 20px;
+    color: #0a0a0a;
+}
+
+
+/*used for second container*/
+
+
+
+
+/* navi */
+nav {
+    background-color: transparent;
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    margin-right: 20px;
+    margin-top: 15px;
+    font-size: 20px
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: block;
+    margin-right: 20px;
+    width: 100%;
+}
+
+
+
+nav ul li a:hover {
+    font-size: 21px;
+    transform: scale(1.1);
+    width: 75%;
+}
+
+/*used for the drop down box */
+
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    /* Position the dropdown relative to the center of the parent */
+    transform: translateX(-50%);
+    /* Shift it left by 50% of its own width to center it */
+    background-color: #4d4a4a;
+    list-style: none;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin-left: -50px;
+    height: auto;
+}
+
+nav ul li ul.dropdown li {
+    margin: 10px 0;
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+
+
+
+
+/* used for sefito*/
+
+.sefito {
+    width: 140px;
+    height: auto;
+}
+
+.sefito-nav {
+    width: 100px;
+    height: auto;
+}
+
+.sefito-nav ul li {
+    margin-left: 0;
+}
+
+#main-link {
+    width: 80px;
+    height: auto;
+    margin-bottom: 7px;
+}
+
+.sefito-nav-bar {
+    list-style-type: none;
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    justify-content: start;
+}
+
+
+.sefito-nav-bar li {
+    float: left;
+}
+
+.sefito-nav-bar li a:hover {
+    font-size: 20px;
+}
+
+.sefito-nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.sefito-toggle-container {
+    position: absolute;
+    top: 180px;
+    /* Adjust as needed */
+    left: 19px;
+    /* Adjust as needed */
+    width: 200px;
+    height: 168px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(205, 17, 17, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 5px;
+}
+
+
+
+
+.sefito-right-toggle-container1 {
+    position: absolute;
+    top: 185px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+
+.sefito-right-toggle-container2 {
+    position: absolute;
+    top: 235px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-right-toggle-container3 {
+    position: absolute;
+    top: 285px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-toggle-bar {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sefito-toggle-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sefito-toggle-bar ul li {
+    padding: 8px 0;
+}
+
+.sefito-toggle-bar ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    display: block;
+}
+
+.sefito-toggle-bar ul li a:hover {
+    background-color: #ddd;
+}
+
+
+/* All other styles remain the same */
+
+
+.sefito {
+    display: none;
+}
+
+
+@media screen and (max-width: 746px) {
+    .sefito {
+        display: block;
+    }
+
+    .second-container-nav {
+        display: none;
+    }
+}
+
+
+
+/* Used for profile dashboard */
+.toggleBar_profile {
+    display: none;
+    margin-top: 1px;
+    margin-right: 60px;
+    width: 170px;
+    height: 180px;
+    float: right;
+    font-size: 19px;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul li {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+    border-left:1px solid #007bff;
+    border-right:1px solid #007bff;
+}
+
+.toggleBar_profile ul li:hover {
+    background-color: #007bff;
+}
+
+.toggleBar_profile ul li i{
+    margin-right: 15px;
+}
+
+.toggleBar_profile ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 900;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.toggleBar_profile ul li:hover a {
+    color: #fff;
+}
+
+
+
+
+
+/* Sidebar styles */
+.appti_heading_column {
+    background-color: #eeeeee;
+    padding: 16px 0px;
+    padding-bottom: 10px;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    height: 499px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    overflow-y: auto;
+    box-sizing: border-box;
+    top: 127px;
+}
+
+
+.appti_heading_column h4 {
+    font-size: 30px;
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:50px;
+}
+
+.appti_heading_column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.appti_heading_column ul li {
+    margin-bottom: 5px;
+    padding:18px 30px;
+    box-sizing: border-box;
+}
+
+.appti_heading_column ul li:hover{
+    background-color: #d1cfcf !important;
+}
+
+/* Make text and icon in the same line */
+.appti_heading_column ul li a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+.appti_heading_column ul li i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+/* Close button styles */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+/* Hidden sidebar state */
+.hidden-sidebar {
+    transform: translateX(-100%);
+}
+
+.sub_heading_apptitude{
+    display: none;
+    max-width: 100%;
+   
+}
+
+.link{
+    margin: 0;
+    padding: 13px 0px;
+    width: 100%;
+}
+
+.sub_heading_apptitude ul li{
+    margin: 0;
+    padding: 0;
+}
+
+.sub_heading_apptitude ul li a{
+    padding-left: 70px;
+}
+
+
+/* Toggle button for opening sidebar */
+#toggle-sidebar {
+    position: fixed;
+    margin-left: 27px;
+    margin-top: 20px;
+    padding: 1px 7px;
+    font-size: 22px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 968px) {
+    .appti_heading_column {
+        /* Ensure this does not hide overflow */
+        width: 280px; /* Example: adjust width for smaller screens */
+        overflow-y: auto; /* Do not use auto if you want scrolling */
+        font-size: 7px;
+        margin-bottom: 50px;
+    }
+    
+    .sub_heading_apptitude ul li a{
+        padding-left: 50px;
+    }
+}
+
+.link {
+    color: blue; /* Initial color */
+    text-decoration: none;
+}
+
+.link.clicked {
+    background-color: #1a73e8; /* Color after click */
+    color: #ffffff;
+}
+
+
+
+/* maincontent */
+#mainContent{
+    margin-left: 280px ;
+    /* background-color: #840a6b; */
+}
+
+#contentDisplay{
+    margin-top: 20px; 
+    padding: 20px 40px;
+    /* color: #8805e0; 
+    font-size: 50px;*/
+    font-family: Arial, sans-serif;
+    color: #333;
+    /* justify-items: center; */
+    margin-left: 0px ;
+    width: border-box;
+    /* background-color: #0a0a0a; */
+}
+
+
+@media (min-width: 900px) {
+    .close-btn{
+        display:none;
+    }
+    .appti_heading_column{
+        width: 280px;
+    }
+} 
+
+@media (max-width: 900px) {
+    #mainContent{
+        margin-left: 0px ;
+    }
+    #contentDisplay{
+        margin-left: 0px ;
+    }
+    .appti_heading_column{
+        width: 280px;
+    } 
+}
+
+
+#toggleContentButton{
+    position: fixed;
+    right: 40px; 
+    margin-top: 20px; 
+    z-index: 1;
+    border-radius: 9px;
+    color: #ffffff;
+    background-color: #1a73e8;
+    font-size: 15px;
+    padding: 10px 13px;
+    border: none;
+    font-weight: 900;
+}
+
+
+
+
+/* style for content */
+.center{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+#contentDisplay h1{
+    font-size: 30px;
+    color: #1a73e8;
+    margin-bottom: 20px;
+}
+#contentDisplay h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+#contentDisplay p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+#contentDisplay .example, #contentDisplay .solution {
+    background-color: #e8f0fe;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+#contentDisplay .example h3, #contentDisplay .solution h3 {
+    font-size: 18px;
+    color: #333;
+}
+#contentDisplay .example p, #contentDisplay .solution p {
+    font-size: 16px;
+    color: #444;
+}
+#contentDisplay .next-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+}
+#contentDisplay .next-button:hover {
+    background-color: #1558b0;
+}
+
+#contentDisplay  .select_topic{
+    font-size: 50px;
+    color: #1a73e8;
+    font-weight: 900;
+}
+
+
+#nxt-btn{
+    background-color: #001e4d;
+    width: 150px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 10px ;
+    margin: 20px auto 0;
+    color: #fff;
+    cursor: pointer;
+
+  }

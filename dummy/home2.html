@@ -1,8 +1,3 @@
-<?php
-// Include database connection
-require 'config.php';
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +5,7 @@ require 'config.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home2.css">
+    <link rel="stylesheet" href="./css/home.css">
     <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>HOME</title>
@@ -19,14 +14,17 @@ require 'config.php';
 <body>
     <div class="fixed">
         <div class="first_container">
-            <img src="https://gracecoe.org/assets/img/g.png" alt="grace">
+            <img src="./image/grace logo.jpg" alt="grace">
             <nav>
                 <ul>
                     <li><a href="#" class="courses-link">Courses <i class="fa-solid fa-angle-down"></i></a>
                         <ul class="dropdown" id="courses-dropdown">
-                            <li><a href="#">Course 1</a></li>
-                            <li><a href="#">Course 2</a></li>
-                            <li><a href="#">Course 3</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Robitic</a></li>
+                            <li><a href="#">Civil Engineering</a></li>
+                            <li><a href="#">Computer Science</a></li>
+                            <li><a href="#">MBA</a></li>
+                            <li><a href="#">AI&DS</a></li>
                         </ul>
                     </li>
                     <li><a href="#" class="courses-link">Blog <i class="fa-solid fa-angle-down"></i></a>
@@ -76,7 +74,7 @@ require 'config.php';
         </div>
         <div class="toggleBar_profile" id="toggleBar_profile">
             <ul>
-                <li><i class="fa-solid fa-chart-line"></i><a href="">Dashboard</a></li>
+                <li><i class="fa-solid fa-chart-line"></i><a href="./dash board/dash_board.html">Dashboard</a></li>
                 <li><i class="fa-solid fa-play"></i><a href="">My learning</a></li>
                 <li><i class="fa-regular fa-user"></i><a href="">My profile</a></li>
                 <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="">Logout</a></li>
@@ -84,9 +82,16 @@ require 'config.php';
         </div>
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
-            <a href="dashboard.php">Student Dashboard</a>
-            <a href="\Graceup\placement-for-grace.pro\phpCode\apptitude\appti.php">Placement Training</a>
+<<<<<<<< HEAD:dummy/home2.html
+            <a href="#home">Student Dashboard</a>
+            <a href="../placement-for-grace.pro/apptitute/appti.html">Placement training</a>
             <a href="#about">Placement resources</a>
+========
+            <a href="./dash board/dash_board.html">Student Dashboard</a>
+            <a href="#services">Placement training</a>
+            <a href="">Resources</a>
+            <a href="./about_page/about.html">About Us</a>
+>>>>>>>> 8f67d2a3ddafef830780003530a93b64330b6a08:my-express-app/public/home.html
             <a href="#contact">Jop Available for your Course</a>
             <a href="#about">Skill Development</a>
             <a href="#about">Placement Updates</a>
@@ -209,24 +214,24 @@ require 'config.php';
                 </div>
             </div>
         </div>
-        <div class="fifth_container">
+        <div class="seventh_container">
             <div class="left">
-                <h1>Craft your path with a Powerful Resumes:</h1>
-                <p>Your resume is more than just a document—it's your personal brand. It's the first step in showcasing
-                    your talents, experience, and potential to future employers.
-                    Whether you're just starting out or looking to take your career to the next level,
-                    having a well-crafted resume can open doors to incredible opportunities.
-                    Ready to create a resume that stands out</p>
-                <button type="button" onclick="">Learn More>></button>
+                <h1>Sharpen Your Aptitude Skills for Career Success:</h1>
+                <p>Aptitude tests are a critical part of the recruitment process, assessing your problem-solving
+                    abilities, logical thinking, and analytical skills. Excelling in these tests can set you apart from
+                    other candidates and give you a competitive edge.</p>
+                <button type="button" onclick="window.location.href='./apptitute'">Learn More ></button>
             </div>
             <div class="right">
-                <img class="blurred-image" src="https://wallpapercave.com/wp/PO6cjaY.jpg" alt="">
+                <img class="blurred-image"
+                    src="./image/apptitude.jpg"
+                    alt="right">
             </div>
         </div>
         <div class="sixth_container">
             <div class="right">
                 <img class="blurred-imageright"
-                    src="https://th.bing.com/th/id/OIP.XQY8kA2eblge6RQStIuOWgHaEK?w=256&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+                    src="./image/communication.jpg"
                     alt="">
             </div>
             <div class="left">
@@ -238,18 +243,31 @@ require 'config.php';
                 <button type="button" onclick="">Learn More>></button>
             </div>
         </div>
-        <div class="seventh_container">
+        <div class="fifth_container">
             <div class="left">
-                <h1>Sharpen Your Aptitude Skills for Career Success:</h1>
-                <p>Aptitude tests are a critical part of the recruitment process, assessing your problem-solving
-                    abilities, logical thinking, and analytical skills. Excelling in these tests can set you apart from
-                    other candidates and give you a competitive edge.</p>
-                <button type="button" onclick="window.location.href='./apptitute/appti.html'">Learn More ></button>
+                <h1>Craft your path with a Powerful Resumes:</h1>
+                <p>Your resume is more than just a document—it's your personal brand. It's the first step in showcasing
+                    your talents, experience, and potential to future employers.
+                    Whether you're just starting out or looking to take your career to the next level,
+                    having a well-crafted resume can open doors to incredible opportunities.
+                    Ready to create a resume that stands out</p>
+                <button type="button" onclick="">Learn More>></button>
             </div>
             <div class="right">
-                <img class="blurred-image"
-                    src="https://picjumbo.com/wp-content/uploads/freelance-man-working-on-his-laptop-free-photo-2210x1473.jpg"
-                    alt="right">
+                <img class="blurred-image" src="./image/resume.jpg" alt="">
+            </div>
+        </div>
+        <div class="sixth_container">
+            <div class="right">
+                <img class="blurred-imageright" src="./image/istockphoto-2171525082-612x612.jpg" alt="">
+            </div>
+            <div class="left">
+                <h1>Technical skills</h1>
+                <p>Technical skills refer to specific abilities and knowledge 
+                    required to perform tasks in various specialized fields,
+                     especially those involving technology. They include skills 
+                     in areas like programming, data analysis, system management.</p>
+                <button type="button" onclick="">Learn More>></button>
             </div>
         </div>
         <div class="eight_container">

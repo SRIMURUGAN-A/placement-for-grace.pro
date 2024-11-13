@@ -37,10 +37,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Signup successful!";
             // Redirect based on role
             if ($role == 'admin') {
-                header("Location: adminlogin.php");
+                header("Location: admin_dashboard.php");
             } else {
-                header("Location: home.php");
+                // Redirect to student profile page
+                header("Location: student_profile.php");
             }
+            exit(); // Don't forget to exit after redirection to stop script execution
         } else {
             echo "Error: " . $conn->error;
         }
