@@ -63,16 +63,37 @@ body {
     color: #555;
 }
 
+
 .images-section {
     display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+    justify-content: space-around; /* Space images evenly */
+    gap: 5px; /* Adjust spacing between each item */
+    padding: 10px; /* Optional: add padding around the section */
 }
 
-.images-section img {
-    max-width: 30%;
-    height: auto;
+.image-item {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Center-align the text */
 }
+
+.about-img {
+    width: 100%; /* Adjust image size as needed */
+    height: auto;
+    flex: 1;
+    margin-top: 20px; /* Space between image and text */
+}
+
+
+.image-item p {
+    font-size: 36px; /* Adjust font size as needed */
+    color: #333; /* Text color */
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 
 .offerings {
     margin-top: 40px;
@@ -92,6 +113,7 @@ body {
     color: white;
     padding: 20px;
     text-align: center;
+
 }
 
 .footer-content ul {
@@ -124,6 +146,13 @@ body {
 .footer-bottom p {
     font-size: 0.9rem;
 }
+
+.social-links img{
+    width: 35px;
+    height: auto;
+    border-radius: 50%;
+}
+
 
 /* Add Responsive Design for Mobile View */
 @media (max-width: 768px) {

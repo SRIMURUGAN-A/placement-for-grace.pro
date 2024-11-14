@@ -99,93 +99,228 @@
   <script>
     const questions = [
   {
-    question: "If a shirt costs $80 and is sold for $100, what is the profit percentage?",
-    answer: [
-      { text: "25%", correct: true },
-      { text: "20%", correct: false },
-      { text: "15%", correct: false },
-      { text: "10%", correct: false }
-    ]
-  },
-  {
-    question: "A person buys a book for $150 and sells it for $120. What is the loss percentage?",
+    question: "If a toy is bought for $50 and sold for $60, what is the profit percentage?",
     answer: [
       { text: "20%", correct: true },
-      { text: "25%", correct: false },
       { text: "15%", correct: false },
-      { text: "10%", correct: false }
+      { text: "10%", correct: false },
+      { text: "25%", correct: false }
     ]
   },
   {
-    question: "If the cost price of a bicycle is $200 and it is sold at a profit of 30%, what is the selling price?",
+    question: "If a bike is purchased for $200 and sold at a loss of 10%, what is the selling price?",
     answer: [
-      { text: "$260", correct: false },
-      { text: "$240", correct: true },
-      { text: "$230", correct: false },
-      { text: "$270", correct: false }
-    ]
-  },
-  {
-    question: "A man buys an item for $500 and sells it for $600. What is his profit percentage?",
-    answer: [
-      { text: "20%", correct: true },
-      { text: "25%", correct: false },
-      { text: "15%", correct: false },
-      { text: "10%", correct: false }
-    ]
-  },
-  {
-    question: "A mobile phone is bought for $300 and sold at a loss of 10%. What is the selling price?",
-    answer: [
-      { text: "$270", correct: true },
-      { text: "$250", correct: false },
-      { text: "$280", correct: false },
-      { text: "$260", correct: false }
-    ]
-  },
-  {
-    question: "A shopkeeper buys a pen for $5 and sells it for $8. What is his profit percentage?",
-    answer: [
-      { text: "60%", correct: true },
-      { text: "50%", correct: false },
-      { text: "40%", correct: false },
-      { text: "30%", correct: false }
-    ]
-  },
-  {
-    question: "If an article is sold for $150 and there is a 25% loss, what was the cost price?",
-    answer: [
-      { text: "$200", correct: true },
-      { text: "$180", correct: false },
+      { text: "$180", correct: true },
+      { text: "$160", correct: false },
       { text: "$170", correct: false },
-      { text: "$160", correct: false }
+      { text: "$190", correct: false }
     ]
   },
   {
-    question: "A product is bought for $400 and sold for $500. What is the profit percentage?",
-    answer: [
-      { text: "25%", correct: true },
-      { text: "20%", correct: false },
-      { text: "30%", correct: false },
-      { text: "15%", correct: false }
-    ]
-  },
-  {
-    question: "If an article is sold at a profit of 20% for $120, what was the cost price?",
+    question: "A watch is sold for $120 with a profit of 20%. What was the cost price?",
     answer: [
       { text: "$100", correct: true },
       { text: "$110", correct: false },
       { text: "$90", correct: false },
-      { text: "$80", correct: false }
+      { text: "$95", correct: false }
     ]
   },
   {
-    question: "A man sells a chair for $150 and makes a loss of 25%. What was the cost price of the chair?",
+    question: "If an article is sold for $75 at a loss of 25%, what was the cost price?",
     answer: [
-      { text: "$200", correct: true },
+      { text: "$100", correct: true },
+      { text: "$80", correct: false },
+      { text: "$90", correct: false },
+      { text: "$95", correct: false }
+    ]
+  },
+  {
+    question: "A book is bought for $150 and sold for $120. What is the loss percentage?",
+    answer: [
+      { text: "20%", correct: true },
+      { text: "15%", correct: false },
+      { text: "25%", correct: false },
+      { text: "10%", correct: false }
+    ]
+  },
+  {
+    question: "If a TV is bought for $500 and sold for $600, what is the profit percentage?",
+    answer: [
+      { text: "20%", correct: true },
+      { text: "10%", correct: false },
+      { text: "15%", correct: false },
+      { text: "25%", correct: false }
+    ]
+  },
+  {
+    question: "A laptop is bought for $800 and sold at a 15% profit. What is the selling price?",
+    answer: [
+      { text: "$920", correct: true },
+      { text: "$900", correct: false },
+      { text: "$950", correct: false },
+      { text: "$1000", correct: false }
+    ]
+  },
+  {
+    question: "If a pen is bought for $10 and sold at a 10% loss, what is the selling price?",
+    answer: [
+      { text: "$9", correct: true },
+      { text: "$8", correct: false },
+      { text: "$9.5", correct: false },
+      { text: "$10", correct: false }
+    ]
+  },
+  {
+    question: "A chair is bought for $60 and sold for $75. What is the profit percentage?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "20%", correct: false },
+      { text: "15%", correct: false },
+      { text: "30%", correct: false }
+    ]
+  },
+  {
+    question: "If a table is sold for $150 at a loss of 20%, what was the cost price?",
+    answer: [
+      { text: "$187.50", correct: true },
       { text: "$180", correct: false },
-      { text: "$160", correct: false },
-      { text: "$140", correct: false }
+      { text: "$175", correct: false },
+      { text: "$160", correct: false }
+    ]
+  },
+  {
+    question: "A book was bought for $200 and sold at 10% profit. What is the selling price?",
+    answer: [
+      { text: "$220", correct: true },
+      { text: "$210", correct: false },
+      { text: "$230", correct: false },
+      { text: "$240", correct: false }
+    ]
+  },
+  {
+    question: "If a phone is bought for $300 and sold at a loss of 15%, what is the selling price?",
+    answer: [
+      { text: "$255", correct: true },
+      { text: "$260", correct: false },
+      { text: "$270", correct: false },
+      { text: "$280", correct: false }
+    ]
+  },
+  {
+    question: "A car is bought for $8000 and sold for $9200. What is the profit percentage?",
+    answer: [
+      { text: "15%", correct: true },
+      { text: "10%", correct: false },
+      { text: "12.5%", correct: false },
+      { text: "20%", correct: false }
+    ]
+  },
+  {
+    question: "A sofa was bought for $400 and sold at a loss of 5%. What is the selling price?",
+    answer: [
+      { text: "$380", correct: true },
+      { text: "$390", correct: false },
+      { text: "$370", correct: false },
+      { text: "$360", correct: false }
+    ]
+  },
+  {
+    question: "If a computer is bought for $700 and sold at a profit of 25%, what is the selling price?",
+    answer: [
+      { text: "$875", correct: true },
+      { text: "$850", correct: false },
+      { text: "$800", correct: false },
+      { text: "$900", correct: false }
+    ]
+  },
+  {
+    question: "A camera is sold for $300 at a 10% loss. What was the cost price?",
+    answer: [
+      { text: "$333.33", correct: true },
+      { text: "$350", correct: false },
+      { text: "$300", correct: false },
+      { text: "$310", correct: false }
+    ]
+  },
+  {
+    question: "If a bike is bought for $400 and sold for $500, what is the profit percentage?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "20%", correct: false },
+      { text: "30%", correct: false },
+      { text: "35%", correct: false }
+    ]
+  },
+  {
+    question: "A phone was bought for $250 and sold at a loss of 10%. What is the selling price?",
+    answer: [
+      { text: "$225", correct: true },
+      { text: "$230", correct: false },
+      { text: "$240", correct: false },
+      { text: "$220", correct: false }
+    ]
+  },
+  {
+    question: "If a laptop is bought for $600 and sold at a profit of 10%, what is the selling price?",
+    answer: [
+      { text: "$660", correct: true },
+      { text: "$650", correct: false },
+      { text: "$620", correct: false },
+      { text: "$640", correct: false }
+    ]
+  },
+  {
+    question: "A television bought for $800 is sold for $600. What is the loss percentage?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "20%", correct: false },
+      { text: "15%", correct: false },
+      { text: "30%", correct: false }
+    ]
+  },
+  {
+    question: "If a book is bought for $30 and sold at a 15% profit, what is the selling price?",
+    answer: [
+      { text: "$34.50", correct: true },
+      { text: "$32.00", correct: false },
+      { text: "$33.00", correct: false },
+      { text: "$35.00", correct: false }
+    ]
+  },
+  {
+    question: "A machine is bought for $1000 and sold at a 20% loss. What is the selling price?",
+    answer: [
+      { text: "$800", correct: true },
+      { text: "$850", correct: false },
+      { text: "$900", correct: false },
+      { text: "$750", correct: false }
+    ]
+  },
+  {
+    question: "If a dress is bought for $150 and sold for $180, what is the profit percentage?",
+    answer: [
+      { text: "20%", correct: true },
+      { text: "15%", correct: false },
+      { text: "25%", correct: false },
+      { text: "30%", correct: false }
+    ]
+  },
+  {
+    question: "A car is bought for $12,000 and sold at a loss of 10%. What is the selling price?",
+    answer: [
+      { text: "$10,800", correct: true },
+      { text: "$11,000", correct: false },
+      { text: "$10,500", correct: false },
+      { text: "$11,500", correct: false }
+    ]
+  },
+  {
+    question: "If a smartphone is bought for $400 and sold at a profit of 25%, what is the selling price?",
+    answer: [
+      { text: "$500", correct: true },
+      { text: "$450", correct: false },
+      { text: "$520", correct: false },
+      { text: "$480", correct: false }
     ]
   }
 ];

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "A 10-meter pole casts a shadow of 5 meters. What is the angle of elevation of the sun?",
+    answer: [
+      { text: "63.43°", correct: true },
+      { text: "45°", correct: false },
+      { text: "30°", correct: false },
+      { text: "53.13°", correct: false }
+    ]
+  },
+  {
+    question: "From a point 30 meters away from the base of a building, the angle of elevation to the top is 45°. What is the height of the building?",
+    answer: [
+      { text: "30 meters", correct: true },
+      { text: "20 meters", correct: false },
+      { text: "15 meters", correct: false },
+      { text: "25 meters", correct: false }
+    ]
+  },
+  {
+    question: "A ladder leans against a wall with an angle of elevation of 60° and reaches a height of 15 meters. How long is the ladder?",
+    answer: [
+      { text: "17.32 meters", correct: true },
+      { text: "15 meters", correct: false },
+      { text: "20 meters", correct: false },
+      { text: "25 meters", correct: false }
+    ]
+  },
+  {
+    question: "A kite is flying at a height of 30 meters and the string makes an angle of 30° with the ground. What is the length of the string?",
+    answer: [
+      { text: "60 meters", correct: true },
+      { text: "45 meters", correct: false },
+      { text: "30 meters", correct: false },
+      { text: "50 meters", correct: false }
+    ]
+  },
+  {
+    question: "From a distance of 100 meters from the base of a tower, the angle of elevation to the top is 30°. Find the height of the tower.",
+    answer: [
+      { text: "57.74 meters", correct: true },
+      { text: "86.6 meters", correct: false },
+      { text: "43.3 meters", correct: false },
+      { text: "50 meters", correct: false }
+    ]
+  },
+  {
+    question: "A 20-meter tall tree casts a shadow of 10 meters. What is the angle of elevation of the sun?",
+    answer: [
+      { text: "63.43°", correct: true },
+      { text: "45°", correct: false },
+      { text: "30°", correct: false },
+      { text: "53.13°", correct: false }
+    ]
+  },
+  {
+    question: "An observer is 50 meters away from a tower. The angle of elevation to the top of the tower is 60°. Find the height of the tower.",
+    answer: [
+      { text: "86.6 meters", correct: true },
+      { text: "50 meters", correct: false },
+      { text: "100 meters", correct: false },
+      { text: "75 meters", correct: false }
+    ]
+  },
+  {
+    question: "A balloon is 40 meters high and the angle of elevation from a point on the ground is 45°. How far is the point from the balloon?",
+    answer: [
+      { text: "40 meters", correct: true },
+      { text: "35 meters", correct: false },
+      { text: "50 meters", correct: false },
+      { text: "30 meters", correct: false }
+    ]
+  },
+  {
+    question: "A man on top of a 30-meter high building sees a point on the ground with an angle of depression of 30°. How far is the point from the building?",
+    answer: [
+      { text: "52 meters", correct: true },
+      { text: "60 meters", correct: false },
+      { text: "45 meters", correct: false },
+      { text: "40 meters", correct: false }
+    ]
+  },
+  {
+    question: "A 15-meter ladder leans against a wall making an angle of 45° with the ground. What is the height reached by the ladder on the wall?",
+    answer: [
+      { text: "10.6 meters", correct: true },
+      { text: "12 meters", correct: false },
+      { text: "15 meters", correct: false },
+      { text: "8 meters", correct: false }
+    ]
+  },
+  {
+    question: "From a boat on a lake, the angle of elevation of a mountain peak is 30°. If the peak is 900 meters above the lake, how far is the boat from the peak horizontally?",
+    answer: [
+      { text: "1558.85 meters", correct: true },
+      { text: "1200 meters", correct: false },
+      { text: "1800 meters", correct: false },
+      { text: "1300 meters", correct: false }
+    ]
+  },
+  {
+    question: "The angle of elevation of the top of a pole from a point 15 meters away is 45°. What is the height of the pole?",
+    answer: [
+      { text: "15 meters", correct: true },
+      { text: "10 meters", correct: false },
+      { text: "20 meters", correct: false },
+      { text: "18 meters", correct: false }
+    ]
+  },
+  {
+    question: "A 30-meter high building casts a shadow 30 meters long. What is the angle of elevation of the sun?",
+    answer: [
+      { text: "45°", correct: true },
+      { text: "60°", correct: false },
+      { text: "30°", correct: false },
+      { text: "53.13°", correct: false }
+    ]
+  },
+  {
+    question: "An observer 50 meters from the base of a tower finds the angle of elevation to the top to be 60°. How tall is the tower?",
+    answer: [
+      { text: "86.6 meters", correct: true },
+      { text: "75 meters", correct: false },
+      { text: "65 meters", correct: false },
+      { text: "90 meters", correct: false }
+    ]
+  },
+  {
+    question: "A man is standing 100 meters away from a tower. The angle of elevation to the top is 30°. What is the height of the tower?",
+    answer: [
+      { text: "57.74 meters", correct: true },
+      { text: "45 meters", correct: false },
+      { text: "50 meters", correct: false },
+      { text: "60 meters", correct: false }
+    ]
+  },
+  {
+    question: "The angle of elevation of the top of a tower from a point 60 meters away is 60°. What is the height of the tower?",
+    answer: [
+      { text: "103.92 meters", correct: true },
+      { text: "90 meters", correct: false },
+      { text: "120 meters", correct: false },
+      { text: "100 meters", correct: false }
+    ]
+  },
+  {
+    question: "From a point 40 meters away from the base of a building, the angle of elevation to the top is 45°. What is the height of the building?",
+    answer: [
+      { text: "40 meters", correct: true },
+      { text: "30 meters", correct: false },
+      { text: "45 meters", correct: false },
+      { text: "35 meters", correct: false }
+    ]
+  },
+  {
+    question: "A person is standing 80 meters away from a tower and sees the top at an angle of elevation of 30°. How tall is the tower?",
+    answer: [
+      { text: "46.19 meters", correct: true },
+      { text: "60 meters", correct: false },
+      { text: "52 meters", correct: false },
+      { text: "55 meters", correct: false }
+    ]
+  },
+  {
+    question: "The angle of elevation of a bird flying at a height of 50 meters from a point 100 meters away is:",
+    answer: [
+      { text: "26.57°", correct: true },
+      { text: "30°", correct: false },
+      { text: "45°", correct: false },
+      { text: "60°", correct: false }
+    ]
+  },
+  {
+    question: "A tree casts a shadow of 10 meters when the angle of elevation of the sun is 30°. What is the height of the tree?",
+    answer: [
+      { text: "5.77 meters", correct: true },
+      { text: "6 meters", correct: false },
+      { text: "7 meters", correct: false },
+      { text: "8 meters", correct: false }
+    ]
+  },
+  {
+    question: "The angle of elevation of the top of a flagpole from a point 60 meters away is 45°. What is the height of the flagpole?",
+    answer: [
+      { text: "60 meters", correct: true },
+      { text: "45 meters", correct: false },
+      { text: "55 meters", correct: false },
+      { text: "50 meters", correct: false }
+    ]
+  },
+  {
+    question: "A man observes the top of a tower at an angle of 30° while standing 100 meters from its base. What is the tower's height?",
+    answer: [
+      { text: "57.74 meters", correct: true },
+      { text: "50 meters", correct: false },
+      { text: "40 meters", correct: false },
+      { text: "60 meters", correct: false }
+    ]
+  },
+  {
+    question: "The angle of elevation of the top of a pole from a point 20 meters away is 60°. Find the height of the pole.",
+    answer: [
+      { text: "34.64 meters", correct: true },
+      { text: "30 meters", correct: false },
+      { text: "25 meters", correct: false },
+      { text: "35 meters", correct: false }
+    ]
+  },
+  {
+    question: "From a point on the ground, the angle of elevation of a 100-meter high building is 30°. What is the distance from the point to the building?",
+    answer: [
+      { text: "173.21 meters", correct: true },
+      { text: "150 meters", correct: false },
+      { text: "200 meters", correct: false },
+      { text: "180 meters", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

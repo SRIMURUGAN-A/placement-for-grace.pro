@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "What is the angle between the hour and minute hands at 3:00?",
+    answer: [
+      { text: "90 degrees", correct: true },
+      { text: "180 degrees", correct: false },
+      { text: "0 degrees", correct: false },
+      { text: "45 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 4:00 and 5:00 will the hour and minute hands overlap?",
+    answer: [
+      { text: "4:24", correct: true },
+      { text: "4:30", correct: false },
+      { text: "4:36", correct: false },
+      { text: "4:45", correct: false }
+    ]
+  },
+  {
+    question: "What is the angle between the hour and minute hands at 12:30?",
+    answer: [
+      { text: "165 degrees", correct: true },
+      { text: "180 degrees", correct: false },
+      { text: "90 degrees", correct: false },
+      { text: "75 degrees", correct: false }
+    ]
+  },
+  {
+    question: "How many times do the hour and minute hands overlap in a 24-hour period?",
+    answer: [
+      { text: "22 times", correct: true },
+      { text: "24 times", correct: false },
+      { text: "20 times", correct: false },
+      { text: "24 times", correct: false }
+    ]
+  },
+  {
+    question: "At what time will the minute hand be at 12 and the hour hand at 6?",
+    answer: [
+      { text: "6:00", correct: true },
+      { text: "6:30", correct: false },
+      { text: "5:30", correct: false },
+      { text: "7:00", correct: false }
+    ]
+  },
+  {
+    question: "If the time is 7:20, what is the angle between the hour and minute hands?",
+    answer: [
+      { text: "140 degrees", correct: true },
+      { text: "120 degrees", correct: false },
+      { text: "160 degrees", correct: false },
+      { text: "180 degrees", correct: false }
+    ]
+  },
+  {
+    question: "How many degrees does the minute hand move per minute?",
+    answer: [
+      { text: "6 degrees", correct: true },
+      { text: "12 degrees", correct: false },
+      { text: "1 degree", correct: false },
+      { text: "2 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 2:00 and 3:00 will the hour and minute hands be at a 90-degree angle?",
+    answer: [
+      { text: "2:16", correct: true },
+      { text: "2:20", correct: false },
+      { text: "2:40", correct: false },
+      { text: "2:50", correct: false }
+    ]
+  },
+  {
+    question: "What is the angle between the hour and minute hands at 6:30?",
+    answer: [
+      { text: "165 degrees", correct: true },
+      { text: "180 degrees", correct: false },
+      { text: "90 degrees", correct: false },
+      { text: "75 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 9:00 and 10:00 will the hour and minute hands be at a 180-degree angle?",
+    answer: [
+      { text: "9:30", correct: true },
+      { text: "9:15", correct: false },
+      { text: "9:45", correct: false },
+      { text: "9:10", correct: false }
+    ]
+  },
+  {
+    question: "How many degrees does the hour hand move per hour?",
+    answer: [
+      { text: "30 degrees", correct: true },
+      { text: "15 degrees", correct: false },
+      { text: "60 degrees", correct: false },
+      { text: "45 degrees", correct: false }
+    ]
+  },
+  {
+    question: "What time is it when the minute hand and hour hand are at exactly 180 degrees?",
+    answer: [
+      { text: "6:00", correct: true },
+      { text: "3:00", correct: false },
+      { text: "9:00", correct: false },
+      { text: "12:00", correct: false }
+    ]
+  },
+  {
+    question: "What is the angle between the hour and minute hands at 9:15?",
+    answer: [
+      { text: "97.5 degrees", correct: true },
+      { text: "90 degrees", correct: false },
+      { text: "85 degrees", correct: false },
+      { text: "100 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 5:00 and 6:00 will the hour and minute hands be at a 90-degree angle?",
+    answer: [
+      { text: "5:27", correct: true },
+      { text: "5:30", correct: false },
+      { text: "5:45", correct: false },
+      { text: "5:50", correct: false }
+    ]
+  },
+  {
+    question: "At 12:00, what is the angle between the hour and minute hands?",
+    answer: [
+      { text: "0 degrees", correct: true },
+      { text: "30 degrees", correct: false },
+      { text: "180 degrees", correct: false },
+      { text: "45 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 3:00 and 4:00 will the hour and minute hands be at a 90-degree angle?",
+    answer: [
+      { text: "3:16", correct: true },
+      { text: "3:20", correct: false },
+      { text: "3:25", correct: false },
+      { text: "3:30", correct: false }
+    ]
+  },
+  {
+    question: "If the time is 5:00, what is the angle between the hour and minute hands?",
+    answer: [
+      { text: "150 degrees", correct: true },
+      { text: "180 degrees", correct: false },
+      { text: "90 degrees", correct: false },
+      { text: "120 degrees", correct: false }
+    ]
+  },
+  {
+    question: "If the time is 2:30, what is the angle between the hour and minute hands?",
+    answer: [
+      { text: "75 degrees", correct: true },
+      { text: "90 degrees", correct: false },
+      { text: "60 degrees", correct: false },
+      { text: "45 degrees", correct: false }
+    ]
+  },
+  {
+    question: "At what time will the minute hand be at 12 and the hour hand be at 9?",
+    answer: [
+      { text: "9:00", correct: true },
+      { text: "9:30", correct: false },
+      { text: "8:00", correct: false },
+      { text: "10:00", correct: false }
+    ]
+  },
+  {
+    question: "What is the angle between the hour and minute hands at 7:40?",
+    answer: [
+      { text: "220 degrees", correct: true },
+      { text: "210 degrees", correct: false },
+      { text: "200 degrees", correct: false },
+      { text: "230 degrees", correct: false }
+    ]
+  },
+  {
+    question: "How much time will it take for the minute hand to move 180 degrees?",
+    answer: [
+      { text: "30 minutes", correct: true },
+      { text: "45 minutes", correct: false },
+      { text: "60 minutes", correct: false },
+      { text: "15 minutes", correct: false }
+    ]
+  },
+  {
+    question: "At what time between 8:00 and 9:00 will the hour and minute hands overlap?",
+    answer: [
+      { text: "8:43", correct: true },
+      { text: "8:50", correct: false },
+      { text: "8:30", correct: false },
+      { text: "8:20", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

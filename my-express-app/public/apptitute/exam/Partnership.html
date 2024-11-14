@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "A and B enter into a partnership with investments of $5000 and $3000, respectively. What will be their profit ratio if the total profit is $8000?",
+    answer: [
+      { text: "5:3", correct: true },
+      { text: "3:5", correct: false },
+      { text: "2:1", correct: false },
+      { text: "1:2", correct: false }
+    ]
+  },
+  {
+    question: "In a partnership, A invests $6000 and B invests $4000. If they make a profit of $10000, what will be A's share of the profit?",
+    answer: [
+      { text: "$6000", correct: true },
+      { text: "$4000", correct: false },
+      { text: "$5000", correct: false },
+      { text: "$7000", correct: false }
+    ]
+  },
+  {
+    question: "A and B start a partnership with investments of $10000 and $15000. After 6 months, C joins with $20000. If the total profit after 1 year is $18000, how much will C receive?",
+    answer: [
+      { text: "$4000", correct: true },
+      { text: "$5000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$3000", correct: false }
+    ]
+  },
+  {
+    question: "In a partnership, A and B invest in a ratio of 3:4. If their total profit at the end of the year is $14000, what will be A's share?",
+    answer: [
+      { text: "$6000", correct: true },
+      { text: "$7000", correct: false },
+      { text: "$5000", correct: false },
+      { text: "$4500", correct: false }
+    ]
+  },
+  {
+    question: "A and B invested $5000 and $7000 respectively in a business. After 6 months, C joins with $8000. If the total profit is $12000, how much will C receive?",
+    answer: [
+      { text: "$3000", correct: true },
+      { text: "$4000", correct: false },
+      { text: "$5000", correct: false },
+      { text: "$3500", correct: false }
+    ]
+  },
+  {
+    question: "A and B enter into a partnership with investments of $10000 and $12000, respectively. If they make a profit of $9600, how much will A receive?",
+    answer: [
+      { text: "$4000", correct: true },
+      { text: "$5000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$3000", correct: false }
+    ]
+  },
+  {
+    question: "In a partnership, A invests $8000 and B invests $12000. If their total profit at the end of the year is $20000, what will be A's share of the profit?",
+    answer: [
+      { text: "$8000", correct: true },
+      { text: "$9000", correct: false },
+      { text: "$10000", correct: false },
+      { text: "$11000", correct: false }
+    ]
+  },
+  {
+    question: "A and B invest in a partnership in the ratio of 5:7. If the total profit is $12000, how much profit will B get?",
+    answer: [
+      { text: "$7000", correct: true },
+      { text: "$6000", correct: false },
+      { text: "$8000", correct: false },
+      { text: "$5000", correct: false }
+    ]
+  },
+  {
+    question: "A and B start a business with investments of $5000 and $8000, respectively. After 6 months, C joins with $6000. What will be C's share of a total profit of $18000 after 1 year?",
+    answer: [
+      { text: "$4500", correct: true },
+      { text: "$5000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$4000", correct: false }
+    ]
+  },
+  {
+    question: "A and B invested in a partnership for 1 year with investments of $7000 and $9000, respectively. If their total profit is $16000, how much will A receive?",
+    answer: [
+      { text: "$7000", correct: true },
+      { text: "$8000", correct: false },
+      { text: "$9000", correct: false },
+      { text: "$10000", correct: false }
+    ]
+  },
+  {
+    question: "A invests $12000 in a partnership and B invests $8000. After 8 months, C joins with $10000. If the total profit is $24000, how much will C receive?",
+    answer: [
+      { text: "$5000", correct: true },
+      { text: "$6000", correct: false },
+      { text: "$4000", correct: false },
+      { text: "$7000", correct: false }
+    ]
+  },
+  {
+    question: "A invests $5000, B invests $8000, and C invests $10000 in a partnership. What will be C's share in the profit if the total profit is $30000?",
+    answer: [
+      { text: "$10000", correct: true },
+      { text: "$12000", correct: false },
+      { text: "$15000", correct: false },
+      { text: "$20000", correct: false }
+    ]
+  },
+  {
+    question: "A, B, and C are partners in a business. A invests $5000, B invests $7000, and C invests $8000. What will be the profit ratio if the total profit is $24000?",
+    answer: [
+      { text: "5:7:8", correct: true },
+      { text: "7:5:8", correct: false },
+      { text: "8:7:5", correct: false },
+      { text: "7:8:5", correct: false }
+    ]
+  },
+  {
+    question: "A and B invest in a partnership with investments of $6000 and $4000, respectively. If the total profit is $10000, how much will B receive?",
+    answer: [
+      { text: "$4000", correct: true },
+      { text: "$5000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$3000", correct: false }
+    ]
+  },
+  {
+    question: "A and B invested in a partnership for 9 months with investments of $5000 and $8000, respectively. If the total profit is $27000, how much will A receive?",
+    answer: [
+      { text: "$12000", correct: true },
+      { text: "$13000", correct: false },
+      { text: "$11000", correct: false },
+      { text: "$14000", correct: false }
+    ]
+  },
+  {
+    question: "A and B entered into a partnership with investments of $7000 and $10000, respectively. How much will A receive from a total profit of $24000?",
+    answer: [
+      { text: "$7000", correct: true },
+      { text: "$8000", correct: false },
+      { text: "$9000", correct: false },
+      { text: "$10000", correct: false }
+    ]
+  },
+  {
+    question: "A and B invest $4000 and $6000 respectively. After 8 months, C joins with $8000. What will be C's share if the total profit is $18000?",
+    answer: [
+      { text: "$4000", correct: true },
+      { text: "$5000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$3000", correct: false }
+    ]
+  },
+  {
+    question: "A, B, and C invest $5000, $7000, and $9000, respectively, in a partnership. What is their profit ratio if the total profit is $18000?",
+    answer: [
+      { text: "5:7:9", correct: true },
+      { text: "7:5:9", correct: false },
+      { text: "9:7:5", correct: false },
+      { text: "7:9:5", correct: false }
+    ]
+  },
+  {
+    question: "A invests $12000, B invests $8000, and C invests $6000. What will be the total profit distribution if the profit is $24000?",
+    answer: [
+      { text: "12:8:6", correct: true },
+      { text: "8:12:6", correct: false },
+      { text: "6:8:12", correct: false },
+      { text: "8:6:12", correct: false }
+    ]
+  },
+  {
+    question: "A, B, and C invested in a business in the ratio of 3:4:5. If the total profit is $24000, how much profit will B get?",
+    answer: [
+      { text: "$9600", correct: true },
+      { text: "$8000", correct: false },
+      { text: "$7200", correct: false },
+      { text: "$10800", correct: false }
+    ]
+  },
+  {
+    question: "A and B start a partnership with investments of $6000 and $9000, respectively. If they make a profit of $15000, what will be B's share?",
+    answer: [
+      { text: "$9000", correct: true },
+      { text: "$8000", correct: false },
+      { text: "$10000", correct: false },
+      { text: "$12000", correct: false }
+    ]
+  },
+  {
+    question: "A and B invest $4000 and $6000, respectively, in a business. After 6 months, C joins with $8000. What will be C's share in the total profit of $20000?",
+    answer: [
+      { text: "$5000", correct: true },
+      { text: "$4000", correct: false },
+      { text: "$6000", correct: false },
+      { text: "$7000", correct: false }
+    ]
+  },
+  {
+    question: "A invests $5000 in a business, and B invests $10000. If their total profit is $30000, what is A's share of the profit?",
+    answer: [
+      { text: "$10000", correct: true },
+      { text: "$15000", correct: false },
+      { text: "$12000", correct: false },
+      { text: "$9000", correct: false }
+    ]
+  },
+  {
+    question: "A, B, and C enter into a partnership with investments of $5000, $7000, and $9000, respectively. What is their profit ratio if the total profit is $27000?",
+    answer: [
+      { text: "5:7:9", correct: true },
+      { text: "7:5:9", correct: false },
+      { text: "9:7:5", correct: false },
+      { text: "7:9:5", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

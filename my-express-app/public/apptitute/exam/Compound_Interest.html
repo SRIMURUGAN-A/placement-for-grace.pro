@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "What is the compound interest on $2000 for 2 years at 5% per annum compounded annually?",
+    answer: [
+      { text: "$210", correct: true },
+      { text: "$250", correct: false },
+      { text: "$200", correct: false },
+      { text: "$220", correct: false }
+    ]
+  },
+  {
+    question: "If the principal is $3000, the rate is 6% per annum, and the time is 2 years, what will be the compound interest compounded annually?",
+    answer: [
+      { text: "$366", correct: true },
+      { text: "$350", correct: false },
+      { text: "$400", correct: false },
+      { text: "$375", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $1500 for 3 years at 8% per annum compounded annually?",
+    answer: [
+      { text: "$387.74", correct: true },
+      { text: "$400", correct: false },
+      { text: "$350", correct: false },
+      { text: "$375", correct: false }
+    ]
+  },
+  {
+    question: "If the principal is $10000, the rate is 5% per annum, and the time is 3 years, what will be the compound interest compounded quarterly?",
+    answer: [
+      { text: "$1576.25", correct: true },
+      { text: "$1500", correct: false },
+      { text: "$1700", correct: false },
+      { text: "$1600", correct: false }
+    ]
+  },
+  {
+    question: "What will be the compound interest on $5000 for 2 years at 7% per annum compounded annually?",
+    answer: [
+      { text: "$735", correct: true },
+      { text: "$750", correct: false },
+      { text: "$700", correct: false },
+      { text: "$800", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $2000 for 4 years at 10% per annum compounded annually?",
+    answer: [
+      { text: "$884", correct: true },
+      { text: "$900", correct: false },
+      { text: "$950", correct: false },
+      { text: "$850", correct: false }
+    ]
+  },
+  {
+    question: "A sum of $3000 is invested for 3 years at 6% per annum compounded annually. What is the compound interest?",
+    answer: [
+      { text: "$567.96", correct: true },
+      { text: "$500", correct: false },
+      { text: "$600", correct: false },
+      { text: "$550", correct: false }
+    ]
+  },
+  {
+    question: "If $2000 is invested at 12% per annum for 2 years compounded quarterly, what will be the compound interest?",
+    answer: [
+      { text: "$505.76", correct: true },
+      { text: "$500", correct: false },
+      { text: "$520", correct: false },
+      { text: "$510", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $8000 for 2 years at 6% per annum compounded quarterly?",
+    answer: [
+      { text: "$964.80", correct: true },
+      { text: "$950", correct: false },
+      { text: "$1000", correct: false },
+      { text: "$1050", correct: false }
+    ]
+  },
+  {
+    question: "A sum of $5000 is invested for 2 years at 10% per annum compounded semi-annually. What is the compound interest?",
+    answer: [
+      { text: "$1025", correct: true },
+      { text: "$1000", correct: false },
+      { text: "$1100", correct: false },
+      { text: "$1050", correct: false }
+    ]
+  },
+  {
+    question: "What will be the amount after 4 years if $10000 is invested at 5% compound interest compounded annually?",
+    answer: [
+      { text: "$12155.25", correct: true },
+      { text: "$12000", correct: false },
+      { text: "$12500", correct: false },
+      { text: "$13000", correct: false }
+    ]
+  },
+  {
+    question: "A principal amount of $12000 is invested at 8% per annum compounded annually for 2 years. What is the compound interest?",
+    answer: [
+      { text: "$1920", correct: true },
+      { text: "$2000", correct: false },
+      { text: "$2200", correct: false },
+      { text: "$2100", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $2500 for 3 years at 5% per annum compounded quarterly?",
+    answer: [
+      { text: "$391.88", correct: true },
+      { text: "$400", correct: false },
+      { text: "$350", correct: false },
+      { text: "$375", correct: false }
+    ]
+  },
+  {
+    question: "How much interest will $7000 earn in 2 years at 6% per annum compounded monthly?",
+    answer: [
+      { text: "$872.49", correct: true },
+      { text: "$850", correct: false },
+      { text: "$900", correct: false },
+      { text: "$880", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $4000 for 3 years at 9% per annum compounded annually?",
+    answer: [
+      { text: "$1212.49", correct: true },
+      { text: "$1100", correct: false },
+      { text: "$1300", correct: false },
+      { text: "$1250", correct: false }
+    ]
+  },
+  {
+    question: "A sum of $3000 is invested for 3 years at 7% per annum compounded quarterly. What is the compound interest?",
+    answer: [
+      { text: "$731.23", correct: true },
+      { text: "$700", correct: false },
+      { text: "$750", correct: false },
+      { text: "$780", correct: false }
+    ]
+  },
+  {
+    question: "If $5000 is invested at 10% compound interest annually for 4 years, what is the compound interest?",
+    answer: [
+      { text: "$2200", correct: true },
+      { text: "$2100", correct: false },
+      { text: "$2300", correct: false },
+      { text: "$2400", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $12000 for 3 years at 5% per annum compounded quarterly?",
+    answer: [
+      { text: "$1944.25", correct: true },
+      { text: "$1900", correct: false },
+      { text: "$2000", correct: false },
+      { text: "$2100", correct: false }
+    ]
+  },
+  {
+    question: "What is the amount after 5 years if $8000 is invested at 6% compound interest compounded annually?",
+    answer: [
+      { text: "$10773.49", correct: true },
+      { text: "$11000", correct: false },
+      { text: "$10500", correct: false },
+      { text: "$10800", correct: false }
+    ]
+  },
+  {
+    question: "If $4000 is invested at 9% compound interest annually for 4 years, what will be the compound interest?",
+    answer: [
+      { text: "$1555.64", correct: true },
+      { text: "$1500", correct: false },
+      { text: "$1600", correct: false },
+      { text: "$1700", correct: false }
+    ]
+  },
+  {
+    question: "How much compound interest will $7000 earn in 2 years at 5% per annum compounded monthly?",
+    answer: [
+      { text: "$711.25", correct: true },
+      { text: "$750", correct: false },
+      { text: "$700", correct: false },
+      { text: "$800", correct: false }
+    ]
+  },
+  {
+    question: "A sum of $5000 is invested for 3 years at 8% per annum compounded annually. What is the compound interest?",
+    answer: [
+      { text: "$1324.48", correct: true },
+      { text: "$1300", correct: false },
+      { text: "$1400", correct: false },
+      { text: "$1200", correct: false }
+    ]
+  },
+  {
+    question: "What is the compound interest on $2500 for 2 years at 12% per annum compounded annually?",
+    answer: [
+      { text: "$630", correct: true },
+      { text: "$600", correct: false },
+      { text: "$650", correct: false },
+      { text: "$700", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

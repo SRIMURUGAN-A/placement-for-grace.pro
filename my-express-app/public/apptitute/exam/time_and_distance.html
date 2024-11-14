@@ -97,99 +97,233 @@
     </div>
   </div>
   <script>
-    const questions = [
+   const questions = [
   {
-    question: "If a car travels at 60 km/h, how far will it travel in 4 hours?",
+    question: "If a person walks at 5 km/h, how much distance will they cover in 2 hours?",
     answer: [
-      { text: "240 km", correct: true },
-      { text: "180 km", correct: false },
-      { text: "200 km", correct: false },
-      { text: "150 km", correct: false }
+      { text: "10 km", correct: true },
+      { text: "8 km", correct: false },
+      { text: "12 km", correct: false },
+      { text: "15 km", correct: false }
     ]
   },
   {
-    question: "A person runs at a speed of 8 km/h for 30 minutes. How far does he run?",
+    question: "A cyclist travels 30 km in 2 hours. What is their speed?",
     answer: [
-      { text: "4 km", correct: false },
-      { text: "6 km", correct: false },
-      { text: "3 km", correct: true },
-      { text: "2 km", correct: false }
-    ]
-  },
-  {
-    question: "A bus travels at 45 km/h and takes 2.5 hours to reach its destination. What is the distance covered?",
-    answer: [
-      { text: "112.5 km", correct: true },
-      { text: "100 km", correct: false },
-      { text: "90 km", correct: false },
-      { text: "80 km", correct: false }
-    ]
-  },
-  {
-    question: "If a cyclist travels 90 km in 3 hours, what is his average speed?",
-    answer: [
+      { text: "15 km/h", correct: true },
+      { text: "20 km/h", correct: false },
       { text: "25 km/h", correct: false },
-      { text: "30 km/h", correct: true },
-      { text: "35 km/h", correct: false },
-      { text: "40 km/h", correct: false }
-    ]
-  },
-  {
-    question: "A train takes 6 hours to travel 540 km. What is its speed?",
-    answer: [
-      { text: "85 km/h", correct: false },
-      { text: "90 km/h", correct: true },
-      { text: "75 km/h", correct: false },
-      { text: "95 km/h", correct: false }
-    ]
-  },
-  {
-    question: "A boat travels downstream at 10 km/h and upstream at 6 km/h. What is the average speed for the round trip?",
-    answer: [
-      { text: "8 km/h", correct: true },
-      { text: "7 km/h", correct: false },
-      { text: "9 km/h", correct: false },
       { text: "10 km/h", correct: false }
     ]
   },
   {
-    question: "If a vehicle covers 150 km in 3 hours, what is its speed?",
+    question: "If a car travels at a speed of 60 km/h, how much time will it take to cover 180 km?",
     answer: [
-      { text: "60 km/h", correct: false },
-      { text: "55 km/h", correct: false },
+      { text: "3 hours", correct: true },
+      { text: "2.5 hours", correct: false },
+      { text: "4 hours", correct: false },
+      { text: "5 hours", correct: false }
+    ]
+  },
+  {
+    question: "A runner completes 1 km in 5 minutes. What is their speed in km/h?",
+    answer: [
+      { text: "12 km/h", correct: true },
+      { text: "10 km/h", correct: false },
+      { text: "8 km/h", correct: false },
+      { text: "15 km/h", correct: false }
+    ]
+  },
+  {
+    question: "If a bus covers 120 km in 3 hours, what is its speed?",
+    answer: [
+      { text: "40 km/h", correct: true },
+      { text: "45 km/h", correct: false },
+      { text: "50 km/h", correct: false },
+      { text: "60 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train moves at 90 km/h. How far will it travel in 1.5 hours?",
+    answer: [
+      { text: "135 km", correct: true },
+      { text: "120 km", correct: false },
+      { text: "140 km", correct: false },
+      { text: "100 km", correct: false }
+    ]
+  },
+  {
+    question: "A vehicle covers 450 km in 6 hours. What is its average speed?",
+    answer: [
+      { text: "75 km/h", correct: true },
+      { text: "80 km/h", correct: false },
+      { text: "70 km/h", correct: false },
+      { text: "85 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A person walks 15 km in 3 hours. What is their walking speed?",
+    answer: [
+      { text: "5 km/h", correct: true },
+      { text: "4 km/h", correct: false },
+      { text: "6 km/h", correct: false },
+      { text: "3 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A boat travels 20 km downstream in 2 hours. What is its speed downstream?",
+    answer: [
+      { text: "10 km/h", correct: true },
+      { text: "8 km/h", correct: false },
+      { text: "12 km/h", correct: false },
+      { text: "15 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A cyclist covers 45 km in 3 hours. What is the speed of the cyclist?",
+    answer: [
+      { text: "15 km/h", correct: true },
+      { text: "10 km/h", correct: false },
+      { text: "20 km/h", correct: false },
+      { text: "25 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A person runs 6 km in 30 minutes. What is their speed in km/h?",
+    answer: [
+      { text: "12 km/h", correct: true },
+      { text: "10 km/h", correct: false },
+      { text: "15 km/h", correct: false },
+      { text: "8 km/h", correct: false }
+    ]
+  },
+  {
+    question: "If a car moves at a speed of 80 km/h, how far will it travel in 1 hour and 15 minutes?",
+    answer: [
+      { text: "100 km", correct: true },
+      { text: "90 km", correct: false },
+      { text: "85 km", correct: false },
+      { text: "95 km", correct: false }
+    ]
+  },
+  {
+    question: "A bus travels at 60 km/h and covers a distance in 5 hours. What is the distance covered?",
+    answer: [
+      { text: "300 km", correct: true },
+      { text: "280 km", correct: false },
+      { text: "320 km", correct: false },
+      { text: "330 km", correct: false }
+    ]
+  },
+  {
+    question: "If a train travels 200 km in 4 hours, what is its speed?",
+    answer: [
       { text: "50 km/h", correct: true },
+      { text: "55 km/h", correct: false },
+      { text: "45 km/h", correct: false },
+      { text: "60 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A car covers 240 km in 4 hours. What is its speed?",
+    answer: [
+      { text: "60 km/h", correct: true },
+      { text: "55 km/h", correct: false },
+      { text: "65 km/h", correct: false },
+      { text: "70 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A person walks at a speed of 4 km/h. How far will they walk in 3.5 hours?",
+    answer: [
+      { text: "14 km", correct: true },
+      { text: "12 km", correct: false },
+      { text: "15 km", correct: false },
+      { text: "10 km", correct: false }
+    ]
+  },
+  {
+    question: "A train travels at 100 km/h for 2.5 hours. What distance does it cover?",
+    answer: [
+      { text: "250 km", correct: true },
+      { text: "230 km", correct: false },
+      { text: "270 km", correct: false },
+      { text: "200 km", correct: false }
+    ]
+  },
+  {
+    question: "A runner covers 500 meters in 2 minutes. What is the speed in km/h?",
+    answer: [
+      { text: "15 km/h", correct: true },
+      { text: "12 km/h", correct: false },
+      { text: "10 km/h", correct: false },
+      { text: "8 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A car is moving at a speed of 90 km/h. How far will it travel in 3 hours?",
+    answer: [
+      { text: "270 km", correct: true },
+      { text: "260 km", correct: false },
+      { text: "280 km", correct: false },
+      { text: "250 km", correct: false }
+    ]
+  },
+  {
+    question: "If a man covers a distance of 200 km in 5 hours, what is his speed?",
+    answer: [
+      { text: "40 km/h", correct: true },
+      { text: "35 km/h", correct: false },
+      { text: "45 km/h", correct: false },
+      { text: "50 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train covers 600 meters in 30 seconds. What is its speed in km/h?",
+    answer: [
+      { text: "72 km/h", correct: true },
+      { text: "60 km/h", correct: false },
+      { text: "75 km/h", correct: false },
       { text: "65 km/h", correct: false }
     ]
   },
   {
-    question: "A man jogs 12 km in 1.5 hours. What is his jogging speed?",
+    question: "If a bus covers 350 km in 7 hours, what is its average speed?",
     answer: [
-      { text: "6 km/h", correct: false },
-      { text: "7 km/h", correct: false },
-      { text: "8 km/h", correct: true },
-      { text: "9 km/h", correct: false }
+      { text: "50 km/h", correct: true },
+      { text: "45 km/h", correct: false },
+      { text: "55 km/h", correct: false },
+      { text: "60 km/h", correct: false }
     ]
   },
   {
-    question: "A car takes 2 hours to travel 150 km. What is the speed of the car?",
+    question: "A man covers 120 km at 60 km/h. How much time will he take?",
     answer: [
-      { text: "70 km/h", correct: false },
-      { text: "60 km/h", correct: false },
-      { text: "75 km/h", correct: true },
-      { text: "80 km/h", correct: false }
+      { text: "2 hours", correct: true },
+      { text: "1.5 hours", correct: false },
+      { text: "2.5 hours", correct: false },
+      { text: "3 hours", correct: false }
     ]
   },
   {
-    question: "If a person walks at a speed of 5 km/h, how far will he walk in 3 hours?",
+    question: "A cyclist travels 35 km at 14 km/h. How long will it take?",
     answer: [
-      { text: "10 km", correct: false },
-      { text: "15 km", correct: true },
-      { text: "20 km", correct: false },
-      { text: "12 km", correct: false }
+      { text: "2.5 hours", correct: true },
+      { text: "3 hours", correct: false },
+      { text: "2 hours", correct: false },
+      { text: "1.5 hours", correct: false }
+    ]
+  },
+  {
+    question: "If a car moves at 60 km/h, how much distance will it cover in 3 hours?",
+    answer: [
+      { text: "180 km", correct: true },
+      { text: "150 km", correct: false },
+      { text: "200 km", correct: false },
+      { text: "210 km", correct: false }
     ]
   }
 ];
-
 
 
     const questionelement = document.getElementById("question");

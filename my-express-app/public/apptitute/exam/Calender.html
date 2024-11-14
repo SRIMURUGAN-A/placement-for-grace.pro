@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+  const questions = [
+  {
+    question: "What is the day of the week on 1st January, 2024?",
+    answer: [
+      { text: "Monday", correct: true },
+      { text: "Sunday", correct: false },
+      { text: "Tuesday", correct: false },
+      { text: "Friday", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January, 2023 is a Sunday, what day of the week will 1st January, 2025 be?",
+    answer: [
+      { text: "Wednesday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Thursday", correct: false },
+      { text: "Friday", correct: false }
+    ]
+  },
+  {
+    question: "How many Sundays are there in the month of February 2024?",
+    answer: [
+      { text: "5", correct: true },
+      { text: "4", correct: false },
+      { text: "3", correct: false },
+      { text: "6", correct: false }
+    ]
+  },
+  {
+    question: "If 15th August, 1947 was a Friday, what day of the week will 15th August, 2024 be?",
+    answer: [
+      { text: "Thursday", correct: true },
+      { text: "Friday", correct: false },
+      { text: "Wednesday", correct: false },
+      { text: "Saturday", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the year 2020?",
+    answer: [
+      { text: "366", correct: true },
+      { text: "365", correct: false },
+      { text: "364", correct: false },
+      { text: "367", correct: false }
+    ]
+  },
+  {
+    question: "What is the day of the week on 15th October, 2023?",
+    answer: [
+      { text: "Sunday", correct: true },
+      { text: "Saturday", correct: false },
+      { text: "Friday", correct: false },
+      { text: "Monday", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the month of June?",
+    answer: [
+      { text: "30", correct: true },
+      { text: "31", correct: false },
+      { text: "28", correct: false },
+      { text: "29", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January of a year is a Sunday, what is the day of the week on 31st December of the same year?",
+    answer: [
+      { text: "Sunday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Saturday", correct: false },
+      { text: "Thursday", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the month of February 2024?",
+    answer: [
+      { text: "29", correct: true },
+      { text: "28", correct: false },
+      { text: "30", correct: false },
+      { text: "31", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January 2022 is a Saturday, what will be the day of the week on 31st December 2022?",
+    answer: [
+      { text: "Saturday", correct: true },
+      { text: "Sunday", correct: false },
+      { text: "Monday", correct: false },
+      { text: "Friday", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January, 2021 was a Friday, what day will 1st January, 2022 be?",
+    answer: [
+      { text: "Saturday", correct: true },
+      { text: "Thursday", correct: false },
+      { text: "Sunday", correct: false },
+      { text: "Tuesday", correct: false }
+    ]
+  },
+  {
+    question: "How many leap years are there between 2000 and 2100?",
+    answer: [
+      { text: "25", correct: true },
+      { text: "24", correct: false },
+      { text: "26", correct: false },
+      { text: "23", correct: false }
+    ]
+  },
+  {
+    question: "What is the day of the week on 31st December, 2024?",
+    answer: [
+      { text: "Tuesday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Wednesday", correct: false },
+      { text: "Friday", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January 2000 was a Saturday, what day of the week will be 1st January 2100?",
+    answer: [
+      { text: "Saturday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Friday", correct: false },
+      { text: "Thursday", correct: false }
+    ]
+  },
+  {
+    question: "What is the day of the week on 1st January, 2025?",
+    answer: [
+      { text: "Wednesday", correct: true },
+      { text: "Thursday", correct: false },
+      { text: "Friday", correct: false },
+      { text: "Tuesday", correct: false }
+    ]
+  },
+  {
+    question: "How many months have 31 days in a year?",
+    answer: [
+      { text: "7", correct: true },
+      { text: "6", correct: false },
+      { text: "8", correct: false },
+      { text: "9", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the month of February 2022?",
+    answer: [
+      { text: "28", correct: true },
+      { text: "29", correct: false },
+      { text: "30", correct: false },
+      { text: "31", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January, 2023 is a Sunday, what day of the week will 31st December, 2023 be?",
+    answer: [
+      { text: "Sunday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Saturday", correct: false },
+      { text: "Thursday", correct: false }
+    ]
+  },
+  {
+    question: "In which month of a non-leap year does February have 29 days?",
+    answer: [
+      { text: "February", correct: true },
+      { text: "January", correct: false },
+      { text: "March", correct: false },
+      { text: "April", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January, 2001 was a Monday, what day of the week will 1st January, 2025 be?",
+    answer: [
+      { text: "Wednesday", correct: true },
+      { text: "Thursday", correct: false },
+      { text: "Friday", correct: false },
+      { text: "Saturday", correct: false }
+    ]
+  },
+  {
+    question: "What is the day of the week on 15th August, 2023?",
+    answer: [
+      { text: "Tuesday", correct: true },
+      { text: "Monday", correct: false },
+      { text: "Wednesday", correct: false },
+      { text: "Thursday", correct: false }
+    ]
+  },
+  {
+    question: "How many leap years are there between 1900 and 2000?",
+    answer: [
+      { text: "24", correct: true },
+      { text: "23", correct: false },
+      { text: "25", correct: false },
+      { text: "22", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the year 2021?",
+    answer: [
+      { text: "365", correct: true },
+      { text: "366", correct: false },
+      { text: "364", correct: false },
+      { text: "367", correct: false }
+    ]
+  },
+  {
+    question: "If 1st January, 2020 was a Wednesday, what day of the week will 1st January, 2022 be?",
+    answer: [
+      { text: "Saturday", correct: true },
+      { text: "Friday", correct: false },
+      { text: "Monday", correct: false },
+      { text: "Thursday", correct: false }
+    ]
+  },
+  {
+    question: "How many days are there in the month of September?",
+    answer: [
+      { text: "30", correct: true },
+      { text: "31", correct: false },
+      { text: "28", correct: false },
+      { text: "29", correct: false }
+    ]
+  }
+];
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

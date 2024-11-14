@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    *{
-      margin:0;
+    * {
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body{
+    body {
       background-color: #1a73e8;
     }
-    .app{
+    .app {
       background-color: #fff;
       width: 90%;
       max-width: 600px;
@@ -22,76 +22,70 @@
       padding: 30px;
       box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
     }
-    .app h1{
-      font-size: 45px ;
+    .app h1 {
+      font-size: 45px;
       color: #001e4d;
       border-bottom: 1px solid #333;
       padding-bottom: 30px;
       font-weight: 600;
     }
-    .quiz{
+    .quiz {
       padding: 20px 0;
     }
-    .quiz h2{
+    .quiz h2 {
       font-size: 25px;
       color: #001e4d;
-      font-weight: 18px;
     }
-
-
-    .btn{
+    .btn {
       font-size: 19px;
       color: #001e4d;
       border: 1px solid rgb(123, 123, 123);
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      font-weight:500 ;
+      font-weight: 500;
       border-radius: 10px;
       cursor: pointer;
       text-align: left;
       transition: all 0.3s;
     }
-    .btn:disabled{
+    .btn:disabled {
       cursor: no-drop;
     }
-
-    .btn:hover:not([disabled]){
+    .btn:hover:not([disabled]) {
       background-color: #8c8b8b;
       color: #fff;
     }
-    #nxt-btn{
+    #nxt-btn {
       background-color: #001e4d;
       width: 150px;
       cursor: pointer;
       border-radius: 10px;
       font-weight: 500;
-      padding: 10px ;
+      padding: 10px;
       margin: 20px auto 0;
       display: none;
       color: #fff;
       cursor: pointer;
-
     }
-    .correct{
-      background-color: rgb(143, 236, 143) ;
+    .correct {
+      background-color: rgb(143, 236, 143);
     }
-    .incorrect{
+    .incorrect {
       background-color: rgb(227, 128, 128);
     }
-
   </style>
 </head>
 <body>
   <div class="app">
-    <h1>simple quiz</h1>
+    <h1>Simple Quiz</h1>
     <div class="quiz">
-      <h2 id="question">question goes here</h2>
+      <h2 id="question">Question goes here</h2>
       <div id="answer">
-        <button class="btn">answer 1</button>
-        <button class="btn">answer2</button>
-        <button class="btn">answer 3</button>
-        <button class="btn">4</button>
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
       </div>
       <button id="nxt-btn">Next</button>
     </div>
@@ -99,177 +93,325 @@
   <script>
     const questions = [
   {
-    question: "What is 20% of 150?",
+    question: "What is 25% of 200?",
+    answer: [
+      { text: "50", correct: true },
+      { text: "25", correct: false },
+      { text: "75", correct: false },
+      { text: "100", correct: false }
+    ]
+  },
+  {
+    question: "If a shirt costs $80 and is on sale for 20% off, what is the sale price?",
+    answer: [
+      { text: "$64", correct: true },
+      { text: "$60", correct: false },
+      { text: "$68", correct: false },
+      { text: "$70", correct: false }
+    ]
+  },
+  {
+    question: "What is 40% of 150?",
+    answer: [
+      { text: "60", correct: true },
+      { text: "70", correct: false },
+      { text: "50", correct: false },
+      { text: "75", correct: false }
+    ]
+  },
+  {
+    question: "If 30% of a number is 90, what is the number?",
+    answer: [
+      { text: "300", correct: true },
+      { text: "270", correct: false },
+      { text: "200", correct: false },
+      { text: "100", correct: false }
+    ]
+  },
+  {
+    question: "A student scored 72 out of 90 on a test. What is their percentage score?",
+    answer: [
+      { text: "80%", correct: true },
+      { text: "75%", correct: false },
+      { text: "85%", correct: false },
+      { text: "70%", correct: false }
+    ]
+  },
+  {
+    question: "What is 15% of 500?",
+    answer: [
+      { text: "75", correct: true },
+      { text: "50", correct: false },
+      { text: "65", correct: false },
+      { text: "85", correct: false }
+    ]
+  },
+  {
+    question: "If a book costs $120 and is marked up by 25%, what is the new price?",
+    answer: [
+      { text: "$150", correct: true },
+      { text: "$125", correct: false },
+      { text: "$140", correct: false },
+      { text: "$130", correct: false }
+    ]
+  },
+  {
+    question: "What percentage of 60 is 15?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "15%", correct: false },
+      { text: "20%", correct: false },
+      { text: "30%", correct: false }
+    ]
+  },
+  {
+    question: "If 120 is increased by 20%, what is the new amount?",
+    answer: [
+      { text: "144", correct: true },
+      { text: "150", correct: false },
+      { text: "130", correct: false },
+      { text: "160", correct: false }
+    ]
+  },
+  {
+    question: "What is 75% of 80?",
+    answer: [
+      { text: "60", correct: true },
+      { text: "70", correct: false },
+      { text: "50", correct: false },
+      { text: "55", correct: false }
+    ]
+  },
+  {
+    question: "If a jacket is originally $200 and is on sale for 30% off, what is the sale price?",
+    answer: [
+      { text: "$140", correct: true },
+      { text: "$130", correct: false },
+      { text: "$150", correct: false },
+      { text: "$120", correct: false }
+    ]
+  },
+  {
+    question: "What is 60% of 90?",
+    answer: [
+      { text: "54", correct: true },
+      { text: "60", correct: false },
+      { text: "50", correct: false },
+      { text: "45", correct: false }
+    ]
+  },
+  {
+    question: "If a population increased from 1,200 to 1,500, what is the percentage increase?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "30%", correct: false },
+      { text: "20%", correct: false },
+      { text: "35%", correct: false }
+    ]
+  },
+  {
+    question: "What is 5% of 300?",
+    answer: [
+      { text: "15", correct: true },
+      { text: "20", correct: false },
+      { text: "25", correct: false },
+      { text: "10", correct: false }
+    ]
+  },
+  {
+    question: "If you score 45 out of 50 on a quiz, what is your percentage score?",
+    answer: [
+      { text: "90%", correct: true },
+      { text: "85%", correct: false },
+      { text: "95%", correct: false },
+      { text: "80%", correct: false }
+    ]
+  },
+  {
+    question: "If the price of a phone drops from $600 to $450, what is the percentage decrease?",
+    answer: [
+      { text: "25%", correct: true },
+      { text: "20%", correct: false },
+      { text: "30%", correct: false },
+      { text: "15%", correct: false }
+    ]
+  },
+  {
+    question: "What is 12% of 250?",
     answer: [
       { text: "30", correct: true },
       { text: "25", correct: false },
       { text: "35", correct: false },
-      { text: "20", correct: false }
+      { text: "40", correct: false }
     ]
   },
   {
-    question: "If 45% of a number is 90, what is the number?",
-    answer: [
-      { text: "200", correct: true },
-      { text: "150", correct: false },
-      { text: "180", correct: false },
-      { text: "220", correct: false }
-    ]
-  },
-  {
-    question: "A student scored 75 marks out of 150. What is his percentage?",
-    answer: [
-      { text: "50%", correct: true },
-      { text: "40%", correct: false },
-      { text: "55%", correct: false },
-      { text: "45%", correct: false }
-    ]
-  },
-  {
-    question: "What is 35% of 80?",
-    answer: [
-      { text: "28", correct: true },
-      { text: "32", correct: false },
-      { text: "30", correct: false },
-      { text: "26", correct: false }
-    ]
-  },
-  {
-    question: "If 60% of a class are girls, and there are 120 students in total, how many girls are there?",
-    answer: [
-      { text: "72", correct: true },
-      { text: "60", correct: false },
-      { text: "80", correct: false },
-      { text: "70", correct: false }
-    ]
-  },
-  {
-    question: "If an item costs $200 and there is a 15% discount, what is the discount amount?",
+    question: "If you save 15% on a $200 item, how much do you save?",
     answer: [
       { text: "$30", correct: true },
-      { text: "$25", correct: false },
-      { text: "$35", correct: false },
-      { text: "$20", correct: false }
+      { text: "$20", correct: false },
+      { text: "$40", correct: false },
+      { text: "$25", correct: false }
     ]
   },
   {
-    question: "A student got 90 out of 120 in a test. What is his percentage?",
+    question: "What percentage of 150 is 45?",
     answer: [
-      { text: "75%", correct: true },
-      { text: "80%", correct: false },
-      { text: "70%", correct: false },
-      { text: "85%", correct: false }
+      { text: "30%", correct: true },
+      { text: "25%", correct: false },
+      { text: "20%", correct: false },
+      { text: "35%", correct: false }
     ]
   },
   {
-    question: "A number increases from 200 to 250. What is the percentage increase?",
+    question: "If a stock price rises from $40 to $50, what is the percentage increase?",
     answer: [
       { text: "25%", correct: true },
       { text: "20%", correct: false },
+      { text: "15%", correct: false },
+      { text: "30%", correct: false }
+    ]
+  },
+  {
+    question: "What is 10% of 150?",
+    answer: [
+      { text: "15", correct: true },
+      { text: "20", correct: false },
+      { text: "25", correct: false },
+      { text: "10", correct: false }
+    ]
+  },
+  {
+    question: "If you spend $75 out of $300, what percentage did you spend?",
+    answer: [
+      { text: "25%", correct: true },
       { text: "30%", correct: false },
+      { text: "20%", correct: false },
       { text: "15%", correct: false }
     ]
   },
   {
-    question: "If a person saves 40% of his income, and his income is $5000, how much does he save?",
+    question: "A factory produces 500 units a day. If production increases by 10%, how many units are produced now?",
     answer: [
-      { text: "$2000", correct: true },
-      { text: "$2500", correct: false },
-      { text: "$3000", correct: false },
-      { text: "$1500", correct: false }
+      { text: "550", correct: true },
+      { text: "520", correct: false },
+      { text: "530", correct: false },
+      { text: "540", correct: false }
     ]
   },
   {
-    question: "A school's population increased from 800 to 1000 students. What is the percentage increase?",
+    question: "What is 8% of 400?",
     answer: [
-      { text: "25%", correct: true },
-      { text: "20%", correct: false },
-      { text: "30%", correct: false },
-      { text: "15%", correct: false }
+      { text: "32", correct: true },
+      { text: "28", correct: false },
+      { text: "36", correct: false },
+      { text: "40", correct: false }
+    ]
+  },
+  {
+    question: "If a salary of $1,000 is increased by 15%, what is the new salary?",
+    answer: [
+      { text: "$1,150", correct: true },
+      { text: "$1,200", correct: false },
+      { text: "$1,300", correct: false },
+      { text: "$1,250", correct: false }
     ]
   }
 ];
 
 
-
-    const questionelement = document.getElementById("question");
-    const answer_btn = document.getElementById("answer");
-    const nxt_btn = document.getElementById("nxt-btn");
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer");
+    const nextButton = document.getElementById("nxt-btn");
 
     let currentQuestionIndex = 0;
     let score = 0;
+    let selectedQuestions = [];
 
-    function startQuiz(){
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function selectRandomQuestions() {
+      shuffleArray(questions);
+      return questions.slice(0, 10); // Select the first 10 questions
+    }
+
+    function startQuiz() {
       currentQuestionIndex = 0;
       score = 0;
-      nxt_btn.innerHTML = "Next";
-      nxt_btn.style.display = "none";  // Hide Next button initially
+      selectedQuestions = selectRandomQuestions(); // Get a new set of random questions
+      nextButton.innerHTML = "Next";
+      nextButton.style.display = "none"; // Hide Next button initially
       showQuestion();
     }
 
-    function showQuestion(){
+    function showQuestion() {
       resetState();
-      let currentQuestion = questions[currentQuestionIndex];
-      let questionNo = currentQuestionIndex + 1;
-      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+      const currentQuestion = selectedQuestions[currentQuestionIndex];
+      const questionNo = currentQuestionIndex + 1;
+      questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-      currentQuestion.answer.forEach(answer =>{
+      currentQuestion.answer.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        answer_btn.appendChild(button);
-        if (answer.correct){
+        answerButtons.appendChild(button);
+        if (answer.correct) {
           button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
       });
     }
 
-    function resetState(){
-      nxt_btn.style.display = "none";
-      while (answer_btn.firstChild){
-        answer_btn.removeChild(answer_btn.firstChild);
+    function resetState() {
+      nextButton.style.display = "none";
+      while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
       }
     }
 
-    function selectAnswer(e){
+    function selectAnswer(e) {
       const selectedBtn = e.target;
-      const iscorrect = selectedBtn.dataset.correct === "true";
-      if(iscorrect){
+      const isCorrect = selectedBtn.dataset.correct === "true";
+      if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-      }else{
+      } else {
         selectedBtn.classList.add("incorrect");
       }
-      Array.from(answer_btn.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+      Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
           button.classList.add("correct");
         }
         button.disabled = true;
       });
-      nxt_btn.style.display = "block";
+      nextButton.style.display = "block";
     }
 
-    function showScore(){
+    function showScore() {
       resetState();
-      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-      nxt_btn.innerHTML = "Retake Test";
-      nxt_btn.style.display = "block";
+      questionElement.innerHTML = `You scored ${score} out of ${selectedQuestions.length}!`;
+      nextButton.innerHTML = "Retake Test";
+      nextButton.style.display = "block";
     }
 
-    function handleNextButton(){
+    function handleNextButton() {
       currentQuestionIndex++;
-      if(currentQuestionIndex < questions.length){
+      if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
-      }else{
+      } else {
         showScore();
       }
     }
 
-    nxt_btn.addEventListener("click", function(){
-      if(currentQuestionIndex < questions.length){
+    nextButton.addEventListener("click", function() {
+      if (currentQuestionIndex < selectedQuestions.length) {
         handleNextButton();
-      }else{
+      } else {
         startQuiz();
       }
     });

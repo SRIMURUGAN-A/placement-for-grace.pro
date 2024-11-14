@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    *{
-      margin:0;
+    * {
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body{
+    body {
       background-color: #1a73e8;
     }
-    .app{
+    .app {
       background-color: #fff;
       width: 90%;
       max-width: 600px;
@@ -22,76 +22,70 @@
       padding: 30px;
       box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
     }
-    .app h1{
-      font-size: 45px ;
+    .app h1 {
+      font-size: 45px;
       color: #001e4d;
       border-bottom: 1px solid #333;
       padding-bottom: 30px;
       font-weight: 600;
     }
-    .quiz{
+    .quiz {
       padding: 20px 0;
     }
-    .quiz h2{
+    .quiz h2 {
       font-size: 25px;
       color: #001e4d;
-      font-weight: 18px;
     }
-
-
-    .btn{
+    .btn {
       font-size: 19px;
       color: #001e4d;
       border: 1px solid rgb(123, 123, 123);
       width: 100%;
       padding: 10px;
       margin: 10px 0;
-      font-weight:500 ;
+      font-weight: 500;
       border-radius: 10px;
       cursor: pointer;
       text-align: left;
       transition: all 0.3s;
     }
-    .btn:disabled{
+    .btn:disabled {
       cursor: no-drop;
     }
-
-    .btn:hover:not([disabled]){
+    .btn:hover:not([disabled]) {
       background-color: #8c8b8b;
       color: #fff;
     }
-    #nxt-btn{
+    #nxt-btn {
       background-color: #001e4d;
       width: 150px;
       cursor: pointer;
       border-radius: 10px;
       font-weight: 500;
-      padding: 10px ;
+      padding: 10px;
       margin: 20px auto 0;
       display: none;
       color: #fff;
       cursor: pointer;
-
     }
-    .correct{
-      background-color: rgb(143, 236, 143) ;
+    .correct {
+      background-color: rgb(143, 236, 143);
     }
-    .incorrect{
+    .incorrect {
       background-color: rgb(227, 128, 128);
     }
-
   </style>
 </head>
 <body>
   <div class="app">
-    <h1>simple quiz</h1>
+    <h1>Simple Quiz</h1>
     <div class="quiz">
-      <h2 id="question">question goes here</h2>
+      <h2 id="question">Question goes here</h2>
       <div id="answer">
-        <button class="btn">answer 1</button>
-        <button class="btn">answer2</button>
-        <button class="btn">answer 3</button>
-        <button class="btn">4</button>
+        <button class="btn">Answer 1</button>
+        <button class="btn">Answer 2</button>
+        <button class="btn">Answer 3</button>
+        <button class="btn">Answer 4</button>
       </div>
       <button id="nxt-btn">Next</button>
     </div>
@@ -99,177 +93,324 @@
   <script>
     const questions = [
   {
-    question: "A coin is tossed once. What is the probability of getting heads?",
+    question: "What is the probability of drawing an Ace from a standard deck of 52 cards?",
     answer: [
-      { text: "1/2", correct: true },
-      { text: "1/3", correct: false },
+      { text: "1/13", correct: true },
+      { text: "1/52", correct: false },
       { text: "1/4", correct: false },
-      { text: "1", correct: false }
+      { text: "1/26", correct: false }
     ]
   },
   {
-    question: "A die is rolled once. What is the probability of getting a 4?",
+    question: "A bag contains 3 red balls, 5 blue balls, and 2 green balls. What is the probability of drawing a blue ball?",
     answer: [
-      { text: "1/6", correct: true },
-      { text: "1/3", correct: false },
       { text: "1/2", correct: false },
-      { text: "1/4", correct: false }
+      { text: "1/5", correct: false },
+      { text: "1/10", correct: false },
+      { text: "1/2", correct: true }
     ]
   },
   {
-    question: "If two coins are tossed, what is the probability of getting at least one head?",
-    answer: [
-      { text: "3/4", correct: true },
-      { text: "1/2", correct: false },
-      { text: "1/4", correct: false },
-      { text: "1", correct: false }
-    ]
-  },
-  {
-    question: "A card is drawn from a standard deck of 52 cards. What is the probability of drawing a spade?",
+    question: "If a card is drawn at random from a deck, what is the probability it is a heart?",
     answer: [
       { text: "1/4", correct: true },
       { text: "1/2", correct: false },
+      { text: "1/13", correct: false },
+      { text: "1/3", correct: false }
+    ]
+  },
+  {
+    question: "A die is rolled. What is the probability of rolling an even number?",
+    answer: [
+      { text: "1/2", correct: true },
+      { text: "1/6", correct: false },
       { text: "1/3", correct: false },
+      { text: "2/3", correct: false }
+    ]
+  },
+  {
+    question: "In a class of 30 students, what is the probability of selecting a student with a birthday in January?",
+    answer: [
+      { text: "1/12", correct: false },
+      { text: "1/30", correct: false },
+      { text: "1/6", correct: false },
+      { text: "1/12", correct: true }
+    ]
+  },
+  {
+    question: "A coin is tossed three times. What is the probability of getting exactly two heads?",
+    answer: [
+      { text: "3/8", correct: true },
+      { text: "1/8", correct: false },
+      { text: "1/4", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of drawing a red card from a standard deck?",
+    answer: [
+      { text: "1/2", correct: true },
+      { text: "1/4", correct: false },
+      { text: "1/13", correct: false },
+      { text: "1/3", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of rolling a number greater than 4 on a six-sided die?",
+    answer: [
+      { text: "1/3", correct: true },
+      { text: "1/2", correct: false },
+      { text: "2/3", correct: false },
       { text: "1/6", correct: false }
     ]
   },
   {
-    question: "A bag contains 5 red balls, 3 blue balls, and 2 green balls. What is the probability of drawing a blue ball?",
-    answer: [
-      { text: "3/10", correct: true },
-      { text: "1/5", correct: false },
-      { text: "1/3", correct: false },
-      { text: "2/5", correct: false }
-    ]
-  },
-  {
-    question: "In a family of three children, what is the probability of having exactly two boys if each child is equally likely to be a boy or girl?",
-    answer: [
-      { text: "3/8", correct: true },
-      { text: "1/2", correct: false },
-      { text: "1/4", correct: false },
-      { text: "5/8", correct: false }
-    ]
-  },
-  {
-    question: "A card is drawn from a standard deck of 52 cards. What is the probability of drawing a face card (Jack, Queen, or King)?",
-    answer: [
-      { text: "3/13", correct: true },
-      { text: "1/4", correct: false },
-      { text: "1/3", correct: false },
-      { text: "1/13", correct: false }
-    ]
-  },
-  {
-    question: "If two dice are rolled, what is the probability that the sum of the numbers is 7?",
+    question: "Two dice are rolled. What is the probability that both show the same number?",
     answer: [
       { text: "1/6", correct: true },
-      { text: "1/12", correct: false },
+      { text: "1/36", correct: false },
+      { text: "1/2", correct: false },
+      { text: "1/12", correct: false }
+    ]
+  },
+  {
+    question: "A card is drawn. What is the probability of drawing a king or queen?",
+    answer: [
+      { text: "2/13", correct: true },
+      { text: "1/13", correct: false },
+      { text: "1/26", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "If a coin is tossed twice, what is the probability of getting one head and one tail?",
+    answer: [
+      { text: "1/2", correct: true },
+      { text: "1/3", correct: false },
+      { text: "1/4", correct: false },
+      { text: "3/4", correct: false }
+    ]
+  },
+  {
+    question: "In a class of 40, what is the probability of selecting a student with a birthday in February?",
+    answer: [
+      { text: "1/12", correct: true },
+      { text: "1/10", correct: false },
+      { text: "1/4", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of drawing a face card from a deck?",
+    answer: [
+      { text: "3/13", correct: true },
+      { text: "1/13", correct: false },
+      { text: "1/4", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "If two coins are tossed, what is the probability of getting two heads?",
+    answer: [
+      { text: "1/4", correct: true },
+      { text: "1/2", correct: false },
       { text: "1/3", correct: false },
       { text: "1/8", correct: false }
     ]
   },
   {
-    question: "A bag contains 4 white balls and 6 black balls. If one ball is drawn at random, what is the probability that it is black?",
+    question: "What is the probability of drawing a 7 from a deck?",
     answer: [
-      { text: "3/5", correct: true },
-      { text: "1/2", correct: false },
-      { text: "2/5", correct: false },
-      { text: "4/5", correct: false }
+      { text: "1/13", correct: true },
+      { text: "1/4", correct: false },
+      { text: "1/26", correct: false },
+      { text: "1/2", correct: false }
     ]
   },
   {
-    question: "In a lottery, the probability of winning is 1/500. If you buy one ticket, what is the probability that you will lose?",
+    question: "If a card is drawn, what is the probability of it being a club?",
     answer: [
-      { text: "499/500", correct: true },
-      { text: "1/500", correct: false },
-      { text: "1", correct: false },
-      { text: "250/500", correct: false }
+      { text: "1/4", correct: true },
+      { text: "1/2", correct: false },
+      { text: "1/13", correct: false },
+      { text: "1/3", correct: false }
+    ]
+  },
+  {
+    question: "A bag has 10 red and 15 blue balls. Probability of drawing a red?",
+    answer: [
+      { text: "2/5", correct: true },
+      { text: "1/4", correct: false },
+      { text: "1/2", correct: false },
+      { text: "3/5", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of drawing a spade from a deck?",
+    answer: [
+      { text: "1/4", correct: true },
+      { text: "1/2", correct: false },
+      { text: "1/3", correct: false },
+      { text: "1/8", correct: false }
+    ]
+  },
+  {
+    question: "If a card is drawn, probability it is a number card (2-10)?",
+    answer: [
+      { text: "9/13", correct: true },
+      { text: "1/2", correct: false },
+      { text: "1/3", correct: false },
+      { text: "1/4", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of drawing a queen of hearts?",
+    answer: [
+      { text: "1/52", correct: true },
+      { text: "1/4", correct: false },
+      { text: "1/13", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "Two dice are rolled. Probability of sum equal to 4?",
+    answer: [
+      { text: "1/12", correct: true },
+      { text: "1/36", correct: false },
+      { text: "1/6", correct: false },
+      { text: "1/3", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of drawing a black face card?",
+    answer: [
+      { text: "3/26", correct: true },
+      { text: "1/26", correct: false },
+      { text: "1/13", correct: false },
+      { text: "1/2", correct: false }
+    ]
+  },
+  {
+    question: "A jar has 4 red and 6 green balls. Probability of drawing a green?",
+    answer: [
+      { text: "3/5", correct: true },
+      { text: "2/5", correct: false },
+      { text: "1/2", correct: false },
+      { text: "1/4", correct: false }
+    ]
+  },
+  {
+    question: "If two dice are rolled, probability that both are odd?",
+    answer: [
+      { text: "1/4", correct: true },
+      { text: "1/2", correct: false },
+      { text: "1/6", correct: false },
+      { text: "1/3", correct: false }
+    ]
+  },
+  {
+    question: "What is the probability of getting at least one 6 when rolling a die three times?",
+    answer: [
+      { text: "91/216", correct: true },
+      { text: "1/6", correct: false },
+      { text: "5/6", correct: false },
+      { text: "1/2", correct: false }
     ]
   }
 ];
 
-
-
-    const questionelement = document.getElementById("question");
-    const answer_btn = document.getElementById("answer");
-    const nxt_btn = document.getElementById("nxt-btn");
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer");
+    const nextButton = document.getElementById("nxt-btn");
 
     let currentQuestionIndex = 0;
     let score = 0;
+    let selectedQuestions = [];
 
-    function startQuiz(){
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function selectRandomQuestions() {
+      shuffleArray(questions);
+      return questions.slice(0, 10); // Select the first 10 questions
+    }
+
+    function startQuiz() {
       currentQuestionIndex = 0;
       score = 0;
-      nxt_btn.innerHTML = "Next";
-      nxt_btn.style.display = "none";  // Hide Next button initially
+      selectedQuestions = selectRandomQuestions(); // Get a new set of random questions
+      nextButton.innerHTML = "Next";
+      nextButton.style.display = "none"; // Hide Next button initially
       showQuestion();
     }
 
-    function showQuestion(){
+    function showQuestion() {
       resetState();
-      let currentQuestion = questions[currentQuestionIndex];
-      let questionNo = currentQuestionIndex + 1;
-      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+      const currentQuestion = selectedQuestions[currentQuestionIndex];
+      const questionNo = currentQuestionIndex + 1;
+      questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-      currentQuestion.answer.forEach(answer =>{
+      currentQuestion.answer.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        answer_btn.appendChild(button);
-        if (answer.correct){
+        answerButtons.appendChild(button);
+        if (answer.correct) {
           button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
       });
     }
 
-    function resetState(){
-      nxt_btn.style.display = "none";
-      while (answer_btn.firstChild){
-        answer_btn.removeChild(answer_btn.firstChild);
+    function resetState() {
+      nextButton.style.display = "none";
+      while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
       }
     }
 
-    function selectAnswer(e){
+    function selectAnswer(e) {
       const selectedBtn = e.target;
-      const iscorrect = selectedBtn.dataset.correct === "true";
-      if(iscorrect){
+      const isCorrect = selectedBtn.dataset.correct === "true";
+      if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-      }else{
+      } else {
         selectedBtn.classList.add("incorrect");
       }
-      Array.from(answer_btn.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+      Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
           button.classList.add("correct");
         }
         button.disabled = true;
       });
-      nxt_btn.style.display = "block";
+      nextButton.style.display = "block";
     }
 
-    function showScore(){
+    function showScore() {
       resetState();
-      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-      nxt_btn.innerHTML = "Retake Test";
-      nxt_btn.style.display = "block";
+      questionElement.innerHTML = `You scored ${score} out of ${selectedQuestions.length}!`;
+      nextButton.innerHTML = "Retake Test";
+      nextButton.style.display = "block";
     }
 
-    function handleNextButton(){
+    function handleNextButton() {
       currentQuestionIndex++;
-      if(currentQuestionIndex < questions.length){
+      if (currentQuestionIndex < selectedQuestions.length) {
         showQuestion();
-      }else{
+      } else {
         showScore();
       }
     }
 
-    nxt_btn.addEventListener("click", function(){
-      if(currentQuestionIndex < questions.length){
+    nextButton.addEventListener("click", function() {
+      if (currentQuestionIndex < selectedQuestions.length) {
         handleNextButton();
-      }else{
+      } else {
         startQuiz();
       }
     });

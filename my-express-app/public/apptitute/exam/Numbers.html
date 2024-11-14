@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "What is the smallest prime number?",
+    answer: [
+      { text: "2", correct: true },
+      { text: "1", correct: false },
+      { text: "3", correct: false },
+      { text: "5", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following is a composite number?",
+    answer: [
+      { text: "9", correct: true },
+      { text: "7", correct: false },
+      { text: "11", correct: false },
+      { text: "13", correct: false }
+    ]
+  },
+  {
+    question: "What is the greatest common divisor (GCD) of 12 and 18?",
+    answer: [
+      { text: "6", correct: true },
+      { text: "4", correct: false },
+      { text: "12", correct: false },
+      { text: "3", correct: false }
+    ]
+  },
+  {
+    question: "What is the least common multiple (LCM) of 5 and 15?",
+    answer: [
+      { text: "15", correct: true },
+      { text: "10", correct: false },
+      { text: "30", correct: false },
+      { text: "25", correct: false }
+    ]
+  },
+  {
+    question: "What is the sum of the first 5 prime numbers?",
+    answer: [
+      { text: "28", correct: true },
+      { text: "25", correct: false },
+      { text: "30", correct: false },
+      { text: "35", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following is an even number?",
+    answer: [
+      { text: "8", correct: true },
+      { text: "5", correct: false },
+      { text: "7", correct: false },
+      { text: "3", correct: false }
+    ]
+  },
+  {
+    question: "What is the value of 3 raised to the power of 3?",
+    answer: [
+      { text: "27", correct: true },
+      { text: "9", correct: false },
+      { text: "81", correct: false },
+      { text: "12", correct: false }
+    ]
+  },
+  {
+    question: "What is the prime factorization of 30?",
+    answer: [
+      { text: "2 × 3 × 5", correct: true },
+      { text: "3 × 5 × 7", correct: false },
+      { text: "2 × 5 × 7", correct: false },
+      { text: "3 × 2 × 2", correct: false }
+    ]
+  },
+  {
+    question: "What is the square root of 49?",
+    answer: [
+      { text: "7", correct: true },
+      { text: "6", correct: false },
+      { text: "8", correct: false },
+      { text: "9", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following numbers is a multiple of 7?",
+    answer: [
+      { text: "21", correct: true },
+      { text: "10", correct: false },
+      { text: "13", correct: false },
+      { text: "18", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following numbers is a perfect square?",
+    answer: [
+      { text: "16", correct: true },
+      { text: "18", correct: false },
+      { text: "20", correct: false },
+      { text: "25", correct: false }
+    ]
+  },
+  {
+    question: "What is the sum of the digits of the number 1234?",
+    answer: [
+      { text: "10", correct: true },
+      { text: "12", correct: false },
+      { text: "9", correct: false },
+      { text: "11", correct: false }
+    ]
+  },
+  {
+    question: "What is the smallest multiple of 9 greater than 50?",
+    answer: [
+      { text: "54", correct: true },
+      { text: "51", correct: false },
+      { text: "53", correct: false },
+      { text: "60", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following is a prime number?",
+    answer: [
+      { text: "13", correct: true },
+      { text: "15", correct: false },
+      { text: "25", correct: false },
+      { text: "21", correct: false }
+    ]
+  },
+  {
+    question: "What is the value of 8 × 8 × 8?",
+    answer: [
+      { text: "512", correct: true },
+      { text: "64", correct: false },
+      { text: "128", correct: false },
+      { text: "256", correct: false }
+    ]
+  },
+  {
+    question: "What is the sum of the first 10 positive integers?",
+    answer: [
+      { text: "55", correct: true },
+      { text: "50", correct: false },
+      { text: "60", correct: false },
+      { text: "65", correct: false }
+    ]
+  },
+  {
+    question: "What is the cube root of 27?",
+    answer: [
+      { text: "3", correct: true },
+      { text: "6", correct: false },
+      { text: "9", correct: false },
+      { text: "7", correct: false }
+    ]
+  },
+  {
+    question: "What is the product of 6 and 9?",
+    answer: [
+      { text: "54", correct: true },
+      { text: "45", correct: false },
+      { text: "60", correct: false },
+      { text: "36", correct: false }
+    ]
+  },
+  {
+    question: "What is the greatest common divisor (GCD) of 24 and 36?",
+    answer: [
+      { text: "12", correct: true },
+      { text: "6", correct: false },
+      { text: "18", correct: false },
+      { text: "8", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following is an odd number?",
+    answer: [
+      { text: "17", correct: true },
+      { text: "20", correct: false },
+      { text: "12", correct: false },
+      { text: "22", correct: false }
+    ]
+  },
+  {
+    question: "What is the value of 5 raised to the power of 2?",
+    answer: [
+      { text: "25", correct: true },
+      { text: "10", correct: false },
+      { text: "20", correct: false },
+      { text: "30", correct: false }
+    ]
+  },
+  {
+    question: "What is the square of 9?",
+    answer: [
+      { text: "81", correct: true },
+      { text: "72", correct: false },
+      { text: "90", correct: false },
+      { text: "65", correct: false }
+    ]
+  },
+  {
+    question: "Which of the following is divisible by both 4 and 6?",
+    answer: [
+      { text: "12", correct: true },
+      { text: "18", correct: false },
+      { text: "20", correct: false },
+      { text: "30", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

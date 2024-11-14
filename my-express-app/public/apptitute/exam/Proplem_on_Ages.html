@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #1a73e8;
+    }
+    .app{
+      background-color: #fff;
+      width: 90%;
+      max-width: 600px;
+      margin: 100px auto 0;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+    }
+    .app h1{
+      font-size: 45px ;
+      color: #001e4d;
+      border-bottom: 1px solid #333;
+      padding-bottom: 30px;
+      font-weight: 600;
+    }
+    .quiz{
+      padding: 20px 0;
+    }
+    .quiz h2{
+      font-size: 25px;
+      color: #001e4d;
+      font-weight: 18px;
+    }
+
+
+    .btn{
+      font-size: 19px;
+      color: #001e4d;
+      border: 1px solid rgb(123, 123, 123);
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-weight:500 ;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s;
+    }
+    .btn:disabled{
+      cursor: no-drop;
+    }
+
+    .btn:hover:not([disabled]){
+      background-color: #8c8b8b;
+      color: #fff;
+    }
+    #nxt-btn{
+      background-color: #001e4d;
+      width: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      font-weight: 500;
+      padding: 10px ;
+      margin: 20px auto 0;
+      display: none;
+      color: #fff;
+      cursor: pointer;
+
+    }
+    .correct{
+      background-color: rgb(143, 236, 143) ;
+    }
+    .incorrect{
+      background-color: rgb(227, 128, 128);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>simple quiz</h1>
+    <div class="quiz">
+      <h2 id="question">question goes here</h2>
+      <div id="answer">
+        <button class="btn">answer 1</button>
+        <button class="btn">answer2</button>
+        <button class="btn">answer 3</button>
+        <button class="btn">4</button>
+      </div>
+      <button id="nxt-btn">Next</button>
+    </div>
+  </div>
+  <script>
+   const questions = [
+  {
+    question: "The sum of the ages of A and B is 40 years. 10 years ago, the ratio of their ages was 3:5. Find their present ages.",
+    answer: [
+      { text: "A = 15, B = 25", correct: true },
+      { text: "A = 20, B = 30", correct: false },
+      { text: "A = 18, B = 22", correct: false },
+      { text: "A = 16, B = 24", correct: false }
+    ]
+  },
+  {
+    question: "The present age of A is three times the present age of B. 5 years ago, the sum of their ages was 40. Find their present ages.",
+    answer: [
+      { text: "A = 30, B = 10", correct: true },
+      { text: "A = 24, B = 8", correct: false },
+      { text: "A = 18, B = 6", correct: false },
+      { text: "A = 20, B = 10", correct: false }
+    ]
+  },
+  {
+    question: "The sum of the ages of A and B is 50 years. 5 years ago, the ratio of their ages was 4:5. Find their present ages.",
+    answer: [
+      { text: "A = 20, B = 30", correct: true },
+      { text: "A = 22, B = 28", correct: false },
+      { text: "A = 18, B = 32", correct: false },
+      { text: "A = 25, B = 25", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a father is 4 times the present age of his son. After 5 years, the sum of their ages will be 70. Find their present ages.",
+    answer: [
+      { text: "Father = 40, Son = 10", correct: true },
+      { text: "Father = 35, Son = 7", correct: false },
+      { text: "Father = 45, Son = 15", correct: false },
+      { text: "Father = 50, Son = 12", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a man is twice the age of his son. 10 years ago, the sum of their ages was 60. Find their present ages.",
+    answer: [
+      { text: "Man = 40, Son = 20", correct: true },
+      { text: "Man = 50, Son = 25", correct: false },
+      { text: "Man = 60, Son = 30", correct: false },
+      { text: "Man = 45, Son = 22", correct: false }
+    ]
+  },
+  {
+    question: "The difference between the present ages of a father and his son is 24 years. 4 years ago, the ratio of their ages was 5:1. Find their present ages.",
+    answer: [
+      { text: "Father = 30, Son = 6", correct: true },
+      { text: "Father = 40, Son = 16", correct: false },
+      { text: "Father = 35, Son = 11", correct: false },
+      { text: "Father = 50, Son = 26", correct: false }
+    ]
+  },
+  {
+    question: "A man's present age is 4 years more than twice the age of his son. 4 years ago, the sum of their ages was 36. Find their present ages.",
+    answer: [
+      { text: "Man = 28, Son = 12", correct: true },
+      { text: "Man = 30, Son = 14", correct: false },
+      { text: "Man = 32, Son = 16", correct: false },
+      { text: "Man = 36, Son = 18", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a father is 5 years more than 3 times the age of his son. After 10 years, the sum of their ages will be 100. Find their present ages.",
+    answer: [
+      { text: "Father = 50, Son = 15", correct: true },
+      { text: "Father = 55, Son = 20", correct: false },
+      { text: "Father = 45, Son = 12", correct: false },
+      { text: "Father = 60, Son = 25", correct: false }
+    ]
+  },
+  {
+    question: "The sum of the ages of a mother and her daughter is 50 years. 10 years ago, the ratio of their ages was 3:5. Find their present ages.",
+    answer: [
+      { text: "Mother = 30, Daughter = 20", correct: true },
+      { text: "Mother = 35, Daughter = 15", correct: false },
+      { text: "Mother = 40, Daughter = 10", correct: false },
+      { text: "Mother = 25, Daughter = 25", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a father is 3 times the present age of his daughter. After 10 years, the sum of their ages will be 70. Find their present ages.",
+    answer: [
+      { text: "Father = 45, Daughter = 15", correct: true },
+      { text: "Father = 50, Daughter = 20", correct: false },
+      { text: "Father = 40, Daughter = 10", correct: false },
+      { text: "Father = 35, Daughter = 12", correct: false }
+    ]
+  },
+  {
+    question: "The sum of the present ages of a man and his wife is 60 years. 5 years ago, the ratio of their ages was 4:5. Find their present ages.",
+    answer: [
+      { text: "Man = 25, Wife = 35", correct: true },
+      { text: "Man = 30, Wife = 30", correct: false },
+      { text: "Man = 28, Wife = 32", correct: false },
+      { text: "Man = 40, Wife = 20", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a father is 5 times the present age of his son. 10 years ago, the sum of their ages was 50. Find their present ages.",
+    answer: [
+      { text: "Father = 40, Son = 8", correct: true },
+      { text: "Father = 50, Son = 10", correct: false },
+      { text: "Father = 45, Son = 9", correct: false },
+      { text: "Father = 60, Son = 12", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a woman is 6 years more than twice the present age of her daughter. The sum of their ages is 60. Find their present ages.",
+    answer: [
+      { text: "Woman = 42, Daughter = 18", correct: true },
+      { text: "Woman = 38, Daughter = 22", correct: false },
+      { text: "Woman = 48, Daughter = 12", correct: false },
+      { text: "Woman = 45, Daughter = 15", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a man is 3 times the age of his son. The sum of their ages is 48. Find their present ages.",
+    answer: [
+      { text: "Man = 36, Son = 12", correct: true },
+      { text: "Man = 30, Son = 18", correct: false },
+      { text: "Man = 32, Son = 16", correct: false },
+      { text: "Man = 40, Son = 8", correct: false }
+    ]
+  },
+  {
+    question: "The difference between the present ages of a father and his son is 20 years. 4 years ago, the ratio of their ages was 5:1. Find their present ages.",
+    answer: [
+      { text: "Father = 30, Son = 10", correct: true },
+      { text: "Father = 40, Son = 20", correct: false },
+      { text: "Father = 35, Son = 15", correct: false },
+      { text: "Father = 50, Son = 30", correct: false }
+    ]
+  },
+  {
+    question: "The present age of a mother is 4 times the present age of her daughter. After 10 years, the sum of their ages will be 80. Find their present ages.",
+    answer: [
+      { text: "Mother = 48, Daughter = 12", correct: true },
+      { text: "Mother = 45, Daughter = 15", correct: false },
+      { text: "Mother = 50, Daughter = 20", correct: false },
+      { text: "Mother = 40, Daughter = 10", correct: false }
+    ]
+  },
+  {
+    question: "The sum of the ages of a father and his daughter is 50 years. 10 years ago, the ratio of their ages was 3:5. What are their current ages?",
+    answer: [
+      { text: "Father = 30, Daughter = 20", correct: true },
+      { text: "Father = 35, Daughter = 15", correct: false },
+      { text: "Father = 40, Daughter = 10", correct: false },
+      { text: "Father = 45, Daughter = 5", correct: false }
+    ]
+  }
+];
+
+
+
+
+    const questionelement = document.getElementById("question");
+    const answer_btn = document.getElementById("answer");
+    const nxt_btn = document.getElementById("nxt-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function startQuiz(){
+      currentQuestionIndex = 0;
+      score = 0;
+      nxt_btn.innerHTML = "Next";
+      nxt_btn.style.display = "none";  // Hide Next button initially
+      showQuestion();
+    }
+
+    function showQuestion(){
+      resetState();
+      let currentQuestion = questions[currentQuestionIndex];
+      let questionNo = currentQuestionIndex + 1;
+      questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+      currentQuestion.answer.forEach(answer =>{
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answer_btn.appendChild(button);
+        if (answer.correct){
+          button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+      });
+    }
+
+    function resetState(){
+      nxt_btn.style.display = "none";
+      while (answer_btn.firstChild){
+        answer_btn.removeChild(answer_btn.firstChild);
+      }
+    }
+
+    function selectAnswer(e){
+      const selectedBtn = e.target;
+      const iscorrect = selectedBtn.dataset.correct === "true";
+      if(iscorrect){
+        selectedBtn.classList.add("correct");
+        score++;
+      }else{
+        selectedBtn.classList.add("incorrect");
+      }
+      Array.from(answer_btn.children).forEach(button =>{
+        if(button.dataset.correct === "true"){
+          button.classList.add("correct");
+        }
+        button.disabled = true;
+      });
+      nxt_btn.style.display = "block";
+    }
+
+    function showScore(){
+      resetState();
+      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+      nxt_btn.innerHTML = "Retake Test";
+      nxt_btn.style.display = "block";
+    }
+
+    function handleNextButton(){
+      currentQuestionIndex++;
+      if(currentQuestionIndex < questions.length){
+        showQuestion();
+      }else{
+        showScore();
+      }
+    }
+
+    nxt_btn.addEventListener("click", function(){
+      if(currentQuestionIndex < questions.length){
+        handleNextButton();
+      }else{
+        startQuiz();
+      }
+    });
+
+    startQuiz();
+  </script>
+</body>
+</html>

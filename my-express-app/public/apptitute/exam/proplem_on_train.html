@@ -97,54 +97,27 @@
     </div>
   </div>
   <script>
-    const questions = [
+   const questions = [
   {
-    question: "A train travels 60 km/h for 2 hours. How far does it travel?",
+    question: "A train travels 50 km in 1 hour. What is its speed?",
     answer: [
-      { text: "120 km", correct: true },
-      { text: "100 km", correct: false },
-      { text: "140 km", correct: false },
-      { text: "110 km", correct: false }
+      { text: "50 km/h", correct: true },
+      { text: "60 km/h", correct: false },
+      { text: "70 km/h", correct: false },
+      { text: "40 km/h", correct: false }
     ]
   },
   {
-    question: "A train travels 80 km/h and passes a 100-meter-long bridge in 20 seconds. What is the length of the train?",
+    question: "A train is running at a speed of 80 km/h. How much time will it take to cover 200 km?",
     answer: [
-      { text: "120 meters", correct: false },
-      { text: "150 meters", correct: true },
-      { text: "200 meters", correct: false },
-      { text: "100 meters", correct: false }
-    ]
-  },
-  {
-    question: "Two trains are moving towards each other at 60 km/h and 80 km/h respectively. If they are initially 700 km apart, how long will they take to meet?",
-    answer: [
-      { text: "7 hours", correct: true },
-      { text: "6 hours", correct: false },
-      { text: "8 hours", correct: false },
+      { text: "2.5 hours", correct: true },
+      { text: "3 hours", correct: false },
+      { text: "4 hours", correct: false },
       { text: "5 hours", correct: false }
     ]
   },
   {
-    question: "A train starts from rest and accelerates uniformly at 1 m/s². How long will it take to reach a speed of 60 km/h?",
-    answer: [
-      { text: "60 seconds", correct: true },
-      { text: "120 seconds", correct: false },
-      { text: "180 seconds", correct: false },
-      { text: "90 seconds", correct: false }
-    ]
-  },
-  {
-    question: "A train travels at 75 km/h for 3 hours and then at 60 km/h for 2 hours. What is the average speed of the train for the entire journey?",
-    answer: [
-      { text: "68 km/h", correct: true },
-      { text: "72 km/h", correct: false },
-      { text: "70 km/h", correct: false },
-      { text: "65 km/h", correct: false }
-    ]
-  },
-  {
-    question: "A train of length 200 meters passes a signal post in 30 seconds. What is the speed of the train?",
+    question: "A train passes a man standing on a platform in 15 seconds. The length of the train is 300 meters. What is the speed of the train?",
     answer: [
       { text: "72 km/h", correct: true },
       { text: "60 km/h", correct: false },
@@ -153,42 +126,188 @@
     ]
   },
   {
-    question: "If a train travels at a speed of 50 km/h for 1 hour and then at 70 km/h for 2 hours, what is the total distance covered?",
+    question: "A train takes 10 seconds to pass a platform 200 meters long. If the length of the train is 100 meters, what is the speed of the train?",
     answer: [
-      { text: "190 km", correct: true },
-      { text: "160 km", correct: false },
-      { text: "180 km", correct: false },
-      { text: "200 km", correct: false }
+      { text: "36 km/h", correct: true },
+      { text: "72 km/h", correct: false },
+      { text: "50 km/h", correct: false },
+      { text: "45 km/h", correct: false }
     ]
   },
   {
-    question: "A train moving at a speed of 36 km/h crosses a platform of length 120 meters in 15 seconds. What is the length of the train?",
+    question: "A train travels 300 meters in 20 seconds. What is its speed?",
     answer: [
-      { text: "90 meters", correct: false },
-      { text: "100 meters", correct: false },
-      { text: "120 meters", correct: false },
-      { text: "150 meters", correct: true }
+      { text: "54 km/h", correct: true },
+      { text: "60 km/h", correct: false },
+      { text: "70 km/h", correct: false },
+      { text: "50 km/h", correct: false }
     ]
   },
   {
-    question: "Two trains, 100 meters long each, are moving in opposite directions with speeds of 50 km/h and 60 km/h. How much time will they take to completely pass each other?",
+    question: "A train starts from rest and accelerates uniformly to a speed of 72 km/h in 2 minutes. What is the acceleration?",
     answer: [
-      { text: "10.8 seconds", correct: true },
-      { text: "12 seconds", correct: false },
-      { text: "15 seconds", correct: false },
-      { text: "8 seconds", correct: false }
+      { text: "0.6 m/s²", correct: true },
+      { text: "0.5 m/s²", correct: false },
+      { text: "0.7 m/s²", correct: false },
+      { text: "0.4 m/s²", correct: false }
     ]
   },
   {
-    question: "A train travels 150 km at a speed of 75 km/h. How much time does the train take to cover this distance?",
+    question: "A train is running at 90 km/h. How much time will it take to cover a distance of 180 km?",
     answer: [
       { text: "2 hours", correct: true },
       { text: "3 hours", correct: false },
       { text: "1.5 hours", correct: false },
       { text: "4 hours", correct: false }
     ]
+  },
+  {
+    question: "A train 150 meters long is running at a speed of 72 km/h. How much time will it take to cross a bridge 200 meters long?",
+    answer: [
+      { text: "15 seconds", correct: true },
+      { text: "20 seconds", correct: false },
+      { text: "10 seconds", correct: false },
+      { text: "25 seconds", correct: false }
+    ]
+  },
+  {
+    question: "A train is moving at a speed of 60 km/h. How far will it travel in 45 minutes?",
+    answer: [
+      { text: "45 km", correct: true },
+      { text: "40 km", correct: false },
+      { text: "50 km", correct: false },
+      { text: "55 km", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a platform in 30 seconds and the length of the platform is 600 meters. If the length of the train is 300 meters, what is the speed of the train?",
+    answer: [
+      { text: "72 km/h", correct: true },
+      { text: "60 km/h", correct: false },
+      { text: "80 km/h", correct: false },
+      { text: "90 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train travels 120 meters in 6 seconds. What is its speed in km/h?",
+    answer: [
+      { text: "72 km/h", correct: true },
+      { text: "60 km/h", correct: false },
+      { text: "80 km/h", correct: false },
+      { text: "90 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train passes a station platform in 30 seconds. The train is 120 meters long. How much time will it take to cross a platform 240 meters long?",
+    answer: [
+      { text: "60 seconds", correct: true },
+      { text: "50 seconds", correct: false },
+      { text: "40 seconds", correct: false },
+      { text: "30 seconds", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a man standing on a platform in 10 seconds. If the length of the train is 250 meters, what is the speed of the train?",
+    answer: [
+      { text: "90 km/h", correct: true },
+      { text: "80 km/h", correct: false },
+      { text: "100 km/h", correct: false },
+      { text: "70 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train running at 60 km/h crosses a platform 250 meters long in 30 seconds. What is the length of the train?",
+    answer: [
+      { text: "200 meters", correct: true },
+      { text: "250 meters", correct: false },
+      { text: "300 meters", correct: false },
+      { text: "150 meters", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a bridge in 45 seconds. The train is 500 meters long and the speed of the train is 72 km/h. How long is the bridge?",
+    answer: [
+      { text: "680 meters", correct: true },
+      { text: "600 meters", correct: false },
+      { text: "700 meters", correct: false },
+      { text: "750 meters", correct: false }
+    ]
+  },
+  {
+    question: "A train running at a speed of 90 km/h crosses a 1.2 km long platform in 2 minutes. What is the length of the train?",
+    answer: [
+      { text: "600 meters", correct: true },
+      { text: "500 meters", correct: false },
+      { text: "700 meters", correct: false },
+      { text: "800 meters", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a man in 12 seconds. If the length of the train is 300 meters, what is the speed of the train?",
+    answer: [
+      { text: "90 km/h", correct: true },
+      { text: "80 km/h", correct: false },
+      { text: "85 km/h", correct: false },
+      { text: "75 km/h", correct: false }
+    ]
+  },
+  {
+    question: "A train runs at a speed of 50 km/h and crosses a 300-meter long bridge. How much time will it take to cross the bridge?",
+    answer: [
+      { text: "36 seconds", correct: true },
+      { text: "40 seconds", correct: false },
+      { text: "45 seconds", correct: false },
+      { text: "50 seconds", correct: false }
+    ]
+  },
+  {
+    question: "A train is moving at 72 km/h. How long will it take to cross a platform 240 meters long?",
+    answer: [
+      { text: "12 seconds", correct: true },
+      { text: "15 seconds", correct: false },
+      { text: "18 seconds", correct: false },
+      { text: "20 seconds", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a bridge in 30 seconds. The train is 150 meters long. If the train’s speed is 72 km/h, how long is the bridge?",
+    answer: [
+      { text: "300 meters", correct: true },
+      { text: "350 meters", correct: false },
+      { text: "200 meters", correct: false },
+      { text: "250 meters", correct: false }
+    ]
+  },
+  {
+    question: "A train crosses a platform in 20 seconds. If the length of the train is 500 meters and the speed of the train is 90 km/h, what is the length of the platform?",
+    answer: [
+      { text: "100 meters", correct: true },
+      { text: "150 meters", correct: false },
+      { text: "200 meters", correct: false },
+      { text: "250 meters", correct: false }
+    ]
+  },
+  {
+    question: "A train travels 100 km in 2 hours. What is its speed in m/s?",
+    answer: [
+      { text: "13.89 m/s", correct: true },
+      { text: "15 m/s", correct: false },
+      { text: "12 m/s", correct: false },
+      { text: "10 m/s", correct: false }
+    ]
+  },
+  {
+    question: "A train is running at 72 km/h. How much time will it take to cover a distance of 360 km?",
+    answer: [
+      { text: "5 hours", correct: true },
+      { text: "6 hours", correct: false },
+      { text: "4 hours", correct: false },
+      { text: "3 hours", correct: false }
+    ]
   }
 ];
+
+
 
 
     const questionelement = document.getElementById("question");
