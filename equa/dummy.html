@@ -1,0 +1,298 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard</title>
+    <link rel="stylesheet" href="dummy.css">
+</head>
+<body>
+    <div class="financial-dashboard">
+        <!-- Top Section -->
+        <div class="top-section">
+            <!-- Educational Resources -->
+            <div class="education-card">
+                <div class="card-header">
+                    <h2 class="card-title">Educational Resources</h2>
+                </div>
+                <div class="card-content">
+                    <div id="educational-content"></div>
+                </div>
+            </div>
+
+            <!-- Community -->
+            <div class="community-card">
+                <div class="card-header">
+                    <h2 class="card-title">Community</h2>
+                </div>
+                <div class="card-content">
+                    <div id="community-feed"></div>
+                </div>
+            </div>
+
+            <!-- Notifications & Alerts -->
+            <div class="alerts-card">
+                <div class="card-header">
+                    <h2 class="card-title">Notifications & Alerts</h2>
+                </div>
+                <div class="card-content">
+                    <div id="alerts-center"></div>
+                </div>
+            </div>
+
+            <!-- Financial Tools -->
+            <div class="calculators-card">
+                <div class="card-header">
+                    <h2 class="card-title">Financial Tools</h2>
+                </div>
+                <div class="card-content">
+                    <div id="financial-calculators"></div>
+                </div>
+            </div>
+
+            <!-- Profile & Settings -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h2 class="card-title">Profile & Settings</h2>
+                </div>
+                <div class="card-content">
+                    <div id="user-profile"></div>
+                    <div id="user-settings"></div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="actions-card">
+                <div class="card-header">
+                    <h2 class="card-title">Quick Actions</h2>
+                </div>
+                <div class="card-content">
+                    <div class="actions-grid">
+                        <button id="add-expense-btn" class="action-btn">
+                            <i class="icon-expense"></i>
+                            Add Expense
+                        </button>
+                        <button id="pay-bill-btn" class="action-btn">
+                            <i class="icon-bill"></i>
+                            Pay Bill
+                        </button>
+                        <button id="create-goal-btn" class="action-btn">
+                            <i class="icon-goal"></i>
+                            Create Savings Goal
+                        </button>
+                        <button id="invest-btn" class="action-btn">
+                            <i class="icon-invest"></i>
+                            Invest Now
+                        </button>
+                        <button id="transfer-funds-btn" class="action-btn">
+                            <i class="icon-transfer"></i>
+                            Transfer Funds
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personalized Welcome Message -->
+        <div class="welcome-message">
+            <h1>Welcome back, <span id="user-name">[User Name]</span>!</h1>
+            <p>Let's take charge of your finances today.</p>
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+        </div>
+
+        <!-- Financial Overview -->
+        <div class="overview-card">
+            <div class="card-header">
+                <h2 class="card-title">Financial Overview</h2>
+                <div class="refresh-icon" id="overview-refresh">
+                    <i class="icon-refresh"></i>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="overview-grid">
+                    <div class="overview-item">
+                        <h3>Net Worth</h3>
+                        <p id="net-worth">$0</p>
+                        <small id="net-worth-change" class="change-indicator"></small>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Cash Flow</h3>
+                        <p id="cash-flow">$0</p>
+                        <small id="cash-flow-change" class="change-indicator"></small>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Debts</h3>
+                        <p id="debts">$0</p>
+                        <small id="debts-change" class="change-indicator"></small>
+                    </div>
+                    <div class="overview-item">
+                        <h3>Investments</h3>
+                        <p id="investments">$0</p>
+                        <small id="investments-change" class="change-indicator"></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remaining Cards -->
+        <div class="budget-card">
+            <div class="card-header">
+                <h2 class="card-title">Monthly Budget</h2>
+                <div class="budget-controls">
+                    <select id="budget-month-selector">
+                        <option value="current">Current Month</option>
+                        <option value="previous">Previous Month</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-content">
+                <div id="budget-chart"></div>
+                <div class="budget-summary">
+                    <div class="budget-summary-item">
+                        <span>Total Budget</span>
+                        <strong id="total-budget">$0</strong>
+                    </div>
+                    <div class="budget-summary-item">
+                        <span>Spent</span>
+                        <strong id="budget-spent">$0</strong>
+                    </div>
+                    <div class="budget-summary-item">
+                        <span>Remaining</span>
+                        <strong id="budget-remaining">$0</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Upcoming Bills & Due Dates -->
+        <div class="bills-card">
+            <div class="card-header">
+                <h2 class="card-title">Upcoming Bills</h2>
+                <button id="add-bill-btn" class="btn-small">+ Add Bill</button>
+            </div>
+            <div class="card-content">
+                <ul id="bills-list" class="bills-list"></ul>
+                <div id="no-bills-message" class="empty-state">
+                    No upcoming bills. Great job staying on top of your finances!
+                </div>
+            </div>
+        </div>
+        
+        <!-- Savings & Goal Tracking -->
+        <div class="goals-card">
+            <div class="card-header">
+                <h2 class="card-title">Savings Goals</h2>
+            </div>
+            <div class="card-content">
+                <div id="savings-goals"></div>
+                <button id="add-goal-btn">Add Goal</button>
+            </div>
+        </div>
+        
+        <!-- Debt Reduction Tracker -->
+        <div class="debt-card">
+            <div class="card-header">
+                <h2 class="card-title">Debt Reduction</h2>
+            </div>
+            <div class="card-content">
+                <div id="debt-balances"></div>
+            </div>
+        </div>
+        
+        <!-- Personalized Financial Tips & Recommendations -->
+        <div class="tips-card">
+            <div class="card-header">
+                <h2 class="card-title">Financial Tips</h2>
+            </div>
+            <div class="card-content">
+                <ul id="financial-tips"></ul>
+            </div>
+        </div>
+        
+        <!-- AI-Powered Insights & Alerts -->
+        <div class="insights-card">
+            <div class="card-header">
+                <h2 class="card-title">Insights & Alerts</h2>
+            </div>
+            <div class="card-content">
+                <div id="insights-alerts"></div>
+            </div>
+        </div>
+        
+        <!-- Investment Portfolio Overview -->
+        <div class="portfolio-card">
+            <div class="card-header">
+                <h2 class="card-title">Investment Portfolio</h2>
+            </div>
+            <div class="card-content">
+                <div id="investment-portfolio"></div>
+            </div>
+        </div>
+        
+        <!-- Expense Breakdown -->
+        <div class="expense-card">
+            <div class="card-header">
+                <h2 class="card-title">Expense Breakdown</h2>
+            </div>
+            <div class="card-content">
+                <div id="expense-breakdown"></div>
+            </div>
+        </div>
+        
+        <!-- Educational Content & Resources -->
+        <div class="education-card">
+            <div class="card-header">
+                <h2 class="card-title">Educational Resources</h2>
+            </div>
+            <div class="card-content">
+                <div id="educational-content"></div>
+            </div>
+        </div>
+        
+        <!-- Community & Social Feed -->
+        <div class="community-card">
+            <div class="card-header">
+                <h2 class="card-title">Community</h2>
+            </div>
+            <div class="card-content">
+                <div id="community-feed"></div>
+            </div>
+        </div>
+
+        <!-- Chatbot -->
+        <div class="chatbot-container">
+            <div class="chatbot-button">
+                <i class="icon-chatbot"></i>
+            </div>
+            <div class="chatbot-panel">
+                <div class="chatbot-header">
+                    <h3>How can I assist you?</h3>
+                    <button class="close-chatbot">
+                        <i class="icon-close"></i>
+                    </button>
+                </div>
+                <div class="chatbot-content">
+                    <!-- Chatbot messages will be displayed here -->
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" placeholder="Type your message..." />
+                    <button class="send-message">
+                        <i class="icon-send"></i>
+                    </button>
+                </div>
+            </div>
+            </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 Eqaflow.ai. Empowering Financial Freedom.</p>
+        </footer>
+    </div>
+
+    <script src="dummy.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    color: #333;
+    }
+    h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 600;
+    }
+    a {
+    color: #673ab7;
+    text-decoration: none;
+    }
+    /* Financial Dashboard Container */
+    .financial-dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    }
+    /* Card Component */
+    .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .card-header {
+    background-color: #673ab7;
+    color: #fff;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .card-title {
+    margin: 0;
+    font-size: 1.5rem;
+    }
+    .card-content {
+    padding: 1.5rem;
+    }
+    /* Overview Grid */
+    .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    }
+    .overview-item {
+    text-align: center;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 8px;
+    }
+    .overview-item h3 {
+    font-size: 1.2rem;
+    color: #555;
+    }
+    .overview-item p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #673ab7;
+    }
+    .change-indicator {
+    font-size: 0.9rem;
+    color: #999;
+    }
+    /* Budget Section */
+    .budget-card .budget-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    }
+    .budget-controls select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f3f4f6;
+    font-size: 1rem;
+    cursor: pointer;
+    }
+    .budget-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    }
+    /* Progress Bar */
+    .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    }
+    .progress {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px 0 0 5px;
+    transition: width 0.4s ease;
+    }
+    /* Responsive Grid */
+    @media (max-width: 768px) {
+    .overview-grid,
+    .dashboard-grid {
+    grid-template-columns: 1fr;
+    }
+    }
+    /* Button Styles */
+    .btn-small, button {
+    background-color: #673ab7;
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    }
+    .btn-small:hover, button:hover {
+    background-color: #5e35b1;
+    }
+    /* Chatbot Container */
+    .chatbot-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    }
+    .chatbot-button {
+    width: 50px;
+    height: 50px;
+    background-color: #673ab7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    }
+    .chatbot-button:hover {
+    transform: scale(1.1);
+    }
+    .chatbot-button .icon-chatbot {
+    color: #fff;
+    font-size: 1.5rem;
+    }
+    .chatbot-panel {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    margin-top: 1rem;
+    }
+    .chatbot-header {
+    background-color: #673ab7;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    }
+    .chatbot-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    }
+    .close-chatbot {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    }
+    .chatbot-content {
+    padding: 1rem;
+    flex-grow: 1;
+    }
+    .chatbot-input {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    }
+    .chatbot-input input {
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px 0 0 6px;
+    font-size: 1rem;
+    }
+    .chatbot-input button {
+    border-radius: 0 6px 6px 0;
+    }
+    /* Educational Content */
+    .education-card #educational-content {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    }
+    /* Community Feed */
+    .community-card #community-feed {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    }
+    /* Financial Tools */
+    .calculators-card #financial-calculators {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    }
+    /* User Profile & Settings */
+    .profile-card #user-profile,
+    .profile-card #user-settings {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    }
