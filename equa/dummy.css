@@ -545,14 +545,14 @@ button:hover {
 .education-card #educational-content {
     padding: 1rem;
     background-color: #f9fafb;
-    border-radius: 8px;
+    border-radius: 19px;
 }
 
 /* Community Feed */
 .community-card #community-feed {
     padding: 1rem;
     background-color: #f9fafb;
-    border-radius: 8px;
+    border-radius: 19px;
 }
 
 /* Financial Tools */
