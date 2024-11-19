@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eqaflow.AI - Financial Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #553C9A;
+            --dark-purple: #44337A;
+            --light-purple: #9F7AEA;
+            --white: #ffffff;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #6B46C1, #44337A);
+            min-height: 100vh;
+            color: white;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-section img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+         /* Navigation Styles */
+         .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--primary-color);
+            min-width: 220px;
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1001;
+            margin-top: 0.5rem;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Icons Section */
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+
+        .icon-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+         /* Mobile Menu */
+         .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: var(--menu-bg);
+            padding: 2rem;
+            transition: right 0.3s ease;
+            z-index: 1001;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            margin-top: 3rem;
+        }
+
+        .mobile-nav-item {
+            margin-bottom: 1rem;
+        }
+        /* Notification Panel */
+        .notification-panel {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            width: 300px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1002;
+            padding: 1rem;
+        }
+
+        .notification-panel.active {
+            display: block;
+        }
+
+        .notification-item {
+            padding: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        /* Profile Menu */
+        .profile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            width: 220px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1002;
+        }
+
+        .profile-menu ul {
+            list-style: none;
+            padding: 0.5rem;
+        }
+
+        .profile-menu ul li {
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-menu ul li a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .profile-menu ul li a i {
+            margin-right: 0.75rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .profile-menu ul li a:hover {
+            background-color: var(--secondary-color);
+        }
+        /* Feature Cards */
+        .features-section {
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+
+        /* Main Content Styles */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 2rem;
+        }
+
+
+        .welcome-section {
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Tools Grid */
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--secondary-color);
+        }
+
+        .tool-icon {
+            background-color: var(--primary-color);
+            width: fit-content;
+            padding: 1rem;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        /* Assistant */
+        .assistant {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+        .assistant img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-purple);
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../assets/icon/equalogo.jpg" alt="Logo">
+                <h1>Eqaflow.AI</h1>
+            </div>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Personalized Debt Management</a>
+                            <a href="#" class="dropdown-item">Smart Budgeting</a>
+                            <a href="#" class="dropdown-item">Financial Health Score</a>
+                            <a href="#" class="dropdown-item">AI-Powered Alerts</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tools</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Debt Repayment Calculator</a>
+                            <a href="#" class="dropdown-item">Budget Optimizer</a>
+                            <a href="#" class="dropdown-item">Emergency Fund Planner</a>
+                            <a href="#" class="dropdown-item">Investment Calculator</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Resources</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Financial Education</a>
+                            <a href="#" class="dropdown-item">Market Insights</a>
+                            <a href="#" class="dropdown-item">Webinars</a>
+                            <a href="#" class="dropdown-item">Blog</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+           
+            <div class="nav-icons">
+                <button class="icon-button">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-button" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="welcome-section">
+            <h2>Welcome, Roger!</h2>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Explore our Tools">
+            </div>
+        </div>
+
+        <h3>Recently used</h3>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-calculator fa-lg"></i>
+                </div>
+                <h4 class="tool-title">Budget Calculator</h4>
+                <p class="tool-description">Integrated with Data Organization</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-chart-line fa-lg"></i>
+                </div>
+                <h4 class="tool-title">Finance Tracker</h4>
+                <p class="tool-description">AI-powered finance tracking</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-balance-scale fa-lg"></i>
+                </div>
+                <h4 class="tool-title">Debt Equator</h4>
+                <p class="tool-description">AI-driven optimization</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-chart-bar fa-lg"></i>
+                </div>
+                <h4 class="tool-title">Spending Analytics</h4>
+                <p class="tool-description">Powered by AI</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-chart-pie fa-lg"></i>
+                </div>
+                <h4 class="tool-title">FinHabit Tracker</h4>
+                <p class="tool-description">AI Integrative data Analytics</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="assistant">
+        <img src="../assets/icon/aibotlogo.jpg" alt="AI Assistant">
+    </div>
+     <!-- Mobile Menu -->
+     <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu" id="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mobile-nav-list">
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Features</a></li>
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Tools</a></li>
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Resources</a></li>
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Blog</a></li>
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Success Stories</a></li>
+            <li class="mobile-nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        </ul>
+    </div>
+    <!-- Profile Menu -->
+    <div class="profile-menu" id="profile-menu">
+        <ul>
+            <li><a href="#"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-user-circle"></i>Profile Settings</a></li>
+            <li><a href="#"><i class="fas fa-bullseye"></i>Financial Goals</a></li>
+            <li><a href="#"><i class="fas fa-bell"></i>Notifications</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+        </ul>
+    </div>
+    
+     <!-- Notification Panel -->
+     <div class="notification-panel" id="notification-panel">
+        <h3>Notifications</h3>
+        <div class="notification-item">
+            <p>Your monthly budget report is ready</p>
+            <small>2 hours ago</small>
+        </div>
+        <div class="notification-item">
+            <p>New investment opportunity identified</p>
+            <small>5 hours ago</small>
+        </div>
+    </div>
+    
+
+     <footer>
+        <div class="footer-grid">
+            <!-- Company Information Section -->
+            <div class="footer-section">
+                <h3 style="color: white;">Company Information:</h3>
+                <ul>
+                    <li><a href="../login_signup/about.html" target="_blank" style="color: white;">About Us</a></li>
+                    <li><a href="/whats-new.html" target="_blank" style="color: white;">What's New?</a></li>
+                    <li><a href="/team.html" target="_blank" style="color: white;">Meet the Team</a></li>
+                    <li><a href="/careers.html" target="_blank" style="color: white;">Careers</a></li>
+                    <li><a href="/press.html" target="_blank" style="color: white;">Press & Media</a></li>
+                </ul>
+            </div>
+    
+            <!-- Products & Services Section -->
+            <div class="footer-section">
+                <h3 style="color: white;">Products & Services</h3>
+                <ul>
+                    <li><a href="/financial-planning.html" target="_blank" style="color: white;">Financial Planning Tools</a></li>
+                    <li><a href="/debt-management.html" target="_blank" style="color: white;">Debt Management</a></li>
+                    <li><a href="/ai-budgeting.html" target="_blank" style="color: white;">AI Budgeting & Analytics</a></li>
+                    <li><a href="/investment-advisor.html" target="_blank" style="color: white;">Investment Advisor</a></li>
+                    <li><a href="/insurance-planner.html" target="_blank" style="color: white;">Insurance Planner</a></li>
+                </ul>
+            </div>
+    
+            <!-- Support Section -->
+            <div class="footer-section">
+                <h3 style="color: white;">Support</h3>
+                <ul>
+                    <li><a href="/help-center.html" target="_blank" style="color: white;">Help Center</a></li>
+                    <li><a href="/faqs.html" target="_blank" style="color: white;">FAQs</a></li>
+                    <li><a href="mailto:support@eqaflow.ai" style="color: white;">Contact: support@eqaflow.ai</a></li>
+                    <li><a href="/community.html" target="_blank" style="color: white;">Community Support</a></li>
+                    <li><a href="/privacy-policy.html" target="_blank" style="color: white;">Privacy Policy</a></li>
+                    <li><a href="/terms-of-service.html" target="_blank" style="color: white;">Terms of Service</a></li>
+                </ul>
+            </div>
+    
+            <!-- Resources & Insights Section -->
+            <div class="footer-section">
+                <h3 style="color: white;">Resources & Insights</h3>
+                <ul>
+                    <li><a href="/blog.html" target="_blank" style="color: white;">Blog</a></li>
+                    <li><a href="/case-studies.html" target="_blank" style="color: white;">Case Studies</a></li>
+                    <li><a href="/whitepapers.html" target="_blank" style="color: white;">Whitepapers</a></li>
+                    <li><a href="/financial-education.html" target="_blank" style="color: white;">Financial Education</a></li>
+                    <li><a href="/webinars.html" target="_blank" style="color: white;">Webinars & Events</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Social Media & Newsletter Section -->
+        <div class="footer-social">
+            <h3 style="color: white;">Follow Us</h3>
+            <div class="social-links">
+                <a href="https://www.facebook.com/EqaflowAI" target="_blank"><i class="fab fa-facebook-f" style="color: white;"></i> Facebook</a>
+                <a href="https://twitter.com/EqaflowAI" target="_blank"><i class="fab fa-twitter" style="color: white;"></i> Twitter</a>
+                <a href="https://www.linkedin.com/company/EqaflowAI" target="_blank"><i class="fab fa-linkedin-in" style="color: white;"></i> LinkedIn</a>
+                <a href="https://www.instagram.com/EqaflowAI" target="_blank"><i class="fab fa-instagram" style="color: white;"></i> Instagram</a>
+                <a href="https://www.youtube.com/c/EqaflowAI" target="_blank"><i class="fab fa-youtube" style="color: white;"></i> YouTube</a>
+            </div>
+            <div class="newsletter">
+                <form action="/subscribe.html" method="post">
+                    <label for="email" style="color: white;">Subscribe to our Newsletter:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Copyright Section -->
+        <div class="copyright">
+            <p style="color: white;">© 2024 Equa Flow.AI | All Rights Reserved.</p>
+            <p style="color: white;">Designed by <a href="https://www.eqaflow.ai" target="_blank" style="color: white;">Eqaflow Team</a></p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        // Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+    
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+    
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+    
+        // Notification Toggle
+        const notificationButton = document.querySelector('.nav-icons .icon-button:nth-child(1)');
+        const notificationPanel = document.getElementById('notification-panel');
+    
+        notificationButton.addEventListener('click', () => {
+            notificationPanel.classList.toggle('active');
+        });
+    
+        // Profile Button Toggle
+        const profileButton = document.querySelector('.nav-icons .icon-button:nth-child(2)');
+        const profileMenu = document.getElementById('profile-menu');
+    
+        profileButton.addEventListener('click', () => {
+            profileMenu.style.display = profileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+    
+        // Close dropdowns and notifications when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.notification-panel') && 
+                !e.target.closest('.nav-icons .icon-button:nth-child(1)')) {
+                notificationPanel.classList.remove('active');
+            }
+    
+            if (!e.target.closest('.nav-icons .icon-button:nth-child(2)') && 
+                !e.target.closest('#profile-menu')) {
+                profileMenu.style.display = 'none';
+            }
+    
+            if (!e.target.closest('#menu-toggle') && !e.target.closest('#mobile-menu')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    
+        // Handle Logout functionality
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                alert('You have been logged out successfully.');
+                window.location.href = '/login.html';
+            });
+        }
+    </script>
+    
+</body>
+</html>
