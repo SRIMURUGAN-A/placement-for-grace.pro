@@ -590,16 +590,6 @@ nav ul li:hover ul.dropdown {
     z-index: 1;
 }
 
-/* Courses container styling */
-.courses {
-    flex: 1; /* Makes the courses container take up remaining space */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-}
-
 /* Other styling for filter options */
 .filter-container h2, .courses h2 {
     font-size: 1.5em;
@@ -646,111 +636,65 @@ nav ul li:hover ul.dropdown {
 
 
 
-/* Main courses container */
+/* Courses container styling */
 .courses {
-    width: 100%;
-    margin: 20px ;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 0px;
+    flex: 1; /* Makes the courses container take up remaining space */
+    
 }
 
-/* Courses title styling */
-.courses h2 {
-    font-size: 1.5em;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-/* Individual course container */
-.course1 {
+.coursce1 {
     display: flex;
-    gap: 5px;
-    padding: 20px;
+    gap: 10px; /* Add space between image and content */
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    padding: 10px 20px;
 }
 
-/* Left section styling */
-.course1 .left {
-    flex: 1;
+.coursce1 .left {
+    flex: 10;
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    max-width: 70%; /* Control the width of the left content */
 }
 
-.course1 .left img {
-    width: 100%;
-    max-width: 150px;
-    border-radius: 8px;
-    object-fit: cover;
+.coursce1 .left img {
+    width: 150px; /* Adjust the size of the image */
+    height: auto;
+    object-fit: cover; 
 }
 
-.course1 .left h1 {
-    font-size: 1.2em;
-    color: #333;
-    margin: 10px 0;
-}
-
-.course1 .left p {
-    font-size: 0.9em;
-    color: #555;
-    line-height: 1.5;
-}
-
-.course1 .left button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 12px;
-    font-size: 0.9em;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.course1 .left button i {
-    margin-right: 5px;
-}
-
-.course1 .left button:hover {
-    background-color: #0056b3;
-}
-
-/* Right section styling */
-.course1 .right {
+.coursce1 .right {
     flex: 1;
-    justify-content: center;
-    gap: 1px;
+    border-left: 1.5px solid rgb(218, 216, 216);
+    padding-left: 20px;
 }
 
-.course1 .right h3 {
-    font-size: 1em;
-    color: #007bff;
-    margin: 0;
+.coursce1 button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF; /* A blue color for buttons */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-.course1 .right p {
-    font-size: 0.9em;
-    color: #555;
-    margin: 5px 0;
+.coursce1 button i {
+    margin-right: 5px; /* Add space between icon and text */
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .course1 {
-        flex-direction: column;
-        align-items: center;
-    }
+.coursce1 button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 
-    .course1 .left, .course1 .right {
-        width: 100%;
-        max-width: 100%;
+
+
+@media screen and (max-width: 900px) {
+    .image_head{
+        display: flex;
     }
 }
