@@ -1,99 +1,117 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Dashboard</title>
+    <title>paste</title>
     <link rel="stylesheet" href="dummy.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="financial-dashboard">
-        <!-- Top Section -->
-        <div class="top-section">
-            <!-- Educational Resources -->
-            <div class="education-card">
-                <div class="card-header">
-                    <h2 class="card-title">Educational Resources</h2>
-                </div>
-                <div class="card-content">
-                    <div id="educational-content"></div>
-                </div>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../assets/icon/equalogo.jpg" alt="Logo">
+                <h1>Eqaflow.AI</h1>
             </div>
+            <nav class="main-nav">
+                <ul class="main-nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Features</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Personalized Debt Management</a>
+                            <a href="#" class="dropdown-item">Smart Budgeting</a>
+                            <a href="#" class="dropdown-item">Financial Health Score</a>
+                            <a href="#" class="dropdown-item">AI-Powered Alerts</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tools</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Debt Repayment Calculator</a>
+                            <a href="#" class="dropdown-item">Budget Optimizer</a>
+                            <a href="#" class="dropdown-item">Emergency Fund Planner</a>
+                            <a href="#" class="dropdown-item">Investment Calculator</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Resources</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Financial Education</a>
+                            <a href="#" class="dropdown-item">Market Insights</a>
+                            <a href="#" class="dropdown-item">Webinars</a>
+                            <a href="#" class="dropdown-item">Blog</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Quick Actions</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Add Expense</a>
+                            <a href="#" class="dropdown-item">Pay Bill</a>
+                            <a href="#" class="dropdown-item">Create Savings</a>
+                            <a href="#" class="dropdown-item">Goal</a>
+                            <a href="#" class="dropdown-item">Invest Now</a>
+                            <a href="#" class="dropdown-item">Transfer Funds</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
 
-            <!-- Community -->
-            <div class="community-card">
-                <div class="card-header">
-                    <h2 class="card-title">Community</h2>
-                </div>
-                <div class="card-content">
-                    <div id="community-feed"></div>
-                </div>
-            </div>
-
-            <!-- Notifications & Alerts -->
-            <div class="alerts-card">
-                <div class="card-header">
-                    <h2 class="card-title">Notifications & Alerts</h2>
-                </div>
-                <div class="card-content">
-                    <div id="alerts-center"></div>
-                </div>
-            </div>
-
-            <!-- Financial Tools -->
-            <div class="calculators-card">
-                <div class="card-header">
-                    <h2 class="card-title">Financial Tools</h2>
-                </div>
-                <div class="card-content">
-                    <div id="financial-calculators"></div>
-                </div>
-            </div>
-
-            <!-- Profile & Settings -->
-            <div class="profile-card">
-                <div class="card-header">
-                    <h2 class="card-title">Profile & Settings</h2>
-                </div>
-                <div class="card-content">
-                    <div id="user-profile"></div>
-                    <div id="user-settings"></div>
-                </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="actions-card">
-                <div class="card-header">
-                    <h2 class="card-title">Quick Actions</h2>
-                </div>
-                <div class="card-content">
-                    <div class="actions-grid">
-                        <button id="add-expense-btn" class="action-btn">
-                            <i class="icon-expense"></i>
-                            Add Expense
-                        </button>
-                        <button id="pay-bill-btn" class="action-btn">
-                            <i class="icon-bill"></i>
-                            Pay Bill
-                        </button>
-                        <button id="create-goal-btn" class="action-btn">
-                            <i class="icon-goal"></i>
-                            Create Savings Goal
-                        </button>
-                        <button id="invest-btn" class="action-btn">
-                            <i class="icon-invest"></i>
-                            Invest Now
-                        </button>
-                        <button id="transfer-funds-btn" class="action-btn">
-                            <i class="icon-transfer"></i>
-                            Transfer Funds
-                        </button>
-                    </div>
-                </div>
+            <div class="nav-icons">
+                <button class="icon-button">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="icon-button">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="icon-button" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Tools</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Resources</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Success Stories</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Pricing</a></li>
+            </ul>
+        </div>
+        <!-- Profile Menu -->
+        <div class="profile-menu" id="profile-menu">
+            <ul>
+                <li><a href="#"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-user-circle"></i>Profile Settings</a></li>
+                <li><a href="#"><i class="fas fa-bullseye"></i>Financial Goals</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i>Notifications</a></li>
+                <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            </ul>
+        </div>
 
+        <!-- Notification Panel -->
+        <div class="notification-panel" id="notification-panel">
+            <h3>Notifications</h3>
+            <div class="notification-item">
+                <p>Your monthly budget report is ready</p>
+                <small>2 hours ago</small>
+            </div>
+            <div class="notification-item">
+                <p>New investment opportunity identified</p>
+                <small>5 hours ago</small>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="main">
         <!-- Personalized Welcome Message -->
         <div class="welcome-message">
             <h1>Welcome back, <span id="user-name">[User Name]</span>!</h1>
@@ -167,7 +185,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Upcoming Bills & Due Dates -->
         <div class="bills-card">
             <div class="card-header">
@@ -181,7 +199,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Savings & Goal Tracking -->
         <div class="goals-card">
             <div class="card-header">
@@ -192,7 +210,7 @@
                 <button id="add-goal-btn">Add Goal</button>
             </div>
         </div>
-        
+
         <!-- Debt Reduction Tracker -->
         <div class="debt-card">
             <div class="card-header">
@@ -202,7 +220,7 @@
                 <div id="debt-balances"></div>
             </div>
         </div>
-        
+
         <!-- Personalized Financial Tips & Recommendations -->
         <div class="tips-card">
             <div class="card-header">
@@ -212,7 +230,7 @@
                 <ul id="financial-tips"></ul>
             </div>
         </div>
-        
+
         <!-- AI-Powered Insights & Alerts -->
         <div class="insights-card">
             <div class="card-header">
@@ -222,7 +240,7 @@
                 <div id="insights-alerts"></div>
             </div>
         </div>
-        
+
         <!-- Investment Portfolio Overview -->
         <div class="portfolio-card">
             <div class="card-header">
@@ -232,7 +250,7 @@
                 <div id="investment-portfolio"></div>
             </div>
         </div>
-        
+
         <!-- Expense Breakdown -->
         <div class="expense-card">
             <div class="card-header">
@@ -242,7 +260,7 @@
                 <div id="expense-breakdown"></div>
             </div>
         </div>
-        
+
         <!-- Educational Content & Resources -->
         <div class="education-card">
             <div class="card-header">
@@ -252,7 +270,7 @@
                 <div id="educational-content"></div>
             </div>
         </div>
-        
+
         <!-- Community & Social Feed -->
         <div class="community-card">
             <div class="card-header">
@@ -285,14 +303,15 @@
                     </button>
                 </div>
             </div>
-            </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Eqaflow.ai. Empowering Financial Freedom.</p>
-        </footer>
+        </div>
     </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Eqaflow.ai. Empowering Financial Freedom.</p>
+    </footer>
+
 
     <script src="dummy.js"></script>
 </body>
+
 </html>
