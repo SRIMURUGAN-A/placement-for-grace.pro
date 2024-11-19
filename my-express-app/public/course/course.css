@@ -693,8 +693,9 @@ nav ul li:hover ul.dropdown {
 
 
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 900px) {
     .image_head{
         display: flex;
+        gap: 10px;
     }
 }
