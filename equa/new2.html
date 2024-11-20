@@ -1,0 +1,336 @@
+import React, { useState, useEffect } from 'react';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { 
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, 
+  ReferenceLine, ResponsiveContainer, AreaChart, Area 
+} from 'recharts';
+import { 
+  AlertCircle, TrendingUp, Activity, BarChart2, Star, Plus, X, Search,
+  RefreshCw, Bell, Settings, ChevronUp, ChevronDown, DollarSign, Percent
+} from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Progress } from "@/components/ui/progress";
+
+const TradingDashboard = () => {
+  const [symbol, setSymbol] = useState('');
+  const [capital, setCapital] = useState('10000');
+  const [riskPercent, setRiskPercent] = useState('1');
+  const [selectedStrategy, setSelectedStrategy] = useState('all');
+  const [activeTab, setActiveTab] = useState('scanner');
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [timeframe, setTimeframe] = useState('1D');
+
+  // Sample market performance data with more detailed metrics
+  const marketPerformance = {
+    mainIndices: [
+      { 
+        name: 'S&P 500', 
+        value: '4,927.21', 
+        change: '+0.82%', 
+        direction: 'up',
+        volume: '2.3B',
+        trend: [45, 52, 49, 47, 53, 56, 54]
+      },
+      { 
+        name: 'Nasdaq', 
+        value: '15,628.95', 
+        change: '+1.12%', 
+        direction: 'up',
+        volume: '5.1B',
+        trend: [42, 48, 45, 44, 49, 53, 51]
+      },
+      { 
+        name: 'Dow Jones', 
+        value: '38,519.84', 
+        change: '-0.21%', 
+        direction: 'down',
+        volume: '1.8B',
+        trend: [56, 54, 52, 50, 48, 47, 46]
+      },
+      { 
+        name: 'VIX', 
+        value: '13.24', 
+        change: '-5.43%', 
+        direction: 'down',
+        volatility: 'Low',
+        trend: [18, 16, 15, 14, 13, 12, 13]
+      }
+    ],
+    sectorPerformance: [
+      { name: 'Technology', change: '+2.1%', strength: 85 },
+      { name: 'Healthcare', change: '-0.5%', strength: 45 },
+      { name: 'Finance', change: '+0.8%', strength: 72 },
+      { name: 'Energy', change: '-1.2%', strength: 38 },
+    ]
+  };
+
+  // Enhanced scanner results with more metrics
+  const scannerResults = [
+    { 
+      symbol: 'AMD', 
+      price: '172.45', 
+      change: '+2.8%',
+      volume: '62.3M',
+      strategy: 'Resistance Breakout', 
+      signal: 'BUY', 
+      strength: 85,
+      pattern: 'Cup and Handle',
+      rsi: 62,
+      risk: 'Medium'
+    },
+    { 
+      symbol: 'NVDA', 
+      price: '721.28',
+      change: '+1.5%',
+      volume: '45.1M',
+      strategy: 'Supertrend', 
+      signal: 'BUY', 
+      strength: 92,
+      pattern: 'Breakout',
+      rsi: 68,
+      risk: 'Low'
+    },
+    { 
+      symbol: 'TSLA', 
+      price: '185.92',
+      change: '-1.2%',
+      volume: '98.7M',
+      strategy: 'Heikin-Ashi', 
+      signal: 'SELL', 
+      strength: 78,
+      pattern: 'Double Top',
+      rsi: 42,
+      risk: 'High'
+    }
+  ];
+
+  // Simulated refresh function
+  const refreshData = () => {
+    setIsRefreshing(true);
+    setTimeout(() => {
+      setIsRefreshing(false);
+    }, 1000);
+  };
+
+  // Mini chart component for index cards
+  const MiniChart = ({ data }) => (
+    <ResponsiveContainer width="100%" height={40}>
+      <AreaChart data={data.map((value, index) => ({ value }))}>
+        <Area 
+          type="monotone" 
+          dataKey="value" 
+          stroke={data[data.length - 1] > data[0] ? "#22c55e" : "#ef4444"}
+          fill={data[data.length - 1] > data[0] ? "#22c55e20" : "#ef444420"}
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  );
+
+  // Signal badge component
+  const SignalBadge = ({ signal }) => (
+    <Badge
+      className={`
+        ${signal === 'BUY' ? 'bg-green-100 text-green-800 hover:bg-green-200' : 
+          signal === 'SELL' ? 'bg-red-100 text-red-800 hover:bg-red-200' : 
+          'bg-gray-100 text-gray-800 hover:bg-gray-200'}
+      `}
+    >
+      {signal}
+    </Badge>
+  );
+
+  return (
+    <div className="p-4 max-w-7xl mx-auto">
+      {/* Top Header */}
+      <div className="flex justify-between items-center mb-6">
+        <div className="flex items-center gap-4">
+          <h1 className="text-2xl font-bold">Trading Dashboard</h1>
+          <Select value={timeframe} onValueChange={setTimeframe}>
+            <SelectTrigger className="w-24">
+              <SelectValue placeholder="Timeframe" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="1D">1 Day</SelectItem>
+              <SelectItem value="1W">1 Week</SelectItem>
+              <SelectItem value="1M">1 Month</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" onClick={refreshData}>
+            <RefreshCw className={`w-4 h-4 mr-1 ${isRefreshing ? 'animate-spin' : ''}`} />
+            Refresh
+          </Button>
+          <Button variant="outline" size="sm">
+            <Bell className="w-4 h-4 mr-1" />
+            Alerts
+          </Button>
+          <Button variant="outline" size="sm">
+            <Settings className="w-4 h-4" />
+          </Button>
+        </div>
+      </div>
+
+      {/* Market Overview */}
+      <div className="grid grid-cols-4 gap-4 mb-6">
+        {marketPerformance.mainIndices.map((index) => (
+          <Card key={index.name} className="relative overflow-hidden">
+            <CardHeader className="pb-2">
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-sm text-gray-500">{index.name}</CardTitle>
+                <Badge variant={index.direction === 'up' ? 'success' : 'destructive'}>
+                  {index.change}
+                </Badge>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-2xl font-bold">{index.value}</span>
+                {index.direction === 'up' ? 
+                  <ChevronUp className="w-6 h-6 text-green-500" /> : 
+                  <ChevronDown className="w-6 h-6 text-red-500" />
+                }
+              </div>
+              <div className="h-10">
+                <MiniChart data={index.trend} />
+              </div>
+              <div className="text-sm text-gray-500 mt-2">
+                Vol: {index.volume}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Sector Performance */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle>Sector Performance</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-4 gap-4">
+            {marketPerformance.sectorPerformance.map((sector) => (
+              <div key={sector.name} className="space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm font-medium">{sector.name}</span>
+                  <span className={`text-sm ${
+                    sector.change.startsWith('+') ? 'text-green-500' : 'text-red-500'
+                  }`}>{sector.change}</span>
+                </div>
+                <Progress value={sector.strength} className="h-2" />
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Main Content */}
+      <Tabs value={activeTab} onValueChange={setActiveTab}>
+        <TabsList className="grid w-full grid-cols-2 mb-4">
+          <TabsTrigger value="scanner" className="text-sm">
+            <Search className="w-4 h-4 mr-2" />
+            Strategy Scanner
+          </TabsTrigger>
+          <TabsTrigger value="watchlist" className="text-sm">
+            <Star className="w-4 h-4 mr-2" />
+            Watchlist
+          </TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="scanner">
+          <Card>
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <div>
+                  <CardTitle>Strategy Scanner</CardTitle>
+                  <CardDescription>Find trading opportunities based on technical patterns</CardDescription>
+                </div>
+                <div className="flex gap-2">
+                  <Select value={selectedStrategy} onValueChange={setSelectedStrategy}>
+                    <SelectTrigger className="w-40">
+                      <SelectValue placeholder="Strategy" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Strategies</SelectItem>
+                      <SelectItem value="resistance">Resistance Breakout</SelectItem>
+                      <SelectItem value="supertrend">Supertrend</SelectItem>
+                      <SelectItem value="heikinashi">Heikin-Ashi</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Button>
+                    <Search className="w-4 h-4 mr-2" />
+                    Scan
+                  </Button>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Symbol</TableHead>
+                    <TableHead>Price</TableHead>
+                    <TableHead>Change</TableHead>
+                    <TableHead>Volume</TableHead>
+                    <TableHead>Strategy</TableHead>
+                    <TableHead>Signal</TableHead>
+                    <TableHead>Pattern</TableHead>
+                    <TableHead>Strength</TableHead>
+                    <TableHead>Risk</TableHead>
+                    <TableHead>Action</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {scannerResults.map((result) => (
+                    <TableRow key={result.symbol}>
+                      <TableCell className="font-medium">{result.symbol}</TableCell>
+                      <TableCell>${result.price}</TableCell>
+                      <TableCell className={result.change.startsWith('+') ? 'text-green-500' : 'text-red-500'}>
+                        {result.change}
+                      </TableCell>
+                      <TableCell>{result.volume}</TableCell>
+                      <TableCell>{result.strategy}</TableCell>
+                      <TableCell><SignalBadge signal={result.signal} /></TableCell>
+                      <TableCell>{result.pattern}</TableCell>
+                      <TableCell>
+                        <div className="flex items-center gap-2">
+                          <Progress value={result.strength} className="h-2 w-20" />
+                          <span className="text-sm">{result.strength}%</span>
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant={
+                          result.risk === 'Low' ? 'success' :
+                          result.risk === 'Medium' ? 'warning' : 'destructive'
+                        }>
+                          {result.risk}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        <Button variant="ghost" size="sm">
+                          <Plus className="w-4 h-4" />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="watchlist">
+          {/* Watchlist content similar to scanner but with watchlist-specific features */}
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+export default TradingDashboard;
