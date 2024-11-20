@@ -27,7 +27,7 @@ body {
 }
 
 body {
-    background: linear-gradient(to bottom, #6B46C1, #44337A);
+    background: linear-gradient(to bottom, #6B46C1, #7E60BF);
     min-height: 100vh;
     color: white;
 }
@@ -311,7 +311,7 @@ h6 {
 }
 
 a {
-    color: #673ab7;
+    color:#7E60BF;
     text-decoration: none;
 }
 
@@ -338,7 +338,7 @@ a {
 }
 
 .card-header {
-    background-color: #673ab7;
+    background-color: #7E60BF;
     color: #fff;
     padding: 1.2rem;
     display: flex;
@@ -377,7 +377,7 @@ a {
 .overview-item p {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #673ab7;
+    color: #7E60BF;
 }
 
 .change-indicator {
@@ -438,7 +438,7 @@ a {
 /* Button Styles */
 .btn-small,
 button {
-    background-color: #673ab7;
+    background-color: #7E60BF;
     color: #fff;
     border: none;
     padding: 0.6rem 1rem;
@@ -450,25 +450,36 @@ button {
 
 .btn-small:hover,
 button:hover {
-    background-color: #5e35b1;
+    background-color: #7E60BF;
 }
 
 /* Chatbot Container */
 .chatbot-container {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 100;
+    bottom: 9rem;
+    right: 2.5rem;
+    z-index: 1;
+    color: white;
+    width: 300px;
+    height: 100px;
 }
 
 .chatbot-button {
     width: 50px;
     height: 50px;
-    background-color: #673ab7;
+    background-color: #7E60BF;
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+    float: right;
+}
+.chatbot-button img {
+    width: 50px;
+    height: 50px;
+    justify-self: end;
+    border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
@@ -487,16 +498,17 @@ button:hover {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    max-height: 80vh;
+    width: 100%;
+    height: auto;
     overflow-y: auto;
-    display: none;
     flex-direction: column;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 8px;
+    z-index: 1;
 }
 
 .chatbot-header {
-    background-color: #673ab7;
+    background-color: #7E60BF;
     color: #fff;
     padding: 1rem;
     display: flex;
@@ -576,6 +588,8 @@ button:hover {
     padding: 10px 30px;
 }
 
+
+
  /* Footer */
  footer {
     background-color: var(--dark-purple);
@@ -604,6 +618,8 @@ button:hover {
     margin-bottom: 0.5rem;
     opacity: 0.8;
 }
+
+
 
 .copyright {
     text-align: center;

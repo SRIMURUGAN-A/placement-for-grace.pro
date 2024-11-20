@@ -570,6 +570,72 @@ nav ul li:hover ul.dropdown {
 }
 
 
+/*use to sidebar*/
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color:#1a73e8 ;/* rgb(120, 28, 206);   */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+    z-index: 1;
+
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #1a73e8;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+
+.toggle-btn:hover {
+    background-color: #1a73e8;
+    border-radius: 13px;
+    border: 1px solid #1a73e8;
+    color: #232121;
+
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+
+
+
+
 /* Main container styling for side-by-side layout */
 .not-fixed {
     display: flex;
@@ -634,12 +700,13 @@ nav ul li:hover ul.dropdown {
     cursor: pointer;
 }
 
-
+.filter{
+    display: none;
+}
 
 /* Courses container styling */
 .courses {
     flex: 1; /* Makes the courses container take up remaining space */
-    
 }
 
 
@@ -651,7 +718,7 @@ nav ul li:hover ul.dropdown {
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
-    padding: 10px 20px;
+    padding: 20px 30px;
 }
 
 .coursce1 .left {
@@ -673,6 +740,11 @@ nav ul li:hover ul.dropdown {
     padding-left: 20px;
 }
 
+.coursce1 .right p{
+    border-bottom: 1.5px solid rgb(218, 216, 216);
+    padding: 9px;
+}
+
 .coursce1 button {
     margin-top: 10px;
     padding: 5px 10px;
@@ -691,6 +763,13 @@ nav ul li:hover ul.dropdown {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
+.image_head a{
+    text-decoration: none;
+}
+
+.image_head a:hover{
+    text-decoration: underline;
+}
 
 
 @media screen and (min-width: 900px) {
