@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,24 +13,34 @@
             width: 24px;
             height: 24px;
         }
+
         .tool-card {
             transition: transform 0.2s;
         }
+
         .tool-card:hover {
             transform: translateY(-5px);
         }
+
         .progress-bar {
             height: 8px;
             border-radius: 4px;
         }
+
         .quote-scroll {
             animation: scroll 20s linear infinite;
         }
+
         @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
         }
-        
+
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -39,7 +50,7 @@
             min-width: 220px;
             border-radius: 8px;
             padding: 0.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 1001;
         }
 
@@ -68,7 +79,7 @@
             width: 300px;
             background-color: #4B5563;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 1002;
             padding: 1rem;
         }
@@ -81,7 +92,7 @@
             background-color: #4B5563;
             border-radius: 8px;
             width: 220px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 1002;
         }
 
@@ -111,14 +122,138 @@
             filter: grayscale(0%);
             opacity: 1;
         }
+
+        /* Chatbot Container */
+        .chatbot-container {
+            position: fixed;
+            bottom: 9rem;
+            right: 2.5rem;
+            z-index: 1;
+            color: white;
+            width: 300px;
+            height: 100px;
+        }
+
+        .chatbot-button {
+            width: 50px;
+            height: 50px;
+            background-color: #7E60BF;
+            border-radius: 50%;
+            display: flex;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+            float: right;
+        }
+
+        .chatbot-button img {
+            width: 50px;
+            height: 50px;
+            justify-self: end;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-button .icon-chatbot {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .chatbot-panel {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+            flex-direction: column;
+            margin-top: 0.5rem;
+            margin-bottom: 8px;
+            z-index: 1;
+        }
+
+        .chatbot-header {
+            background-color: #7E60BF;
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .close-chatbot {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-content {
+            padding: 1rem;
+            flex-grow: 1;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .chatbot-input input {
+            flex-grow: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px 0 0 6px;
+            font-size: 1rem;
+        }
+
+        .chatbot-input button {
+            border-radius: 0 6px 6px 0;
+        }
+
+
+        .chatbot-panel {
+            display: none;
+            /* Initially hidden */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+            flex-direction: column;
+            margin-top: 0.5rem;
+            margin-bottom: 8px;
+            z-index: 1;
+        }
+
+        .float{
+            float: right;
+            margin-right: 10px;
+
+        }
     </style>
 </head>
+
 <body class="bg-purple-900 text-white min-h-screen">
     <!-- Top Navigation Bar -->
     <nav class="bg-purple-800 p-4">
         <div class="flex justify-between items-center max-w-7xl mx-auto">
             <div class="flex items-center space-x-4">
-                <img src="..//assets/icon/equalogo.jpg" alt="Logo" class="w-10 h-10 rounded-full">
+                <img src="./images/equalogo.jpg" alt="Logo" class="w-10 h-10 rounded-full">
                 <h1 class="text-xl font-bold">Eqaflow.AI</h1>
             </div>
 
@@ -152,14 +287,14 @@
                 </div>
             </div>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 flaot">
                 <button class="p-2 rounded-full hover:bg-purple-700" id="notification-btn">
                     <i class="fas fa-bell"></i>
                 </button>
                 <button class="p-2 rounded-full hover:bg-purple-700" id="profile-btn">
                     <i class="fas fa-user"></i>
                 </button>
-                <button class="p-2 rounded-full hover:bg-purple-700 md:hidden" id="menu-toggle">
+                <button class="p-2 rounded-full hover:bg-purple-700 " id="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -170,14 +305,16 @@
     <div class="flex justify-end p-4">
         <div class="space-x-2">
             <button onclick="showPage('main')" class="px-4 py-2 bg-purple-700 rounded-md" id="mainTab">Main</button>
-            <button onclick="showPage('insights')" class="px-4 py-2 bg-purple-700 rounded-md" id="insightsTab">Insights</button>
+            <button onclick="showPage('insights')" class="px-4 py-2 bg-purple-700 rounded-md"
+                id="insightsTab">Insights</button>
         </div>
     </div>
 
+    
     <!-- Main Page -->
     <div id="mainPage" class="p-4">
         <h1 class="text-2xl mb-6">Welcome, Roger!</h1>
-        
+
         <!-- Tools Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Budget Calculator -->
@@ -187,7 +324,8 @@
                     <h3 class="text-xl">Budget Calculator</h3>
                 </div>
                 <p class="text-gray-300 mb-4">Integrated with Data Organization</p>
-                <button onclick="window.location.href='../tools_equa/Budget_track.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/Budget_track.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
 
             <!-- Finance Tracker -->
@@ -197,7 +335,8 @@
                     <h3 class="text-xl">Finance Tracker</h3>
                 </div>
                 <p class="text-gray-300 mb-4">Set Goals and Track Progress</p>
-                <button onclick="window.location.href='../tools_equa/fin.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/fin.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
 
             <!-- Debt Equator -->
@@ -207,7 +346,8 @@
                     <h3 class="text-xl">Debt Equator</h3>
                 </div>
                 <p class="text-gray-300 mb-4">AI Finance Inspection</p>
-                <button onclick="window.location.href='../tools_equa/Debt_Reduce.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/Debt_Reduce.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
 
             <!-- Investment Portfolio -->
@@ -217,7 +357,8 @@
                     <h3 class="text-xl">Investment Portfolio</h3>
                 </div>
                 <p class="text-gray-300 mb-4">AI-Powered Investment Analysis</p>
-                <button onclick="window.location.href='../tools_equa/Investment_port.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/Investment_port.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
 
             <!-- Tax Calculator -->
@@ -227,7 +368,8 @@
                     <h3 class="text-xl">Tax Calculator</h3>
                 </div>
                 <p class="text-gray-300 mb-4">Smart Tax Planning</p>
-                <button onclick="window.location.href='../tools_equa/Tax_calc.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/Tax_calc.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
 
             <!-- Retirement Planner -->
@@ -237,95 +379,99 @@
                     <h3 class="text-xl">Retirement Planner</h3>
                 </div>
                 <p class="text-gray-300 mb-4">Long-term Wealth Planning</p>
-                <button onclick="window.location.href='../tools_equa/Retirement_plan.html'" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
+                <button onclick="window.location.href='../tools_equa/Retirement_plan.html'"
+                    class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-md w-full">Launch Tool</button>
             </div>
         </div>
-         <!-- Notification Panel -->
-    <div class="notification-panel" id="notificationPanel">
-        <h3 class="text-lg font-bold mb-4">Notifications</h3>
-        <div class="space-y-4">
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-bell-slash mt-1"></i>
-                <div>
-                    <p class="font-semibold">Market Alert</p>
-                    <p class="text-sm text-gray-300">Your watchlist stock AAPL is up by 5%</p>
-                    <p class="text-xs text-gray-400">2 hours ago</p>
+        <!-- Notification Panel -->
+        <div class="notification-panel" id="notificationPanel">
+            <h3 class="text-lg font-bold mb-4">Notifications</h3>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-bell-slash mt-1"></i>
+                    <div>
+                        <p class="font-semibold">Market Alert</p>
+                        <p class="text-sm text-gray-300">Your watchlist stock AAPL is up by 5%</p>
+                        <p class="text-xs text-gray-400">2 hours ago</p>
+                    </div>
                 </div>
-            </div>
-            <div class="flex items-start space-x-4">
-                <i class="fas fa-chart-line mt-1"></i>
-                <div>
-                    <p class="font-semibold">Portfolio Update</p>
-                    <p class="text-sm text-gray-300">Your portfolio has grown by 2.3% this week</p>
-                    <p class="text-xs text-gray-400">1 day ago</p>
+                <div class="flex items-start space-x-4">
+                    <i class="fas fa-chart-line mt-1"></i>
+                    <div>
+                        <p class="font-semibold">Portfolio Update</p>
+                        <p class="text-sm text-gray-300">Your portfolio has grown by 2.3% this week</p>
+                        <p class="text-xs text-gray-400">1 day ago</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Profile Menu -->
-    <div class="profile-menu" id="profileMenu">
-        <div class="p-4 border-b border-gray-600">
-            <p class="font-bold">Roger Smith</p>
-            <p class="text-sm text-gray-300">Premium Member</p>
+        <!-- Profile Menu -->
+        <div class="profile-menu" id="profileMenu">
+            <div class="p-4 border-b border-gray-600">
+                <p class="font-bold">Roger Smith</p>
+                <p class="text-sm text-gray-300">Premium Member</p>
+            </div>
+            <div class="p-2">
+                <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">My Profile</a>
+                <a href="../tools_equa/fin.html" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Financial
+                    Dashboard</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Settings</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Help Center</a>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md text-red-400">Sign Out</a>
+            </div>
         </div>
-        <div class="p-2">
-            <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">My Profile</a>
-            <a href="../tools_equa/fin.html" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Financial Dashboard</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Settings</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md">Help Center</a>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-600 rounded-md text-red-400">Sign Out</a>
+        <div class="mobile-menu" id="mobile-menu">
+            <button class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Tools</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Resources</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Blog</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Success Stories</a></li>
+                <li class="mobile-nav-item"><a href="#" class="nav-link">Pricing</a></li>
+            </ul>
         </div>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-        <button class="close-menu" id="close-menu">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-nav-list">
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="absolute top-4 right-4 text-2xl" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul class="mobile-nav-list"></ul>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Features</a></li>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Tools</a></li>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Resources</a></li>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Blog</a></li>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Success Stories</a></li>
             <li class="mobile-nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        </ul>
-    </div>
+            </ul>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="absolute top-4 right-4 text-2xl" id="closeMenu">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="mobile-nav-list"></ul>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Features</a></li>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Tools</a></li>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Resources</a></li>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Blog</a></li>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Success Stories</a></li>
-            <li class="mobile-nav-item"><a href="#" class="nav-link">Pricing</a></li>
-        </ul>
-    
-        <div class="space-y-6">
-            <div>
-                <h3 class="text-lg font-bold mb-2">Features</h3>
-                <div class="space-y-2">
-                    <a href="#" class="block text-gray-300 hover:text-white">Personalized Debt Management</a>
-                    <a href="#" class="block text-gray-300 hover:text-white">Smart Budgeting</a>
-                    <a href="#" class="block text-gray-300 hover:text-white">Financial Health Score</a>
-                    <a href="#" class="block text-gray-300 hover:text-white">AI-Powered Alerts</a>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="text-lg font-bold mb-2">Features</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-gray-300 hover:text-white">Personalized Debt Management</a>
+                        <a href="#" class="block text-gray-300 hover:text-white">Smart Budgeting</a>
+                        <a href="#" class="block text-gray-300 hover:text-white">Financial Health Score</a>
+                        <a href="#" class="block text-gray-300 hover:text-white">AI-Powered Alerts</a>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <h3 class="text-lg font-bold mb-2">Tools</h3>
-                <div class="space-y-2">
-                    <a href="../tools_equa/Debt_Reduce.html" class="block text-gray-300 hover:text-white">Debt Repayment Calculator</a>
-                    <a href="../tools_equa/Budget_track.html" class="block text-gray-300 hover:text-white">Budget Optimizer</a>
-                    <a href="#" class="block text-gray-300 hover:text-white">Emergency Fund Planner</a>
-                    <a href="#" class="block text-gray-300 hover:text-white">Investment Calculator</a>
+                <div>
+                    <h3 class="text-lg font-bold mb-2">Tools</h3>
+                    <div class="space-y-2">
+                        <a href="../tools_equa/Debt_Reduce.html" class="block text-gray-300 hover:text-white">Debt
+                            Repayment Calculator</a>
+                        <a href="../tools_equa/Budget_track.html" class="block text-gray-300 hover:text-white">Budget
+                            Optimizer</a>
+                        <a href="#" class="block text-gray-300 hover:text-white">Emergency Fund Planner</a>
+                        <a href="#" class="block text-gray-300 hover:text-white">Investment Calculator</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
         <!-- Partners Section -->
         <div class="mt-12">
@@ -369,154 +515,180 @@
             </div>
         </div>
 
-       <!-- AI Recommendations -->
-       <div class="mt-8 bg-gray-800 p-6 rounded-lg">
-        <h3 class="text-xl mb-4">AI-Powered Recommendations</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-lightbulb text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Investment Opportunity</h4>
-                <p>Consider diversifying into tech sector ETFs for better returns. Current market conditions show a 15% potential upside.</p>
-            </div>
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-shield-alt text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Risk Management</h4>
-                <p>Increase emergency fund by 10% due to market volatility. Consider rebalancing portfolio towards defensive sectors.</p>
-            </div>
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-chart-line text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Growth Strategy</h4>
-                <p>Optimize tax savings through SIP investments. Potential annual tax savings: ₹1.2L</p>
-            </div>
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-coins text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Debt Optimization</h4>
-                <p>Consolidate high-interest loans to reduce monthly payments by ₹15,000</p>
-            </div>
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-bullseye text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Goal Alignment</h4>
-                <p>Accelerate retirement savings by increasing monthly SIP by ₹10,000 to meet target</p>
-            </div>
-            <div class="bg-purple-700 p-4 rounded-lg">
-                <i class="fas fa-hand-holding-usd text-2xl mb-2"></i>
-                <h4 class="font-bold mb-2">Expense Optimization</h4>
-                <p>Identify ₹8,000 in potential monthly savings through subscription optimization</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Insights Page -->
-<div id="insightsPage" class="p-4 hidden">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <!-- Balance Snapshot -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h3 class="text-xl mb-4">Balance Snapshot</h3>
-            <div class="space-y-4">
-                <div>
-                    <p class="text-gray-400">Liquid cash</p>
-                    <p class="text-2xl">₹3cr</p>
+        <!-- AI Recommendations -->
+        <div class="mt-8 bg-gray-800 p-6 rounded-lg">
+            <h3 class="text-xl mb-4">AI-Powered Recommendations</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-lightbulb text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Investment Opportunity</h4>
+                    <p>Consider diversifying into tech sector ETFs for better returns. Current market conditions show a
+                        15% potential upside.</p>
                 </div>
-                <div>
-                    <p class="text-gray-400">Non-liquid</p>
-                    <p class="text-2xl">₹25cr</p>
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-shield-alt text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Risk Management</h4>
+                    <p>Increase emergency fund by 10% due to market volatility. Consider rebalancing portfolio towards
+                        defensive sectors.</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Progress Tracking -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h3 class="text-xl mb-4">Goal Progress</h3>
-            <div class="space-y-4">
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <span>Land</span>
-                        <span>15cr</span>
-                    </div>
-                    <div class="bg-gray-700 progress-bar">
-                        <div class="bg-green-500 progress-bar" style="width: 60%"></div>
-                    </div>
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-chart-line text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Growth Strategy</h4>
+                    <p>Optimize tax savings through SIP investments. Potential annual tax savings: ₹1.2L</p>
                 </div>
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <span>Stocks</span>
-                        <span>500k</span>
-                    </div>
-                    <div class="bg-gray-700 progress-bar">
-                        <div class="bg-green-500 progress-bar" style="width: 75%"></div>
-                    </div>
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-coins text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Debt Optimization</h4>
+                    <p>Consolidate high-interest loans to reduce monthly payments by ₹15,000</p>
                 </div>
-            </div>
-        </div>
-
-        <!-- Financial Goals -->
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h3 class="text-xl mb-4">Your Goals</h3>
-            <div class="space-y-4">
-                <div class="flex justify-between items-center">
-                    <span>Net worth target</span>
-                    <span class="bg-gray-700 px-3 py-1 rounded">100cr</span>
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-bullseye text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Goal Alignment</h4>
+                    <p>Accelerate retirement savings by increasing monthly SIP by ₹10,000 to meet target</p>
                 </div>
-                <div class="flex justify-between items-center">
-                    <span>Debt Repayment</span>
-                    <span class="bg-gray-700 px-3 py-1 rounded">30lakhs</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <span>Buy House</span>
-                    <span class="bg-gray-700 px-3 py-1 rounded">20lakhs</span>
+                <div class="bg-purple-700 p-4 rounded-lg">
+                    <i class="fas fa-hand-holding-usd text-2xl mb-2"></i>
+                    <h4 class="font-bold mb-2">Expense Optimization</h4>
+                    <p>Identify ₹8,000 in potential monthly savings through subscription optimization</p>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Insights Page -->
+    <div id="insightsPage" class="p-4 hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Balance Snapshot -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl mb-4">Balance Snapshot</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-gray-400">Liquid cash</p>
+                        <p class="text-2xl">₹3cr</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400">Non-liquid</p>
+                        <p class="text-2xl">₹25cr</p>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Progress Table -->
-    <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h3 class="text-xl mb-4">Spending Analytics</h3>
-            <div class="space-y-2">
-                <div class="flex justify-between">
-                    <span>Food (25%)</span>
-                    <span>₹15k</span>
+            <!-- Progress Tracking -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl mb-4">Goal Progress</h3>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span>Land</span>
+                            <span>15cr</span>
+                        </div>
+                        <div class="bg-gray-700 progress-bar">
+                            <div class="bg-green-500 progress-bar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span>Stocks</span>
+                            <span>500k</span>
+                        </div>
+                        <div class="bg-gray-700 progress-bar">
+                            <div class="bg-green-500 progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex justify-between">
-                    <span>Transport (15%)</span>
-                    <span>₹9k</span>
-                </div>
-                <div class="flex justify-between">
-                    <span>Entertainment (10%)</span>
-                    <span>₹6k</span>
+            </div>
+
+            <!-- Financial Goals -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl mb-4">Your Goals</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span>Net worth target</span>
+                        <span class="bg-gray-700 px-3 py-1 rounded">100cr</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>Debt Repayment</span>
+                        <span class="bg-gray-700 px-3 py-1 rounded">30lakhs</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span>Buy House</span>
+                        <span class="bg-gray-700 px-3 py-1 rounded">20lakhs</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="bg-gray-800 p-6 rounded-lg">
-            <h3 class="text-xl mb-4">Budget & Goals</h3>
-            <div class="space-y-4">
-                <div>
-                    <p>Goal 1: Save ₹1 lakh by Dec</p>
-                    <div class="bg-gray-700 progress-bar mt-2">
-                        <div class="bg-blue-500 progress-bar" style="width: 40%"></div>
+        <!-- Progress Table -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl mb-4">Spending Analytics</h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <span>Food (25%)</span>
+                        <span>₹15k</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Transport (15%)</span>
+                        <span>₹9k</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Entertainment (10%)</span>
+                        <span>₹6k</span>
                     </div>
                 </div>
-                <div>
-                    <p>Goal 2: Pay off loan</p>
-                    <div class="bg-gray-700 progress-bar mt-2">
-                        <div class="bg-blue-500 progress-bar" style="width: 30%"></div>
+            </div>
+
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-xl mb-4">Budget & Goals</h3>
+                <div class="space-y-4">
+                    <div>
+                        <p>Goal 1: Save ₹1 lakh by Dec</p>
+                        <div class="bg-gray-700 progress-bar mt-2">
+                            <div class="bg-blue-500 progress-bar" style="width: 40%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Goal 2: Pay off loan</p>
+                        <div class="bg-gray-700 progress-bar mt-2">
+                            <div class="bg-blue-500 progress-bar" style="width: 30%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
- 
+    <div class="chatbot-container">
+        <div class="chatbot-panel" id="chatbotPanel">
+            <div class="chatbot-header">
+                <h3>How can I assist you?</h3>
+                <button class="close-chatbot" id="closeChatbot">
+                    <i class="icon-close">X</i>
+                </button>
+            </div>
+            <div class="chatbot-content">
+                <!-- Chatbot messages will be displayed here -->
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Type your message..." />
+                <button class="send-message">
+                    <i class="icon-send">Send</i>
+                </button>
+            </div>
+        </div>
+        <div class="chatbot-button" id="chatbotButton">
+            <img src="./images/aibotlogo.jpg" alt="Chatbot">
+        </div>
+    </div>
 
-<!-- footer -->
+
+
+    <!-- footer -->
     <footer class="bg-purple-800 mt-12 py-8">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <h4 class="text-xl font-bold mb-4">About Eqaflow.AI</h4>
-                    <p class="text-gray-300">Revolutionizing personal finance through AI-powered insights and smart financial planning tools.</p>
+                    <p class="text-gray-300">Revolutionizing personal finance through AI-powered insights and smart
+                        financial planning tools.</p>
                 </div>
                 <div>
                     <h4 class="text-xl font-bold mb-4">Quick Links</h4>
@@ -554,6 +726,26 @@
 
 
     <script>
+
+        // Get references to elements
+        const chatbotButton = document.getElementById("chatbotButton");
+        const chatbotPanel = document.getElementById("chatbotPanel");
+        const closeChatbot = document.getElementById("closeChatbot");
+
+        // Show chatbot panel when the button is clicked
+        chatbotButton.addEventListener("click", () => {
+            chatbotPanel.style.display = "block"; // Show the panel
+        });
+
+        // Hide chatbot panel when the close button is clicked
+        closeChatbot.addEventListener("click", () => {
+            chatbotPanel.style.display = "none"; // Hide the panel
+        });
+
+
+
+
+
         // Toggle mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const closeMenu = document.getElementById('closeMenu');
@@ -570,7 +762,7 @@
         // Toggle notification panel
         const notificationBtn = document.getElementById('notification-btn');
         const notificationPanel = document.getElementById('notificationPanel');
-        
+
         notificationBtn.addEventListener('click', () => {
             notificationPanel.style.display = notificationPanel.style.display === 'none' ? 'block' : 'none';
             profileMenu.style.display = 'none';
@@ -772,16 +964,16 @@
         });
 
         // Add this to your existing JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const profileButton = document.getElementById('user-menu-button');
             const dropdown = document.getElementById('profile-dropdown');
 
-            profileButton.addEventListener('click', function() {
+            profileButton.addEventListener('click', function () {
                 dropdown.classList.toggle('hidden');
             });
 
             // Close dropdown when clicking outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 if (!profileButton.contains(event.target) && !dropdown.contains(event.target)) {
                     dropdown.classList.add('hidden');
                 }
@@ -790,6 +982,5 @@
     </script>
 
 </body>
-</html>
 
-   
+</html>
