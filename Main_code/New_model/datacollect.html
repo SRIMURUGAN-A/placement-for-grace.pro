@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Development Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #1a5f7a, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(45deg, #2196F3, #00BCD4);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            border-left: 5px solid #2196F3;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-number {
+            width: 40px;
+            height: 40px;
+            background: #2196F3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .question-group {
+            margin-bottom: 25px;
+        }
+
+        .question-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #2196F3;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .option-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-card:hover {
+            border-color: #2196F3;
+            transform: translateY(-2px);
+        }
+
+        .option-card.selected {
+            border-color: #2196F3;
+            background: rgba(33, 150, 243, 0.1);
+        }
+
+        .slider-container {
+            margin: 20px 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #2196F3, #00BCD4);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Career Development Profile</h1>
+            <p>Help us understand your aspirations better to provide personalized guidance</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <form class="form-container" id="careerForm">
+            <!-- Perssonal Information -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">1</div>
+                    <h2>Personal Information</h2>
+                </div>
+                
+                <div class="question-group">
+                    <label>Full Name</label>
+                    <input type="text" required>
+                </div>
+
+                <div class="question-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+
+                <div class="question-group">
+                    <label>Current Academic Year</label>
+                    <select required>
+                        <option value="">Select Year</option>
+                        <option value="1">First Year</option>
+                        <option value="2">Second Year</option>
+                        <option value="3">Third Year</option>
+                        <option value="4">Final Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Career Goals -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">2</div>
+                    <h2>Career Goals</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>Primary Career Interest</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Software Development</h4>
+                            <small>Web, Mobile, or Software Engineering</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Data Science</h4>
+                            <small>Analytics, ML, AI</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Cybersecurity</h4>
+                            <small>Security Analysis & Implementation</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Cloud Computing</h4>
+                            <small>AWS, Azure, GCP</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Product Management</h4>
+                            <small>Product Strategy & Development</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Other</h4>
+                            <small>Specify your interest</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Career Timeline</label>
+                    <select required>
+                        <option value="">Select your preferred timeline</option>
+                        <option value="immediate">Immediate Placement</option>
+                        <option value="6months">Within 6 months</option>
+                        <option value="1year">Within 1 year</option>
+                        <option value="higher_studies">After Higher Studies</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Skills Assessment -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">3</div>
+                    <h2>Skills Assessment</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>Technical Skills (Select all that apply)</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Programming Languages</h4>
+                            <small>Java, Python, C++, etc.</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Web Technologies</h4>
+                            <small>HTML, CSS, JavaScript</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Databases</h4>
+                            <small>SQL, MongoDB, etc.</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Cloud Platforms</h4>
+                            <small>AWS, Azure, GCP</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Soft Skills to Develop (Select top 3)</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Communication</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Leadership</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Problem Solving</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Team Collaboration</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Time Management</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Adaptability</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Goals -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">4</div>
+                    <h2>Financial Goals</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>Expected Starting Salary (LPA)</label>
+                    <select required>
+                        <option value="">Select Range</option>
+                        <option value="3-5">3-5 LPA</option>
+                        <option value="5-8">5-8 LPA</option>
+                        <option value="8-12">8-12 LPA</option>
+                        <option value="12-15">12-15 LPA</option>
+                        <option value="15+">15+ LPA</option>
+                    </select>
+                </div>
+
+                <div class="question-group">
+                    <label>Financial Priorities</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>High Starting Salary</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Long-term Growth</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Stock Options</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Benefits Package</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Needs -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">5</div>
+                    <h2>Training Needs</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>Preferred Training Format</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Online Self-paced</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Live Virtual Classes</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>In-person Workshops</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Hybrid Learning</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Areas Needing Immediate Focus</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Technical Skills</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Interview Preparation</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Resume Building</h4>
+                        </div>
+                        <div class="option-card">
+                            <h4>Soft Skills</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Support -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">6</div>
+                    <h2>Additional Support</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>What additional support would you need?</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>1:1 Mentorship</h4>
+                            <small>Personal guidance from industry experts</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Mock Interviews</h4>
+                            <small>Practice interviews with feedback</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Industry Projects</h4>
+                            <small>Hands-on project experience</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Networking Events</h4>
+                            <small>Connect with professionals</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Any specific challenges or concerns?</label>
+                    <textarea rows="4" placeholder="Share any specific challenges or concerns you'd like us to address"></textarea>
+                </div>
+            </div>
+             <!-- Current Status & Self-Assessment -->
+             <div class="section">
+                <div class="section-header">
+                    <div class="section-number">7</div>
+                    <h2>Current Status & Self-Assessment</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>How clear are you about your career path?</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Very Clear</h4>
+                            <small>I know exactly what I want to do</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Somewhat Clear</h4>
+                            <small>I have a general idea but need guidance</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Exploring Options</h4>
+                            <small>I'm still discovering my interests</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Unsure</h4>
+                            <small>I need significant guidance</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Current Preparation Level</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Technical Skills</h4>
+                            <select required>
+                                <option value="">Rate your level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="option-card">
+                            <h4>Industry Knowledge</h4>
+                            <select required>
+                                <option value="">Rate your level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        <div class="option-card">
+                            <h4>Interview Readiness</h4>
+                            <select required>
+                                <option value="">Rate your level</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entrepreneurship & Innovation -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">8</div>
+                    <h2>Entrepreneurship & Innovation</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>Entrepreneurial Interests</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Startup Founder</h4>
+                            <small>Interest in starting own venture</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Innovation Lead</h4>
+                            <small>Driving innovation within companies</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Product Development</h4>
+                            <small>Creating new products/services</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Research & Development</h4>
+                            <small>Exploring new technologies</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Do you have any startup/business ideas?</label>
+                    <textarea rows="3" placeholder="Briefly describe your business ideas or areas of interest"></textarea>
+                </div>
+
+                <div class="question-group">
+                    <label>What support would you need for your entrepreneurial journey?</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Mentorship</h4>
+                            <small>Guidance from successful entrepreneurs</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Funding Support</h4>
+                            <small>Information about investors/funding</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Business Planning</h4>
+                            <small>Help with business strategy</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Technical Support</h4>
+                            <small>Technical expertise and resources</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Long-term Goals -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">9</div>
+                    <h2>Long-term Vision</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>5-Year Career Goal</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Technical Expert</h4>
+                            <small>Deep technical expertise in specific domain</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Team Lead/Manager</h4>
+                            <small>Leading teams and projects</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Entrepreneur</h4>
+                            <small>Running own business</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Consultant</h4>
+                            <small>Independent consulting</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Financial Goals (5 years)</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Expected Income Range (LPA)</h4>
+                            <select required>
+                                <option value="">Select Range</option>
+                                <option value="15-25">15-25 LPA</option>
+                                <option value="25-40">25-40 LPA</option>
+                                <option value="40-60">40-60 LPA</option>
+                                <option value="60+">60+ LPA</option>
+                            </select>
+                        </div>
+                        <div class="option-card">
+                            <h4>Investment Goals</h4>
+                            <select required>
+                                <option value="">Select Priority</option>
+                                <option value="savings">Regular Savings</option>
+                                <option value="stock">Stock Market</option>
+                                <option value="business">Business Investment</option>
+                                <option value="property">Property Investment</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Preferences -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-number">10</div>
+                    <h2>Learning & Development Preferences</h2>
+                </div>
+
+                <div class="question-group">
+                    <label>How do you learn best?</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Visual Learning</h4>
+                            <small>Videos, diagrams, illustrations</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Practical Learning</h4>
+                            <small>Hands-on projects, exercises</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Reading & Research</h4>
+                            <small>Documentation, books, articles</small>
+                        </div>
+                        <div class="option-card">
+                            <h4>Interactive Learning</h4>
+                            <small>Discussions, group activities</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <label>Preferred Learning Schedule</label>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>Time Commitment</h4>
+                            <select required>
+                                <option value="">Hours per week</option>
+                                <option value="5-10">5-10 hours</option>
+                                <option value="10-20">10-20 hours</option>
+                                <option value="20+">20+ hours</option>
+                            </select>
+                        </div>
+                        <div class="option-card">
+                            <h4>Preferred Timing</h4>
+                            <select required>
+                                <option value="">Select preference</option>
+                                <option value="weekday_morning">Weekday Mornings</option>
+                                <option value="weekday_evening">Weekday Evenings</option>
+                                <option value="weekend">Weekends</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Profile</button>
+        </form>
+    </div>
+
+           
+
+
+    <script>
+        // Progress bar functionality
+        const form = document.getElementById('careerForm');
+        const progress = document.getElementById('progress');
+        const sections = document.querySelectorAll('.section');
+        const totalSections = sections.length;
+
+        function updateProgress() {
+            let filledSections = 0;
+            sections.forEach(section => {
+                const inputs = section.querySelectorAll('input, select, textarea');
+                let sectionFilled = true;
+                inputs.forEach(input => {
+                    if (input.required && !input.value) {
+                        sectionFilled = false;
+                    }
+                });
+                if (sectionFilled) filledSections++;
+            });
+            const percentage = (filledSections / totalSections) * 100;
+            progress.style.width = `${percentage}%`;
+        }
+
+        // Option card selection functionality
+        const optionCards = document.querySelectorAll('.option-card');
+        optionCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const parent = card.parentElement;
+                if (parent.getAttribute('data-max-select') === '1') {
+                    parent.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                }
+                card.classList.toggle('selected');
+                updateProgress();
+            });
+        });
+
+        // Form input event listeners
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Profile submitted successfully!');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1453 @@
+body {
+    overflow-x: hidden;
+    background-position: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 110vh;
+    margin: 0;
+    padding: 0;
+}
+
+.fixed {
+    position: fixed;
+    background-color: rgb(178, 21, 21);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1px 0;
+    height: 115px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+
+.not-fixed{
+    margin-top: 135px;
+} 
+
+
+.first_line_logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: 45px;
+    top: 0px;
+    margin: 0px;
+    padding: 5px 10px;
+}
+
+.first_line_logo img,
+.first_line_logo p {
+    flex: 0 1 auto;
+    width: auto;
+    height: 50px;
+    margin: 0 15px;
+    text-align: center;
+    white-space: nowrap;
+    color: rgb(5, 138, 255);
+}
+
+
+.first_line_logo p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1350px){
+    .first_line_logo img{
+        width: auto ;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 874px) {
+    .first_line_logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .first_line_logo img,
+    .first_line_logo p {
+        width: 100%;
+        /* Adjust size for smaller screens */
+        margin: 0px 5px;
+    }
+
+    .first_line_logo img {
+        width: 70%;
+    }
+
+    .imag {
+        display: none;
+    }
+
+}
+
+
+
+/*second container*/
+
+.second_container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin: 0px 0px;
+    background-color: #1a73e8;
+    padding: 5px 10px;
+}
+
+.second-container-first-image img {
+    width: auto;
+    height: 50px;
+    border-radius: 100%;
+}
+
+
+.second-toggle-btn {
+    height: 37px;
+    width: 37px;
+    font-size: 25px;
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+
+/*use to sidebar*/
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color:#1a73e8 ;/* rgb(120, 28, 206);   */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #1a73e8;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+
+.second-toggle-btn{
+    border:none;
+}
+.second-toggle-btn:hover {
+    background-color: #1a73e8;
+    border-radius: 13px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+
+
+/*second container nav*/
+.second-container-nav {
+    margin-left: 20px;
+    width: 40%;
+}
+
+
+.second-container-nav nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: auto;
+}
+
+/*right now its ok*/
+
+
+
+
+.second-container-icons-and-button {
+    width: 200px;
+    height: 54px;
+    display: block;
+    background-color: transperent;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0px;
+    top: 65px;
+    justify-content: end;
+    margin-right: 20px;
+}
+
+
+.second-container-icons i {
+    margin-right: 25px;
+    font-size: 20px;
+    color: #0a0a0a;
+}
+
+
+/*used for second container*/
+
+
+
+
+/* navi */
+nav {
+    background-color: transparent;
+    display: flex;
+    width: 50%;
+    justify-content: end;
+    margin-right: 20px;
+    margin-top: 15px;
+    font-size: 20px
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+
+nav ul li {
+    position: relative;
+    display: inline-block;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: all 0.1s ease;
+    display: block;
+    margin-right: 20px;
+    width: 100%;
+}
+
+
+
+nav ul li a:hover {
+    font-size: 21px;
+    color: rgb(173, 99, 59);
+}
+
+
+
+.courses-link {
+    display: inline-block; /* Prevent layout shifting */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth scaling and color transition */
+}
+
+.courses-link:hover {
+    transform: scale(1.1); /* Scale on hover */
+    color: #f0e68c; /* Optional: Change text color */
+}
+
+
+nav ul li {
+    position: relative;
+}
+
+
+
+/* Dropdown menu styling */
+nav ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    list-style: none;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    margin-left: -50px;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 1;
+}
+
+
+
+/* Set the scrollbar width */
+
+nav ul li ul.dropdown::-webkit-scrollbar {
+    width: 3px; /* Set the scrollbar width */
+}
+
+nav ul li ul.dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track background color */
+}
+
+nav ul li ul.dropdown::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+nav ul li ul.dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
+}
+
+nav ul li ul.dropdown {
+    scrollbar-width: thin; /* Set the scrollbar width to thin */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+}
+
+
+
+
+
+nav ul li ul.dropdown li {
+    margin: 10px 0;
+}
+
+nav ul li:hover ul.dropdown {
+    display: block;
+}
+
+
+
+
+
+/* used for sefito*/
+
+.sefito {
+    width: 140px;
+    height: auto;
+}
+
+.sefito-nav {
+    width: 100px;
+    height: auto;
+}
+
+.sefito-nav ul li {
+    margin-left: 0;
+}
+
+#main-link {
+    width: 80px;
+    height: auto;
+    margin-bottom: 7px;
+}
+
+.sefito-nav-bar {
+    list-style-type: none;
+    background-color: transparent;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    justify-content: start;
+}
+
+
+.sefito-nav-bar li {
+    float: left;
+}
+
+.sefito-nav-bar li a:hover {
+    font-size: 20px;
+}
+
+.sefito-nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.sefito-toggle-container {
+    position: absolute;
+    top: 119px;
+    left: 19px;
+    /* Adjust as needed */
+    width: 200px;
+    height: 168px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(205, 17, 17, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 5px;
+}
+
+.sefito-toggle-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+
+.sefito-right-toggle-container1 {
+    position: absolute;
+    top: 145px;
+    /* Align with the main container */
+    left: 170px;
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+
+.sefito-right-toggle-container2 {
+    position: absolute;
+    top: 188px;
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-right-toggle-container3 {
+    position: absolute;
+    top: 240px;
+    /* Align with the main container */
+    left: 170px;
+    /* Position it to the right of the main container */
+    width: 300px;
+    background-color: #f1f1f1;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 118px;
+}
+
+.sefito-toggle-bar {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sefito-toggle-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sefito-toggle-bar ul li {
+    padding: 8px 0;
+}
+
+.sefito-toggle-bar ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px;
+    display: block;
+}
+
+.sefito-toggle-bar ul li a:hover {
+    background-color: #ddd;
+}
+
+
+/* All other styles remain the same */
+
+
+.sefito {
+    display: none;
+}
+
+
+@media screen and (max-width: 746px) {
+    .sefito {
+        display: block;
+    }
+
+    .second-container-nav {
+        display: none;
+    }
+}
+
+
+
+/* Used for profile dashboard */
+.toggleBar_profile {
+    display: none;
+    margin-top: 1px;
+    margin-right: 60px;
+    width: 170px;
+    height: 180px;
+    float: right;
+    font-size: 19px;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.toggleBar_profile ul li {
+    background-color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+    border-left:1px solid #007bff;
+    border-right:1px solid #007bff;
+}
+
+.toggleBar_profile ul li:hover {
+    background-color: #007bff;
+}
+
+.toggleBar_profile ul li i{
+    margin-right: 15px;
+}
+
+.toggleBar_profile ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 900;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+.toggleBar_profile ul li:hover a {
+    color: #fff;
+}
+
+
+/*use to sidebar*/
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color:#1a73e8 ;/* rgb(120, 28, 206);   */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: flexbox;
+    height: 100%;
+    z-index: 1;
+
+}
+
+.sidebar a {
+    padding: 8px 5px;
+    background-color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.4s;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Links change color on hover */
+.sidebar a:hover {
+    background-color: #1a73e8;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+
+.toggle-btn:hover {
+    background-color: #1a73e8;
+    border-radius: 13px;
+    border: 1px solid #1a73e8;
+    color: #232121;
+
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.closebtn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-size: 10px;
+
+}
+
+
+
+
+
+/* Main container styling for side-by-side layout */
+.not-fixed {
+    display: flex;
+    align-items: flex-start; /* Aligns items at the start of the container vertically */
+    gap: 20px; /* Space between filter and courses containers */
+    top: 20px;
+    padding: 0 10px;
+}
+
+/* Container styling */
+.filter-container {
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    z-index: 1;
+}
+
+/* Other styling for filter options */
+.filter-container h2, .courses h2 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #333;
+    cursor: pointer;
+}
+
+.filter-group input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #007bff;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter{
+    display: none;
+}
+
+/* Courses container styling */
+.courses {
+    flex: 1; /* Makes the courses container take up remaining space */
+}
+
+
+.coursce1 {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: #fff;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coursce1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.coursce1 .left {
+    flex: 10;
+    display: flex;
+    flex-direction: column;
+    max-width: 70%; /* Control the width of the left content */
+}
+
+.coursce1 .left img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.coursce1 .right {
+    flex: 1;
+    border-left: 1px solid #dee2e6;
+    padding-left: 25px;
+}
+
+.coursce1 .right p{
+    border-bottom: 1.5px solid rgb(218, 216, 216);
+    padding: 9px;
+}
+
+.coursce1 button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007BFF; /* A blue color for buttons */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.coursce1 button i {
+    margin-right: 5px; /* Add space between icon and text */
+}
+
+.coursce1 button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.image_head a{
+    text-decoration: none;
+}
+
+.image_head a:hover{
+    text-decoration: underline;
+}
+
+.image_head {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.course-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.difficulty-badge, .rating-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+}
+
+.difficulty-badge {
+    background-color: #1a73e8;
+}
+
+.rating-badge {
+    background-color: #28a745;
+}
+
+.course-info {
+    flex: 1;
+}
+
+.course-info h1 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+.course-meta {
+    display: flex;
+    gap: 15px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.course-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Course Content Section */
+.course-content {
+    padding: 20px 0;
+}
+
+.course-content p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.course-highlights {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.course-highlights h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.course-highlights ul {
+    list-style: none;
+    padding: 0;
+}
+
+.course-highlights li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.course-highlights li i {
+    color: #28a745;
+}
+
+/* Button Group */
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bookmark-btn {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+}
+
+.bookmark-btn:hover {
+    background-color: #d2e3fc;
+}
+
+.enroll-btn {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.enroll-btn:hover {
+    background-color: #1557b0;
+}
+
+.preview-btn {
+    background-color: #f8f9fa;
+    color: #4a5568;
+    border: 1px solid #dee2e6 !important;
+}
+
+.preview-btn:hover {
+    background-color: #e9ecef;
+}
+
+/* Right Section */
+.right {
+    min-width: 250px;
+    border-left: 1px solid #dee2e6;
+    padding-left: 25px;
+}
+
+.course-details h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.detail-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item i {
+    color: #1a73e8;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.detail-item strong {
+    display: block;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.detail-item p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .coursce1 {
+        flex-direction: column;
+    }
+
+    .image_head {
+        flex-direction: column;
+    }
+
+    .image_head img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .right {
+        border-left: none;
+        border-top: 1px solid #dee2e6;
+        padding-left: 0;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+
+    .btn-group {
+        flex-wrap: wrap;
+    }
+
+    .btn-group button {
+        flex: 1;
+        min-width: 120px;
+    }
+}
+
+/* Enhanced Dropdown Styling */
+.path-header, .recommendation-header {
+    padding: 10px;
+    background-color: #f8f9fa;
+    color: #1a73e8;
+    font-weight: bold;
+    border-bottom: 1px solid #dee2e6;
+    margin-top: 5px;
+}
+
+nav ul li ul.dropdown li a i {
+    margin-right: 8px;
+    width: 20px;
+    color: #1a73e8;
+}
+
+nav ul li ul.dropdown li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+nav ul li ul.dropdown li a:hover {
+    background-color: #f8f9fa;
+    color: #1a73e8;
+    transform: translateX(5px);
+}
+
+/* Recommendation Styling */
+#recommended-dropdown li a i.fa-star {
+    color: #ffc107;
+}
+
+#recommended-dropdown li a i.fa-fire {
+    color: #dc3545;
+}
+
+/* Learning Path Styling */
+#learning-path-dropdown {
+    width: 250px;
+}
+
+#recommended-dropdown {
+    width: 280px;
+}
+
+/* Mobile Responsive Updates */
+@media screen and (max-width: 746px) {
+    .sefito-toggle-bar ul li a i {
+        margin-right: 8px;
+        width: 20px;
+        color: #1a73e8;
+    }
+    
+    .path-header, .recommendation-header {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Hero Section Styling */
+.hero-section {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.learning-paths h2 {
+    color: #1a73e8;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.path-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.path-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.path-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+/* Progress Cards Styling */
+.progress-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.progress-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: calc(33.33% - 10px);
+    min-width: 280px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.progress-card i {
+    font-size: 24px;
+    color: #1a73e8;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f0fe;
+    border-radius: 8px;
+}
+
+.progress-info {
+    flex: 1;
+}
+
+.progress-info h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    background: #1a73e8;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.progress-info span {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+/* Specialization Cards Styling */
+.specialization-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.spec-card {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #2c3e50;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.spec-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.spec-card i {
+    font-size: 30px;
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+
+.spec-card h4 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.spec-card p {
+    font-size: 14px;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .progress-card {
+        width: 100%;
+    }
+    
+    .spec-card {
+        min-width: 100%;
+    }
+}
+
+/* Learning Progress Path */
+.learning-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.progress-node {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progress-node::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.progress-node:hover::before {
+    opacity: 1;
+    visibility: visible;
+    bottom: 120%;
+}
+
+.node-content {
+    text-align: center;
+}
+
+.node-content i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.node-content span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.progress-line {
+    flex: 1;
+    height: 3px;
+    background: #e9ecef;
+    position: relative;
+    margin: 0 15px;
+}
+
+.progress-line.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #1a73e8;
+    animation: progressLine 1s ease forwards;
+}
+
+@keyframes progressLine {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.progress-node.completed {
+    background: #28a745;
+    color: white;
+}
+
+.progress-node.active {
+    background: #1a73e8;
+    color: white;
+    transform: scale(1.1);
+}
+
+.progress-node.locked {
+    background: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Path Cards Grid */
+.path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.path-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.path-card:hover {
+    transform: translateY(-5px);
+}
+
+.path-card::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.path-card:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.path-icon {
+    width: 60px;
+    height: 60px;
+    background: #e8f0fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.path-icon i {
+    font-size: 24px;
+    color: #1a73e8;
+}
+
+.path-steps {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.path-steps li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #6c757d;
+}
+
+.path-steps li i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.path-steps li i.fa-check {
+    color: #28a745;
+}
+
+.path-steps li i.fa-spinner {
+    color: #1a73e8;
+}
+
+.path-steps li i.fa-lock {
+    color: #6c757d;
+}
+
+.start-path-btn {
+    width: 100%;
+    padding: 10px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.start-path-btn:hover {
+    background: #1557b0;
+}
+
+/* Layout Adjustments */
+.courses-section {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.filters-wrapper {
+    flex: 0 0 250px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .courses-section {
+        flex-direction: column;
+    }
+    
+    .filters-wrapper {
+        width: 100%;
+    }
+    
+    .learning-progress {
+        padding: 20px 10px;
+    }
+    
+    .progress-node {
+        width: 60px;
+        height: 60px;
+    }
+}

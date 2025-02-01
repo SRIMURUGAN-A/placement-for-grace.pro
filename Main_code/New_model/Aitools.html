@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools Hub - GRACEUP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/css/aitools.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-left">
+            <button class="back-btn" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="logo">
+                <a href="./New_model/home.html">
+                    <img src="./image/grace logo.jpg" alt="GRACEUP Logo" class="logo-img">
+                    <span>GRACEUP AI Hub</span>
+                </a>
+            </div>
+        </div>
+        <div class="nav-center">
+            <div class="search-container">
+                <input type="text" id="toolSearch" placeholder="Search AI tools...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="bookmark-view">
+                <i class="fas fa-bookmark"></i>
+                <span class="bookmark-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI Tools Hub</h1>
+            <p>Discover the perfect AI tools to enhance your learning journey</p>
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">All Tools</button>
+                <button class="filter-btn" data-category="creativity">Design & Art</button>
+                <button class="filter-btn" data-category="writing">Writing & Content</button>
+                <button class="filter-btn" data-category="development">Development</button>
+                <button class="filter-btn" data-category="productivity">Productivity</button>
+                <button class="filter-btn" data-category="research">Research & Study</button>
+                <button class="filter-btn" data-category="audio">Audio & Video</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Stats -->
+    <div class="tool-stats">
+        <div class="stat-item">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">AI Tools</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">50K+</span>
+            <span class="stat-label">Users</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">4.8</span>
+            <span class="stat-label">Average Rating</span>
+        </div>
+    </div>
+
+    <!-- Categories Carousel -->
+    <div class="categories-carousel">
+        <div class="carousel-container">
+            <div class="category-card" data-category="creativity">
+                <div class="category-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Design & Art</h3>
+                <p>15 Tools</p>
+            </div>
+            <div class="category-card" data-category="writing">
+                <div class="category-icon">
+                    <i class="fas fa-pen-fancy"></i>
+                </div>
+                <h3>Writing & Content</h3>
+                <p>15 Tools</p>
+            </div>
+            <div class="category-card" data-category="development">
+                <div class="category-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Development</h3>
+                <p>15 Tools</p>
+            </div>
+            <div class="category-card" data-category="productivity">
+                <div class="category-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Productivity</h3>
+                <p>15 Tools</p>
+            </div>
+            <div class="category-card" data-category="research">
+                <div class="category-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h3>Research & Study</h3>
+                <p>15 Tools</p>
+            </div>
+            <div class="category-card" data-category="audio">
+                <div class="category-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Audio & Video</h3>
+                <p>15 Tools</p>
+            </div>
+        </div>
+        <button class="carousel-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+        <button class="action-btn" id="scrollTop" title="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <button class="action-btn" id="feedback" title="Send Feedback">
+            <i class="fas fa-comment"></i>
+        </button>
+        <button class="action-btn" id="share" title="Share">
+            <i class="fas fa-share-alt"></i>
+        </button>
+    </div>
+
+    <!-- Tools Grid -->
+    <section class="tools-section">
+        <div class="tools-grid">
+            <!-- Creativity Tools -->
+            <div class="tool-category">
+                <h2><i class="fas fa-palette"></i> Design & Creativity</h2>
+                <div class="tools-container">
+                    <div class="tool-card" data-category="creativity">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/canva.png" alt="Canva AI">
+                        </div>
+                        <h3>Canva AI</h3>
+                        <p>AI-powered design platform</p>
+                        <button class="learn-more-btn" data-tool="canva">Learn More</button>
+                    </div>
+                    <div class="tool-card" data-category="creativity">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/midjourney.png" alt="Midjourney">
+                        </div>
+                        <h3>Midjourney</h3>
+                        <p>Create stunning AI-generated artwork</p>
+                        <button class="learn-more-btn" data-tool="midjourney">Learn More</button>
+                    </div>
+                    <div class="tool-card" data-category="creativity">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/runway.png" alt="Runway ML">
+                        </div>
+                        <h3>Runway ML</h3>
+                        <p>Advanced AI video editing platform</p>
+                        <button class="learn-more-btn" data-tool="runway">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Tools -->
+            <div class="tool-category">
+                <h2><i class="fas fa-code"></i> Programming & Development</h2>
+                <div class="tools-container">
+                    <div class="tool-card" data-category="development">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/github-copilot.png" alt="GitHub Copilot">
+                        </div>
+                        <h3>GitHub Copilot</h3>
+                        <p>AI pair programmer</p>
+                        <button class="learn-more-btn" data-tool="github-copilot">Learn More</button>
+                    </div>
+                    <div class="tool-card" data-category="development">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/codeium.png" alt="Codeium">
+                        </div>
+                        <h3>Codeium</h3>
+                        <p>Free AI code completion</p>
+                        <button class="learn-more-btn" data-tool="codeium">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Tools -->
+            <div class="tool-category">
+                <h2><i class="fas fa-graduation-cap"></i> Learning & Research</h2>
+                <div class="tools-container">
+                    <div class="tool-card" data-category="learning">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/chatgpt.png" alt="ChatGPT">
+                        </div>
+                        <h3>ChatGPT</h3>
+                        <p>AI language model for learning</p>
+                        <button class="learn-more-btn" data-tool="chatgpt">Learn More</button>
+                    </div>
+                    <div class="tool-card" data-category="learning">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/quillbot.png" alt="QuillBot">
+                        </div>
+                        <h3>QuillBot</h3>
+                        <p>AI writing and paraphrasing assistant</p>
+                        <button class="learn-more-btn" data-tool="quillbot">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Tools -->
+            <div class="tool-category">
+                <h2><i class="fas fa-bolt"></i> Productivity & Automation</h2>
+                <div class="tools-container">
+                    <div class="tool-card" data-category="productivity">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/notion-ai.png" alt="Notion AI">
+                        </div>
+                        <h3>Notion AI</h3>
+                        <p>AI-powered workspace</p>
+                        <button class="learn-more-btn" data-tool="notion">Learn More</button>
+                    </div>
+                    <div class="tool-card" data-category="productivity">
+                        <div class="tool-icon">
+                            <img src="image/tool-icons/otter.png" alt="Otter.ai">
+                        </div>
+                        <h3>Otter.ai</h3>
+                        <p>AI meeting notes and transcription</p>
+                        <button class="learn-more-btn" data-tool="otter">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tool Modal -->
+    <div class="tool-modal" id="toolModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <img src="" alt="" class="modal-tool-icon">
+                <h2></h2>
+            </div>
+            <div class="modal-body">
+                <div class="tool-details">
+                    <div class="detail-item">
+                        <i class="fas fa-star"></i>
+                        <span class="rating"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-users"></i>
+                        <span class="users"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-tag"></i>
+                        <span class="pricing"></span>
+                    </div>
+                </div>
+                <p class="description"></p>
+                <div class="key-features">
+                    <h3>Key Features</h3>
+                    <ul></ul>
+                </div>
+                <div class="use-cases">
+                    <h3>Use Cases</h3>
+                    <ul></ul>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" class="try-tool-btn" target="_blank">Try Tool</a>
+                    <button class="bookmark-btn">
+                        <i class="far fa-bookmark"></i>
+                        Bookmark
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/aitools.js"></script>
+</body>
+</html>

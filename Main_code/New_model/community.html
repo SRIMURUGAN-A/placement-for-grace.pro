@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Forum | Student Hub</title>
+    <link rel="stylesheet" href="comm.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <!-- Add this right after the body tag opens -->
+    <div class="guidelines-popup" id="guidelinesPopup">
+        <div class="popup-content">
+            <h2><i class="fas fa-book"></i> Community Guidelines</h2>
+            <div class="guidelines-sections">
+                <section>
+                    <h3><i class="fas fa-user-shield"></i> Code of Conduct</h3>
+                    <ul>
+                        <li>Be respectful and supportive to fellow learners</li>
+                        <li>No harassment, hate speech, or inappropriate content</li>
+                        <li>Keep discussions educational and constructive</li>
+                        <li>Protect your privacy and others' personal information</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h3><i class="fas fa-lightbulb"></i> Posting Guidelines</h3>
+                    <ul>
+                        <li>Use relevant categories and tags for your posts</li>
+                        <li>Write clear, detailed questions or discussions</li>
+                        <li>Share knowledge and help others learn</li>
+                        <li>Give credit when using others' content</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3><i class="fas fa-exclamation-triangle"></i> Content Policy</h3>
+                    <ul>
+                        <li>No plagiarism or copyright violations</li>
+                        <li>No spam, advertisements, or self-promotion</li>
+                        <li>No sharing of exam answers or academic cheating</li>
+                        <li>Keep content relevant to education and learning</li>
+                    </ul>
+                </section>
+            </div>
+            
+            <div class="privacy-terms">
+                <p>By clicking "I Agree", you accept our <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a></p>
+            </div>
+            
+            <button id="acceptGuidelines" class="accept-btn">
+                <i class="fas fa-check"></i> I Agree
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="forum-container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="nav-left">
+                <button id="sidebarToggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Student Hub</span>
+                </div>
+            </div>
+
+            <div class="nav-center">
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Search discussions, topics...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-btn theme-toggle-btn" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-btn" title="Create Post">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="nav-btn" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="profile-menu">
+                    <button class="profile-trigger">
+                        <img src="default-avatar.png" alt="Profile" class="avatar">
+                        <div class="profile-info">
+                            <span class="username">ROGER</span>
+                            <span class="reputation">850 Rep</span>
+                        </div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="profile-dropdown">
+                        <div class="profile-header">
+                            <img src="default-avatar.png" alt="Profile" class="avatar">
+                            <div class="profile-info">
+                                <h4>ROGER</h4>
+                                <p>Computer Science Student @GCE | AI Enthusiast</p>
+                                <div class="profile-badges">
+                                    <span class="badge"><i class="fas fa-star"></i> Top Contributor</span>
+                                    <span class="badge"><i class="fas fa-check-circle"></i> Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="value">850</span>
+                                <span class="label">Reputation</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">124</span>
+                                <span class="label">Followers</span>
+                            </div>
+                            <div class="stat">
+                                <span class="value">89</span>
+                                <span class="label">Following</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-links">
+                            <a href="#"><i class="fas fa-user"></i> My Profile</a>
+                            <a href="#"><i class="fas fa-bookmark"></i> Saved Posts</a>
+                            <a href="#"><i class="fas fa-medal"></i> Achievements</a>
+                            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="leftSidebar">
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" id="globalSearch" placeholder="Search discussions, tags, or topics...">
+                    <i class="fas fa-search"></i>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+            
+            <nav class="category-nav">
+                <div class="nav-section">
+                    <h3>Main Categories</h3>
+                    <ul class="category-list">
+                        <li class="category-item" data-category="tech">
+                            <div class="category-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>Tech Jobs & Internships</h4>
+                                <p>Job openings, resume tips, interview prep</p>
+                                <span class="post-count">245 posts</span>
+                            </div>
+                        </li>
+                        
+                        <li class="category-item" data-category="business">
+                            <div class="category-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>Business & Entrepreneurship</h4>
+                                <p>Startup ideas, case studies, funding tips</p>
+                                <span class="post-count">182 posts</span>
+                            </div>
+                        </li>
+                        
+                        <li class="category-item" data-category="ai">
+                            <div class="category-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>AI/ML & Data Science</h4>
+                                <p>ML models, research papers, projects</p>
+                                <span class="post-count">156 posts</span>
+                            </div>
+                        </li>
+                        
+                        <li class="category-item" data-category="finance">
+                            <div class="category-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>Finance & Investing</h4>
+                                <p>Stock market, trading, personal finance</p>
+                                <span class="post-count">198 posts</span>
+                            </div>
+                        </li>
+                        
+                        <li class="category-item" data-category="college">
+                            <div class="category-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>College & Career Guidance</h4>
+                                <p>Higher studies, scholarships, study abroad</p>
+                                <span class="post-count">275 posts</span>
+                            </div>
+                        </li>
+                        
+                        <li class="category-item" data-category="general">
+                            <div class="category-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="category-info">
+                                <h4>General Discussions</h4>
+                                <p>Open-ended topics, news, networking</p>
+                                <span class="post-count">312 posts</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3>Trending Tags</h3>
+                    <div class="tag-cloud">
+                        <span class="tag-item" data-count="156">#Internships</span>
+                        <span class="tag-item" data-count="142">#AI</span>
+                        <span class="tag-item" data-count="98">#StartupIdeas</span>
+                        <span class="tag-item" data-count="87">#StudyAbroad</span>
+                        <span class="tag-item" data-count="76">#CareerAdvice</span>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="create-post">
+                <button class="create-post-btn">
+                    <i class="fas fa-plus"></i> Create Post
+                </button>
+            </div>
+
+            <!-- Posts Feed -->
+            <div class="posts-feed">
+                <!-- Pinned Post -->
+                <article class="post pinned">
+                    <div class="pin-indicator">
+                        <i class="fas fa-thumbtack"></i> Pinned
+                    </div>
+                    <div class="post-header">
+                        <img src="default-avatar.png" alt="User Avatar" class="user-avatar">
+                        <div class="post-meta">
+                            <h4>Community Guidelines</h4>
+                            <span class="author">by Admin <i class="fas fa-check-circle"></i></span>
+                            <span class="timestamp">2 days ago</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Welcome to our student community! Please read our guidelines...</p>
+                    </div>
+                    <div class="post-actions">
+                        <button><i class="fas fa-heart"></i> 245</button>
+                        <button><i class="fas fa-comment"></i> 56</button>
+                        <button><i class="fas fa-share"></i></button>
+                        <button><i class="fas fa-bookmark"></i></button>
+                    </div>
+                </article>
+
+                <!-- Regular Posts -->
+                <article class="post">
+                    <div class="post-header">
+                        <img src="default-avatar.png" alt="User Avatar" class="user-avatar">
+                        <div class="post-meta">
+                            <h4>Looking for Summer Internships</h4>
+                            <span class="author">by JohnDoe <span class="badge">Top Contributor</span></span>
+                            <span class="timestamp">3 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Hi everyone! I'm currently looking for summer internships in software development...</p>
+                        <div class="post-tags">
+                            <span>#Internships</span>
+                            <span>#SoftwareDev</span>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <button><i class="fas fa-arrow-up"></i> 42</button>
+                        <button><i class="fas fa-arrow-down"></i></button>
+                        <button><i class="fas fa-comment"></i> 15</button>
+                        <button><i class="fas fa-share"></i></button>
+                        <button><i class="fas fa-bookmark"></i></button>
+                        <button class="report-btn"><i class="fas fa-flag"></i></button>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="action-btn" title="Create New Post">
+                        <i class="fas fa-pen"></i> New Post
+                    </button>
+                    <button class="action-btn" title="View Saved Posts">
+                        <i class="fas fa-bookmark"></i> Saved
+                    </button>
+                    <button class="action-btn" title="View Your Drafts">
+                        <i class="fas fa-file-alt"></i> Drafts
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="modal" id="createPostModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-pen-fancy"></i> Create New Post</h2>
+                <div class="post-type-selector">
+                    <button class="type-btn active" data-type="text">
+                        <i class="fas fa-align-left"></i> Text
+                    </button>
+                    <button class="type-btn" data-type="media">
+                        <i class="fas fa-image"></i> Media
+                    </button>
+                    <button class="type-btn" data-type="poll">
+                        <i class="fas fa-poll"></i> Poll
+                    </button>
+                    <button class="type-btn" data-type="link">
+                        <i class="fas fa-link"></i> Link
+                    </button>
+                </div>
+                <button class="close-modal" id="closePostModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <form id="postForm">
+                <!-- Title Section -->
+                <div class="post-form-input">
+                    <label for="postTitle">Title</label>
+                    <input type="text" id="postTitle" placeholder="Write an interesting title..." required>
+                </div>
+
+                <!-- Dynamic Content Section -->
+                <div class="post-content-wrapper">
+                    <!-- Text Post -->
+                    <div class="post-type-content active" id="textPost">
+                        <div class="rich-editor">
+                            <div class="editor-toolbar">
+                                <button type="button" data-format="bold"><i class="fas fa-bold"></i></button>
+                                <button type="button" data-format="italic"><i class="fas fa-italic"></i></button>
+                                <button type="button" data-format="heading"><i class="fas fa-heading"></i></button>
+                                <button type="button" data-format="list-ul"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" data-format="list-ol"><i class="fas fa-list-ol"></i></button>
+                                <button type="button" data-format="link"><i class="fas fa-link"></i></button>
+                                <button type="button" data-format="code"><i class="fas fa-code"></i></button>
+                                <button type="button" data-format="quote"><i class="fas fa-quote-right"></i></button>
+                            </div>
+                            <textarea id="postContent" placeholder="Share your thoughts... (Markdown supported)" required></textarea>
+                            <div class="markdown-preview">
+                                <div class="preview-header">
+                                    <span>Preview</span>
+                                    <button type="button" class="toggle-preview">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <div class="preview-content"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Post -->
+                    <div class="post-type-content" id="mediaPost">
+                        <div class="media-upload-area">
+                            <div class="upload-placeholder">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop files here or click to upload</p>
+                                <span>Supports images and videos up to 100MB</span>
+                            </div>
+                            <input type="file" multiple accept="image/*,video/*" hidden>
+                            <div class="media-preview"></div>
+                        </div>
+                        <textarea placeholder="Add a description..." class="media-description"></textarea>
+                    </div>
+
+                    <!-- Poll Post -->
+                    <div class="post-type-content" id="pollPost">
+                        <div class="poll-options">
+                            <div class="poll-option">
+                                <input type="text" placeholder="Option 1" required>
+                                <button type="button" class="remove-option"><i class="fas fa-times"></i></button>
+                            </div>
+                            <div class="poll-option">
+                                <input type="text" placeholder="Option 2" required>
+                                <button type="button" class="remove-option"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-option-btn">
+                            <i class="fas fa-plus"></i> Add Option
+                        </button>
+                        <div class="poll-settings">
+                            <label class="setting-toggle">
+                                <input type="checkbox" id="multipleChoice">
+                                <span class="toggle-slider"></span>
+                                Allow multiple choices
+                            </label>
+                            <div class="poll-duration">
+                                <label>Poll Duration:</label>
+                                <select id="pollDuration">
+                                    <option value="1">1 day</option>
+                                    <option value="3">3 days</option>
+                                    <option value="7">1 week</option>
+                                    <option value="30">1 month</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Link Post -->
+                    <div class="post-type-content" id="linkPost">
+                        <div class="link-input-wrapper">
+                            <input type="url" placeholder="Paste your link here" id="linkUrl">
+                            <button type="button" class="fetch-preview">
+                                <i class="fas fa-magic"></i> Fetch Preview
+                            </button>
+                        </div>
+                        <div class="link-preview"></div>
+                    </div>
+                </div>
+
+                <!-- Common Settings -->
+                <div class="post-settings">
+                    <div class="visibility-settings">
+                        <h4>Post Visibility</h4>
+                        <div class="visibility-options">
+                            <label class="visibility-option">
+                                <input type="radio" name="visibility" value="public" checked>
+                                <i class="fas fa-globe"></i>
+                                <span>Public</span>
+                            </label>
+                            <label class="visibility-option">
+                                <input type="radio" name="visibility" value="private">
+                                <i class="fas fa-lock"></i>
+                                <span>Private</span>
+                            </label>
+                            <label class="visibility-option">
+                                <input type="radio" name="visibility" value="anonymous">
+                                <i class="fas fa-user-secret"></i>
+                                <span>Anonymous</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="post-form-input">
+                        <label>Category</label>
+                        <div class="category-selector">
+                            <button type="button" class="category-option" data-category="tech">
+                                <i class="fas fa-laptop-code"></i>
+                                Tech
+                            </button>
+                            <button type="button" class="category-option" data-category="career">
+                                <i class="fas fa-briefcase"></i>
+                                Career
+                            </button>
+                            <button type="button" class="category-option" data-category="study">
+                                <i class="fas fa-book"></i>
+                                Study
+                            </button>
+                            <button type="button" class="category-option" data-category="discussion">
+                                <i class="fas fa-comments"></i>
+                                Discussion
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="post-form-input">
+                        <label for="postTags">Tags</label>
+                        <div class="tag-input-container">
+                            <div class="tag-list"></div>
+                            <input type="text" id="postTags" placeholder="Add tags (press Enter to add)">
+                        </div>
+                    </div>
+
+                    <div class="advanced-settings">
+                        <button type="button" class="toggle-advanced">
+                            <i class="fas fa-cog"></i> Advanced Settings
+                        </button>
+                        <div class="advanced-options">
+                            <label class="option-toggle">
+                                <input type="checkbox" id="disableComments">
+                                <span class="toggle-slider"></span>
+                                Disable Comments
+                            </label>
+                            <label class="option-toggle">
+                                <input type="checkbox" id="pinPost">
+                                <span class="toggle-slider"></span>
+                                Pin to Profile
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="draft-btn">
+                        <i class="fas fa-save"></i> Save as Draft
+                    </button>
+                    <div class="primary-actions">
+                        <button type="button" class="preview-btn">
+                            <i class="fas fa-eye"></i> Preview
+                        </button>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Publish Post
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="comm.js"></script>
+</body>
+</html>
