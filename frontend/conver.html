@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Skills Learning Hub</title>
+    <link rel="stylesheet" href="./css/conver.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="main-nav">
+            <div class="logo">
+                <i class="fas fa-microphone-alt"></i>
+                <span>Communication Hub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-graduation-cap"></i> Learn</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#"><i class="fas fa-chalkboard-teacher"></i> Live Classes</a></li>
+                        <li><a href="#"><i class="fas fa-book-reader"></i> Self-Paced</a></li>
+                        <li><a href="#"><i class="fas fa-certificate"></i> Certifications</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-robot"></i> AI Tools</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#"><i class="fas fa-microphone"></i> Speech Coach</a></li>
+                        <li><a href="#"><i class="fas fa-comments"></i> Conversation Practice</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Progress Analysis</a></li>
+                        <li><a href="#"><i class="fas fa-language"></i> Accent Training</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#"><i class="fas fa-users"></i> Community</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#"><i class="fas fa-user-friends"></i> Find Partners</a></li>
+                        <li><a href="#"><i class="fas fa-comments"></i> Discussion Forum</a></li>
+                        <li><a href="#"><i class="fas fa-trophy"></i> Challenges</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="user-profile">
+                    <img src="" alt="Profile" class="avatar">
+                    <div class="user-info">
+                        <span class="user-name">John Doe</span>
+                        <span class="user-level">Level 5</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-section">
+            <div class="hero-content">
+                <h1>Master the Art of Communication</h1>
+                <p class="hero-subtitle">Unlock your potential with curated resources and expert guidance</p>
+                
+                <div class="quote-container">
+                    <div class="motivation-quote">
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <blockquote id="quote-text"></blockquote>
+                        <cite id="quote-author"></cite>
+                        <div class="quote-progress"></div>
+                    </div>
+                </div>
+
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Learn at Your Pace</h3>
+                        <p>Access resources anytime, anywhere</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Community Support</h3>
+                        <p>Connect with fellow learners</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-robot"></i>
+                        <h3>AI-Powered Tools</h3>
+                        <p>Practice with modern technology</p>
+                    </div>
+                </div>
+
+                <div class="motivation-carousel">
+                    <div class="carousel-track">
+                        <div class="motivation-card">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Starting Small</h3>
+                            <p>"Every expert was once a beginner. Take that first step today."</p>
+                        </div>
+                        <div class="motivation-card">
+                            <i class="fas fa-star"></i>
+                            <h3>Building Confidence</h3>
+                            <p>"Communication skills are not inherited, they are built through practice."</p>
+                        </div>
+                        <div class="motivation-card">
+                            <i class="fas fa-rocket"></i>
+                            <h3>Achieving Goals</h3>
+                            <p>"Your voice matters. Let it be heard with clarity and confidence."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <a href="#resources" class="cta-primary">Explore Resources</a>
+                    <a href="#community" class="cta-secondary">Join Community</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="content-grid">
+            <section class="topic-card" id="selfIntro">
+                <div class="card-icon"><i class="fas fa-user"></i></div>
+                <h2>Self Introduction</h2>
+                <p>Learn the art of introducing yourself professionally</p>
+                <ul class="subtopics">
+                    <li>Elevator Pitch</li>
+                    <li>Professional Introduction</li>
+                    <li>Interview Introduction</li>
+                </ul>
+                <button class="learn-more">Start Learning</button>
+            </section>
+
+            <section class="topic-card" id="speaking">
+                <div class="card-icon"><i class="fas fa-microphone"></i></div>
+                <h2>Public Speaking</h2>
+                <p>Master the skills of effective public speaking</p>
+                <ul class="subtopics">
+                    <li>Voice Modulation</li>
+                    <li>Body Language</li>
+                    <li>Presentation Skills</li>
+                </ul>
+                <button class="learn-more">Start Learning</button>
+            </section>
+
+            <section class="topic-card" id="negotiation">
+                <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                <h2>Negotiation Skills</h2>
+                <p>Learn effective negotiation techniques</p>
+                <ul class="subtopics">
+                    <li>Win-Win Strategy</li>
+                    <li>Salary Negotiation</li>
+                    <li>Business Deals</li>
+                </ul>
+                <button class="learn-more">Start Learning</button>
+            </section>
+
+            <section class="topic-card" id="interpersonal">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h2>Interpersonal Skills</h2>
+                <p>Develop better relationships through communication</p>
+                <ul class="subtopics">
+                    <li>Active Listening</li>
+                    <li>Empathy Building</li>
+                    <li>Conflict Resolution</li>
+                </ul>
+                <button class="learn-more">Start Learning</button>
+            </section>
+        </main>
+
+        <section class="progress-tracker">
+            <h2>Your Learning Journey</h2>
+            <div class="progress-grid">
+                <div class="progress-item">
+                    <div class="progress-circle" data-progress="75">
+                        <span class="progress-text">75%</span>
+                    </div>
+                    <h3>Speaking Skills</h3>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-circle" data-progress="60">
+                        <span class="progress-text">60%</span>
+                    </div>
+                    <h3>Negotiation</h3>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-circle" data-progress="90">
+                        <span class="progress-text">90%</span>
+                    </div>
+                    <h3>Self Introduction</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="ai-tools">
+            <h2><i class="fas fa-robot"></i> AI Communication Resources</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-microphone-alt tool-icon"></i>
+                    </div>
+                    <h3>Speech Practice Tools</h3>
+                    <p>Popular AI tools for speech improvement</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://speechace.com">SpeechAce - Pronunciation</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://www.elsa.com">ELSA Speak - Accent Coach</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://speak.com">Speak AI - Fluency Training</a></li>
+                    </ul>
+                    <p class="tool-note">*External tools may require separate subscriptions</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-comments tool-icon"></i>
+                    </div>
+                    <h3>Conversation Practice</h3>
+                    <p>AI chatbots for conversation practice</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://chat.openai.com">ChatGPT - General Practice</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://www.languageai.io">LanguageAI - Language Learning</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://replika.ai">Replika - Casual Conversation</a></li>
+                    </ul>
+                    <p class="tool-note">*External tools may require separate subscriptions</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <i class="fas fa-language tool-icon"></i>
+                    </div>
+                    <h3>Language Enhancement</h3>
+                    <p>Tools for grammar and vocabulary</p>
+                    <ul class="tool-features">
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://www.grammarly.com">Grammarly - Writing Assistant</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://quillbot.com">QuillBot - Paraphrasing</a></li>
+                        <li><i class="fas fa-external-link-alt"></i> <a href="https://ludwig.guru">Ludwig - Sentence Examples</a></li>
+                    </ul>
+                    <p class="tool-note">*External tools may require separate subscriptions</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal" id="lessonModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modalTitle">Lesson Title</h2>
+                <div id="modalContent">
+                    <!-- Lesson content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/conver.js"></script>
+</body>
+</html>

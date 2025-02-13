@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/master.css">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="fixed">
+        <div class="first_line_logo">
+            <img src="https://gracecoe.org/assets/img/g.png" alt="logo" id="image">
+            <img src="https://gracecoe.org/assets/img/coe.png" alt="logo" id="image">
+            <img src="https://gracecoe.org/assets/img/aicte_logo.png" alt="logo" class="imag">
+            <p>Approved by <br> AICTE,New Delhi</p>
+            <img src="https://gracecoe.org/assets/img/au_logo.png" alt="logo" class="imag">
+            <p>Affliate to ANNA <br>UNIVERSITY, Chennai</p>
+            <img src="https://gracecoe.org/assets/img/iic_full_logo.png" alt="logo" class="imag">
+            <img src="https://gracecoe.org/assets/img/edii_logo.png" alt="logo" class="imag">
+        </div>
+        <div class="btn_navbar">
+            <div class="disapear-button">
+                <button type="button">HOME</button>
+                <button type="button">ADMISSION</button>
+                <button type="button">CONTACT US</button>
+                <button type="button">ABOUT US</button>
+            </div>
+            <div class="toggle-btn">
+                <button type="button" onclick="toggleSidebar()"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            </div>
+        </div>
+        <div id="firstmySidebar" class="firstsidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="firstcloseSidebar()">×</a>
+            <a href="#home">HOME</a>
+            <a href="#services">ADMISSIONS</a>
+            <a href="#about">CONTACT US</a>
+            <a href="#contact">ABOUT US</a>
+        </div>
+
+        <div class="second_container">
+            <div class="second-container-first-image">
+                <img src="https://gracecoe.org/assets/img/g.png" alt="">
+            </div>
+            <div class="second-container-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('courses-dropdown')">Courses <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="courses-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('about-dropdown')">Blog <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="about-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('resources-dropdown')">Resources <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="resources-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sefito">
+                <nav class="sefito-nav">
+                    <ul class="sefito-nav-bar">
+                        <li><a href="#" id="main-link">Menu<i class="fa-solid fa-angle-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div id="toggle-container" class="sefito-toggle-container">
+                    <div id="first-toggle" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#" id="sub-link-1">courses</a></li>
+                            <li><a href="#" id="sub-link-2">Blog</a></li>
+                            <li><a href="#" id="sub-link-3">Resources</a></li> <!-- Added Sub Link 3 -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-1" class="sefito-right-toggle-container1">
+                    <div id="second-toggle-1" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 1</a></li>
+                            <li><a href="#">course 2</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-2" class="sefito-right-toggle-container2">
+                    <!-- Added Right Toggle Container 2 -->
+                    <div id="second-toggle-2" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 3</a></li>
+                            <li><a href="#">course 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-3" class="sefito-right-toggle-container3">
+                    <!-- Added Right Toggle Container 3 -->
+                    <div id="second-toggle-3" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 5</a></li>
+                            <li><a href="#">course 6</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="second-container-icons-and-button">
+                <div class="second-container-icons">
+                    <a href="eee"><i class="fa-solid fa-envelope fa-beat"></i></a>
+                    <a href="eee"><i class="fa-solid fa-bell"></i></a>
+                    <a href="javascript:void(0)" id="user_link"><i class="fa-solid fa-user"></i></a>
+                </div>
+                <button class="second-toggle-btn" onclick="secondtoggleSidebar()">☰ </button>
+            </div>
+        </div>
+        <div class="toggleBar_profile" id="toggleBar_profile">
+            <ul>
+                <li><i class="fa-solid fa-chart-line"></i><a href="">Dashboard</a></li>
+                <li><i class="fa-solid fa-play"></i><a href="">My learning</a></li>
+                <li><i class="fa-regular fa-user"></i><a href="">My profile</a></li>
+                <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="">Logout</a></li>
+            </ul>
+        </div>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSidebar()">×</a>
+            <a href="#home">Student Dashboard</a>
+            <a href="#services">Placement training</a>
+            <a href="#about">Placement resources</a>
+            <a href="#contact">Jop Available for your Course</a>
+            <a href="#about">Skill Development</a>
+            <a href="#about">Placement Updates</a>
+            <a href="#about">Enterprenurship</a>
+            <a href="#about">Blog & News</a>
+        </div>
+    </div>
+    <div class="not-fixed"></div>
+    <script>
+        //use to profile dashboard
+        const user_link = document.getElementById('user_link')
+        const toggleBar_profile = document.getElementById('toggleBar_profile')
+
+        user_link.addEventListener('click', function () {
+            if (toggleBar_profile.style.display === "none" || toggleBar_profile.style.display === "") {
+                toggleBar_profile.style.display = "block";
+            } else {
+                toggleBar_profile.style.display = "none";
+            }
+        });
+        document.addEventListener('click', function (event) {
+            if (!toggleBar.contains(event.target) && !userLink.contains(event.target)) {
+                toggleBar.style.display = "none";
+            }
+        });
+
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("firstmySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+
+
+        function firstcloseSidebar() {
+            const sidebar = document.getElementById("firstmySidebar");
+            sidebar.style.width = "0";  // Set the width to 0 to close the sidebar
+        }
+
+
+        function secondtoggleSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            if (sidebar.style.width === "250px") {
+                sidebar.style.width = "0";
+            } else {
+                sidebar.style.width = "250px";
+            }
+        }
+
+        function closeSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            sidebar.style.width = "0";  // Set the width to 0 to close the sidebar
+        }
+
+        function toggleDropdown(dropdownId) {
+            var dropdown = document.getElementById(dropdownId);
+            var isOpen = dropdown.style.display === "block";
+
+            // Close all open dropdowns
+            var dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(function (d) {
+                d.style.display = 'none';
+            });
+
+            // Toggle the selected dropdown
+            dropdown.style.display = isOpen ? "none" : "block";
+        }
+
+        // Optional: Close the dropdown if clicked outside
+        document.addEventListener('click', function (event) {
+            var isClickInside = event.target.closest('nav');
+            if (!isClickInside) {
+                var dropdowns = document.querySelectorAll('.dropdown');
+                dropdowns.forEach(function (d) {
+                    d.style.display = 'none';
+                });
+            }
+        });
+
+
+        // used for sefito
+
+        document.getElementById('main-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            var container = document.getElementById('toggle-container');
+            var firstToggle = document.getElementById('first-toggle');
+
+            container.style.display = (container.style.display === 'block') ? 'none' : 'block';
+            firstToggle.style.display = 'block'; // Ensure first toggle bar is visible when container opens
+        });
+
+        document.getElementById('sub-link-1').addEventListener('click', function (e) {
+            e.preventDefault();
+            toggleDisplay('right-toggle-container-1', 'second-toggle-1');
+        });
+
+        document.getElementById('sub-link-2').addEventListener('click', function (e) {
+            e.preventDefault();
+            toggleDisplay('right-toggle-container-2', 'second-toggle-2');
+        });
+
+        document.getElementById('sub-link-3').addEventListener('click', function (e) {
+            e.preventDefault();
+            toggleDisplay('right-toggle-container-3', 'second-toggle-3');
+        });
+
+        document.addEventListener('click', function (e) {
+            var toggleContainer = document.getElementById('toggle-container');
+            var rightToggleContainers = [
+                document.getElementById('right-toggle-container-1'),
+                document.getElementById('right-toggle-container-2'),
+                document.getElementById('right-toggle-container-3')
+            ];
+
+            if (!toggleContainer.contains(e.target) && !document.getElementById('main-link').contains(e.target)) {
+                closeAllToggles();
+            }
+
+            rightToggleContainers.forEach(function (container, index) {
+                if (!container.contains(e.target) && !document.getElementById('sub-link-' + (index + 1)).contains(e.target)) {
+                    closeRightToggle(container.id);
+                }
+            });
+        });
+
+        function toggleDisplay(containerId, toggleId) {
+            var container = document.getElementById(containerId);
+            var toggle = document.getElementById(toggleId);
+            container.style.display = (container.style.display === 'block') ? 'none' : 'block';
+            toggle.style.display = 'block';
+        }
+
+        function closeAllToggles() {
+            document.getElementById('toggle-container').style.display = 'none';
+            document.getElementById('first-toggle').style.display = 'none';
+        }
+
+        function closeRightToggle(containerId) {
+            var container = document.getElementById(containerId);
+            container.style.display = 'none';
+        }
+
+
+    </script>
+</body>
+
+</html>

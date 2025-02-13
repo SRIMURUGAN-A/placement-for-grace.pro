@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <button class="menu-toggle" onclick="toggleSidebar()" title="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <img src="./image/grace logo.jpg" alt="LMS Logo" class="logo">
+            
+            <!-- Adding main navigation items -->
+            <div class="main-nav-items">
+                <div class="nav-item">
+                    <a href="#courses">Courses</a>
+                    <div class="dropdown-content">
+                        <a href="#all-courses">All Courses</a>
+                        <a href="#my-courses">My Courses</a>
+                        <a href="#certificates">Certificates</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#blog">Blog</a>
+                    <div class="dropdown-content">
+                        <a href="#tech-blog">Tech Articles</a>
+                        <a href="#student-stories">Student Stories</a>
+                        <a href="#industry-news">Industry News</a>
+                    </div>
+                </div>
+                
+                <div class="nav-item">
+                    <a href="#academics">Academics</a>
+                    <div class="dropdown-content">
+                        <a href="#schedule">Class Schedule</a>
+                        <a href="#assignments">Assignments</a>
+                        <a href="#resources">Study Resources</a>
+                        <a href="#grades">Grades</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="search-wrapper">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search courses, jobs, or discussions...">
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <button class="theme-toggle" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="notification-bell">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </div>
+            <!-- Simplified profile menu -->
+            <div class="profile-menu">
+                <button class="profile-button" title="Profile Menu">
+                    <img src="" alt="Profile" class="avatar">
+                    <span class="profile-name">John Doe</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <div class="profile-header">
+                        <img src="" alt="Profile" class="dropdown-avatar">
+                        <div class="profile-info">
+                            <span class="user-name">John Doe</span>
+                            <span class="user-email">john@example.com</span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="#profile"><i class="fas fa-user"></i> My Profile</a>
+                    <a href="#account"><i class="fas fa-cog"></i> Account Settings</a>
+                    <a href="#help"><i class="fas fa-question-circle"></i> Help Center</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#logout" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="mySidebar">
+        <div class="sidebar-header">
+            <h2>Menu</h2>
+            <button class="close-btn" onclick="closeSidebar()" title="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-content">
+            <div class="menu-section">
+                <h3>Learning Hub</h3>
+                <a href="#dashboard" class="menu-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="./course.html" class="menu-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Courses & Learning Paths</span>
+                    <div class="menu-detail">AI, Business, Software Dev</div>
+                </a>
+                <a href="#progress" class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress Tracking</span>
+                </a>
+                <a href="./technical.html" class="menu-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Placement resources</span>
+                </a>            
+            </div>
+
+            <div class="menu-section">
+                <h3>Career Development</h3>
+                <a href="#jobs" class="menu-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Internships & Jobs</span>
+                    <span class="badge new">12 New</span>
+                </a>
+                <a href="#financial" class="menu-item">
+                    <i class="fas fa-piggy-bank"></i>
+                    <span>Financial Guidance</span>
+                    <div class="menu-detail">Scholarships, Budgeting</div>
+                </a>
+                <a href="#entrepreneur" class="menu-item">
+                    <i class="fas fa-rocket"></i>
+                    <span>Entrepreneurship Hub</span>
+                    <div class="menu-detail">Startups, Funding, Networking</div>
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Tech & Tools</h3>
+                <a href="./Aitools.html" class="menu-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Lab</span>
+                    <span class="badge hot">Hot</span>
+                </a>
+                <a href="#tech-tools" class="menu-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Tech Tools</span>
+                    <div class="menu-detail">Coding, Research Tools</div>
+                </a>
+                <a href="#smart-study" class="menu-item">
+                    <i class="fas fa-brain"></i>
+                    <span>Smart Study.AI</span>
+                    <div class="menu-detail">AI-powered Learning</div>
+                </a>
+            </div>
+
+            <div class="menu-section">
+                <h3>Community</h3>
+                <a href="./community.html" class="menu-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Discussion Forums</span>
+                    <div class="menu-detail">Tech, Business, Academic</div>
+                </a>
+                <a href="#events" class="menu-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Events & Workshops</span>
+                    <span class="badge">3 Today</span>
+                </a>
+                <a href="#help" class="menu-item">
+                    <i class="fas fa-headset"></i>
+                    <span>Support & Help Center</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Welcome Banner -->
+            <section class="welcome-banner">
+                <div class="banner-content">
+                    <div class="welcome-text">
+                        <h1>Welcome back, <span class="user-name">John!</span></h1>
+                        <p>Continue your learning journey and achieve your goals</p>
+                        <div class="stats-highlight">
+                            <div class="stat-item">
+                                <span class="stat-number">85%</span>
+                                <span class="stat-label">Course Progress</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Hours Learning</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">3</span>
+                                <span class="stat-label">Certificates</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="btn primary">
+                            <i class="fas fa-play-circle"></i>
+                            Resume Course
+                        </button>
+                        <button class="btn secondary">
+                            <i class="fas fa-briefcase"></i>
+                            Find Jobs
+                        </button>
+                        <button class="btn secondary">
+                            <i class="fas fa-comments"></i>
+                            Join Discussion
+                        </button>
+                    </div>
+                </div>
+                <div class="banner-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-dots"></div>
+                </div>
+            </section>
+
+            <!-- Live News Section -->
+            <section class="live-news-section">
+                <div class="news-header">
+                    <div class="news-title">
+                        <i class="fas fa-newspaper"></i>
+                        <h2>Live Updates & Industry News</h2>
+                    </div>
+                    <div class="news-controls">
+                        <button class="news-control" id="pauseNews">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="news-control" id="nextNews">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="news-ticker-wrapper">
+                    <div class="news-ticker" id="newsTicker">
+                        <a href="#news1" class="news-item">
+                            <span class="news-badge tech">Tech</span>
+                            <p>OpenAI Launches GPT-5 with Revolutionary Capabilities in Code Generation</p>
+                            <span class="news-time">2 hours ago</span>
+                        </a>
+                        <a href="#news2" class="news-item">
+                            <span class="news-badge achievement">Achievement</span>
+                            <p>Student Spotlight: Sarah K. Wins International Coding Competition</p>
+                            <span class="news-time">4 hours ago</span>
+                        </a>
+                        <a href="#news3" class="news-item">
+                            <span class="news-badge industry">Industry</span>
+                            <p>Top Tech Companies Announce 10,000 New Job Openings for Fresh Graduates</p>
+                            <span class="news-time">6 hours ago</span>
+                        </a>
+                        <a href="#news4" class="news-item">
+                            <span class="news-badge update">Update</span>
+                            <p>New Course Launch: Advanced Machine Learning with Python - Enroll Now!</p>
+                            <span class="news-time">8 hours ago</span>
+                        </a>
+                        <a href="#news5" class="news-item">
+                            <span class="news-badge tech">Tech</span>
+                            <p>Latest Web Development Trends for 2024: What You Need to Know</p>
+                            <span class="news-time">12 hours ago</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access Section -->
+            <section class="quick-access">
+                <div class="widget-grid">
+                    <!-- Courses & Learning Paths Widget -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Courses & Learning Paths</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="course-list">
+                                <a href="#" class="course-item">
+                                    <div class="course-info">
+                                        <h4>Web Development Bootcamp</h4>
+                                        <div class="progress-mini">
+                                            <div class="progress-bar" style="width: 75%"></div>
+                                            <span>75%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="course-item">
+                                    <div class="course-info">
+                                        <h4>Data Science Fundamentals</h4>
+                                        <div class="progress-mini">
+                                            <div class="progress-bar" style="width: 45%"></div>
+                                            <span>45%</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="#all-courses" class="widget-link">View All Courses <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Internship & Job Listings Widget -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Internship & Job Listings</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="job-list">
+                                <a href="#" class="job-item">
+                                    <div class="company-logo">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="job-info">
+                                        <h4>Software Developer Intern</h4>
+                                        <p>TechCorp Inc. • Remote</p>
+                                        <div class="job-tags">
+                                            <span class="tag">Full-time</span>
+                                            <span class="tag">React</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="job-item">
+                                    <div class="company-logo">
+                                        <i class="fas fa-laptop-code"></i>
+                                    </div>
+                                    <div class="job-info">
+                                        <h4>Data Analyst</h4>
+                                        <p>Analytics Pro • Hybrid</p>
+                                        <div class="job-tags">
+                                            <span class="tag">Internship</span>
+                                            <span class="tag">Python</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="#all-jobs" class="widget-link">Browse All Jobs <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Community Highlights Widget -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Community Highlights</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="discussion-item">
+                                <div class="discussion-header">
+                                    <span class="badge hot">Trending</span>
+                                    <h4>Best practices for portfolio development</h4>
+                                </div>
+                                <div class="discussion-stats">
+                                    <span><i class="fas fa-comment"></i> 45</span>
+                                    <span><i class="fas fa-heart"></i> 123</span>
+                                </div>
+                            </div>
+                            <div class="top-contributors">
+                                <h4>Top Contributors</h4>
+                                <div class="contributor-list">
+                                    <div class="contributor">
+                                        <img src="" alt="Contributor">
+                                        <span>Sarah J.</span>
+                                        <span class="points">1.2k pts</span>
+                                    </div>
+                                    <div class="contributor">
+                                        <img src="" alt="Contributor">
+                                        <span>Mike R.</span>
+                                        <span class="points">980 pts</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./community.html" class="widget-link">Join Discussions <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Financial Resources Widget -->
+                    <div class="widget-card">
+                        <div class="widget-header">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h3>Financial Resources</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="resource-list">
+                                <a href="#" class="resource-item">
+                                    <i class="fas fa-award"></i>
+                                    <div class="resource-info">
+                                        <h4>Available Scholarships</h4>
+                                        <p>15 new opportunities</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="resource-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div class="resource-info">
+                                        <h4>Investment Basics</h4>
+                                        <p>Free course available</p>
+                                    </div>
+                                </a>
+                                <a href="#" class="resource-item">
+                                    <i class="fas fa-calculator"></i>
+                                    <div class="resource-info">
+                                        <h4>Budget Calculator</h4>
+                                        <p>Plan your finances</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="#financial" class="widget-link">Explore Resources <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gamified Goals Section -->
+            <section class="gamified-goals">
+                <div class="section-header">
+                    <h2>Your Learning Goals</h2>
+                    <div class="user-progress">
+                        <div class="level-badge">
+                            <span class="level">Level 5</span>
+                            <span class="points">2,450 XP</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                            <span class="progress-text">550 XP to Level 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="goals-grid">
+                    <!-- Daily Tasks -->
+                    <div class="goals-card daily-tasks">
+                        <div class="card-header">
+                            <h3><i class="fas fa-tasks"></i> Daily Tasks</h3>
+                            <span class="reward-badge"><i class="fas fa-gem"></i> 100 XP</span>
+                        </div>
+                        <div class="tasks-list">
+                            <div class="task-item completed">
+                                <div class="checkbox-wrapper">
+                                    <input type="checkbox" checked>
+                                    <span class="checkmark"></span>
+                                </div>
+                                <div class="task-content">
+                                    <h4>Complete Daily Quiz</h4>
+                                    <p>Test your knowledge daily</p>
+                                </div>
+                                <span class="task-reward">+25 XP</span>
+                            </div>
+                            <div class="task-item in-progress">
+                                <div class="checkbox-wrapper">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <div class="task-content">
+                                    <h4>Watch 2 Course Videos</h4>
+                                    <p>1/2 completed</p>
+                                </div>
+                                <span class="task-reward">+35 XP</span>
+                            </div>
+                            <div class="task-item">
+                                <div class="checkbox-wrapper">
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </div>
+                                <div class="task-content">
+                                    <h4>Practice Coding</h4>
+                                    <p>Solve 3 challenges</p>
+                                </div>
+                                <span class="task-reward">+40 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Challenges -->
+                    <div class="goals-card challenges">
+                        <div class="card-header">
+                            <h3><i class="fas fa-trophy"></i> Weekly Challenges</h3>
+                            
+                        </div>
+                        <div class="challenge-list">
+                            <div class="challenge-item active">
+                                <div class="challenge-header">
+                                    <h4>Full Stack Project</h4>
+                                    <span class="challenge-reward">₹1000</span>
+                                </div>
+                                <p>Build a full-stack web application</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 60%"></div>
+                                    </div>
+                                    <span>3 days left</span>
+                                </div>
+                            </div>
+                            <div class="challenge-item">
+                                <div class="challenge-header">
+                                    <h4>AI Implementation</h4>
+                                    <span class="challenge-reward">₹1500</span>
+                                </div>
+                                <p>Implement an AI feature in your project</p>
+                                <button class="btn-start">Start Challenge</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements -->
+                    <div class="goals-card achievements">
+                        <div class="card-header">
+                            <h3><i class="fas fa-medal"></i> Recent Achievements</h3>
+                        </div>
+                        <div class="achievements-list">
+                            <div class="achievement-item unlocked">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h4>Quick Learner</h4>
+                                    <p>Completed 5 courses in a month</p>
+                                    <span class="achievement-date">Earned 2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="achievement-item unlocked">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h4>Streak Master</h4>
+                                    <p>30 days learning streak</p>
+                                    <span class="achievement-date">Earned 1 week ago</span>
+                                </div>
+                            </div>
+                            <div class="achievement-item locked">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="achievement-content">
+                                    <h4>Code Ninja</h4>
+                                    <p>Complete all coding challenges</p>
+                                    <div class="progress-mini">
+                                        <div class="progress" style="width: 80%"></div>
+                                        <span>80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="quick-stats">
+            <div class="stat-card">
+                <i class="fas fa-book-reader"></i>
+                <div class="stat-info">
+                    <h3>3 Courses</h3>
+                    <p>In Progress</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-trophy"></i>
+                <div class="stat-info">
+                    <h3>15 Skills</h3>
+                    <p>Acquired</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-certificate"></i>
+                <div class="stat-info">
+                    <h3>5 Certificates</h3>
+                    <p>Earned</p>
+                </div>
+            </div>
+        </div>
+   <!-- Course & Job Highlights Section -->
+        <section class="highlights-section">
+            <div class="section-header">
+                <h2>Recommended for You</h2>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="courses">Courses</button>
+                    <button class="view-btn" data-view="jobs">Jobs</button>
+                </div>
+            </div>
+
+            <!-- Courses View -->
+            <div class="highlights-grid courses-view active">
+                <div class="highlight-card course">
+                    <div class="card-badge">Trending</div>
+                    <img src="" alt="Course thumbnail" class="card-img">
+                    <div class="card-content">
+                        <div class="card-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI/ML</span>
+                        </div>
+                        <h3>Machine Learning Fundamentals</h3>
+                        <p class="instructor">By Dr. Sarah Johnson</p>
+                        <div class="card-stats">
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                            <span><i class="fas fa-user"></i> 12K students</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-primary">Enroll Now</button>
+                            <button class="btn-icon bookmark" title="Bookmark Course">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more course cards -->
+            </div>
+
+            <!-- Jobs View -->
+            <div class="highlights-grid jobs-view">
+                <div class="highlight-card job">
+                    <div class="card-badge hot">New</div>
+                    <div class="card-content">
+                        <div class="company-info">
+                            <img src="" alt="Company logo" class="company-logo">
+                            <div>
+                                <h3>Senior Frontend Developer</h3>
+                                <p class="company-name">TechCorp Solutions</p>
+                            </div>
+                        </div>
+                        <div class="job-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                            <span><i class="fas fa-briefcase"></i> 3-5 years</span>
+                            <span><i class="fas fa-rupee-sign"></i> 15-20 LPA</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Node.js</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-primary">Apply Now</button>
+                            <button class="btn-icon save-job" title="Save Job">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more job cards -->
+            </div>
+        </section>
+
+        <!-- Events & Workshops Section -->
+        <section class="events-section">
+            <div class="section-header">
+                <h2>Events & Workshops</h2>
+                <button class="btn-calendar">
+                    <i class="fas fa-calendar-alt"></i> Calendar View
+                </button>
+            </div>
+
+            <div class="events-grid">
+                <!-- Upcoming Event Card -->
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="date">25</span>
+                        <span class="month">MAR</span>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-badge">Hackathon</div>
+                        <h3>AI Innovation Challenge</h3>
+                        <p class="event-desc">Build innovative AI solutions in 48 hours</p>
+                        <div class="event-details">
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Virtual Event</span>
+                        </div>
+                        <div class="event-actions">
+                            <button class="btn-register">Register Now</button>
+                            <button class="btn-reminder" title="Set Reminder">
+                                <i class="far fa-bell"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Showcase Card -->
+                <div class="event-card showcase">
+                    <div class="showcase-preview">
+                        <img src="" alt="Project preview">
+                    </div>
+                    <div class="event-content">
+                        <div class="event-badge">Student Showcase</div>
+                        <h3>Project Exhibition 2024</h3>
+                        <p class="event-desc">Showcase your innovative projects</p>
+                        <div class="showcase-stats">
+                            <span><i class="fas fa-user-group"></i> 50+ Projects</span>
+                            <span><i class="fas fa-trophy"></i> Prizes Worth ₹1L</span>
+                        </div>
+                        <button class="btn-submit">Submit Your Project</button>
+                    </div>
+                </div>
+                <!-- Add more event cards -->
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="motivation-section">
+            <div class="section-header">
+                <h2>Success Stories & Inspiration</h2>
+                <div class="carousel-controls">
+                    <button class="control-btn" id="prevStory" title="Previous Story">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="control-btn" id="nextStory" title="Next Story">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="success-stories-carousel" id="successCarousel">
+                <!-- Warren Buffett Card -->
+                <div class="story-card active" data-story="warren-buffett">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="" alt="Success Story">
+                            <div class="story-badge">Investment Legend</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Warren Buffett</h3>
+                            <p class="story-title">Investment Prowess</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Value Investing Pioneer</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-building"></i>
+                                    <span>Berkshire Hathaway CEO</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"If you don't find a way to make money while you sleep, you will work until you die."</p>
+                            <button class="btn-read-more" onclick="window.location.href='success-stories/warren-buffett'">
+                                Read Full Story <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steve Jobs Card -->
+                <div class="story-card" data-story="steve-jobs">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="" alt="Success Story">
+                            <div class="story-badge">Tech Visionary</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Steve Jobs</h3>
+                            <p class="story-title">Innovation & Design</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-laptop"></i>
+                                    <span>Apple Co-founder</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Revolutionary Products</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"Stay hungry, stay foolish."</p>
+                            <button class="btn-read-more" onclick="window.location.href='success-stories/steve-jobs'">
+                                Read Full Story <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sundar Pichai Card -->
+                <div class="story-card" data-story="sundar-pichai">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="" alt="Success Story">
+                            <div class="story-badge">Tech Leader</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Sundar Pichai</h3>
+                            <p class="story-title">From IIT to Google CEO</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>IIT Kharagpur Alumni</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fab fa-google"></i>
+                                    <span>Alphabet CEO</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"As a leader, it is important to not just see your own success, but focus on the success of others."</p>
+                            <button class="btn-read-more" onclick="window.location.href='success-stories/sundar-pichai'">
+                                Read Full Story <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="./image/grace logo.jpg" alt="GRACE Logo" class="footer-logo">
+                    <p class="footer-desc">Empowering students with cutting-edge technology education and career opportunities.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./course.html">Courses</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#student-support">Student Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Tiruchendur Road , Mullakkadu Thoothukudi - 628 005.</p>
+                        <p><i class="fas fa-phone"></i>  +91 461 235 6953</p>
+                        <p><i class="fas fa-envelope"></i> info@grace.edu.in</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 GRACE COLLEGE OF ENGINEERING. All rights reserved.</p>
+                </div>
+                <div class="footer-credits">
+                    <p>Developed with <i class="fas fa-heart"></i> by GRACE Tech Team</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#terms">Terms</a>
+                    <a href="#privacy">Privacy</a>
+                    <a href="#cookies">Cookies</a>
+                    <a href="#compliance">Compliance</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Update the AI Chat Widget -->
+    <div class="ai-chat-widget" id="aiChatWidget">
+        <div class="chat-header">
+            <div class="chat-title">
+                <div class="bot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="bot-info">
+                    <h3>GRANO BOT</h3>
+                    <span class="bot-status">AI Learning Assistant</span>
+                </div>
+            </div>
+            <div class="chat-controls">
+                <button class="control-btn" id="voiceChat" title="Voice Chat">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="control-btn" id="minimizeChat" title="Minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="chat-body">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>👋 Hi! I'm GRANO BOT, your AI Learning Assistant. How can I help you today?</p>
+                        <div class="suggestion-chips">
+                            <button class="chip" onclick="sendSuggestion('Learning paths')">Learning paths</button>
+                            <button class="chip" onclick="sendSuggestion('Career advice')">Career advice</button>
+                            <button class="chip" onclick="sendSuggestion('Technical help')">Technical help</button>
+                            <button class="chip" onclick="sendSuggestion('Study tips')">Study tips</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Ask GRANO anything...">
+                    <button class="send-btn" id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-suggestions">
+                    <p>Popular questions:</p>
+                    <div class="suggestion-pills">
+                        <span onclick="sendSuggestion('How to start learning coding?')">🚀 How to start coding?</span>
+                        <span onclick="sendSuggestion('Job opportunities')">💼 Job opportunities</span>
+                        <span onclick="sendSuggestion('Course recommendations')">📚 Course recommendations</span>
+                        <span onclick="sendSuggestion('Interview preparation')">🎯 Interview prep</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" id="chatToggle">
+        <i class="fas fa-comments"></i>
+        <span class="toggle-label">Ask AI Assistant</span>
+    </button>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
