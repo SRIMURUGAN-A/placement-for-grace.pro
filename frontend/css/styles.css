@@ -53,6 +53,36 @@
     box-sizing: border-box;
 }
 
+
+
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/* Hide scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+/* Hide scrollbar track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* IE & Edge */
+* {
+    -ms-overflow-style: none;
+}
+
+
+
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--bg-secondary);
@@ -142,9 +172,6 @@ body {
     transition: var(--transition);
 }
 
-.profile-menu:hover {
-    background: var(--gray-light);
-}
 
 .avatar {
     width: 36px;
@@ -176,7 +203,6 @@ body {
 
 .menu-toggle:hover {
     background: var(--primary);
-    color: white;
     transform: translateY(-2px);
 }
 
@@ -877,12 +903,12 @@ body * {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    right: 10px;
     width: 280px;
     background: var(--bg-secondary);
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
     z-index: 1000;
 }
 
@@ -1029,7 +1055,7 @@ body * {
 
 .profile-dropdown {
     width: 280px;
-    padding: 1rem 0;
+    padding: 1rem;
 }
 
 .profile-header {
@@ -1062,7 +1088,7 @@ body * {
 .dropdown-divider {
     height: 1px;
     background-color: var(--border-color);
-    margin: 0.5rem 0;
+    margin: 0.9rem 0.9rem;
 }
 
 .logout-link {
