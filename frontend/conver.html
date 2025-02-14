@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Communication Skills Learning Hub</title>
+    <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
     <link rel="stylesheet" href="./css/conver.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -15,7 +16,7 @@
                 <span>Communication Hub</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
                 <li class="dropdown">
                     <a href="#"><i class="fas fa-graduation-cap"></i> Learn</a>
                     <ul class="dropdown-content">
@@ -27,10 +28,38 @@
                 <li class="dropdown">
                     <a href="#"><i class="fas fa-robot"></i> AI Tools</a>
                     <ul class="dropdown-content">
-                        <li><a href="#"><i class="fas fa-microphone"></i> Speech Coach</a></li>
-                        <li><a href="#"><i class="fas fa-comments"></i> Conversation Practice</a></li>
-                        <li><a href="#"><i class="fas fa-chart-line"></i> Progress Analysis</a></li>
-                        <li><a href="#"><i class="fas fa-language"></i> Accent Training</a></li>
+                        <li class="subdropdown">
+                            <a href="#"><i class="fas fa-microphone"></i> Speech Coach</a>
+                            <ul class="subdropdown-content">
+                                <li><a href="https://www.speechace.com" target="_blank"><i class="fas fa-external-link-alt"></i> SpeechAce</a></li>
+                                <li><a href="https://www.verbling.com" target="_blank"><i class="fas fa-external-link-alt"></i> Verbling</a></li>
+                                <li><a href="https://www.speechling.com" target="_blank"><i class="fas fa-external-link-alt"></i> Speechling</a></li>
+                            </ul>
+                        </li>
+                        <li class="subdropdown">
+                            <a href="#"><i class="fas fa-comments"></i> Conversation Practice</a>
+                            <ul class="subdropdown-content">
+                                <li><a href="https://chat.openai.com" target="_blank"><i class="fas fa-external-link-alt"></i> ChatGPT</a></li>
+                                <li><a href="https://www.duolingo.com" target="_blank"><i class="fas fa-external-link-alt"></i> Duolingo</a></li>
+                                <li><a href="https://www.tandem.net" target="_blank"><i class="fas fa-external-link-alt"></i> Tandem</a></li>
+                            </ul>
+                        </li>
+                        <li class="subdropdown">
+                            <a href="#"><i class="fas fa-chart-line"></i> Progress Analysis</a>
+                            <ul class="subdropdown-content">
+                                <li><a href="https://www.italki.com" target="_blank"><i class="fas fa-external-link-alt"></i> iTalki Analytics</a></li>
+                                <li><a href="https://www.lingoda.com" target="_blank"><i class="fas fa-external-link-alt"></i> Lingoda Progress</a></li>
+                                <li><a href="https://www.busuu.com" target="_blank"><i class="fas fa-external-link-alt"></i> Busuu Study Plan</a></li>
+                            </ul>
+                        </li>
+                        <li class="subdropdown">
+                            <a href="#"><i class="fas fa-language"></i> Accent Training</a>
+                            <ul class="subdropdown-content">
+                                <li><a href="https://www.elsa.com" target="_blank"><i class="fas fa-external-link-alt"></i> ELSA Speak</a></li>
+                                <li><a href="https://www.speechling.com/accent" target="_blank"><i class="fas fa-external-link-alt"></i> Speechling Accent</a></li>
+                                <li><a href="https://www.englishaccent.coach" target="_blank"><i class="fas fa-external-link-alt"></i> English Accent Coach</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -47,7 +76,7 @@
                     <i class="fas fa-moon"></i>
                 </button>
                 <div class="user-profile">
-                    <img src="" alt="Profile" class="avatar">
+                    <img src="avatar.png" alt="Profile" class="avatar">
                     <div class="user-info">
                         <span class="user-name">John Doe</span>
                         <span class="user-level">Level 5</span>
@@ -58,135 +87,292 @@
 
         <header class="hero-section">
             <div class="hero-content">
-                <h1>Master the Art of Communication</h1>
-                <p class="hero-subtitle">Unlock your potential with curated resources and expert guidance</p>
-                
+                <div class="hero-text-content">
+                    <h1 class="animated-title">Master the Art of Communication</h1>
+                    <p class="hero-subtitle animated-subtitle">Unlock your potential with curated resources and expert guidance</p>
+                </div>
+
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <i class="fas fa-book-reader animated-icon"></i>
+                        <h3>Learn at Your Pace</h3>
+                        <p>Access resources anytime, anywhere</p>
+                        <div class="feature-hover">
+                            <span class="hover-text">24/7 Available</span>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users animated-icon"></i>
+                        <h3>Community Support</h3>
+                        <p>Connect with fellow learners</p>
+                        <div class="feature-hover">
+                            <span class="hover-text">Join Community</span>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-robot animated-icon"></i>
+                        <h3>AI-Powered Tools</h3>
+                        <p>Practice with modern technology</p>
+                        <div class="feature-hover">
+                            <span class="hover-text">Try AI Tools</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-elements">
+                    <div class="float-element" style="--delay: 0s">📚</div>
+                    <div class="float-element" style="--delay: 2s">💡</div>
+                    <div class="float-element" style="--delay: 4s">🎯</div>
+                    <div class="float-element" style="--delay: 1s">🚀</div>
+                    <div class="float-element" style="--delay: 3s">🌟</div>
+                </div>
+
                 <div class="quote-container">
                     <div class="motivation-quote">
                         <div class="quote-icon">
                             <i class="fas fa-quote-left"></i>
                         </div>
-                        <blockquote id="quote-text"></blockquote>
-                        <cite id="quote-author"></cite>
-                        <div class="quote-progress"></div>
+                        <blockquote id="quote-text">Loading quote...</blockquote>
+                        <cite id="quote-author">Loading author...</cite>
+                        <div class="quote-progress">
+                            <div class="progress-bar"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <i class="fas fa-book-reader"></i>
-                        <h3>Learn at Your Pace</h3>
-                        <p>Access resources anytime, anywhere</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-users"></i>
-                        <h3>Community Support</h3>
-                        <p>Connect with fellow learners</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI-Powered Tools</h3>
-                        <p>Practice with modern technology</p>
-                    </div>
-                </div>
-
-                <div class="motivation-carousel">
-                    <div class="carousel-track">
-                        <div class="motivation-card">
-                            <i class="fas fa-lightbulb"></i>
+                <div class="motivation-container">
+                    <div class="motivation-cards">
+                        <div class="motivation-step">
+                            <div class="step-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
                             <h3>Starting Small</h3>
                             <p>"Every expert was once a beginner. Take that first step today."</p>
                         </div>
-                        <div class="motivation-card">
-                            <i class="fas fa-star"></i>
+                        <div class="motivation-step">
+                            <div class="step-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
                             <h3>Building Confidence</h3>
                             <p>"Communication skills are not inherited, they are built through practice."</p>
                         </div>
-                        <div class="motivation-card">
-                            <i class="fas fa-rocket"></i>
+                        <div class="motivation-step">
+                            <div class="step-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
                             <h3>Achieving Goals</h3>
                             <p>"Your voice matters. Let it be heard with clarity and confidence."</p>
                         </div>
                     </div>
-                </div>
 
-                <div class="cta-buttons">
-                    <a href="#resources" class="cta-primary">Explore Resources</a>
-                    <a href="#community" class="cta-secondary">Join Community</a>
+                    <div class="cta-container">
+                        <a href="#resources" class="cta-button primary">
+                            <span>Explore Resources</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#community" class="cta-button secondary">
+                            <span>Join Community</span>
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </header>
 
-        <main class="content-grid">
-            <section class="topic-card" id="selfIntro">
-                <div class="card-icon"><i class="fas fa-user"></i></div>
-                <h2>Self Introduction</h2>
-                <p>Learn the art of introducing yourself professionally</p>
-                <ul class="subtopics">
-                    <li>Elevator Pitch</li>
-                    <li>Professional Introduction</li>
-                    <li>Interview Introduction</li>
-                </ul>
-                <button class="learn-more">Start Learning</button>
+        <main class="main-content">
+            <section class="learning-resources">
+                <div class="section-container">
+                    <h2 class="section-title">Communication Resources</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-comments"></i></div>
+                            <h3>Speaking Skills</h3>
+                            <p>Master the art of verbal communication</p>
+                            <ul class="resource-list">
+                                <li><i class="fas fa-check-circle"></i> Public Speaking Fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> Voice Modulation Techniques</li>
+                                <li><i class="fas fa-check-circle"></i> Presentation Skills</li>
+                                <li><i class="fas fa-check-circle"></i> Impromptu Speaking</li>
+                            </ul>
+                            <a href="#speaking" class="resource-link">Start Learning</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-user-friends"></i></div>
+                            <h3>Interpersonal Skills</h3>
+                            <p>Build stronger professional relationships</p>
+                            <ul class="resource-list">
+                                <li><i class="fas fa-check-circle"></i> Active Listening</li>
+                                <li><i class="fas fa-check-circle"></i> Body Language</li>
+                                <li><i class="fas fa-check-circle"></i> Emotional Intelligence</li>
+                                <li><i class="fas fa-check-circle"></i> Networking Skills</li>
+                            </ul>
+                            <a href="#interpersonal" class="resource-link">Explore More</a>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-briefcase"></i></div>
+                            <h3>Professional Communication</h3>
+                            <p>Excel in workplace communication</p>
+                            <ul class="resource-list">
+                                <li><i class="fas fa-check-circle"></i> Email Writing</li>
+                                <li><i class="fas fa-check-circle"></i> Meeting Skills</li>
+                                <li><i class="fas fa-check-circle"></i> Business Etiquette</li>
+                                <li><i class="fas fa-check-circle"></i> Team Communication</li>
+                            </ul>
+                            <a href="#professional" class="resource-link">Learn More</a>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section class="topic-card" id="speaking">
-                <div class="card-icon"><i class="fas fa-microphone"></i></div>
-                <h2>Public Speaking</h2>
-                <p>Master the skills of effective public speaking</p>
-                <ul class="subtopics">
-                    <li>Voice Modulation</li>
-                    <li>Body Language</li>
-                    <li>Presentation Skills</li>
-                </ul>
-                <button class="learn-more">Start Learning</button>
+            <section class="skill-tracks">
+                <div class="section-container">
+                    <h2 class="section-title">Essential Communication Skills</h2>
+                    <div class="tracks-grid">
+                        <div class="track-card">
+                            <span class="track-level">Foundation</span>
+                            <h3>Basic Communication</h3>
+                            <ul class="track-topics">
+                                <li><i class="fas fa-book-reader"></i> Grammar & Vocabulary</li>
+                                <li><i class="fas fa-microphone"></i> Pronunciation</li>
+                                <li><i class="fas fa-comments"></i> Basic Conversations</li>
+                                <li><i class="fas fa-users"></i> Group Discussions</li>
+                            </ul>
+                            <div class="track-footer">
+                                <span class="duration"><i class="fas fa-clock"></i> 4 Weeks</span>
+                                <a href="#foundation" class="track-btn">Get Started</a>
+                            </div>
+                        </div>
+
+                        <div class="track-card featured">
+                            <span class="track-level">Intermediate</span>
+                            <h3>Professional Growth</h3>
+                            <ul class="track-topics">
+                                <li><i class="fas fa-presentation"></i> Presentation Skills</li>
+                                <li><i class="fas fa-handshake"></i> Interview Skills</li>
+                                <li><i class="fas fa-envelope"></i> Business Writing</li>
+                                <li><i class="fas fa-users-cog"></i> Team Communication</li>
+                            </ul>
+                            <div class="track-footer">
+                                <span class="duration"><i class="fas fa-clock"></i> 6 Weeks</span>
+                                <a href="#intermediate" class="track-btn">Enroll Now</a>
+                            </div>
+                        </div>
+
+                        <div class="track-card">
+                            <span class="track-level">Advanced</span>
+                            <h3>Leadership Communication</h3>
+                            <ul class="track-topics">
+                                <li><i class="fas fa-chart-line"></i> Strategic Communication</li>
+                                <li><i class="fas fa-users"></i> Team Leadership</li>
+                                <li><i class="fas fa-bullhorn"></i> Public Speaking</li>
+                                <li><i class="fas fa-globe"></i> Cross-cultural Communication</li>
+                            </ul>
+                            <div class="track-footer">
+                                <span class="duration"><i class="fas fa-clock"></i> 8 Weeks</span>
+                                <a href="#advanced" class="track-btn">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section class="topic-card" id="negotiation">
-                <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                <h2>Negotiation Skills</h2>
-                <p>Learn effective negotiation techniques</p>
-                <ul class="subtopics">
-                    <li>Win-Win Strategy</li>
-                    <li>Salary Negotiation</li>
-                    <li>Business Deals</li>
-                </ul>
-                <button class="learn-more">Start Learning</button>
-            </section>
-
-            <section class="topic-card" id="interpersonal">
-                <div class="card-icon"><i class="fas fa-users"></i></div>
-                <h2>Interpersonal Skills</h2>
-                <p>Develop better relationships through communication</p>
-                <ul class="subtopics">
-                    <li>Active Listening</li>
-                    <li>Empathy Building</li>
-                    <li>Conflict Resolution</li>
-                </ul>
-                <button class="learn-more">Start Learning</button>
+            <section class="study-materials">
+                <div class="section-container">
+                    <h2 class="section-title">Learning Materials</h2>
+                    <div class="materials-grid">
+                        <a href="#pdfs" class="material-card">
+                            <i class="fas fa-file-pdf"></i>
+                            <h3>PDF Resources</h3>
+                            <p>Download study materials</p>
+                        </a>
+                        <a href="#videos" class="material-card">
+                            <i class="fas fa-video"></i>
+                            <h3>Video Lessons</h3>
+                            <p>Watch & learn</p>
+                        </a>
+                        <a href="#exercises" class="material-card">
+                            <i class="fas fa-tasks"></i>
+                            <h3>Practice Exercises</h3>
+                            <p>Test your skills</p>
+                        </a>
+                        <a href="#templates" class="material-card">
+                            <i class="fas fa-copy"></i>
+                            <h3>Templates</h3>
+                            <p>Ready-to-use formats</p>
+                        </a>
+                    </div>
+                </div>
             </section>
         </main>
 
         <section class="progress-tracker">
-            <h2>Your Learning Journey</h2>
-            <div class="progress-grid">
-                <div class="progress-item">
-                    <div class="progress-circle" data-progress="75">
-                        <span class="progress-text">75%</span>
+            <div class="section-container">
+                <h2 class="section-title">Your Learning Journey</h2>
+                <div class="progress-grid">
+                    <div class="progress-item">
+                        <div class="progress-circle-container">
+                            <div class="progress-circle" data-progress="75">
+                                <svg class="progress-ring" width="120" height="120">
+                                    <circle class="progress-ring-circle" stroke="#e2e8f0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                    <circle class="progress-ring-circle-fill" stroke="url(#gradient)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                </svg>
+                                <span class="progress-text">75%</span>
+                            </div>
+                            <h3>Speaking Skills</h3>
+                            <p class="progress-details">12 of 16 lessons completed</p>
+                        </div>
+                        <div class="progress-info">
+                            <div class="next-lesson">
+                                <span>Next Lesson:</span>
+                                <p>Public Speaking Techniques</p>
+                            </div>
+                            <a href="#continue" class="continue-btn">Continue</a>
+                        </div>
                     </div>
-                    <h3>Speaking Skills</h3>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-circle" data-progress="60">
-                        <span class="progress-text">60%</span>
+
+                    <div class="progress-item">
+                        <div class="progress-circle-container">
+                            <div class="progress-circle" data-progress="60">
+                                <svg class="progress-ring" width="120" height="120">
+                                    <circle class="progress-ring-circle" stroke="#e2e8f0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                    <circle class="progress-ring-circle-fill" stroke="url(#gradient)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                </svg>
+                                <span class="progress-text">60%</span>
+                            </div>
+                            <h3>Negotiation</h3>
+                            <p class="progress-details">6 of 10 lessons completed</p>
+                        </div>
+                        <div class="progress-info">
+                            <div class="next-lesson">
+                                <span>Next Lesson:</span>
+                                <p>Advanced Negotiation Strategies</p>
+                            </div>
+                            <a href="#continue" class="continue-btn">Continue</a>
+                        </div>
                     </div>
-                    <h3>Negotiation</h3>
-                </div>
-                <div class="progress-item">
-                    <div class="progress-circle" data-progress="90">
-                        <span class="progress-text">90%</span>
+
+                    <div class="progress-item">
+                        <div class="progress-circle-container">
+                            <div class="progress-circle" data-progress="90">
+                                <svg class="progress-ring" width="120" height="120">
+                                    <circle class="progress-ring-circle" stroke="#e2e8f0" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                    <circle class="progress-ring-circle-fill" stroke="url(#gradient)" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                                </svg>
+                                <span class="progress-text">90%</span>
+                            </div>
+                            <h3>Self Introduction</h3>
+                            <p class="progress-details">9 of 10 lessons completed</p>
+                        </div>
+                        <div class="progress-info">
+                            <div class="next-lesson">
+                                <span>Next Lesson:</span>
+                                <p>Professional Bio Creation</p>
+                            </div>
+                            <a href="#continue" class="continue-btn">Continue</a>
+                        </div>
                     </div>
-                    <h3>Self Introduction</h3>
                 </div>
             </div>
         </section>

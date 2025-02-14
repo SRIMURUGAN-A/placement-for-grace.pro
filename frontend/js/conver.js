@@ -109,26 +109,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize progress circles
-    const progressCircles = document.querySelectorAll('.progress-circle');
-    progressCircles.forEach(circle => {
-        const progress = circle.dataset.progress;
-        circle.style.setProperty('--progress', `${progress}%`);
+    const circles = document.querySelectorAll('.progress-circle');
+    
+    circles.forEach(circle => {
+        const progress = circle.getAttribute('data-progress');
+        const radius = 52;
+        const circumference = 2 * Math.PI * radius;
+        
+        const progressRing = circle.querySelector('.progress-ring-circle-fill');
+        const offset = circumference - (progress / 100) * circumference;
+        
+        progressRing.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressRing.style.strokeDashoffset = circumference;
+        
+        // Animate the progress
+        setTimeout(() => {
+            progressRing.style.strokeDashoffset = offset;
+        }, 100);
     });
 
-    // Dark mode functionality
+    // Theme switching functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = themeToggle.querySelector('i');
     
-    // Check for saved theme
+    // Check for saved theme preference or default to 'light'
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
+    document.body.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
     
     themeToggle.addEventListener('click', () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         
+        // Apply theme to both html and body elements
         document.documentElement.setAttribute('data-theme', newTheme);
+        document.body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
     });
@@ -137,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
         themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     }
 
-    // Quotes functionality
+    // Enhanced quotes functionality
     const quotes = [
         {
             text: "The way we communicate with others and with ourselves ultimately determines the quality of our lives.",
@@ -161,36 +177,42 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    const quoteText = document.getElementById('quote-text');
-    const quoteAuthor = document.getElementById('quote-author');
-    let currentQuoteIndex = 0;
-
     function updateQuote() {
-        const quote = quotes[currentQuoteIndex];
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const progressBar = document.querySelector('.progress-bar');
+        
+        // Get random quote
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quote = quotes[randomIndex];
         
         // Fade out
-        quoteText.style.opacity = 0;
-        quoteAuthor.style.opacity = 0;
-
+        quoteText.style.opacity = '0';
+        quoteAuthor.style.opacity = '0';
+        
         setTimeout(() => {
             // Update content
             quoteText.textContent = quote.text;
             quoteAuthor.textContent = `- ${quote.author}`;
             
-            // Fade in
-            quoteText.style.opacity = 1;
-            quoteAuthor.style.opacity = 1;
+            // Reset and start progress bar
+            progressBar.style.width = '0';
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 50);
             
-            // Update index for next quote
-            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            // Fade in
+            quoteText.style.opacity = '1';
+            quoteAuthor.style.opacity = '1';
         }, 500);
     }
 
-    // Set initial quote
-    updateQuote();
-
-    // Update quote every 5 seconds
-    setInterval(updateQuote, 5000);
+    // Initialize quotes
+    document.addEventListener('DOMContentLoaded', () => {
+        updateQuote();
+        // Change quote every 5 seconds
+        setInterval(updateQuote, 5000);
+    });
 
     // Add smooth dropdown animations
     document.querySelectorAll('.dropdown').forEach(dropdown => {

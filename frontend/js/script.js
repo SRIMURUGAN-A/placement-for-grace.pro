@@ -467,30 +467,36 @@ Which area would you like to focus on?`
 What would you like to know more about?`;
     }
 
-    // Success Stories Carousel
+    // Update the Success Stories Carousel functionality
     function initializeSuccessStories() {
         const carousel = document.getElementById('successCarousel');
         if (!carousel) return;
 
-        const storyCards = carousel.getElementsByClassName('story-card');
+        const storyCards = Array.from(carousel.getElementsByClassName('story-card'));
         const prevBtn = document.getElementById('prevStory');
         const nextBtn = document.getElementById('nextStory');
         let currentIndex = 0;
-        let interval;
 
         // Function to show specific story
         function showStory(index) {
-            // Remove active class from all cards
-            Array.from(storyCards).forEach(card => {
+            // Hide all stories first with opacity transition
+            storyCards.forEach(card => {
                 card.classList.remove('active');
                 card.style.opacity = '0';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
             });
             
-            // Add active class to current card with fade effect
+            // Show and fade in the current story
+            const currentCard = storyCards[index];
+            currentCard.style.display = 'block';
+            // Force reflow
+            currentCard.offsetHeight;
             setTimeout(() => {
-                storyCards[index].classList.add('active');
-                storyCards[index].style.opacity = '1';
-            }, 200);
+                currentCard.classList.add('active');
+                currentCard.style.opacity = '1';
+            }, 50);
         }
 
         // Function to show next story
@@ -506,24 +512,26 @@ What would you like to know more about?`;
         }
 
         // Set up auto-rotation
-        function startAutoRotation() {
-            stopAutoRotation(); // Clear any existing interval
-            interval = setInterval(nextStory, 15000); // Change story every 15 seconds
+        let autoRotateInterval;
+
+        function startAutoRotate() {
+            stopAutoRotate(); // Clear any existing interval
+            autoRotateInterval = setInterval(nextStory, 5000); // Change story every 5 seconds
         }
 
-        function stopAutoRotation() {
-            if (interval) {
-                clearInterval(interval);
+        function stopAutoRotate() {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
             }
         }
 
-        // Event listeners
+        // Add event listeners
         if (prevBtn) {
             prevBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 prevStory();
-                stopAutoRotation();
-                startAutoRotation();
+                stopAutoRotate();
+                startAutoRotate();
             });
         }
 
@@ -531,34 +539,21 @@ What would you like to know more about?`;
             nextBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 nextStory();
-                stopAutoRotation();
-                startAutoRotation();
+                stopAutoRotate();
+                startAutoRotate();
             });
         }
 
-        // Pause rotation when hovering over carousel
-        carousel.addEventListener('mouseenter', stopAutoRotation);
-        carousel.addEventListener('mouseleave', startAutoRotation);
-
         // Initialize the first story and start rotation
         showStory(currentIndex);
-        startAutoRotation();
+        startAutoRotate();
 
-        // Add keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                prevStory();
-                stopAutoRotation();
-                startAutoRotation();
-            } else if (e.key === 'ArrowRight') {
-                nextStory();
-                stopAutoRotation();
-                startAutoRotation();
-            }
-        });
+        // Add hover pause
+        carousel.addEventListener('mouseenter', stopAutoRotate);
+        carousel.addEventListener('mouseleave', startAutoRotate);
     }
 
-    // Initialize the carousel
+    // Make sure to call initializeSuccessStories after DOM is loaded
     initializeSuccessStories();
 });
 
