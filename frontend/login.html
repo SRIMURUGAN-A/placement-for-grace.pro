@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grace LMS - Authentication</title>
+    <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
+    <!-- Google Sign-In API -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+        min-height: 100vh;
+        background: url('https://media.istockphoto.com/id/1168611666/photo/light-bulbs-concept.jpg?s=612x612&w=0&k=20&c=j5uEqOi4kDun0El_gKoMBX-TmFkex79WG05qEjb18Nw=') no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+    }
+
+    /* Add a dark overlay to ensure text readability */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 520px;
+        backdrop-filter: blur(10px);
+        margin: 20px auto;
+    }
+
+    /* Fix Google Sign-in button alignment */
+    .g_id_signin {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* Fix form alignment */
+    form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Fix logo alignment and size */
+    .logo img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-text h1 {
+            color: #2D3748;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .welcome-text p {
+            color: #718096;
+            font-size: 16px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            background: #EDF2F7;
+            padding: 5px;
+            border-radius: 12px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #4A5568;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: #6B46C1;
+            color: white;
+            box-shadow: 0 4px 6px rgba(107, 70, 193, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4A5568;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: #F7FAFC;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #6B46C1;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+        }
+
+        .password-input {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #718096;
+            font-size: 20px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #6B46C1;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(107, 70, 193, 0.2);
+        }
+
+        .submit-btn:hover {
+            background: #553C9A;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px rgba(107, 70, 193, 0.3);
+        }
+
+        .divider {
+            text-align: center;
+            margin: 24px 0;
+            position: relative;
+            color: #718096;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #E2E8F0;
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .google-btn {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            color: #2D3748;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .google-btn:hover {
+            background: #F7FAFC;
+            border-color: #CBD5E0;
+            transform: translateY(-1px);
+        }
+
+        .google-btn img {
+            width: 24px;
+            margin-right: 12px;
+        }
+
+        .error-message {
+            color: #E53E3E;
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #FFF5F5;
+            border: 1px solid #FED7D7;
+            display: none;
+            font-size: 14px;
+        }
+
+        .success-message {
+            color: #2F855A;
+            background: #F0FFF4;
+            border: 1px solid #C6F6D5;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            align-items: center;
+            border-radius: 24px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #E2E8F0;
+            border-top: 4px solid #6B46C1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px;
+            }
+
+            .welcome-text h1 {
+                font-size: 20px;
+            }
+
+            .tab {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loading">
+            <div class="loading-spinner"></div>
+        </div>
+
+        <div class="logo">
+            <!-- Replace with your logo -->
+            <img src="../frontend/image/grace logo.jpg" alt="Grace LMS Logo">
+        </div>
+
+        <div class="welcome-text">
+            <h1>Welcome to Grace LMS</h1>
+            <p>Please sign in to continue learning</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('login')">Login</div>
+            <div class="tab" onclick="switchTab('signup')">Sign Up</div>
+        </div>
+
+        <form id="loginForm" onsubmit="handleSubmit(event, 'login')">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <div class="password-input">
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">👁️</button>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <div class="error-message" id="loginError"></div>
+        </form>
+
+        <form id="signupForm" onsubmit="handleSubmit(event, 'signup')" style="display: none;">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <div class="password-input">
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                    <button type="button" class="toggle-password" onclick="togglePassword('signupPassword')">👁️</button>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+            <div class="error-message" id="signupError"></div>
+        </form>
+
+        <div class="divider">or continue with</div>
+
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-context="signin"
+             data-ux_mode="popup"
+             data-callback="handleGoogleCallback"
+             data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signin_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.querySelector('.loading').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.querySelector('.loading').style.display = 'none';
+        }
+
+        function switchTab(tab) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const tabs = document.querySelectorAll('.tab');
+
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                tabs[0].classList.add('active');
+                tabs[1].classList.remove('active');
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                tabs[0].classList.remove('active');
+                tabs[1].classList.add('active');
+            }
+
+            // Clear any error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+        }
+
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const button = input.nextElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                button.textContent = '🔒';
+            } else {
+                input.type = 'password';
+                button.textContent = '👁️';
+            }
+        }
+
+        function showError(formType, message) {
+            const errorElement = document.getElementById(`${formType}Error`);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            errorElement.classList.remove('success-message');
+        }
+
+        function showSuccess(formType, message) {
+            const errorElement = document.getElementById(`${formType}Error`);
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+            errorElement.classList.add('success-message');
+        }
+
+        async function handleSubmit(event, formType) {
+            event.preventDefault();
+            showLoading();
+            
+            try {
+                if (formType === 'login') {
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    
+                    // Add your login API call here
+                    // Example:
+                    // const response = await fetch('/api/login', {
+                    //     method: 'POST',
+                    //     headers: { 'Content-Type': 'application/json' },
+                    //     body: JSON.stringify({ email, password })
+                    // });
+                    
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    showSuccess('login', 'Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = '/index.html';
+                    }, 1500);
+                    
+                } else {
+                    const name = document.getElementById('signupName').value;
+                    const email = document.getElementById('signupEmail').value;
+                    const password = document.getElementById('signupPassword').value;
+                    
+                    // Add your signup API call here
+                    // Example:
+                    // const response = await fetch('/api/signup', {
+                    //     method: 'POST',
+                    //     headers: { 'Content-Type': 'application/json' },
+                    //     body: JSON.stringify({ name, email, password })
+                    // });
+                    
+                    // Simulate API call
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                    showSuccess('signup', 'Account created successfully! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = './datacollect.html';
+                    }, 1500);
+                }
+            } catch (error) {
+                showError(formType, error.message || 'An error occurred. Please try again.');
+            } finally {
+                hideLoading();
+            }
+        }
+
+        function handleGoogleCallback(response) {
+            const token = response.credential;
+            showLoading();
+            
+            // Add your Google sign-in verification API call here
+            // Example:
+            // fetch('/api/auth/google', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ token })
+            // })
+            
+            // Simulate API call
+            setTimeout(() => {
+                hideLoading();
+                showSuccess('login', 'Google sign-in successful! Redirecting...');
+                setTimeout(() => {
+                    window.location.href = 'datacollect.html';
+                }, 1500);
+            }, 1000);
+        }
+
+        function handleGoogleError(error) {
+            console.error('Google Sign-In Error:', error);
+            showError('login', 'Google sign-in failed. Please try again.');
+            hideLoading();
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Clear any existing form data
+            document.getElementById('loginForm').reset();
+            document.getElementById('signupForm').reset();
+
+            // Clear any existing error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../frontend/css/apptitude.css">
+    <title>APPTITUDE</title>
+    <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    
+
+        <header class="main-header">
+            <div class="header-container">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <a href="./index.html">
+                        <img src="./image/grace logo.jpg" alt="Grace Logo">
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="toggleDropdown('courses-dropdown')">
+                                Courses <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown" id="courses-dropdown">
+                                <li><a href="#">AI&DS</a></li>
+                                <li><a href="#">ECE</a></li>
+                                <li><a href="#">EEE</a></li>
+                                <li><a href="#">Electrical</a></li>
+                                <li><a href="#">Robotics</a></li>
+                                <li><a href="#">Civil Engineering</a></li>
+                                <li><a href="#">Computer Science</a></li>
+                                <li><a href="#">MBA</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../New_model/blog.html" class="nav-link" onclick="toggleDropdown('blog-dropdown')">
+                                Blog <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown" id="blog-dropdown">
+                                <li><a href="#">Latest Posts</a></li>
+                                <li><a href="#">Categories</a></li>
+                                <li><a href="#">Archives</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="toggleDropdown('resources-dropdown')">
+                                Resources <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown" id="resources-dropdown">
+                                <li><a href="#">Study Materials</a></li>
+                                <li><a href="#">Downloads</a></li>
+                                <li><a href="#">Video Lectures</a></li>
+                            </ul>
+                        </li>
+                    
+
+                <!-- User Actions -->
+                <div class="user-actions">
+                    <div class="action-icons">
+                        <a href="#" class="action-icon"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="#" class="action-icon"><i class="fa-solid fa-bell"></i></a>
+                        <a href="#" class="action-icon" id="user_link"><i class="fa-solid fa-user"></i></a>
+                    </div>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+        </header>
+        <div class="second_container">
+            <div class="second-container-first-image">
+                <a href="../New_model/home.html"><img src="../image/grace logo.jpg" alt="G logo"> </a>
+            </div>
+            <div class="second-container-nav">
+                <nav>
+                    <ul>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('courses-dropdown')"  style="color: aliceblue;">Courses <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="courses-dropdown">
+                                <li><a href="#">AI&DS</a></li>
+                                <li><a href="#">ECE</a></li>
+                                <li><a href="#">EEE</a></li>
+                                <li><a href="#">Electrical</a></li>
+                                <li><a href="#">Robitic</a></li>
+                                <li><a href="#">Civil Engineering</a></li>
+                                <li><a href="#">Computer Science</a></li>
+                                <li><a href="#">MBA</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('about-dropdown')" style="color: aliceblue;">Blog <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="about-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="courses-link" onclick="toggleDropdown('resources-dropdown')" style="color: aliceblue;">Resources <i
+                                    class="fa-solid fa-angle-down"></i></a>
+                            <ul class="dropdown" id="resources-dropdown">
+                                <li><a href="#">Course 1</a></li>
+                                <li><a href="#">Course 2</a></li>
+                                <li><a href="#">Course 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sefito">
+                <nav class="sefito-nav">
+                    <ul class="sefito-nav-bar">
+                        <li><a href="#" id="main-link">Menu<i class="fa-solid fa-angle-down"></i></a></li>
+                    </ul>
+                </nav>
+
+                <div id="toggle-container" class="sefito-toggle-container">
+                    <div id="first-toggle" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#" id="sub-link-1">courses</a></li>
+                            <li><a href="#" id="sub-link-2">Blog</a></li>
+                            <li><a href="#" id="sub-link-3">Resources</a></li> <!-- Added Sub Link 3 -->
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-1" class="sefito-right-toggle-container1">
+                    <div id="second-toggle-1" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">AI&DS</a></li>
+                            <li><a href="#">ECE</a></li>
+                            <li><a href="#">EEE</a></li>
+                            <li><a href="#">Electrical</a></li>
+                            <li><a href="#">Robitic</a></li>
+                            <li><a href="#">Civil Engineering</a></li>
+                            <li><a href="#">Computer Science</a></li>
+                            <li><a href="#">MBA</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-2" class="sefito-right-toggle-container2">
+                    <!-- Added Right Toggle Container 2 -->
+                    <div id="second-toggle-2" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 3</a></li>
+                            <li><a href="#">course 4</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="right-toggle-container-3" class="sefito-right-toggle-container3">
+                    <!-- Added Right Toggle Container 3 -->
+                    <div id="second-toggle-3" class="sefito-toggle-bar">
+                        <ul>
+                            <li><a href="#">course 5</a></li>
+                            <li><a href="#">course 6</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           
+            <ul>
+                <li><i class="fa-solid fa-chart-line"></i><a href="">Dashboard</a></li>
+                <li><i class="fa-solid fa-play"></i><a href="">My learning</a></li>
+                <li><i class="fa-regular fa-user"></i><a href="">My profile</a></li>
+                <li><i class="fa-solid fa-arrow-right-from-bracket"></i><a href="">Logout</a></li>
+            </ul>
+        </div>
+        
+    <div class="page-container">
+        <!-- Sidebar -->
+        <div class="appti_heading_column" id="sidebar">
+            
+            <div class="sidebar-header">
+                <h4>APTITUDE</h4>
+            </div>
+            <div class="sidebar-content">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" class="info-link" data-info="arithmetic">
+                            <span>Arithmetic Aptitude</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="sub_heading_apptitude" id="arithmetic">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="link">Problems on Train</a></li>
+                                <li><a href="javascript:void(0)" class="link">Time and Distance</a></li>
+                                <li><a href="javascript:void(0)" class="link">Height and Distance</a></li>
+                                <li><a href="javascript:void(0)" class="link" onclick="loadContent('./content/Time_and_Work')">Time and Work</a></li>
+                                <li><a href="javascript:void(0)" class="link">Simple Interest</a></li>
+                                <li><a href="javascript:void(0)" class="link">Compound Interest</a></li>
+                                <li><a href="javascript:void(0)" class="link" onclick="loadContent('./content/Profit_and_Loss')">Profit and Loss</a></li>
+                                <li><a href="javascript:void(0)" class="link">Partnership</a></li>
+                                <li><a href="javascript:void(0)" class="link" onclick="loadContent('./content/Percentage')">Percentage</a></li>
+                                <li><a href="javascript:void(0)" class="link">Problems on Ages</a></li>
+                                <li><a href="javascript:void(0)" class="link">Calendar</a></li>
+                                <li><a href="javascript:void(0)" class="link">Clock</a></li>
+                                <li><a href="javascript:void(0)" class="link">Average</a></li>
+                                <li><a href="javascript:void(0)" class="link">Area</a></li>
+                                <li><a href="javascript:void(0)" class="link">Volume and Surface Area</a></li>
+                                <li><a href="javascript:void(0)" class="link">Permutation and Combination</a></li>
+                                <li><a href="javascript:void(0)" class="link">Numbers</a></li>
+                                <li><a href="javascript:void(0)" class="link">Problems on Numbers</a></li>
+                                <li><a href="javascript:void(0)" class="link">Problems on HCF and LCM</a></li>
+                                <li><a href="javascript:void(0)" class="link">Decimal Fraction</a></li>
+                                <li><a href="javascript:void(0)" class="link">Simplification</a></li>
+                                <li><a href="javascript:void(0)" class="link">Square Root and Cube Root</a></li>
+                                <li><a href="javascript:void(0)" class="link">Surds and Indices</a></li>
+                                <li><a href="javascript:void(0)" class="link">Ratio and Proportion</a></li>
+                                <li><a href="javascript:void(0)" class="link">Chain Rule</a></li>
+                                <li><a href="javascript:void(0)" class="link">Pipes and Cistern</a></li>
+                                <li><a href="javascript:void(0)" class="link">Boats and Streams</a></li>
+                                <li><a href="javascript:void(0)" class="link">Alligation or Mixture</a></li>
+                                <li><a href="javascript:void(0)" class="link">Logarithm</a></li>
+                                <li><a href="javascript:void(0)" class="link">Races and Games</a></li>
+                                <li><a href="javascript:void(0)" class="link">Stocks and Shares</a></li>
+                                <li><a href="javascript:void(0)" class="link" onclick="loadContent('./content/Probability')">Probability</a></li>
+                                <li><a href="javascript:void(0)" class="link">True Discount</a></li>
+                                <li><a href="javascript:void(0)" class="link">Bankers Discount</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="info-link" data-info="data_interpretation">
+                            <span>Data Interpretation</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="sub_heading_apptitude" id="data_interpretation">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="link">Table Charts</a></li>
+                                <li><a href="javascript:void(0)" class="link">Bar Charts</a></li>
+                                <li><a href="javascript:void(0)" class="link">Pie Charts</a></li>
+                                <li><a href="javascript:void(0)" class="link">Line Charts</a></li>
+                                <li><a href="javascript:void(0)" class="link">Mixed Charts</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="info-link" data-info="verbal_ability">
+                            <span>Verbal Ability</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="sub_heading_apptitude" id="verbal_ability">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="link">Spotting Errors</a></li>
+                                <li><a href="javascript:void(0)" class="link">Synonyms</a></li>
+                                <li><a href="javascript:void(0)" class="link">Antonyms</a></li>
+                                <li><a href="javascript:void(0)" class="link">Selecting Words</a></li>
+                                <li><a href="javascript:void(0)" class="link">Spellings</a></li>
+                                <li><a href="javascript:void(0)" class="link">Sentence Formation</a></li>
+                                <li><a href="javascript:void(0)" class="link">Ordering of Words</a></li>
+                                <li><a href="javascript:void(0)" class="link">Sentence Correction</a></li>
+                                <li><a href="javascript:void(0)" class="link">Sentence Improvement</a></li>
+                                <li><a href="javascript:void(0)" class="link">Sentence Statement</a></li>
+                                <li><a href="javascript:void(0)" class="link">Completing Statement</a></li>
+                                <li><a href="javascript:void(0)" class="link">Ordering of Sentences</a></li>
+                                <li><a href="javascript:void(0)" class="link">Paragraph Formation</a></li>
+                                <li><a href="javascript:void(0)" class="link">Cloze Test</a></li>
+                                <li><a href="javascript:void(0)" class="link">Comprehension</a></li>
+                                <li><a href="javascript:void(0)" class="link">One Word Substitutes</a></li>
+                                <li><a href="javascript:void(0)" class="link">Idioms and Phrases</a></li>
+                                <li><a href="javascript:void(0)" class="link">Change of Voice</a></li>
+                                <li><a href="javascript:void(0)" class="link">Change of Speech</a></li>
+                                <li><a href="javascript:void(0)" class="link">Verbal Analogies</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="info-link" data-info="logical_reasoning">
+                            <span>Logical Reasoning</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="sub_heading_apptitude" id="logical_reasoning">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="link">Number Series</a></li>
+                                <li><a href="javascript:void(0)" class="link">Letter and Symbol Series</a></li>
+                                <li><a href="javascript:void(0)" class="link">Verbal Classification</a></li>
+                                <li><a href="javascript:void(0)" class="link">Essential Parts</a></li>
+                                <li><a href="javascript:void(0)" class="link">Analogies</a></li>
+                                <li><a href="javascript:void(0)" class="link">Artificial Language</a></li>
+                                <li><a href="javascript:void(0)" class="link">Making Judgments</a></li>
+                                <li><a href="javascript:void(0)" class="link">Logical Problems</a></li>
+                                <li><a href="javascript:void(0)" class="link">Logical Games</a></li>
+                                <li><a href="javascript:void(0)" class="link">Statement and Conclusion</a></li>
+                                <li><a href="javascript:void(0)" class="link">Theme Detection</a></li>
+                                <li><a href="javascript:void(0)" class="link">Cause and Effect</a></li>
+                                <li><a href="javascript:void(0)" class="link">Logical Deduction</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="info-link" data-info="non_verbal">
+                            <span>Non-Verbal Reasoning</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="sub_heading_apptitude" id="non_verbal">
+                            <ul>
+                                <li><a href="javascript:void(0)" class="link">Series</a></li>
+                                <li><a href="javascript:void(0)" class="link">Analogy</a></li>
+                                <li><a href="javascript:void(0)" class="link">Classification</a></li>
+                                <li><a href="javascript:void(0)" class="link">Pattern Analysis</a></li>
+                                <li><a href="javascript:void(0)" class="link">Mirror Images</a></li>
+                                <li><a href="javascript:void(0)" class="link">Water Images</a></li>
+                                <li><a href="javascript:void(0)" class="link">Paper Folding</a></li>
+                                <li><a href="javascript:void(0)" class="link">Paper Cutting</a></li>
+                                <li><a href="javascript:void(0)" class="link">Cubes and Dice</a></li>
+                                <li><a href="javascript:void(0)" class="link">Figure Matrix</a></li>
+                                <li><a href="javascript:void(0)" class="link">Pattern Completion</a></li>
+                                <li><a href="javascript:void(0)" class="link">Embedded Figures</a></li>
+                                <li><a href="javascript:void(0)" class="link">Rule Detection</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="mainContent">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <h1>Welcome to Aptitude Training</h1>
+                <p>Enhance your problem-solving skills and prepare for competitive exams</p>
+                <div class="overall-progress">
+                    <div class="progress-info">
+                        <span>Overall Progress</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%"></div>
+                    </div>
+                </div>
+            </div>
+             <!-- Quick Stats -->
+             <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-book"></i>
+                    <h3>1000+</h3>
+                    <p>Practice Questions</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-video"></i>
+                    <h3>200+</h3>
+                    <p>Video Tutorials</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>100+</h3>
+                    <p>Active Students</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>95%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+
+
+            <!-- Quick Performance Section -->
+            <div class="quick-performance">
+                <div class="section-header">
+                    <h2>Quick Performance Overview</h2>
+                    <div class="time-filter">
+                        <select>
+                            <option>Today</option>
+                            <option>This Week</option>
+                            <option>This Month</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="performance-metrics">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="metric-value">85%</div>
+                        <div class="metric-label">Average Accuracy</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-value">45</div>
+                        <div class="metric-label">Questions Solved</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="metric-value">12</div>
+                        <div class="metric-label">Topics Mastered</div>
+                    </div>
+                </div>
+                
+                <div class="performance-insights">
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <div class="insight-text">
+                            <h4>Improving in Time Management</h4>
+                            <p>Your speed has improved by 15% in the last week</p>
+                        </div>
+                    </div>
+                    
+                    <div class="insight-item">
+                        <div class="insight-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="insight-text">
+                            <h4>Area for Focus</h4>
+                            <p>Consider practicing more Probability questions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Performance Analytics -->
+            <div class="performance-analytics">
+                <div class="section-header">
+                    <h2>Your Performance Analytics</h2>
+                    <div class="time-filter">
+                        <select>
+                            <option>Last 7 Days</option>
+                            <option>Last 30 Days</option>
+                            <option>Last 3 Months</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Overall Progress</h3>
+                        <div class="circular-progress">
+                            <div class="progress-value">60%</div>
+                        </div>
+                        <p class="text-center">Course Completion</p>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <h3>Topic-wise Progress</h3>
+                        <div class="progress-bars">
+                            <div class="progress-item">
+                                <span>Arithmetic</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span>Data Interpretation</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 65%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span>Logical Reasoning</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <span>Verbal Ability</span>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Learning Section -->
+            <div class="continue-learning">
+                <div class="section-header">
+                    <h2>Start where you left off</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="learning-cards">
+                    <div class="learning-card">
+                        <div class="card-progress">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="topic-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="topic-info">
+                                <h3>Time and Work</h3>
+                                <p>Last studied: 2 days ago</p>
+                                <div class="progress-info">
+                                    <span>65% Complete</span>
+                                    <span>12/20 Topics</span>
+                                </div>
+                            </div>
+                            <a href="#" class="resume-btn">Resume</a>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="card-progress">
+                            <div class="progress" style="width: 30%"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="topic-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="topic-info">
+                                <h3>Profit and Loss</h3>
+                                <p>Last studied: 5 days ago</p>
+                                <div class="progress-info">
+                                    <span>30% Complete</span>
+                                    <span>6/20 Topics</span>
+                                </div>
+                            </div>
+                            <a href="#" class="resume-btn">Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Timer Section -->
+            <div class="study-timer-section">
+                <div class="section-header">
+                    <h2>Study Timer</h2>
+                    <div class="timer-controls">
+                        <button id="startTimer" class="timer-btn"><i class="fas fa-play"></i></button>
+                        <button id="pauseTimer" class="timer-btn"><i class="fas fa-pause"></i></button>
+                        <button id="resetTimer" class="timer-btn"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+                <div class="timer-display">
+                    <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+                </div>
+                <div class="study-goals">
+                    <div class="goal-item">
+                        <span>Daily Goal</span>
+                        <div class="goal-progress">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <span>1.5/2 hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Practice Section -->
+            <div class="quick-practice">
+                <div class="section-header">
+                    <h2>Quick Practice</h2>
+                    <a href="#" class="view-all">More Questions</a>
+                </div>
+                <div class="practice-cards">
+                    <div class="practice-card">
+                        <div class="question-type">Time and Work</div>
+                        <p class="question">If 8 men can complete a work in 20 days, in how many days will 10 men complete the same work?</p>
+                        <div class="options">
+                            <button class="option">16 days</button>
+                            <button class="option">18 days</button>
+                            <button class="option">15 days</button>
+                            <button class="option">14 days</button>
+                        </div>
+                        <button class="show-solution">Show Solution</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-icon completed">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Completed Quiz: Time and Work Basics</h4>
+                            <p>Score: 85% · Yesterday</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon in-progress">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Started: Profit and Loss Chapter</h4>
+                            <p>Progress: 30% · 5 days ago</p>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon achievement">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Achievement Unlocked: Quick Solver</h4>
+                            <p>Solved 50 problems · 1 week ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Topics -->
+            <div class="featured-topics">
+                <div class="section-header">
+                    <h2>Recommended Topics</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="topic-cards">
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="difficulty">Intermediate</div>
+                        <h3>Quantitative Aptitude</h3>
+                        <p>Master numbers, calculations, and mathematical concepts</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-book-open"></i> 25 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 15 Hours</span>
+                        </div>
+                        <a href="#" class="topic-link">Start Learning</a>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="difficulty">Advanced</div>
+                        <h3>Logical Reasoning</h3>
+                        <p>Develop analytical and problem-solving abilities</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-book-open"></i> 30 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 20 Hours</span>
+                        </div>
+                        <a href="#" class="topic-link">Start Learning</a>
+                    </div>
+                    <div class="topic-card">
+                        <div class="topic-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="difficulty">Beginner</div>
+                        <h3>Verbal Ability</h3>
+                        <p>Improve your language and communication skills</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-book-open"></i> 20 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 12 Hours</span>
+                        </div>
+                        <a href="#" class="topic-link">Start Learning</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Resources -->
+            <div class="resources-section">
+                <div class="section-header">
+                    <h2>Learning Resources</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+                <div class="resource-cards">
+                    <div class="resource-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Study Materials</h3>
+                        <p>Download comprehensive PDF notes and practice sets</p>
+                        <div class="resource-stats">
+                            <span>50+ PDFs</span>
+                            <span>Updated Weekly</span>
+                        </div>
+                        <a href="#" class="resource-link">Access Now</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Video Lectures</h3>
+                        <p>Watch expert-led video tutorials on key concepts</p>
+                        <div class="resource-stats">
+                            <span>200+ Videos</span>
+                            <span>HD Quality</span>
+                        </div>
+                        <a href="#" class="resource-link">Watch Now</a>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3>Mock Tests</h3>
+                        <p>Practice with timed tests and get instant feedback</p>
+                        <div class="resource-stats">
+                            <span>100+ Tests</span>
+                            <span>Detailed Analysis</span>
+                        </div>
+                        <a href="#" class="resource-link">Take Test</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="difficulty">Comming Soon</div>
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Live Sessions</h3>
+                        <p>Join interactive live classes with experts</p>
+                        <div class="resource-stats">
+                            <span>Weekly Classes</span>
+                            <span>Expert Teachers</span>
+                        </div>
+                        <a href="#" class="resource-link">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="../frontend/js/apptitude.js"></script>
+
+</body>
+
+</html>

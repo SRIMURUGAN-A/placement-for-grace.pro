@@ -494,8 +494,418 @@ const toolsData = {
         category: 'audio',
         pricing: 'Paid',
         features: ['Video editing', 'Audio editing', 'Effects']
+    },
+
+    // Additional Design & Creativity Tools
+    'stable-diffusion': {
+        name: 'Stable Diffusion',
+        category: 'creativity',
+        icon: 'image/tool-icons/stable-diffusion.png',
+        rating: '4.8/5',
+        users: '15M+',
+        pricing: 'Free/Paid',
+        description: 'Open-source AI image generation model that creates stunning artwork from text descriptions.',
+        features: [
+            'Text-to-image generation',
+            'Image-to-image editing',
+            'Inpainting and outpainting',
+            'Multiple model support',
+            'Local installation option'
+        ],
+        useCases: [
+            'Digital art creation',
+            'Concept visualization',
+            'Product mockups',
+            'Game asset creation',
+            'Creative inspiration'
+        ],
+        link: 'https://stabilityai.com'
+    },
+    'leonardo-ai': {
+        name: 'Leonardo.ai',
+        category: 'creativity',
+        icon: 'image/tool-icons/leonardo.png',
+        rating: '4.7/5',
+        users: '5M+',
+        pricing: 'Freemium',
+        description: 'AI-powered creative suite for generating and editing images with advanced control.',
+        features: [
+            'Custom model training',
+            'Batch generation',
+            'Style consistency',
+            'Asset library',
+            'API access'
+        ],
+        link: 'https://leonardo.ai'
+    },
+
+    // Additional Writing & Content Tools
+    'jasper': {
+        name: 'Jasper',
+        category: 'writing',
+        icon: 'image/tool-icons/jasper.png',
+        rating: '4.8/5',
+        users: '8M+',
+        pricing: 'Paid',
+        description: 'AI writing assistant for marketing and content creation.',
+        features: [
+            'Blog post writing',
+            'Marketing copy',
+            'SEO optimization',
+            'Multi-language support',
+            'Team collaboration'
+        ],
+        link: 'https://jasper.ai'
+    },
+    'wordtune': {
+        name: 'Wordtune',
+        category: 'writing',
+        icon: 'image/tool-icons/wordtune.png',
+        rating: '4.6/5',
+        users: '3M+',
+        pricing: 'Freemium',
+        description: 'AI writing companion that helps rephrase and improve your writing.',
+        features: [
+            'Sentence rewriting',
+            'Tone adjustment',
+            'Length control',
+            'Grammar checking',
+            'Browser extension'
+        ],
+        link: 'https://www.wordtune.com'
+    },
+
+    // Additional Development Tools
+    'tabnine': {
+        name: 'Tabnine',
+        category: 'development',
+        icon: 'image/tool-icons/tabnine.png',
+        rating: '4.7/5',
+        users: '2M+',
+        pricing: 'Freemium',
+        description: 'AI code completion tool supporting multiple programming languages.',
+        features: [
+            'Code completion',
+            'Multiple IDE support',
+            'Team collaboration',
+            'Custom models',
+            'Privacy focus'
+        ],
+        link: 'https://www.tabnine.com'
+    },
+
+    // Additional Research Tools
+    'elicit': {
+        name: 'Elicit',
+        category: 'research',
+        icon: 'image/tool-icons/elicit.png',
+        rating: '4.6/5',
+        users: '1M+',
+        pricing: 'Free',
+        description: 'AI research assistant that helps with literature review and research synthesis.',
+        features: [
+            'Paper summaries',
+            'Research analysis',
+            'Citation management',
+            'Question answering',
+            'Study comparison'
+        ],
+        link: 'https://elicit.org'
+    },
+
+    // Additional Audio & Video Tools
+    'synthesia': {
+        name: 'Synthesia',
+        category: 'audio',
+        icon: 'image/tool-icons/synthesia.png',
+        rating: '4.8/5',
+        users: '2M+',
+        pricing: 'Paid',
+        description: 'AI video generation platform for creating professional videos with virtual presenters.',
+        features: [
+            'AI avatars',
+            'Text to video',
+            'Multiple languages',
+            'Custom backgrounds',
+            'Script templates'
+        ],
+        link: 'https://www.synthesia.io'
+    },
+
+    // Additional Design & Creativity Tools
+    'figma-ai': {
+        name: 'Figma AI',
+        category: 'creativity',
+        icon: 'image/tool-icons/figma-ai.png',
+        rating: '4.8/5',
+        users: '12M+',
+        pricing: 'Freemium',
+        description: 'AI-powered design features integrated into Figma.',
+        features: [
+            'Auto-layout suggestions',
+            'Design variations',
+            'Component recommendations',
+            'Accessibility checks',
+            'Design system automation'
+        ],
+        link: 'https://www.figma.com'
+    },
+
+    'dall-e': {
+        name: 'DALL-E',
+        category: 'creativity',
+        icon: 'image/tool-icons/dall-e.png',
+        rating: '4.9/5',
+        users: '20M+',
+        pricing: 'Paid',
+        description: 'Create realistic images and art from natural language descriptions.',
+        features: [
+            'Text to image generation',
+            'Image variations',
+            'Image editing',
+            'High resolution output',
+            'Commercial usage rights'
+        ],
+        link: 'https://openai.com/dall-e-2'
+    },
+
+    'photoshop-ai': {
+        name: 'Photoshop AI',
+        category: 'creativity',
+        icon: 'image/tool-icons/photoshop-ai.png',
+        rating: '4.8/5',
+        users: '15M+',
+        pricing: 'Paid',
+        description: 'AI-powered photo editing and manipulation tools.',
+        features: [
+            'Neural filters',
+            'Sky replacement',
+            'Object selection',
+            'Content-aware fill',
+            'Style transfer'
+        ],
+        link: 'https://www.adobe.com/products/photoshop'
+    },
+
+    // Additional Writing & Content Tools
+    'claude': {
+        name: 'Claude AI',
+        category: 'writing',
+        icon: 'image/tool-icons/claude.png',
+        rating: '4.8/5',
+        users: '5M+',
+        pricing: 'Freemium',
+        description: 'Advanced AI writing assistant with deep analysis capabilities.',
+        features: [
+            'Long-form content',
+            'Code analysis',
+            'Research assistance',
+            'Document analysis',
+            'Multi-language support'
+        ],
+        link: 'https://anthropic.com/claude'
+    },
+
+    'writesonic': {
+        name: 'Writesonic',
+        category: 'writing',
+        icon: 'image/tool-icons/writesonic.png',
+        rating: '4.7/5',
+        users: '3M+',
+        pricing: 'Freemium',
+        description: 'AI content writer for marketing and business.',
+        features: [
+            'Article writing',
+            'Product descriptions',
+            'Ad copy generation',
+            'Email writing',
+            'SEO optimization'
+        ],
+        link: 'https://writesonic.com'
+    },
+
+    'copyai': {
+        name: 'Copy.ai',
+        category: 'writing',
+        icon: 'image/tool-icons/copyai.png',
+        rating: '4.7/5',
+        users: '2M+',
+        pricing: 'Freemium',
+        description: 'AI copywriting tool for marketing and sales.',
+        features: [
+            'Marketing copy',
+            'Social media content',
+            'Email templates',
+            'Blog ideas',
+            'Product descriptions'
+        ],
+        link: 'https://www.copy.ai'
+    },
+
+    // Additional Development Tools
+    'amazon-codewhisperer': {
+        name: 'Amazon CodeWhisperer',
+        category: 'development',
+        icon: 'image/tool-icons/codewhisperer.png',
+        rating: '4.6/5',
+        users: '1M+',
+        pricing: 'Freemium',
+        description: 'AI code suggestions powered by Amazon.',
+        features: [
+            'Code completion',
+            'Security scanning',
+            'AWS integration',
+            'Multiple languages',
+            'Best practices'
+        ],
+        link: 'https://aws.amazon.com/codewhisperer'
+    },
+
+    'cursor': {
+        name: 'Cursor',
+        category: 'development',
+        icon: 'image/tool-icons/cursor.png',
+        rating: '4.7/5',
+        users: '500K+',
+        pricing: 'Free',
+        description: 'AI-first code editor with powerful features.',
+        features: [
+            'Code generation',
+            'Code explanation',
+            'Refactoring',
+            'Chat interface',
+            'Git integration'
+        ],
+        link: 'https://cursor.sh'
+    },
+
+    'replit-ghost': {
+        name: 'Replit Ghost',
+        category: 'development',
+        icon: 'image/tool-icons/replit.png',
+        rating: '4.6/5',
+        users: '2M+',
+        pricing: 'Freemium',
+        description: 'AI pair programmer in your browser.',
+        features: [
+            'Code completion',
+            'Error explanation',
+            'Code generation',
+            'Learning assistance',
+            'Collaborative coding'
+        ],
+        link: 'https://replit.com'
+    },
+
+    // Additional Research Tools
+    'scholarai': {
+        name: 'Scholar AI',
+        category: 'research',
+        icon: 'image/tool-icons/scholarai.png',
+        rating: '4.7/5',
+        users: '1M+',
+        pricing: 'Freemium',
+        description: 'AI research assistant for academic papers.',
+        features: [
+            'Paper summaries',
+            'Citation management',
+            'Research insights',
+            'Literature review',
+            'Bibliography generation'
+        ],
+        link: 'https://scholarai.io'
+    },
+
+    'consensus': {
+        name: 'Consensus',
+        category: 'research',
+        icon: 'image/tool-icons/consensus.png',
+        rating: '4.6/5',
+        users: '500K+',
+        pricing: 'Freemium',
+        description: 'AI-powered research paper search engine.',
+        features: [
+            'Paper search',
+            'Key findings extraction',
+            'Research synthesis',
+            'Citation analysis',
+            'Trend identification'
+        ],
+        link: 'https://consensus.app'
+    },
+
+    'scispace': {
+        name: 'SciSpace',
+        category: 'research',
+        icon: 'image/tool-icons/scispace.png',
+        rating: '4.7/5',
+        users: '2M+',
+        pricing: 'Freemium',
+        description: 'AI-powered research platform for scientists.',
+        features: [
+            'Paper discovery',
+            'PDF annotation',
+            'Reference management',
+            'Collaboration tools',
+            'Research insights'
+        ],
+        link: 'https://scispace.com'
+    },
+
+    // Additional Audio & Video Tools
+    'elevenlabs': {
+        name: 'ElevenLabs',
+        category: 'audio',
+        icon: 'image/tool-icons/elevenlabs.png',
+        rating: '4.8/5',
+        users: '1M+',
+        pricing: 'Freemium',
+        description: 'AI voice generation and cloning platform.',
+        features: [
+            'Voice synthesis',
+            'Voice cloning',
+            'Multi-language support',
+            'Emotion control',
+            'API access'
+        ],
+        link: 'https://elevenlabs.io'
+    },
+
+    'runwayml': {
+        name: 'RunwayML',
+        category: 'audio',
+        icon: 'image/tool-icons/runwayml.png',
+        rating: '4.7/5',
+        users: '2M+',
+        pricing: 'Paid',
+        description: 'AI-powered video editing and generation.',
+        features: [
+            'Video generation',
+            'Motion tracking',
+            'Green screen',
+            'Text to video',
+            'Video editing'
+        ],
+        link: 'https://runwayml.com'
+    },
+
+    'descript': {
+        name: 'Descript',
+        category: 'audio',
+        icon: 'image/tool-icons/descript.png',
+        rating: '4.8/5',
+        users: '3M+',
+        pricing: 'Freemium',
+        description: 'AI-powered audio and video editing platform.',
+        features: [
+            'Transcription',
+            'Voice cloning',
+            'Video editing',
+            'Podcast editing',
+            'Collaboration'
+        ],
+        link: 'https://www.descript.com'
     }
-    // Add remaining audio/video tools...
 };
 
 // DOM Elements
@@ -544,32 +954,102 @@ toolSearch.addEventListener('input', (e) => {
 
 // Modal functionality
 function openModal(toolId) {
-    const toolData = toolsData[toolId];
-    if (!toolData) return;
-    
+    const tool = toolsData[toolId];
+    if (!tool) return;
+
     const modal = document.getElementById('toolModal');
     const modalContent = modal.querySelector('.modal-content');
-    
-    // Update modal content
-    modalContent.querySelector('.modal-tool-icon').src = toolData.icon;
-    modalContent.querySelector('h2').textContent = toolData.name;
-    modalContent.querySelector('.rating').textContent = toolData.rating;
-    modalContent.querySelector('.users').textContent = toolData.users;
-    modalContent.querySelector('.pricing').textContent = toolData.pricing;
-    modalContent.querySelector('.description').textContent = toolData.description;
-    
-    // Update features
-    const featuresList = modalContent.querySelector('.key-features ul');
-    featuresList.innerHTML = toolData.features.map(feature => `<li>${feature}</li>`).join('');
-    
-    // Update use cases
-    const useCasesList = modalContent.querySelector('.use-cases ul');
-    useCasesList.innerHTML = toolData.useCases.map(useCase => `<li>${useCase}</li>`).join('');
-    
-    // Update try tool button
-    modalContent.querySelector('.try-tool-btn').href = toolData.link;
-    
-    modal.style.display = 'block';
+
+    modalContent.innerHTML = `
+        <div class="modal-header">
+            <div class="modal-tool-icon">
+                <img src="${tool.icon || '../image/tool-icons/default.png'}" alt="${tool.name}">
+            </div>
+            <div class="modal-tool-info">
+                <h2>${tool.name}</h2>
+                <div class="tool-meta">
+                    <span class="pricing-badge ${tool.pricing.toLowerCase()}">${tool.pricing}</span>
+                    ${tool.rating ? `<span class="rating"><i class="fas fa-star"></i> ${tool.rating}</span>` : ''}
+                    ${tool.users ? `<span class="users"><i class="fas fa-users"></i> ${tool.users}</span>` : ''}
+                </div>
+            </div>
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+            <div class="modal-section">
+                <h3><i class="fas fa-info-circle"></i> Description</h3>
+                <p>${tool.description || 'No description available.'}</p>
+            </div>
+            
+            <div class="modal-section">
+                <h3><i class="fas fa-list-ul"></i> Key Features</h3>
+                <ul class="feature-list">
+                    ${tool.features.map(feature => `
+                        <li><i class="fas fa-check-circle"></i> ${feature}</li>
+                    `).join('')}
+                </ul>
+            </div>
+            
+            ${tool.useCases ? `
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> Use Cases</h3>
+                    <ul class="use-case-list">
+                        ${tool.useCases.map(useCase => `
+                            <li><i class="fas fa-angle-right"></i> ${useCase}</li>
+                        `).join('')}
+                    </ul>
+                </div>
+            ` : ''}
+            
+            <div class="modal-section pricing-section">
+                <h3><i class="fas fa-tag"></i> Pricing Details</h3>
+                <div class="pricing-info">
+                    <span class="pricing-badge ${tool.pricing.toLowerCase()}">${tool.pricing}</span>
+                    <p>${getPricingDetails(tool.pricing)}</p>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <a href="${tool.link}" class="try-tool-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    Try Tool
+                </a>
+                <button class="bookmark-btn" data-tool="${toolId}">
+                    <i class="far fa-bookmark"></i>
+                    Save for Later
+                </button>
+                ${tool.rating ? `
+                    <button class="review-btn">
+                        <i class="fas fa-star"></i>
+                        Write Review
+                    </button>
+                ` : ''}
+            </div>
+        </div>
+    `;
+
+    // Add event listeners for modal buttons
+    const closeBtn = modalContent.querySelector('.close-modal');
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+
+    // Show modal
+    modal.classList.add('active');
+}
+
+// Helper function for pricing details
+function getPricingDetails(pricing) {
+    switch(pricing.toLowerCase()) {
+        case 'free':
+            return 'This tool is completely free to use with no hidden costs.';
+        case 'paid':
+            return 'Requires a paid subscription or one-time purchase.';
+        case 'freemium':
+            return 'Basic features are free, with premium features available for paid users.';
+        default:
+            return 'Contact provider for pricing details.';
+    }
 }
 
 learnMoreButtons.forEach(button => {
@@ -716,4 +1196,232 @@ feedbackBtn.addEventListener('click', () => {
         alert('Thank you for your feedback!');
         document.body.removeChild(feedbackModal);
     });
+});
+
+// Add these functions to enhance the tool cards functionality
+
+// Function to create tool cards dynamically
+function createToolCard(tool) {
+    const features = tool.features.slice(0, 3);
+    return `
+        <div class="tool-card" data-category="${tool.category}">
+            <div class="tool-header">
+                <div class="tool-icon">
+                    <img src="${tool.icon || '../image/tool-icons/default.png'}" alt="${tool.name}">
+                </div>
+                <div class="tool-info">
+                    <h3>${tool.name}</h3>
+                    <div class="tool-meta">
+                        <span class="pricing-badge ${tool.pricing.toLowerCase()}">${tool.pricing}</span>
+                        ${tool.rating ? `<span class="rating"><i class="fas fa-star"></i> ${tool.rating}</span>` : ''}
+                    </div>
+                </div>
+                <button class="bookmark-btn" data-tool="${tool.id}" title="Bookmark this tool">
+                    <i class="far fa-bookmark"></i>
+                </button>
+            </div>
+            <p class="tool-description">${tool.description || 'No description available.'}</p>
+            <div class="tool-features">
+                ${features.map(feature => `<span class="feature-tag"><i class="fas fa-check-circle"></i> ${feature}</span>`).join('')}
+            </div>
+            <div class="tool-actions">
+                <button class="learn-more-btn" data-tool="${tool.id}">
+                    <i class="fas fa-info-circle"></i>
+                    Learn More
+                </button>
+                <a href="${tool.link || '#'}" class="try-tool-btn" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                    Try Tool
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+// Function to render tools by category
+function renderToolsByCategory(category) {
+    const toolsContainer = document.querySelector(`.tool-category[data-category="${category}"] .tools-container`);
+    const tools = Object.entries(toolsData)
+        .filter(([_, tool]) => tool.category === category)
+        .map(([id, tool]) => ({...tool, id}));
+    
+    toolsContainer.innerHTML = tools.map(tool => createToolCard({...tool, id: tool.id || tool.name.toLowerCase()})).join('');
+}
+
+// Initialize tool cards
+function initializeToolCards() {
+    const categories = ['creativity', 'development', 'writing', 'research', 'audio'];
+    
+    categories.forEach(category => {
+        const toolsContainer = document.querySelector(`.tool-category[data-category="${category}"] .tools-container`);
+        if (!toolsContainer) return;
+
+        const tools = Object.entries(toolsData)
+            .filter(([_, tool]) => tool.category === category)
+            .map(([id, tool]) => ({...tool, id}));
+        
+        toolsContainer.innerHTML = tools.map(tool => createToolCard({...tool, id: tool.id || tool.name.toLowerCase()})).join('');
+    });
+
+    // Add event listeners to the new buttons
+    document.querySelectorAll('.learn-more-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const toolId = btn.dataset.tool;
+            openModal(toolId);
+        });
+    });
+
+    document.querySelectorAll('.bookmark-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const toolId = btn.dataset.tool;
+            toggleBookmark(toolId);
+        });
+    });
+}
+
+// Add smooth scrolling to category navigation
+document.querySelectorAll('.category-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const category = card.dataset.category;
+        const section = document.querySelector(`.tool-category[data-category="${category}"]`);
+        section.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', () => {
+    initializeToolCards();
+    
+    // Add filter button functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterTools(btn.dataset.category);
+        });
+    });
+});
+
+// Add these functions for the new features
+
+// Quick Toolbar functionality
+document.querySelectorAll('.toolbar-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const action = this.querySelector('span').textContent;
+        switch(action) {
+            case 'Quick Filter':
+                // Implement quick filter logic
+                break;
+            case 'Sort By':
+                // Implement sorting logic
+                break;
+            case 'View Mode':
+                // Implement view mode switching
+                break;
+            case 'Export List':
+                // Implement export functionality
+                break;
+        }
+    });
+});
+
+// Comparison feature
+let selectedTools = [];
+const comparisonDrawer = document.getElementById('comparisonDrawer');
+
+function toggleToolComparison(toolId) {
+    const index = selectedTools.indexOf(toolId);
+    if (index === -1 && selectedTools.length < 3) {
+        selectedTools.push(toolId);
+    } else if (index !== -1) {
+        selectedTools.splice(index, 1);
+    }
+    updateComparisonDrawer();
+}
+
+function updateComparisonDrawer() {
+    const selectedCount = document.querySelector('.selected-count');
+    const compareBtn = document.querySelector('.compare-btn');
+    
+    selectedCount.textContent = `${selectedTools.length} selected`;
+    compareBtn.disabled = selectedTools.length < 2;
+    
+    if (selectedTools.length > 0) {
+        comparisonDrawer.classList.add('active');
+    } else {
+        comparisonDrawer.classList.remove('active');
+    }
+}
+
+// Loading skeleton
+function showLoadingSkeleton() {
+    const toolsContainer = document.querySelector('.tools-container');
+    const skeletonHTML = `
+        <div class="tool-card skeleton">
+            <div class="tool-header">
+                <div class="tool-icon skeleton"></div>
+                <div class="tool-info">
+                    <h3 class="skeleton"></h3>
+                    <div class="tool-meta skeleton"></div>
+                </div>
+            </div>
+            <p class="tool-description skeleton"></p>
+            <div class="tool-features skeleton"></div>
+            <div class="tool-actions skeleton"></div>
+        </div>
+    `.repeat(6);
+    
+    toolsContainer.innerHTML = skeletonHTML;
+}
+
+// Add this function to handle filtering
+function filterTools(category) {
+    const allTools = document.querySelectorAll('.tool-card');
+    allTools.forEach(tool => {
+        if (category === 'all' || tool.dataset.category === category) {
+            tool.style.display = 'block';
+        } else {
+            tool.style.display = 'none';
+        }
+    });
+}
+
+// Add this to your existing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.top-tools-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cardWidth = 350 + 32; // card width + gap
+
+    function scroll(direction) {
+        const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+        track.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth'
+        });
+    }
+
+    prevBtn.addEventListener('click', () => scroll('left'));
+    nextBtn.addEventListener('click', () => scroll('right'));
+
+    // Auto scroll
+    let scrollInterval;
+    const startAutoScroll = () => {
+        scrollInterval = setInterval(() => {
+            if (track.scrollLeft + track.clientWidth >= track.scrollWidth) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scroll('right');
+            }
+        }, 5000); // Scroll every 5 seconds
+    };
+
+    const stopAutoScroll = () => {
+        clearInterval(scrollInterval);
+    };
+
+    // Start auto-scroll and handle hover
+    startAutoScroll();
+    track.addEventListener('mouseenter', stopAutoScroll);
+    track.addEventListener('mouseleave', startAutoScroll);
 }); 
