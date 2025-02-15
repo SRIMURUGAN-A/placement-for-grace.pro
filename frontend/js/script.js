@@ -50,15 +50,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile menu handling
-    document.addEventListener('click', (e) => {
-        const sidebar = document.getElementById('sidebar');
-        const menuToggle = document.querySelector('.menu-toggle');
+    // // Mobile menu handling
+    // document.addEventListener('click', (e) => {
+    //     const sidebar = document.getElementById('sidebar');
+    //     const menuToggle = document.querySelector('.menu-toggle');
         
-        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-            sidebar.classList.remove('active');
-        }
-    });
+    //     if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+    //         sidebar.classList.remove('active');
+    //     }
+    // });
 
     // Initialize sidebar
     const sidebar = document.getElementById('mySidebar');
@@ -139,27 +139,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // AI Assistant Toggle
-    const aiToggle = document.querySelector('.ai-toggle');
-    const chatContainer = document.querySelector('.chat-container');
-    aiToggle.addEventListener('click', () => {
-        chatContainer.classList.toggle('active');
-    });
-    
-    // Smooth scroll for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-    
-    // Example of loading personalized content
-    const studentName = document.querySelector('.student-name');
-    // In a real application, this would come from your backend
-    studentName.textContent = 'John Doe';
+
+    // // Smooth scroll for navigation links
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //     anchor.addEventListener('click', function (e) {
+    //         e.preventDefault();
+    //         document.querySelector(this.getAttribute('href')).scrollIntoView({
+    //             behavior: 'smooth'
+    //         });
+    //     });
+    // });
     
     // Add animation classes on scroll
     const observerOptions = {

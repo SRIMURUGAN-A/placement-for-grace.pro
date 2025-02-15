@@ -1,236 +1,170 @@
-// toogle bar
-function toggleSidebar() {
-    const sidebar = document.getElementById("mySidebar");
-    if (sidebar.style.width === "250px") {
-        sidebar.style.width = "0";
-    } else {
-        sidebar.style.width = "250px";
-    }
-}
-
-function closeSidebar() {
-    const sidebar = document.getElementById("mySidebar");
-    sidebar.style.width = "0";  // Set the width to 0 to close the sidebar
-}
-
-document.querySelectorAll('.courses-link').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        // Get the corresponding dropdown menu
-        const dropdown = this.nextElementSibling;
-
-        // Determine if the clicked dropdown is currently visible
-        const isDropdownVisible = dropdown.style.display === 'block';
-
-        // Close all dropdowns
-        document.querySelectorAll('.dropdown').forEach(function (dropdown) {
-            dropdown.style.display = 'none';
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme
+    const themeToggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    
+    function toggleTheme() {
+        const currentTheme = html.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icon
+        const icon = themeToggle.querySelector('i');
+        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        
+        // Add animation effect
+        document.body.style.transition = 'background-color 0.3s ease';
+        
+        // Trigger animation for cards
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.style.animation = 'none';
+            card.offsetHeight; // Trigger reflow
+            card.style.animation = 'slideIn 0.3s ease-out';
         });
+    }
+    
+    // Set initial theme
+    const savedTheme = localStorage.getItem('theme') || 
+                      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    html.setAttribute('data-theme', savedTheme);
+    
+    // Set initial icon
+    const icon = themeToggle.querySelector('i');
+    icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    
+    // Add click event listener
+    themeToggle.addEventListener('click', toggleTheme);
 
-        // If the clicked dropdown was not visible, open it
-        if (!isDropdownVisible) {
-            dropdown.style.display = 'block';
-        }
-    });
-    // Close the dropdown when clicking anywhere on the screen
-    document.addEventListener('click', function (event) {
-        const isClickInsideDropdown = event.target.closest('.courses-link, .dropdown');
-
-        // If the click is outside the dropdown and the link, close all dropdowns
-        if (!isClickInsideDropdown) {
-            document.querySelectorAll('.dropdown').forEach(function (dropdown) {
-                dropdown.style.display = 'none';
-            });
-        }
+    // Profile Dropdown
+    const profileMenu = document.querySelector('.profile-menu');
+    profileMenu.addEventListener('click', () => {
+        profileMenu.classList.toggle('active');
     });
 
-});
-
-
-//use to profile dashboard
-const user_link = document.getElementById('user_link')
-const toggleBar_profile = document.getElementById('toggleBar_profile')
-
-user_link.addEventListener('click', function () {
-    if (toggleBar_profile.style.display === "none" || toggleBar_profile.style.display === "") {
-        toggleBar_profile.style.display = "block";
-    } else {
-        toggleBar_profile.style.display = "none";
-    }
-});
-document.addEventListener('click', function (event) {
-    if (!toggleBar.contains(event.target) && !userLink.contains(event.target)) {
-        toggleBar.style.display = "none";
-    }
-});
-
-// Course recommendation system
-class CourseRecommender {
-    constructor() {
-        this.userPreferences = this.loadUserPreferences();
-        this.initializeRecommendations();
-    }
-
-    loadUserPreferences() {
-        // Load from localStorage or API
-        return JSON.parse(localStorage.getItem('userPreferences')) || {
-            department: 'cse',
-            interests: ['web_development', 'ai_ml'],
-            completedCourses: []
-        };
-    }
-
-    initializeRecommendations() {
-        this.updateRecommendations();
-        this.initializeFilters();
-        this.initializeProgressTracking();
-    }
-
-    updateRecommendations() {
-        // Update personalized recommendations based on user preferences
-        const recommendationContainer = document.querySelector('.recommendation-cards');
-        if (recommendationContainer) {
-            // Add recommendation logic here
+    // Close profile dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!profileMenu.contains(e.target)) {
+            profileMenu.classList.remove('active');
         }
-    }
+    });
 
-    initializeFilters() {
-        const filterButton = document.querySelector('.filter');
-        const filterContainer = document.querySelector('.filter-container');
+    // // Mobile menu handling
+    // document.addEventListener('click', (e) => {
+    //     const sidebar = document.getElementById('sidebar');
+    //     const menuToggle = document.querySelector('.menu-toggle');
+        
+    //     if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+    //         sidebar.classList.remove('active');
+    //     }
+    // });
 
-        if (filterButton && filterContainer) {
-            filterButton.addEventListener('click', () => {
-                filterContainer.classList.toggle('show');
-            });
+    // Initialize sidebar
+    const sidebar = document.getElementById('mySidebar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    let overlay;
 
-            // Add filter change handlers
-            const filterInputs = filterContainer.querySelectorAll('input');
-            filterInputs.forEach(input => {
-                input.addEventListener('change', () => this.handleFilterChange());
-            });
-        }
-    }
-
-    initializeProgressTracking() {
-        // Initialize progress tracking functionality
-        this.updateProgressStats();
-        this.initializeBookmarks();
-    }
-
-    updateProgressStats() {
-        // Update progress statistics
-        const stats = {
-            coursesInProgress: 5,
-            skillsAcquired: 12
-        };
-
-        const statsElements = document.querySelectorAll('.stat-number');
-        if (statsElements.length >= 2) {
-            statsElements[0].textContent = stats.coursesInProgress;
-            statsElements[1].textContent = stats.skillsAcquired;
-        }
-    }
-
-    initializeBookmarks() {
-        const bookmarkButtons = document.querySelectorAll('.btn button:first-child');
-        bookmarkButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                button.classList.toggle('bookmarked');
-            });
+    function createOverlay() {
+        overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+        
+        overlay.addEventListener('click', () => {
+            closeSidebar();
         });
     }
 
-    handleFilterChange() {
-        // Handle filter changes and update course list
-        const selectedFilters = this.getSelectedFilters();
-        this.filterCourses(selectedFilters);
-    }
+    // Create overlay on load
+    createOverlay();
 
-    getSelectedFilters() {
-        // Get all selected filter values
-        const filters = {
-            department: document.querySelector('input[name="department"]:checked')?.value,
-            tracks: Array.from(document.querySelectorAll('input[name="track"]:checked')).map(input => input.value),
-            level: document.querySelector('input[name="level"]:checked')?.value,
-            duration: document.querySelector('input[name="duration"]:checked')?.value,
-            language: document.querySelector('input[name="language"]:checked')?.value
-        };
-        return filters;
-    }
-
-    filterCourses(filters) {
-        // Apply filters to course list
-        const courseCards = document.querySelectorAll('.coursce1');
-        // Add filtering logic here
-    }
-}
-
-class GameEngine {
-    constructor() {
-        this.xp = 0;
-        this.level = 1;
-        this.achievements = [];
-        this.initializeGameElements();
-    }
-
-    initializeGameElements() {
-        this.updateXPBar();
-        this.initializeChallenges();
-        this.initializeAchievements();
-    }
-
-    updateXPBar() {
-        const xpBar = document.querySelector('.xp-bar');
-        const xpText = document.querySelector('.xp-progress span');
-        if (xpBar && xpText) {
-            const progress = (this.xp % 1000) / 1000 * 100;
-            xpBar.style.width = `${progress}%`;
-            xpText.textContent = `${this.xp % 1000}/1000 XP`;
+    // Update toggle function
+    window.toggleSidebar = function() {
+        if (sidebar) {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Update ARIA attributes
+            const isExpanded = sidebar.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
         }
     }
 
-    awardXP(amount) {
-        this.xp += amount;
-        if (this.xp >= this.level * 1000) {
-            this.levelUp();
-        }
-        this.updateXPBar();
-    }
-
-    levelUp() {
-        this.level++;
-        // Show level up animation
-        this.showLevelUpAnimation();
-    }
-
-    showLevelUpAnimation() {
-        const levelBadge = document.querySelector('.level-badge');
-        if (levelBadge) {
-            levelBadge.classList.add('level-up');
-            setTimeout(() => levelBadge.classList.remove('level-up'), 2000);
+    // Update close function
+    window.closeSidebar = function() {
+        if (sidebar) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
         }
     }
 
-    initializeChallenges() {
-        const challengeButtons = document.querySelectorAll('.start-challenge');
-        challengeButtons.forEach(button => {
-            button.addEventListener('click', () => this.startChallenge());
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (sidebar && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+            closeSidebar();
+        }
+    });
+
+    // Add keyboard navigation support
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            closeSidebar();
+        }
+    });
+
+    // Initialize menu items hover effect
+    document.querySelectorAll('.menu-section a').forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            if (!item.classList.contains('active')) {
+                item.style.transform = 'translateX(4px)';
+            }
         });
-    }
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateX(0)';
+        });
+    });
 
-    startChallenge() {
-        // Implement challenge logic
-    }
+    // Active menu item handling
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
+    });
+    
 
-    initializeAchievements() {
-        // Initialize achievement tracking
-    }
-}
+    // // Smooth scroll for navigation links
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //     anchor.addEventListener('click', function (e) {
+    //         e.preventDefault();
+    //         document.querySelector(this.getAttribute('href')).scrollIntoView({
+    //             behavior: 'smooth'
+    //         });
+    //     });
+    // });
+    
+    // Add animation classes on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const recommender = new CourseRecommender();
-    const gameEngine = new GameEngine();
 });
