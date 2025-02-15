@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRACE - Student Resources Blog</title>
+    <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
+    <link rel="stylesheet" href="../frontend/css/blog.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <img src="../frontend/image/grace logo.jpg" alt="GRACE Logo">
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="./index.html">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="#resources" class="active">
+                <i class="fas fa-book"></i> Resources
+            </a>
+            <a href="./about.html">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+            <a href="#contact">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="nav-profile">
+                <a href="#profile">
+                    <i class="fas fa-user-circle"></i> Profile
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p>Welcome to GRACE Student Blog! 🎓</p>
+        <button class="close-notification"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Hero Section with Search -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Student Success Hub</h1>
+            <p>Discover resources, tips, and guides for your academic journey. Join thousands of students who are mastering their studies with our comprehensive resources.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for topics, guides, or resources...">
+                <button>
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-book-reader"></i>
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Resources</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Topics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filters">
+        <h2>Browse by Category</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Study Tips</button>
+            <button class="filter-btn">Career Guidance</button>
+            <button class="filter-btn">Technology</button>
+            <button class="filter-btn">Mental Health</button>
+            <button class="filter-btn">Student Life</button>
+        </div>
+    </section>
+
+    <!-- Featured Blogs -->
+    <section class="featured-blogs">
+        <h2>Featured Blogs</h2>
+        <div class="blog-grid">
+            <!-- Blog Card 1 -->
+            <div class="blog-card">
+                <img src="https://img.freepik.com/free-vector/student-with-laptop-studying-online-course_74855-5293.jpg?ga=GA1.1.1139852818.1739499936&semt=ais_hybrid" alt="Study Tips">
+                <div class="tags">
+                    <span>Study Tips</span>
+                    <span>Productivity</span>
+                </div>
+                <h3>Effective Study Techniques for Final Exams</h3>
+                <p>Master the art of studying with proven methods that help you retain information better.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 8 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="../blog-content/study-techniques.html" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 2 -->
+            <div class="blog-card">
+                <img src="https://img.freepik.com/free-vector/business-concept-vector-illustration-businessman-who-running-with-increase-graphic-chart-see-imagination-future_1150-39743.jpg?ga=GA1.1.1139852818.1739499936&semt=ais_hybrid" alt="Career Guidance">
+                <div class="tags">
+                    <span>Career</span>
+                    <span>Planning</span>
+                </div>
+                <h3>Planning Your Career Path: A Student's Guide</h3>
+                <p>Essential tips for mapping out your future career while still in school.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 12 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 3 -->
+            <div class="blog-card">
+                <img src="https://img.freepik.com/free-vector/innovation-concept-illustration_114360-5848.jpg?ga=GA1.1.1139852818.1739499936&semt=ais_hybrid" alt="Tech Tools">
+                <div class="tags">
+                    <span>Technology</span>
+                    <span>Tools</span>
+                </div>
+                <h3>Must-Have Tech Tools for Modern Students</h3>
+                <p>Discover the latest apps and tools that can enhance your learning experience.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 10 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 4 -->
+            <div class="blog-card">
+                <img src="https://img.freepik.com/free-vector/gaslighting-abstract-concept-vector-illustration-psychological-manipulation-method-mental-destabilization-cognitive-dissonance-creation-changing-beliefs-contradiction-abstract-metaphor_335657-4220.jpg?ga=GA1.1.1139852818.1739499936&semt=ais_hybrid" alt="Mental Health">
+                <div class="tags">
+                    <span>Mental Health</span>
+                    <span>Wellness</span>
+                </div>
+                <h3>Managing Stress During Exam Season</h3>
+                <p>Practical tips and techniques for maintaining mental well-being during high-pressure academic periods.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 2 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 5 -->
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1000" alt="Time Management">
+                <div class="tags">
+                    <span>Productivity</span>
+                    <span>Organization</span>
+                </div>
+                <h3>Time Management Mastery for Students</h3>
+                <p>Learn effective strategies to balance academics, extracurriculars, and personal life efficiently.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 3 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 6 -->
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000" alt="Group Study">
+                <div class="tags">
+                    <span>Collaboration</span>
+                    <span>Study Tips</span>
+                </div>
+                <h3>Effective Group Study Strategies</h3>
+                <p>Maximize learning outcomes through collaborative study sessions and peer learning techniques.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 2 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 7 -->
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000" alt="Internship Tips">
+                <div class="tags">
+                    <span>Career</span>
+                    <span>Experience</span>
+                </div>
+                <h3>Landing Your First Internship</h3>
+                <p>A comprehensive guide to finding, applying for, and securing valuable internship opportunities.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 4 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 8 -->
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=1000" alt="Financial Tips">
+                <div class="tags">
+                    <span>Finance</span>
+                    <span>Student Life</span>
+                </div>
+                <h3>Student Budget Management 101</h3>
+                <p>Smart financial planning tips and tricks for managing your student life effectively.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 3 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <!-- Blog Card 9 -->
+            <div class="blog-card">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1000" alt="Fitness Tips">
+                <div class="tags">
+                    <span>Health</span>
+                    <span>Fitness</span>
+                </div>
+                <h3>Staying Fit During College Life</h3>
+                <p>Simple workout routines and healthy habits that fit perfectly into a busy student schedule.</p>
+                <div class="blog-meta">
+                    <span><i class="far fa-clock"></i> 2 min read</span>
+                    <span><i class="far fa-calendar"></i> March 2025</span>
+                </div>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add this before closing body tag -->
+    <script>
+        // DOM Elements
+        const searchInput = document.querySelector('.search-bar input');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        // Search Functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tags span'))
+                    .map(tag => tag.textContent.toLowerCase());
+                
+                const matchesSearch = 
+                    title.includes(searchTerm) || 
+                    description.includes(searchTerm) ||
+                    tags.some(tag => tag.includes(searchTerm));
+                
+                card.style.display = matchesSearch ? 'block' : 'none';
+            });
+        });
+        
+        // Filter Functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent.toLowerCase();
+                
+                blogCards.forEach(card => {
+                    const tags = Array.from(card.querySelectorAll('.tags span'))
+                        .map(tag => tag.textContent.toLowerCase());
+                    
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = tags.includes(category) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+        
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('.nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Blog Card Hover Animation Enhancement
+        blogCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            });
+        });
+        
+        // Read Time Calculator
+        function calculateReadTime(content) {
+            const wordsPerMinute = 200;
+            const wordCount = content.split(/\s+/).length;
+            return Math.ceil(wordCount / wordsPerMinute);
+        }
+        
+        // Dynamic Read Time Update
+        blogCards.forEach(card => {
+            const content = card.querySelector('p').textContent;
+            const readTime = calculateReadTime(content);
+            const readTimeSpan = card.querySelector('.blog-meta span:first-child');
+            readTimeSpan.innerHTML = `<i class="far fa-clock"></i> ${readTime} min read`;
+        });
+        
+        // Mobile Navigation Toggle
+        const navLinks = document.querySelector('.nav-links');
+        const mobileMenuButton = document.getElementById('mobileMenuBtn');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+        
+        // Add this CSS to your stylesheet
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                .mobile-menu-btn {
+                    display: block;
+                    background: none;
+                    border: none;
+                    font-size: 1.5rem;
+                    color: #333;
+                    cursor: pointer;
+                }
+                
+                .nav-links {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    padding: 1rem;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                }
+                
+                .nav-links.show {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .nav-links a {
+                    margin: 0.5rem 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Dark Mode Implementation
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Check for saved theme preference or use system preference
+        const currentTheme = localStorage.getItem('theme') || 
+            (prefersDarkScheme.matches ? 'dark' : 'light');
+
+        // Apply saved theme on load
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Theme toggle functionality
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Update button icon
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Notification System
+        const notification = document.getElementById('notification');
+        const closeNotification = document.querySelector('.close-notification');
+
+        closeNotification.addEventListener('click', () => {
+            notification.style.display = 'none';
+        });
+
+        // Reading Progress Bar
+        const progressBar = document.createElement('div');
+        progressBar.className = 'progress-bar';
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.createElement('button');
+        backToTopButton.className = 'back-to-top';
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Image Loading Animation
+        const blogImages = document.querySelectorAll('.blog-card img');
+        blogImages.forEach(img => {
+            img.classList.add('lazy-load');
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+        });
+
+        // Share Button for Blog Cards
+        blogCards.forEach(card => {
+            const shareButton = document.createElement('button');
+            shareButton.className = 'share-button';
+            shareButton.innerHTML = '<i class="fas fa-share-alt"></i>';
+            
+            shareButton.addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: card.querySelector('h3').textContent,
+                        text: card.querySelector('p').textContent,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback copy link to clipboard
+                    const dummy = document.createElement('input');
+                    document.body.appendChild(dummy);
+                    dummy.value = window.location.href;
+                    dummy.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(dummy);
+                    
+                    alert('Link copied to clipboard!');
+                }
+            });
+            
+            card.querySelector('.blog-meta').appendChild(shareButton);
+        });
+    </script>
+
+    
+</body>
+</html>

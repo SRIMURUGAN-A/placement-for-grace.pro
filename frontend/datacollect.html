@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Career Development Profile</title>
+    <link rel="icon" href="https://www.gracecoe.org/assets/img/gcoe_logo.png" type="image/jpeg">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,9 +15,15 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('../assets/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             min-height: 100vh;
             padding: 40px 20px;
+            padding-top: 0;
         }
 
         .container {
@@ -58,10 +65,11 @@
         }
 
         .form-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
         }
 
         .section {
@@ -184,19 +192,149 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Add these new navbar styles */
+        .navbar {
+            background: linear-gradient(45deg, #1a5f7a, #0056b3);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link.home-btn {
+            background-color: white;
+            color: #1a5f7a;
+            font-weight: 500;
+        }
+
+        .nav-link.home-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Update progress bar styles */
+        .progress-container {
+            background: white;
+            padding: 15px 25px;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #1a5f7a;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a5f7a, #0056b3);
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0.1) 0%,
+                rgba(255,255,255,0.3) 50%,
+                rgba(255,255,255,0.1) 100%
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Career Development Profile</h1>
-            <p>Help us understand your aspirations better to provide personalized guidance</p>
+    <!-- Add navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="#" class="navbar-brand">
+                <img src="https://www.gracecoe.org/assets/img/gcoe_logo.png" alt="Logo">
+                Career Development Profile
+            </a>
         </div>
+    </nav>
 
+    <!-- Update progress bar container -->
+    <div class="progress-container">
+        <div class="progress-text">
+            Profile Completion: <span id="progress-percentage">0%</span>
+        </div>
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
+    </div>
 
+    <div class="container">
         <form class="form-container" id="careerForm">
             <!-- Perssonal Information -->
             <div class="section">
@@ -411,9 +549,8 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Additional Support -->
-            <div class="section">
+             <!-- Additional Support -->
+             <div class="section">
                 <div class="section-header">
                     <div class="section-number">6</div>
                     <h2>Additional Support</h2>
@@ -681,52 +818,102 @@
         </form>
     </div>
 
-           
-
-
     <script>
         // Progress bar functionality
         const form = document.getElementById('careerForm');
         const progress = document.getElementById('progress');
+        const progressPercentage = document.getElementById('progress-percentage');
         const sections = document.querySelectorAll('.section');
         const totalSections = sections.length;
 
         function updateProgress() {
             let filledSections = 0;
             sections.forEach(section => {
-                const inputs = section.querySelectorAll('input, select, textarea');
+                const inputs = section.querySelectorAll('input:required, select:required, textarea:required');
+                const optionGroups = section.querySelectorAll('.options-grid');
                 let sectionFilled = true;
+
+                // Check required inputs
                 inputs.forEach(input => {
-                    if (input.required && !input.value) {
+                    if (!input.value) {
                         sectionFilled = false;
                     }
                 });
+
+                // Check option card selections
+                optionGroups.forEach(group => {
+                    const selectedCards = group.querySelectorAll('.option-card.selected');
+                    if (selectedCards.length === 0) {
+                        sectionFilled = false;
+                    }
+                });
+
                 if (sectionFilled) filledSections++;
             });
-            const percentage = (filledSections / totalSections) * 100;
+
+            const percentage = Math.round((filledSections / totalSections) * 100);
             progress.style.width = `${percentage}%`;
+            progressPercentage.textContent = `${percentage}%`;
         }
 
         // Option card selection functionality
         const optionCards = document.querySelectorAll('.option-card');
         optionCards.forEach(card => {
-            card.addEventListener('click', () => {
+            card.addEventListener('click', function() {
                 const parent = card.parentElement;
-                if (parent.getAttribute('data-max-select') === '1') {
+                const isMultiSelect = !parent.hasAttribute('data-max-select') || parent.getAttribute('data-max-select') !== '1';
+                
+                if (!isMultiSelect) {
+                    // Single selection mode
                     parent.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                } else {
+                    // Multi selection mode
+                    card.classList.toggle('selected');
                 }
-                card.classList.toggle('selected');
                 updateProgress();
             });
         });
 
-        // Form input event listeners
-        form.addEventListener('input', updateProgress);
-        form.addEventListener('submit', (e) => {
+        // Update form submission handling
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            // Add your form submission logic here
-            alert('Profile submitted successfully!');
+            
+            // Basic validation
+            let isValid = true;
+            const requiredInputs = form.querySelectorAll('input:required, select:required, textarea:required');
+            
+            requiredInputs.forEach(input => {
+                if (!input.value) {
+                    isValid = false;
+                    input.style.borderColor = '#ff4444';
+                } else {
+                    input.style.borderColor = '#e0e0e0';
+                }
+            });
+
+            if (isValid) {
+                try {
+                    // You can add your form data processing here
+                    alert('Profile submitted successfully!');
+                    // Use timeout to ensure alert is shown before redirect
+                    setTimeout(() => {
+                        window.location.replace('home.html');
+                    }, 100);
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    alert('An error occurred. Please try again.');
+                }
+            } else {
+                alert('Please fill in all required fields');
+            }
         });
+
+        // Initialize progress on page load
+        document.addEventListener('DOMContentLoaded', updateProgress);
+
+        // Update progress on input changes
+        form.addEventListener('input', updateProgress);
     </script>
 </body>
 </html>

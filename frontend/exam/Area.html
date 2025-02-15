@@ -3,99 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Area Quiz</title>
   <style>
-    *{
-      margin:0;
+    * {
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-    body{
-      background-color: #1a73e8;
+    
+    body {
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .app{
+    
+    .app {
       background-color: #fff;
       width: 90%;
       max-width: 600px;
-      margin: 100px auto 0;
-      border-radius: 10px;
+      margin: 20px auto;
+      border-radius: 20px;
       padding: 30px;
-      box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
-    .app h1{
-      font-size: 45px ;
+    
+    .app h1 {
+      font-size: 28px;
       color: #001e4d;
-      border-bottom: 1px solid #333;
-      padding-bottom: 30px;
-      font-weight: 600;
+      border-bottom: 2px solid #333;
+      padding-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
-    .quiz{
+    
+    .quiz {
       padding: 20px 0;
     }
-    .quiz h2{
-      font-size: 25px;
+    
+    .quiz h2 {
+      font-size: 22px;
       color: #001e4d;
-      font-weight: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
-
-
-    .btn{
-      font-size: 19px;
+    
+    .btn {
+      font-size: 18px;
       color: #001e4d;
-      border: 1px solid rgb(123, 123, 123);
+      background: #fff;
+      border: 2px solid #001e4d;
       width: 100%;
-      padding: 10px;
+      padding: 15px;
       margin: 10px 0;
-      font-weight:500 ;
       border-radius: 10px;
       cursor: pointer;
-      text-align: left;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn:hover:not([disabled]) {
+      background: #001e4d;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.8;
+    }
+    
+    #nxt-btn {
+      background: #001e4d;
+      color: #fff;
+      width: 150px;
+      border: 0;
+      padding: 15px;
+      margin: 20px auto 0;
+      border-radius: 10px;
+      cursor: pointer;
+      display: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: all 0.3s;
     }
-    .btn:disabled{
-      cursor: no-drop;
+    
+    #nxt-btn:hover {
+      background: #00142e;
+      transform: translateY(-2px);
+    }
+    
+    .correct {
+      background: #9aeabc !important;
+      color: #001e4d !important;
+      border-color: #9aeabc !important;
+    }
+    
+    .incorrect {
+      background: #ff9393 !important;
+      color: #001e4d !important;
+      border-color: #ff9393 !important;
     }
 
-    .btn:hover:not([disabled]){
-      background-color: #8c8b8b;
-      color: #fff;
-    }
-    #nxt-btn{
-      background-color: #001e4d;
-      width: 150px;
-      cursor: pointer;
-      border-radius: 10px;
-      font-weight: 500;
-      padding: 10px ;
-      margin: 20px auto 0;
-      display: none;
-      color: #fff;
-      cursor: pointer;
-
-    }
-    .correct{
-      background-color: rgb(143, 236, 143) ;
-    }
-    .incorrect{
-      background-color: rgb(227, 128, 128);
+    .emoji-feedback {
+      font-size: 40px;
+      text-align: center;
+      margin: 10px 0;
+      animation: popIn 0.5s ease-out;
     }
 
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.2); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .score-container {
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: #e0e0e0;
+      border-radius: 5px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background: #1a73e8;
+      width: 0;
+      transition: width 0.3s ease-in-out;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="app">
-    <h1>simple quiz</h1>
+    <h1>Area Quiz</h1>
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
     <div class="quiz">
-      <h2 id="question">question goes here</h2>
-      <div id="answer">
-        <button class="btn">answer 1</button>
-        <button class="btn">answer2</button>
-        <button class="btn">answer 3</button>
-        <button class="btn">4</button>
-      </div>
+      <h2 id="question">Question goes here</h2>
+      <div id="emoji-feedback" class="emoji-feedback"></div>
+      <div id="answer"></div>
       <button id="nxt-btn">Next</button>
     </div>
   </div>
+
   <script>
   const questions = [
   {
@@ -322,6 +392,114 @@
       { text: "25 cm²", correct: false },
       { text: "20 cm²", correct: false }
     ]
+  },
+  {
+    question: "Find the area of a rhombus with diagonals 8 cm and 12 cm.",
+    answer: [
+      { text: "48 cm²", correct: true },
+      { text: "96 cm²", correct: false },
+      { text: "52 cm²", correct: false },
+      { text: "44 cm²", correct: false }
+    ]
+  },
+  {
+    question: "A circular garden has a diameter of 14 meters. What is its area? (Use π = 3.14)",
+    answer: [
+      { text: "153.86 m²", correct: true },
+      { text: "140 m²", correct: false },
+      { text: "160.5 m²", correct: false },
+      { text: "146.2 m²", correct: false }
+    ]
+  },
+  {
+    question: "The area of a square is 144 cm². What is the length of its side?",
+    answer: [
+      { text: "12 cm", correct: true },
+      { text: "14 cm", correct: false },
+      { text: "10 cm", correct: false },
+      { text: "16 cm", correct: false }
+    ]
+  },
+  {
+    question: "A triangular field has a base of 25 meters and height of 16 meters. What is its area?",
+    answer: [
+      { text: "200 m²", correct: true },
+      { text: "175 m²", correct: false },
+      { text: "225 m²", correct: false },
+      { text: "150 m²", correct: false }
+    ]
+  },
+  {
+    question: "If a rectangle's length is twice its width and its area is 98 cm², what is its width?",
+    answer: [
+      { text: "7 cm", correct: true },
+      { text: "8 cm", correct: false },
+      { text: "6 cm", correct: false },
+      { text: "9 cm", correct: false }
+    ]
+  },
+  {
+    question: "What is the area of a regular hexagon with side length 5 cm? (Use √3 = 1.732)",
+    answer: [
+      { text: "64.95 cm²", correct: true },
+      { text: "60 cm²", correct: false },
+      { text: "75 cm²", correct: false },
+      { text: "70.5 cm²", correct: false }
+    ]
+  },
+  {
+    question: "A semicircular park has a radius of 10 meters. What is its area? (Use π = 3.14)",
+    answer: [
+      { text: "157 m²", correct: true },
+      { text: "314 m²", correct: false },
+      { text: "165 m²", correct: false },
+      { text: "145 m²", correct: false }
+    ]
+  },
+  {
+    question: "The ratio of length to width of a rectangle is 3:2. If its area is 54 cm², what is its length?",
+    answer: [
+      { text: "9 cm", correct: true },
+      { text: "12 cm", correct: false },
+      { text: "6 cm", correct: false },
+      { text: "8 cm", correct: false }
+    ]
+  },
+  {
+    question: "A kite has diagonals of 16 cm and 12 cm. What is its area?",
+    answer: [
+      { text: "96 cm²", correct: true },
+      { text: "84 cm²", correct: false },
+      { text: "108 cm²", correct: false },
+      { text: "92 cm²", correct: false }
+    ]
+  },
+  {
+    question: "The area of a trapezoid is 120 cm². If its height is 8 cm and one parallel side is 10 cm, what is the length of the other parallel side?",
+    answer: [
+      { text: "20 cm", correct: true },
+      { text: "15 cm", correct: false },
+      { text: "25 cm", correct: false },
+      { text: "18 cm", correct: false }
+    ]
+  },
+  {
+    question: "What is the area of an equilateral triangle with side length 8 cm? (Use √3 = 1.732)",
+    answer: [
+      { text: "27.71 cm²", correct: true },
+      { text: "32 cm²", correct: false },
+      { text: "24.5 cm²", correct: false },
+      { text: "30 cm²", correct: false }
+    ]
+  },
+  {
+    question: "A rectangular plot is 25% larger than a square plot of side 10 meters. What is the area of the rectangular plot?",
+    answer: [
+      { text: "125 m²", correct: true },
+      { text: "150 m²", correct: false },
+      { text: "100 m²", correct: false },
+      { text: "120 m²", correct: false }
+    ]
   }
 ];
 
@@ -334,22 +512,37 @@
 
     let currentQuestionIndex = 0;
     let score = 0;
+    let shuffledQuestions = [];
+
+    // Function to shuffle array elements
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
 
     function startQuiz(){
       currentQuestionIndex = 0;
       score = 0;
+      // Shuffle all questions at the start
+      shuffledQuestions = shuffleArray([...questions]);
       nxt_btn.innerHTML = "Next";
-      nxt_btn.style.display = "none";  // Hide Next button initially
+      nxt_btn.style.display = "none";
       showQuestion();
     }
 
     function showQuestion(){
       resetState();
-      let currentQuestion = questions[currentQuestionIndex];
+      let currentQuestion = shuffledQuestions[currentQuestionIndex];
       let questionNo = currentQuestionIndex + 1;
       questionelement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-      currentQuestion.answer.forEach(answer =>{
+      // Create a shuffled copy of answers
+      const shuffledAnswers = shuffleArray([...currentQuestion.answer]);
+
+      shuffledAnswers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
@@ -368,28 +561,65 @@
       }
     }
 
+    function showEmojiFeedback(isCorrect) {
+      const emojiElement = document.getElementById('emoji-feedback');
+      if (isCorrect) {
+        emojiElement.innerHTML = '🎉';
+      } else {
+        emojiElement.innerHTML = '😢';
+      }
+      setTimeout(() => {
+        emojiElement.innerHTML = '';
+      }, 1500);
+    }
+
+    function updateProgressBar() {
+      const progress = document.getElementById('progress');
+      const percentage = (currentQuestionIndex / questions.length) * 100;
+      progress.style.width = percentage + '%';
+    }
+
     function selectAnswer(e){
       const selectedBtn = e.target;
-      const iscorrect = selectedBtn.dataset.correct === "true";
-      if(iscorrect){
+      const isCorrect = selectedBtn.dataset.correct === "true";
+      
+      if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-      }else{
+        showEmojiFeedback(true);
+      } else {
         selectedBtn.classList.add("incorrect");
+        showEmojiFeedback(false);
       }
-      Array.from(answer_btn.children).forEach(button =>{
-        if(button.dataset.correct === "true"){
+      
+      Array.from(answer_btn.children).forEach(button => {
+        if (button.dataset.correct === "true") {
           button.classList.add("correct");
         }
         button.disabled = true;
       });
+      
       nxt_btn.style.display = "block";
+      updateProgressBar();
     }
 
     function showScore(){
       resetState();
-      questionelement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-      nxt_btn.innerHTML = "Retake Test";
+      const percentage = (score / questions.length) * 100;
+      const emoji = percentage >= 70 ? '🏆' : percentage >= 40 ? '🎯' : '💪';
+      
+      questionelement.innerHTML = `
+        <div class="score-container">
+          <div style="font-size: 50px; margin-bottom: 20px;">${emoji}</div>
+          <h2>You scored ${score} out of ${questions.length}!</h2>
+          <p style="margin-top: 10px; color: #666;">
+            ${percentage >= 70 ? 'Excellent work!' : 
+              percentage >= 40 ? 'Good job!' : 'Keep practicing!'}
+          </p>
+        </div>
+      `;
+      
+      nxt_btn.innerHTML = "Retake Quiz";
       nxt_btn.style.display = "block";
     }
 
