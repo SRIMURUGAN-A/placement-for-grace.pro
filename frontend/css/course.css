@@ -1745,7 +1745,7 @@ ul.dropdown li {
 .filter-container {
     flex-grow: 1;
     /* Makes the filter container take full height */
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background: linear-gradient(45deg,rgb(145, 57, 238),rgb(52, 121, 240));
     color:rgb(255, 255, 255);
 }
 
@@ -1754,7 +1754,6 @@ ul.dropdown li {
     overflow-y: auto;
     /* Enables scrolling if content overflows */
 }
-
 
 
 .filter-container {
