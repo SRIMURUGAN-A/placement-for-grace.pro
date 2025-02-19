@@ -71,8 +71,6 @@ body {
     box-sizing: border-box;
 }
 
-
-
 /* Hide scrollbar for all elements */
 ::-webkit-scrollbar {
     width: 0px;
