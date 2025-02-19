@@ -1,3 +1,36 @@
+const carousel = document.getElementById("successCarousel");
+const prevBtn = document.getElementById("prevStory");
+const nextBtn = document.getElementById("nextStory");
+
+let index = 0;
+const totalItems = document.querySelectorAll(".story-card").length;
+
+function updateCarousel() {
+    const offset = -index * 100 + "%";
+    carousel.style.transform = `translateX(${offset})`;
+}
+
+nextBtn.addEventListener("click", () => {
+    if (index < totalItems - 1) {
+        index++;
+        updateCarousel();
+    }
+});
+
+prevBtn.addEventListener("click", () => {
+    if (index > 0) {
+        index--;
+        updateCarousel();
+    }
+});
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme
     const themeToggle = document.querySelector('.theme-toggle');
