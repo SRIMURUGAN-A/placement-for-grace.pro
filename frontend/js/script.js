@@ -1,32 +1,27 @@
-const carousel = document.getElementById("successCarousel");
-const prevBtn = document.getElementById("prevStory");
-const nextBtn = document.getElementById("nextStory");
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("achieversCarousel");
+    const cards = document.querySelectorAll(".achiever-card");
+    let index = 0;
 
-let index = 0;
-const totalItems = document.querySelectorAll(".story-card").length;
-
-function updateCarousel() {
-    const offset = -index * 100 + "%";
-    carousel.style.transform = `translateX(${offset})`;
-}
-
-nextBtn.addEventListener("click", () => {
-    if (index < totalItems - 1) {
-        index++;
-        updateCarousel();
+    function showNext() {
+        index = (index + 1) % cards.length;
+        updateSlider();
     }
-});
 
-prevBtn.addEventListener("click", () => {
-    if (index > 0) {
-        index--;
-        updateCarousel();
+    function showPrevious() {
+        index = (index - 1 + cards.length) % cards.length;
+        updateSlider();
     }
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById("nextAchiever").addEventListener("click", showNext);
+    document.getElementById("prevAchiever").addEventListener("click", showPrevious);
+
+    setInterval(showNext, 5000); // Auto-scroll every 5 seconds
 });
-
-
-
-
 
 
 
