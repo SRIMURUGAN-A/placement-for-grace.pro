@@ -255,18 +255,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Enhanced Create Post
-    function initializePostCreation() {
+    function initializeCreatePost() {
         const createPostBtn = document.querySelector('.create-post-btn');
         const modal = document.getElementById('createPostModal');
-        const postTypeButtons = document.querySelectorAll('.type-btn');
+        const closeBtn = document.getElementById('closePostModal');
+        const typeButtons = document.querySelectorAll('.type-btn');
         const postContents = document.querySelectorAll('.post-type-content');
-        const mediaUploadArea = document.querySelector('.media-upload-area');
-        const fileInput = mediaUploadArea?.querySelector('input[type="file"]');
-        const advancedToggle = document.querySelector('.toggle-advanced');
-        const tagInput = document.getElementById('postTags');
-        const tagList = document.querySelector('.tag-list');
-        const tags = new Set();
-
+        
         // Open modal
         createPostBtn?.addEventListener('click', () => {
             modal.classList.add('active');
@@ -274,22 +269,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close modal
-        document.addEventListener('click', (e) => {
+        closeBtn?.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close on outside click
+        modal?.addEventListener('click', (e) => {
             if (e.target === modal) {
-                closeModal();
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
-        // Post Type Switching
-        postTypeButtons.forEach(btn => {
+        // Post type switching
+        typeButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const type = btn.dataset.type;
                 
-                // Update active button
-                postTypeButtons.forEach(b => b.classList.remove('active'));
+                // Update buttons
+                typeButtons.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Show corresponding content
+                // Update content sections
                 postContents.forEach(content => {
                     content.classList.remove('active');
                     if (content.id === `${type}Post`) {
@@ -299,150 +301,29 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Rich Text Editor
-        const editorButtons = document.querySelectorAll('.editor-toolbar button');
-        const textarea = document.getElementById('postContent');
-        const preview = document.querySelector('.preview-content');
+        // Tag input handling
+        const tagInput = document.getElementById('postTags');
+        const tagList = document.querySelector('.tag-list');
+        const tags = new Set();
 
-        editorButtons.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                const format = btn.dataset.format;
-                const selection = {
-                    start: textarea.selectionStart,
-                    end: textarea.selectionEnd,
-                    text: textarea.value.substring(textarea.selectionStart, textarea.selectionEnd)
-                };
-
-                let replacement = '';
-                switch(format) {
-                    case 'bold':
-                        replacement = `**${selection.text}**`;
-                        break;
-                    case 'italic':
-                        replacement = `*${selection.text}*`;
-                        break;
-                    case 'heading':
-                        replacement = `\n# ${selection.text}`;
-                        break;
-                    case 'list-ul':
-                        replacement = `\n- ${selection.text}`;
-                        break;
-                    case 'list-ol':
-                        replacement = `\n1. ${selection.text}`;
-                        break;
-                    case 'link':
-                        replacement = `[${selection.text}](url)`;
-                        break;
-                    case 'code':
-                        replacement = `\`${selection.text}\``;
-                        break;
-                    case 'quote':
-                        replacement = `\n> ${selection.text}`;
-                        break;
-                }
-
-                textarea.value = textarea.value.substring(0, selection.start) + 
-                               replacement + 
-                               textarea.value.substring(selection.end);
-                
-                updatePreview();
-            });
-        });
-
-        // Media Upload
-        if (mediaUploadArea) {
-            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-                mediaUploadArea.addEventListener(eventName, preventDefaults);
-            });
-
-            ['dragenter', 'dragover'].forEach(eventName => {
-                mediaUploadArea.addEventListener(eventName, () => {
-                    mediaUploadArea.classList.add('drag-over');
-                });
-            });
-
-            ['dragleave', 'drop'].forEach(eventName => {
-                mediaUploadArea.addEventListener(eventName, () => {
-                    mediaUploadArea.classList.remove('drag-over');
-                });
-            });
-
-            mediaUploadArea.addEventListener('drop', handleDrop);
-            mediaUploadArea.addEventListener('click', () => fileInput.click());
-            fileInput.addEventListener('change', handleFiles);
-        }
-
-        // Poll Options
-        const addOptionBtn = document.querySelector('.add-option-btn');
-        addOptionBtn?.addEventListener('click', () => {
-            const pollOptions = document.querySelector('.poll-options');
-            const newOption = document.createElement('div');
-            newOption.className = 'poll-option';
-            newOption.innerHTML = `
-                <input type="text" placeholder="Option ${pollOptions.children.length + 1}" required>
-                <button type="button" class="remove-option"><i class="fas fa-times"></i></button>
-            `;
-            pollOptions.appendChild(newOption);
-        });
-
-        // Link Preview
-        const linkInput = document.getElementById('linkUrl');
-        const fetchPreviewBtn = document.querySelector('.fetch-preview');
-        
-        fetchPreviewBtn?.addEventListener('click', async () => {
-            const url = linkInput.value;
-            if (!url) return;
-
-            fetchPreviewBtn.disabled = true;
-            fetchPreviewBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Fetching...';
-
-            try {
-                // Simulate API call for link preview
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                const previewHtml = `
-                    <div class="link-preview-card">
-                        <img src="https://via.placeholder.com/300x200" alt="Preview">
-                        <div class="preview-content">
-                            <h3>Link Title</h3>
-                            <p>Link description goes here...</p>
-                            <span class="preview-url">${url}</span>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.link-preview').innerHTML = previewHtml;
-            } catch (error) {
-                showToast('Failed to fetch link preview', 'error');
-            } finally {
-                fetchPreviewBtn.disabled = false;
-                fetchPreviewBtn.innerHTML = '<i class="fas fa-magic"></i> Fetch Preview';
-            }
-        });
-
-        // Tag Management
         tagInput?.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' && e.target.value.trim()) {
                 e.preventDefault();
                 const tag = e.target.value.trim();
-                if (tag && !tags.has(tag)) {
+                if (!tags.has(tag)) {
                     tags.add(tag);
-                    const tagElement = document.createElement('div');
+                    const tagElement = document.createElement('span');
                     tagElement.className = 'tag-item';
                     tagElement.innerHTML = `
-                        #${tag}
-                        <button type="button" onclick="removeTag(this, '${tag}')">×</button>
+                        ${tag}
+                        <button onclick="removeTag(this, '${tag}')">
+                            <i class="fas fa-times"></i>
+                        </button>
                     `;
                     tagList.appendChild(tagElement);
-                    e.target.value = '';
                 }
+                e.target.value = '';
             }
-        });
-
-        // Advanced Settings Toggle
-        advancedToggle?.addEventListener('click', () => {
-            const advancedOptions = document.querySelector('.advanced-options');
-            advancedOptions.classList.toggle('active');
-            advancedToggle.querySelector('i').classList.toggle('fa-rotate-180');
         });
     }
 
@@ -578,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize all enhancements
     initializePostInteractions();
-    initializePostCreation();
+    initializeCreatePost();
     initializeCategoryFilter();
     
     // Initialize tooltips
@@ -750,6 +631,146 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
         });
     }
+
+    // Initialize feed filters
+    initializeFeedFilters();
+    
+    // Initialize view options
+    initializeViewOptions();
+
+    // Initialize Masonry Layout for card view
+    function initializeMasonryLayout() {
+        const grid = document.querySelector('.posts-feed.card-view');
+        if (grid) {
+            new Masonry(grid, {
+                itemSelector: '.post',
+                columnWidth: '.post',
+                gutter: 24
+            });
+        }
+    }
+
+    // Enhanced Post Loading
+    function loadPosts(filter = 'latest') {
+        const postsContainer = document.querySelector('.posts-feed');
+        
+        // Show loading skeletons
+        postsContainer.innerHTML = Array(6).fill(0).map(() => `
+            <article class="post loading">
+                <div class="post-header loading-skeleton">
+                    <div class="avatar-placeholder"></div>
+                    <div class="meta-placeholder">
+                        <div class="title-placeholder"></div>
+                        <div class="subtitle-placeholder"></div>
+                    </div>
+                </div>
+                <div class="content-placeholder loading-skeleton"></div>
+            </article>
+        `).join('');
+
+        // Simulate API call
+        setTimeout(() => {
+            // Replace with actual posts
+            fetchPosts(filter).then(renderPosts);
+        }, 1000);
+    }
+
+    // Enhanced Post Interactions
+    function initializePostInteractions() {
+        document.querySelectorAll('.post').forEach(post => {
+            // Like Animation
+            const likeBtn = post.querySelector('.action-btn[data-action="like"]');
+            if (likeBtn) {
+                likeBtn.addEventListener('click', () => {
+                    likeBtn.classList.toggle('active');
+                    const count = likeBtn.querySelector('.count');
+                    const currentCount = parseInt(count.textContent);
+                    count.textContent = likeBtn.classList.contains('active') ? 
+                        currentCount + 1 : currentCount - 1;
+                    
+                    // Add heart animation
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    likeBtn.appendChild(heart);
+                    setTimeout(() => heart.remove(), 1000);
+                });
+            }
+
+            // Share functionality
+            const shareBtn = post.querySelector('.action-btn[data-action="share"]');
+            if (shareBtn) {
+                shareBtn.addEventListener('click', () => {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: post.querySelector('.post-title').textContent,
+                            text: post.querySelector('.post-content').textContent,
+                            url: window.location.href
+                        });
+                    } else {
+                        // Fallback to copy link
+                        copyToClipboard(window.location.href);
+                        showToast('Link copied to clipboard!', 'success');
+                    }
+                });
+            }
+        });
+    }
+
+    // Initialize Infinite Scroll
+    function initializeInfiniteScroll() {
+        let isLoading = false;
+        let page = 1;
+        
+        window.addEventListener('scroll', () => {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 1000) {
+                if (!isLoading) {
+                    isLoading = true;
+                    loadMorePosts(page++).then(() => {
+                        isLoading = false;
+                    });
+                }
+            }
+        });
+    }
+
+    // Initialize Search with Typeahead
+    function initializeSearch() {
+        const searchInput = document.querySelector('.search-wrapper input');
+        const resultsContainer = document.createElement('div');
+        resultsContainer.className = 'search-results';
+        searchInput.parentNode.appendChild(resultsContainer);
+        
+        let debounceTimer;
+        
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                const query = e.target.value.trim();
+                if (query.length > 2) {
+                    performSearch(query, resultsContainer);
+                } else {
+                    resultsContainer.style.display = 'none';
+                }
+            }, 300);
+        });
+    }
+
+    // Add these to your DOMContentLoaded event
+    document.addEventListener('DOMContentLoaded', function() {
+        // ... existing code ...
+
+        // Initialize new features
+        initializeMasonryLayout();
+        initializeInfiniteScroll();
+        initializeSearch();
+        
+        // Add Grace College logo
+        const logo = document.querySelector('.logo');
+        logo.innerHTML = `
+            <img src="https://www.gracecoe.org/assets/img/gcoe_logo.png" alt="Grace College Logo" class="logo-image">
+            <div class="logo-text">Student Hub</div>
+        `;
+    });
 });
 
 // Utility Functions
@@ -874,3 +895,121 @@ function updatePreview() {
     // Here you would typically convert markdown to HTML
     preview.innerHTML = content;
 }
+
+function initializeFeedFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Here you would typically filter the posts based on the selected filter
+            const filter = btn.textContent.trim().toLowerCase();
+            filterPosts(filter);
+        });
+    });
+}
+
+function filterPosts(filter) {
+    const posts = document.querySelectorAll('.post');
+    
+    posts.forEach(post => {
+        // Add animation for smooth transition
+        post.style.opacity = '0';
+        post.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            // Here you would typically check if the post matches the filter
+            // For now, we'll just show all posts
+            post.style.display = 'block';
+            post.style.opacity = '1';
+            post.style.transform = 'translateY(0)';
+        }, 300);
+    });
+}
+
+function initializePostInteractions() {
+    // Initialize reaction buttons
+    const reactionButtons = document.querySelectorAll('.reaction-btn');
+    
+    reactionButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            const count = btn.querySelector('.count');
+            if (count) {
+                const currentCount = parseInt(count.textContent);
+                count.textContent = btn.classList.contains('active') ? 
+                    currentCount + 1 : currentCount - 1;
+            }
+        });
+    });
+    
+    // Initialize quick reply
+    const quickReplyForms = document.querySelectorAll('.quick-reply');
+    
+    quickReplyForms.forEach(form => {
+        const input = form.querySelector('input');
+        const button = form.querySelector('.quick-reply-btn');
+        
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (input.value.trim()) {
+                // Here you would typically handle the comment submission
+                console.log('Quick reply:', input.value);
+                input.value = '';
+                
+                // Show success message
+                showToast('Comment posted successfully!', 'success');
+            }
+        });
+        
+        // Allow submitting with Enter key
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && input.value.trim()) {
+                e.preventDefault();
+                button.click();
+            }
+        });
+    });
+}
+
+function initializeViewOptions() {
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const postsContainer = document.querySelector('.posts-feed');
+    
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            viewButtons.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Change posts layout based on selected view
+            const view = btn.dataset.view;
+            postsContainer.className = `posts-feed ${view}-view`;
+        });
+    });
+}
+
+// Initialize trending topics scroll
+function initializeTrendingTopics() {
+    const topicsContainer = document.querySelector('.trending-topics');
+    let isScrolling = false;
+    
+    topicsContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(() => {
+                topicsContainer.scrollLeft += e.deltaY;
+                isScrolling = false;
+            });
+        }
+    });
+}
+
+// Call this function when the page loads
+initializeTrendingTopics();

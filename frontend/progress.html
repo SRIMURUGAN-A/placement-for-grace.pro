@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Progress Dashboard</title>
+    <link rel="stylesheet" href="./css/progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="./image/grace logo.jpg" alt="Logo" class="nav-logo">
+            <span>Student Portal</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="technical.html"><i class="fas fa-laptop-code"></i> Technical Skills</a>
+            <a href="community.html"><i class="fas fa-users"></i> Community</a>
+            <a href="progress.html" class="active"><i class="fas fa-chart-line"></i> Progress</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a>
+        </div>
+        <div class="nav-profile">
+            <img src="default-avatar.png" alt="Profile" class="nav-avatar">
+            <div class="dropdown">
+                <button class="dropbtn"><i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="container">
+            <header>
+                <h1>Student Progress Dashboard</h1>
+                <div class="profile-summary">
+                    <div class="profile-pic">
+                        <img src="default-avatar.png" alt="Student Profile" id="profilePic">
+                    </div>
+                    <div class="student-info">
+                        <h2 id="studentName">John Doe</h2>
+                        <p id="studentId">Student ID: ST12345</p>
+                        <div class="quick-stats">
+                            <span><i class="fas fa-code"></i> Technical Skills: 8/10</span>
+                            <span><i class="fas fa-users"></i> Community Points: 750</span>
+                            <span><i class="fas fa-certificate"></i> Certifications: 3</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <section class="progress-overview">
+                    <h2>Overall Progress</h2>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress" id="overallProgress"></div>
+                        </div>
+                        <span class="progress-text">75% Complete</span>
+                    </div>
+                </section>
+
+                <section class="semester-overview">
+                    <h2>Semester Overview</h2>
+                    <div class="semester-stats">
+                        <div class="stat-box">
+                            <i class="fas fa-clock"></i>
+                            <h3>Time Invested</h3>
+                            <p>120 Hours</p>
+                            <div class="stat-details">
+                                <span>Lectures: 60h</span>
+                                <span>Practice: 45h</span>
+                                <span>Projects: 15h</span>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-tasks"></i>
+                            <h3>Completed Items</h3>
+                            <p>85/100</p>
+                            <div class="stat-details">
+                                <span>Assignments: 45/50</span>
+                                <span>Quizzes: 28/30</span>
+                                <span>Projects: 12/20</span>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Performance</h3>
+                            <p>85%</p>
+                            <div class="stat-details">
+                                <span>Average Grade: A-</span>
+                                <span>Class Rank: 15/120</span>
+                                <span>Improvement: +12%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add a floating action button for quick actions -->
+                <div class="floating-action-btn">
+                    <button class="main-fab">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="fab-options">
+                        <button class="fab-option" data-action="add-task">
+                            <i class="fas fa-tasks"></i>
+                            <span>Add Task</span>
+                        </button>
+                        <button class="fab-option" data-action="track-time">
+                            <i class="fas fa-clock"></i>
+                            <span>Track Time</span>
+                        </button>
+                        <button class="fab-option" data-action="set-goal">
+                            <i class="fas fa-bullseye"></i>
+                            <span>Set Goal</span>
+                        </button>
+                    </div>
+                </div>
+
+               
+                <!-- Add this inside the learning-analytics section -->
+                <div class="analytics-card performance-trends">
+                    <h3>Performance Trends</h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                    <div class="trend-insights">
+                        <div class="trend-item">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15% improvement in problem-solving</span>
+                        </div>
+                        <div class="trend-item">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>Consistent performance in coding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add a new Goals & Milestones section -->
+                <section class="goals-milestones scroll-trigger">
+                    <h2>Goals & Milestones</h2>
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-progress" data-progress="75">
+                                <svg class="progress-ring">
+                                    <circle class="progress-ring-circle"></circle>
+                                </svg>
+                                <span class="progress-text">75%</span>
+                            </div>
+                            <h3>Master React.js</h3>
+                            <p>Complete advanced concepts and build 3 projects</p>
+                            <div class="milestone-list">
+                                <div class="milestone completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Basic Concepts</span>
+                                </div>
+                                <div class="milestone in-progress">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <span>Advanced State Management</span>
+                                </div>
+                                <div class="milestone">
+                                    <i class="far fa-circle"></i>
+                                    <span>Real-world Project</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more goal cards -->
+                    </div>
+                </section>
+
+                <section class="course-progress">
+                    <h2>Course Progress</h2>
+                    <div class="courses-grid">
+                        <!-- Course cards will be dynamically added here -->
+                    </div>
+                </section>
+
+                <section class="tasks-section">
+                    <h2>Upcoming Tasks</h2>
+                    <div class="tasks-list">
+                        <!-- Tasks will be dynamically added here -->
+                    </div>
+                </section>
+
+                <section class="achievements">
+                    <h2>Achievements</h2>
+                    <div class="achievements-grid">
+                        <!-- Achievements will be dynamically added here -->
+                    </div>
+                </section>
+
+                <!-- New Technical Skills Section -->
+                <section class="technical-skills">
+                    <h2>Technical Skills Progress</h2>
+                    <div class="skills-grid">
+                        <!-- Skills will be added dynamically -->
+                    </div>
+                </section>
+
+                <!-- New Learning Paths Section -->
+                <section class="learning-paths">
+                    <h2>Learning Paths</h2>
+                    <div class="paths-container">
+                        <!-- Learning paths will be added dynamically -->
+                    </div>
+                </section>
+
+                <!-- New Certifications Section -->
+                <section class="certifications">
+                    <h2>Certifications & Badges</h2>
+                    <div class="cert-grid">
+                        <!-- Certifications will be added dynamically -->
+                    </div>
+                </section>
+
+                <!-- New Community Engagement Section -->
+                <section class="community-engagement">
+                    <h2>Community Engagement</h2>
+                    <div class="engagement-stats">
+                        <!-- Community stats will be added dynamically -->
+                    </div>
+                </section>
+
+                <!-- New Learning Analytics Section -->
+                <section class="learning-analytics">
+                    <h2>Learning Analytics</h2>
+                    <div class="analytics-grid">
+                        <div class="analytics-card study-patterns">
+                            <h3>Study Patterns</h3>
+                            <div class="pattern-chart">
+                                <!-- Add chart here using Chart.js -->
+                            </div>
+                            <div class="pattern-insights">
+                                <p>Peak Performance: Morning Sessions</p>
+                                <p>Suggested Study Time: 9 AM - 11 AM</p>
+                            </div>
+                        </div>
+                        <div class="analytics-card strength-weakness">
+                            <h3>Strengths & Areas for Improvement</h3>
+                            <div class="strength-list">
+                                <div class="strength-item">
+                                    <span class="label">Problem Solving</span>
+                                    <div class="strength-bar" data-value="90"></div>
+                                </div>
+                                <div class="strength-item">
+                                    <span class="label">Team Collaboration</span>
+                                    <div class="strength-bar" data-value="85"></div>
+                                </div>
+                                <!-- Add more strength items -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- New Learning Roadmap Section -->
+                <section class="roadmap">
+                    <h2>Your Learning Roadmap</h2>
+                    <div class="roadmap-timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-content">
+                                <h3>Fundamentals</h3>
+                                <p>Completed on: March 15, 2024</p>
+                                <ul>
+                                    <li>Basic Programming Concepts</li>
+                                    <li>Data Structures</li>
+                                    <li>Algorithms</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item current">
+                            <div class="timeline-content">
+                                <h3>Advanced Concepts</h3>
+                                <p>In Progress - 75% Complete</p>
+                                <ul>
+                                    <li>System Design</li>
+                                    <li>Database Management</li>
+                                    <li>API Development</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Add more timeline items -->
+                    </div>
+                </section>
+
+                <!-- Place this section where you want the charts to appear -->
+                <section class="analytics-dashboard">
+                    <h2>Performance Analytics</h2>
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Skills Progress</h3>
+                            <canvas id="skillsChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Weekly Activity</h3>
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Grade Distribution</h3>
+                            <canvas id="gradesChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Time Distribution</h3>
+                            <canvas id="timeChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="./js/progress.js"></script>
+</body>
+</html>
