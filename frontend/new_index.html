@@ -15,10 +15,10 @@
     <div class="dynamic-background">
         <div class="background-overlay"></div>
         <div class="background-slides">
-            <div class="bg-slide active" style="background-image: url('./image/bb1.avif')"></div>
-            <div class="bg-slide" style="background-image: url('./image/bb8.avif')"></div>
-            <div class="bg-slide" style="background-image: url('./image/bb3.avif')"></div>
-            <div class="bg-slide" style="background-image: url('./image/bb10.avif')"></div>
+            <div class="bg-slide active" style="background-image: url('../image/bb1.avif')"></div>
+            <div class="bg-slide" style="background-image: url('../image/bb8.avif')"></div>
+            <div class="bg-slide" style="background-image: url('../image/bb3.avif')"></div>
+            <div class="bg-slide" style="background-image: url('../image/bb10.avif')"></div>
         </div>
     </div>
 
@@ -204,7 +204,7 @@
                             <i class="far fa-clock"></i>
                             Good morning
                         </span>
-                        <h1>Welcome back, <span class="user-name">John!</span></h1>
+                        <h1>Welcome back, <span class="user-name">Roger!</span></h1>
                         <p class="subtitle">Your learning journey continues. You've completed 85% of your current course.</p>
                         <div class="progress-ring-wrapper">
                             <div class="progress-ring">
@@ -251,10 +251,52 @@
                             <i class="fas fa-compass"></i>
                             Explore Courses
                         </button>
-                        <button class="btn view-schedule three-d">
+                        <button class="btn explore-courses shine">
                             <i class="fas fa-calendar-check"></i>
                             View Schedule
                         </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add this after the welcome-banner section -->
+            <section class="stats-counter-section">
+                <div class="stats-container">
+                    <div class="stat-counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="counter-info">
+                            <h3 class="counter" data-target="300">0</h3>
+                            <p>Active Students</p>
+                        </div>
+                    </div>
+                    <div class="stat-counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="counter-info">
+                            <h3 class="counter" data-target="500">0</h3>
+                            <p>Courses Available</p>
+                        </div>
+                    </div>
+                    <div class="stat-counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="counter-info">
+                            <h3 class="counter" data-target="95">0</h3>
+                            <p>Success Rate</p>
+                        </div>
+                    </div>
+                    <div class="stat-counter">
+                        <div class="counter-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="counter-info">
+                            <h3 class="counter" data-target="200">0</h3>
+                            <p>Job Placements</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -644,69 +686,345 @@
             </div>
 
             <!-- Courses View -->
-            <div class="highlights-grid courses-view active">
+            <div class="highlights-carousel courses-view active">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- AI/ML Track -->
                 <div class="highlight-card">
-                    <div class="card-badge">Featured</div>
-                    <img src="./image/ML.jpg" alt="Machine Learning Course" class="card-img">
+                            <div class="card-badge hot">Trending</div>
+                            <img src="./image/ML.jpg" alt="AI Course" class="card-img">
                     <div class="card-content">
                         <div class="card-tags">
-                            <span class="tag">Python</span>
                             <span class="tag">AI/ML</span>
-                            <span class="tag">Data Science</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Deep Learning</span>
                         </div>
-                        <h3 class="card-title">Machine Learning Fundamentals</h3>
+                                <h3 class="card-title">Advanced AI & Machine Learning</h3>
                         <div class="card-instructor">
-                            <img src="./image/instructor-avatar.jpg" alt="Instructor" class="instructor-avatar">
+                                    <img src="./image/instructor-1.jpg" alt="Instructor" class="instructor-avatar">
                             <span class="instructor-name">Dr. Sarah Johnson</span>
                         </div>
-                        <p class="card-description">
-                            Learn the fundamentals of Machine Learning with Python. Perfect for beginners.
-                        </p>
+                                <div class="card-stats">
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-user"></i> 15K students</span>
+                                    <span><i class="fas fa-clock"></i> 30 hours</span>
+                                </div>
+                                <div class="card-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 60%"></div>
+                                    </div>
+                                    <span>60% Complete</span>
+                                </div>
+                                <button class="btn primary full-width">Continue Learning</button>
+                            </div>
+                        </div>
+
+                        <!-- Web Development Track -->
+                        <div class="highlight-card">
+                            <div class="card-badge new">New</div>
+                            <img src="./image/webdevelop.avif" alt="Web Development" class="card-img">
+                            <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">Full Stack</span>
+                                </div>
+                                <h3 class="card-title">Modern Web Development Bootcamp</h3>
+                                <div class="card-instructor">
+                                    <img src="./image/instructor-2.jpg" alt="Instructor" class="instructor-avatar">
+                                    <span class="instructor-name">Alex Rivera</span>
+                                </div>
                         <div class="card-stats">
                             <span><i class="fas fa-star"></i> 4.8</span>
                             <span><i class="fas fa-user"></i> 12K students</span>
-                            <span><i class="fas fa-clock"></i> 20 hours</span>
+                                    <span><i class="fas fa-clock"></i> 45 hours</span>
                         </div>
-                        <button class="btn primary full-width">
-                            <i class="fas fa-play-circle"></i>
-                            Start Learning
-                        </button>
+                                <button class="btn primary full-width">Start Learning</button>
                     </div>
                 </div>
-                <!-- Add more course cards -->
+
+                        <!-- Cloud Computing Track -->
+                        <div class="highlight-card">
+                            <div class="card-badge">Featured</div>
+                            <img src="./image/cloud.avif" alt="Cloud Computing" class="card-img">
+                            <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">DevOps</span>
+                                    <span class="tag">Cloud</span>
+                                </div>
+                                <h3 class="card-title">Cloud Computing & DevOps</h3>
+                                <div class="card-instructor">
+                                    <img src="./image/instructor-3.jpg" alt="Instructor" class="instructor-avatar">
+                                    <span class="instructor-name">Mike Chen</span>
+                                </div>
+                                <div class="card-stats">
+                                    <span><i class="fas fa-star"></i> 4.7</span>
+                                    <span><i class="fas fa-user"></i> 8K students</span>
+                                    <span><i class="fas fa-clock"></i> 35 hours</span>
+                                </div>
+                                <button class="btn primary full-width">Enroll Now</button>
+                            </div>
+                        </div>
+
+                        <!-- Data Science Track -->
+                        <div class="highlight-card">
+                            <div class="card-badge hot">High Demand</div>
+                            <img src="./image/datascience.avif" alt="Data Science" class="card-img">
+                            <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="tag">Data Science</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Statistics</span>
+                                </div>
+                                <h3 class="card-title">Data Science & Analytics</h3>
+                                <div class="card-instructor">
+                                    <img src="./image/instructor-4.jpg" alt="Instructor" class="instructor-avatar">
+                                    <span class="instructor-name">Emma Watson</span>
+                                </div>
+                                <div class="card-stats">
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-user"></i> 10K students</span>
+                                    <span><i class="fas fa-clock"></i> 40 hours</span>
+                                </div>
+                                <button class="btn primary full-width">Start Learning</button>
+                            </div>
+                        </div>
+
+                        <!-- Cybersecurity Track -->
+                        <div class="highlight-card">
+                            <div class="card-badge new">New</div>
+                            <img src="./image/hacking.avif" alt="Cybersecurity" class="card-img">
+                            <div class="card-content">
+                                <div class="card-tags">
+                                    <span class="tag">Security</span>
+                                    <span class="tag">Network</span>
+                                    <span class="tag">Ethical Hacking</span>
+                                </div>
+                                <h3 class="card-title">Advanced Cybersecurity</h3>
+                                <div class="card-instructor">
+                                    <img src="./image/instructor-5.jpg" alt="Instructor" class="instructor-avatar">
+                                    <span class="instructor-name">John Smith</span>
+                                </div>
+                                <div class="card-stats">
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                    <span><i class="fas fa-user"></i> 5K students</span>
+                                    <span><i class="fas fa-clock"></i> 50 hours</span>
+                                </div>
+                                <button class="btn primary full-width">Enroll Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
             </div>
 
             <!-- Jobs View -->
-            <div class="highlights-grid jobs-view">
+            <div class="highlights-carousel jobs-view">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- AI Engineer Position -->
                 <div class="highlight-card job">
-                    <div class="card-badge hot">New</div>
+                            <div class="card-badge hot">Urgent</div>
                     <div class="card-content">
                         <div class="company-info">
-                            <img src="./image/oneyes logo.png" alt="Company logo" class="company-logo">
+                                    <img src="./image/company-1.png" alt="Company" class="company-logo">
                             <div>
-                                <h3>Senior Frontend Developer</h3>
+                                        <h3>AI Research Engineer</h3>
                                 <p class="company-name">TechCorp Solutions</p>
                             </div>
                         </div>
                         <div class="job-details">
                             <span><i class="fas fa-map-marker-alt"></i> Remote</span>
-                            <span><i class="fas fa-briefcase"></i> 3-5 years</span>
-                            <span><i class="fas fa-rupee-sign"></i> 15-20 LPA</span>
+                                    <span><i class="fas fa-briefcase"></i> 2-5 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 18-25 LPA</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">TensorFlow</span>
+                                    <span class="tag">Deep Learning</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Join our AI research team to develop cutting-edge machine learning solutions...</p>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn primary">Apply Now</button>
+                                    <button class="btn-icon save-job" title="Save Job">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Full Stack Developer Position -->
+                        <div class="highlight-card job">
+                            <div class="card-badge new">New</div>
+                            <div class="card-content">
+                                <div class="company-info">
+                                    <img src="./image/company-2.png" alt="Company" class="company-logo">
+                                    <div>
+                                        <h3>Senior Full Stack Developer</h3>
+                                        <p class="company-name">InnovaTech Solutions</p>
+                                    </div>
+                                </div>
+                                <div class="job-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Hybrid</span>
+                                    <span><i class="fas fa-briefcase"></i> 3-6 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 20-25 LPA</span>
                         </div>
                         <div class="card-tags">
                             <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
                             <span class="tag">Node.js</span>
+                                    <span class="tag">MongoDB</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Join our dynamic team to build scalable web applications using modern technologies...</p>
                         </div>
                         <div class="card-actions">
-                            <button class="btn-primary">Apply Now</button>
+                                    <button class="btn primary">Apply Now</button>
                             <button class="btn-icon save-job" title="Save Job">
                                 <i class="far fa-heart"></i>
                             </button>
                         </div>
                     </div>
                 </div>
-                <!-- Add more job cards -->
+
+                        <!-- Data Scientist Position -->
+                        <div class="highlight-card job">
+                            <div class="card-badge hot">Featured</div>
+                            <div class="card-content">
+                                <div class="company-info">
+                                    <img src="./image/company-3.png" alt="Company" class="company-logo">
+                                    <div>
+                                        <h3>Lead Data Scientist</h3>
+                                        <p class="company-name">DataTech Analytics</p>
+                                    </div>
+                                </div>
+                                <div class="job-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                    <span><i class="fas fa-briefcase"></i> 4-8 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 25-35 LPA</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">ML</span>
+                                    <span class="tag">Big Data</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Lead data science initiatives and build predictive models for our enterprise clients...</p>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn primary">Apply Now</button>
+                                    <button class="btn-icon save-job" title="Save Job">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DevOps Engineer Position -->
+                        <div class="highlight-card job">
+                            <div class="card-badge hot">In Demand</div>
+                            <div class="card-content">
+                                <div class="company-info">
+                                    <img src="./image/company-4.png" alt="Company" class="company-logo">
+                                    <div>
+                                        <h3>Senior DevOps Engineer</h3>
+                                        <p class="company-name">CloudTech Systems</p>
+                                    </div>
+                                </div>
+                                <div class="job-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Hybrid</span>
+                                    <span><i class="fas fa-briefcase"></i> 3-7 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 22-30 LPA</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Docker</span>
+                                    <span class="tag">Kubernetes</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Join our DevOps team to build and maintain scalable cloud infrastructure...</p>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn primary">Apply Now</button>
+                                    <button class="btn-icon save-job" title="Save Job">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UI/UX Designer Position -->
+                        <div class="highlight-card job">
+                            <div class="card-badge new">New</div>
+                            <div class="card-content">
+                                <div class="company-info">
+                                    <img src="./image/company-5.png" alt="Company" class="company-logo">
+                                    <div>
+                                        <h3>Senior UI/UX Designer</h3>
+                                        <p class="company-name">DesignPro Solutions</p>
+                                    </div>
+                                </div>
+                                <div class="job-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                    <span><i class="fas fa-briefcase"></i> 4-6 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 18-25 LPA</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">Adobe XD</span>
+                                    <span class="tag">UI/UX</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Create innovative and user-friendly designs for web and mobile applications...</p>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn primary">Apply Now</button>
+                                    <button class="btn-icon save-job" title="Save Job">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile App Developer Position -->
+                        <div class="highlight-card job">
+                            <div class="card-badge">Featured</div>
+                            <div class="card-content">
+                                <div class="company-info">
+                                    <img src="./image/company-6.png" alt="Company" class="company-logo">
+                                    <div>
+                                        <h3>Mobile App Developer</h3>
+                                        <p class="company-name">AppTech Solutions</p>
+                                    </div>
+                                </div>
+                                <div class="job-details">
+                                    <span><i class="fas fa-map-marker-alt"></i> On-site</span>
+                                    <span><i class="fas fa-briefcase"></i> 2-5 years</span>
+                                    <span><i class="fas fa-rupee-sign"></i> 15-22 LPA</span>
+                                </div>
+                                <div class="card-tags">
+                                    <span class="tag">React Native</span>
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">iOS/Android</span>
+                                </div>
+                                <div class="job-description">
+                                    <p>Develop cross-platform mobile applications using modern frameworks...</p>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="btn primary">Apply Now</button>
+                                    <button class="btn-icon save-job" title="Save Job">
+                                        <i class="far fa-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -746,7 +1064,7 @@
                 <!-- Student Showcase Card -->
                 <div class="event-card showcase">
                     <div class="showcase-preview">
-                        <img src="https://www.freepik.com/free-vector/business-plan-concept-illustration_7171671.htm#fromView=search&page=1&position=15&uuid=f82f1ed9-b392-4f3c-a39c-50364c9186b0&query=project+preview" alt="Project preview">
+                        <img src="./image/project.avif" alt="Project preview">
                     </div>
                     <div class="event-content">
                         <div class="event-badge">Student Showcase</div>
@@ -782,7 +1100,7 @@
                 <div class="story-card active">
                     <div class="story-content">
                         <div class="story-image">
-                            <img src="../image/warren-buffett.jpg" alt="Success Story">
+                            <img src="./image/warren-buffett.jpg" alt="Success Story">
                             <div class="story-badge">Investment Legend</div>
                         </div>
                         <div class="story-details">
@@ -808,7 +1126,7 @@
                 <div class="story-card">
                     <div class="story-content">
                         <div class="story-image">
-                            <img src="path/to/steve-jobs.jpg" alt="Success Story">
+                            <img src="./image/steve1.jpg" alt="Success Story">
                             <div class="story-badge">Tech Visionary</div>
                         </div>
                         <div class="story-details">
@@ -824,7 +1142,7 @@
                                     <span>Revolutionary Products</span>
                                 </div>
                             </div>
-                            <p class="story-quote">"Stay hungry, stay foolish."</p>
+                            <p class="story-quote">"Don’t let the noise of others’ opinions drown out your own inner voice."</p>
                             <button class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></button>
                         </div>
                     </div>
@@ -834,7 +1152,7 @@
                 <div class="story-card">
                     <div class="story-content">
                         <div class="story-image">
-                            <img src="path/to/sundar-pichai.jpg" alt="Success Story">
+                            <img src="./image/sundar.jpg" alt="Success Story">
                             <div class="story-badge">Tech Leader</div>
                         </div>
                         <div class="story-details">
@@ -855,6 +1173,110 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Add Satya Nadella Story -->
+                <div class="story-card">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="./image/sathya.jpg" alt="Success Story">
+                            <div class="story-badge">Tech Visionary</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Satya Nadella</h3>
+                            <p class="story-title">Microsoft CEO</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Cloud Computing Pioneer</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Transformational Leader</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"Our industry does not respect tradition - it only respects innovation."</p>
+                            <button class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Ratan Tata Story -->
+                <div class="story-card">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="./image/tata.jpg" alt="Success Story">
+                            <div class="story-badge">Business Legend</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Ratan Tata</h3>
+                            <p class="story-title">Indian Industrialist</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-building"></i>
+                                    <span>Tata Group Chairman</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Philanthropist</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"None can destroy iron, but its own rust can! Likewise, none can destroy a person, but his own mindset can!"</p>
+                            <button class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add APJ Abdul Kalam Story -->
+                <div class="story-card">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="./image/abdul.jpg" alt="Success Story">
+                            <div class="story-badge">Visionary Leader</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>APJ Abdul Kalam</h3>
+                            <p class="story-title">Missile Man of India</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>Space Research Pioneer</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-book"></i>
+                                    <span>Educational Advocate</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"Dream is not that which you see while sleeping, it is something that does not let you sleep."</p>
+                            <button class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Indra Nooyi Story -->
+                <div class="story-card">
+                    <div class="story-content">
+                        <div class="story-image">
+                            <img src="./image/indra.jpg" alt="Success Story">
+                            <div class="story-badge">Business Leader</div>
+                        </div>
+                        <div class="story-details">
+                            <h3>Indra Nooyi</h3>
+                            <p class="story-title">Former PepsiCo CEO</p>
+                            <div class="story-highlights">
+                                <div class="highlight-item">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Global Business Leader</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Strategic Innovator</span>
+                                </div>
+                            </div>
+                            <p class="story-quote">"Leadership is hard to define and good leadership even harder. But if you can get people to follow you to the ends of the earth, you are a great leader."</p>
+                            <button class="btn-read-more">Read Full Story <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -862,7 +1284,7 @@
         <footer class="main-footer">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <img src="../image/grace logo.jpg" alt="GRACE Logo" class="footer-logo">
+                    <img src="./image/grace logo.jpg" alt="GRACE Logo" class="footer-logo">
                     <p class="footer-desc">Empowering students with cutting-edge technology education and career opportunities.</p>
                     <div class="social-links">
                         <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>

@@ -180,85 +180,36 @@ document.querySelectorAll('.card').forEach(card => {
         const carousel = document.getElementById('successCarousel');
         if (!carousel) return;
 
-        const storyCards = Array.from(carousel.getElementsByClassName('story-card'));
+        const stories = carousel.getElementsByClassName('story-card');
         const prevBtn = document.getElementById('prevStory');
         const nextBtn = document.getElementById('nextStory');
         let currentIndex = 0;
 
-        // Function to show specific story
+        // Show initial story
+        showStory(currentIndex);
+
         function showStory(index) {
-            // Hide all stories first with opacity transition
-            storyCards.forEach(card => {
-                card.classList.remove('active');
-                card.style.opacity = '0';
-                setTimeout(() => {
-                    card.style.display = 'none';
-                }, 300);
-            });
-            
-            // Show and fade in the current story
-            const currentCard = storyCards[index];
-            currentCard.style.display = 'block';
-            // Force reflow
-            currentCard.offsetHeight;
-            setTimeout(() => {
-                currentCard.classList.add('active');
-                currentCard.style.opacity = '1';
-            }, 50);
-        }
-
-        // Function to show next story
-        function nextStory() {
-            currentIndex = (currentIndex + 1) % storyCards.length;
-            showStory(currentIndex);
-        }
-
-        // Function to show previous story
-        function prevStory() {
-            currentIndex = (currentIndex - 1 + storyCards.length) % storyCards.length;
-            showStory(currentIndex);
-        }
-
-        // Set up auto-rotation
-        let autoRotateInterval;
-
-        function startAutoRotate() {
-            stopAutoRotate(); // Clear any existing interval
-            autoRotateInterval = setInterval(nextStory, 5000); // Change story every 5 seconds
-        }
-
-        function stopAutoRotate() {
-            if (autoRotateInterval) {
-                clearInterval(autoRotateInterval);
+            // Hide all stories
+            for(let story of stories) {
+                story.classList.remove('active');
             }
+            // Show current story
+            stories[index].classList.add('active');
+        }
+
+        function nextStory() {
+            currentIndex = (currentIndex + 1) % stories.length;
+            showStory(currentIndex);
+        }
+
+        function prevStory() {
+            currentIndex = (currentIndex - 1 + stories.length) % stories.length;
+            showStory(currentIndex);
         }
 
         // Add event listeners
-        if (prevBtn) {
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                prevStory();
-                stopAutoRotate();
-                startAutoRotate();
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                nextStory();
-                stopAutoRotate();
-                startAutoRotate();
-            });
-        }
-
-        // Initialize the first story and start rotation
-        showStory(currentIndex);
-        startAutoRotate();
-
-        // Add hover pause
-        carousel.addEventListener('mouseenter', stopAutoRotate);
-        carousel.addEventListener('mouseleave', startAutoRotate);
+        nextBtn.addEventListener('click', nextStory);
+        prevBtn.addEventListener('click', prevStory);
     }
 
     // Make sure to call initializeSuccessStories after DOM is loaded
@@ -367,6 +318,127 @@ document.querySelectorAll('.card').forEach(card => {
         addMessage('user', suggestion);
         processUserMessage(suggestion);
     };
+
+    // Add this to your existing DOMContentLoaded event listener
+    function initializeCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // The lower the faster
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            
+            const updateCount = () => {
+                const increment = target / speed;
+                
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+
+            updateCount();
+        };
+
+        // Intersection Observer for counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    }
+
+    // Initialize counters
+    initializeCounters();
+
+    // Add confetti effect for achievements
+    function triggerConfetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+
+    // Add this to your achievement notification
+    function showAchievementNotification(achievement) {
+        const notification = document.createElement('div');
+        notification.className = 'achievement-notification';
+        notification.innerHTML = `
+            <i class="fas fa-trophy"></i>
+            <div>
+                <h4>Achievement Unlocked!</h4>
+                <p>${achievement.title}</p>
+                <span>+${achievement.points} points</span>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        triggerConfetti();
+        setTimeout(() => notification.remove(), 3000);
+    }
+
+    // Add to your existing DOMContentLoaded event listener
+    function initializeCarousels() {
+        const carousels = document.querySelectorAll('.highlights-carousel');
+        const viewBtns = document.querySelectorAll('.view-btn');
+
+        // Show initial view
+        document.querySelector('.courses-view').classList.add('active');
+        document.querySelector('[data-view="courses"]').classList.add('active');
+
+        // Handle view switching
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const viewType = btn.getAttribute('data-view');
+                
+                // Remove active class from all buttons and views
+                viewBtns.forEach(b => b.classList.remove('active'));
+                carousels.forEach(v => v.classList.remove('active'));
+                
+                // Add active class to selected button and view
+                btn.classList.add('active');
+                const selectedView = document.querySelector(`.${viewType}-view`);
+                if (selectedView) {
+                    selectedView.classList.add('active');
+                    // Reset carousel position
+                    const track = selectedView.querySelector('.carousel-track');
+                    if (track) {
+                        track.style.transition = 'none';
+                        track.style.transform = 'translateX(0)';
+                        // Force reflow
+                        track.offsetHeight;
+                        track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    }
+                }
+            });
+        });
+
+        // Initialize each carousel
+        carousels.forEach(carousel => {
+            const track = carousel.querySelector('.carousel-track');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            
+            if (!track || !prevBtn || !nextBtn) return;
+
+            // Add your existing carousel functionality here
+            // (Keep the rest of your carousel initialization code)
+        });
+    }
+
+    // Initialize carousels
+    initializeCarousels();
 });
 
 // Example of notification handling
@@ -488,5 +560,44 @@ document.querySelectorAll('.menu-section a').forEach(item => {
     
     item.addEventListener('mouseleave', () => {
         item.style.transform = 'translateX(0)';
+    });
+});
+
+// Add this function to reset carousel position
+function resetCarousel(carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const cards = track.querySelectorAll('.highlight-card');
+    
+    // Reset to first card
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(0)';
+    
+    // Force reflow
+    track.offsetHeight;
+    
+    // Restore transition
+    track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+}
+
+// Modify the view switching event listener
+viewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const viewType = btn.getAttribute('data-view');
+        
+        // Remove active classes
+        viewBtns.forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.highlights-carousel').forEach(view => {
+            view.classList.remove('active');
+            resetCarousel(view); // Reset carousel position
+        });
+        
+        // Add active classes
+        btn.classList.add('active');
+        const selectedView = document.querySelector(`.${viewType}-view`);
+        if (selectedView) {
+            selectedView.classList.add('active');
+            // Reinitialize carousel for the active view
+            initializeCarousel(selectedView);
+        }
     });
 });

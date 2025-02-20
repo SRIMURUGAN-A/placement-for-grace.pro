@@ -835,72 +835,7 @@
         </footer>
     </main>
 
-    <!-- Update the AI Chat Widget -->
-    <div class="ai-chat-widget" id="aiChatWidget">
-        <div class="chat-header">
-            <div class="chat-title">
-                <div class="bot-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="bot-info">
-                    <h3>GRANO BOT</h3>
-                    <span class="bot-status">AI Learning Assistant</span>
-                </div>
-            </div>
-            <div class="chat-controls">
-                <button class="control-btn" id="voiceChat" title="Voice Chat">
-                    <i class="fas fa-microphone"></i>
-                </button>
-                <button class="control-btn" id="minimizeChat" title="Minimize">
-                    <i class="fas fa-minus"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="chat-body">
-            <div class="chat-messages" id="chatMessages">
-                <!-- Welcome Message -->
-                <div class="message bot-message">
-                    <div class="message-avatar">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="message-content">
-                        <p>👋 Hi! I'm GRANO BOT, your AI Learning Assistant. How can I help you today?</p>
-                        <div class="suggestion-chips">
-                            <button class="chip" onclick="sendSuggestion('Learning paths')">Learning paths</button>
-                            <button class="chip" onclick="sendSuggestion('Career advice')">Career advice</button>
-                            <button class="chip" onclick="sendSuggestion('Technical help')">Technical help</button>
-                            <button class="chip" onclick="sendSuggestion('Study tips')">Study tips</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="chat-input-area">
-                <div class="input-wrapper">
-                    <input type="text" id="chatInput" placeholder="Ask GRANO anything...">
-                    <button class="send-btn" id="sendMessage">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-                <div class="input-suggestions">
-                    <p>Popular questions:</p>
-                    <div class="suggestion-pills">
-                        <span onclick="sendSuggestion('How to start learning coding?')">🚀 How to start coding?</span>
-                        <span onclick="sendSuggestion('Job opportunities')">💼 Job opportunities</span>
-                        <span onclick="sendSuggestion('Course recommendations')">📚 Course recommendations</span>
-                        <span onclick="sendSuggestion('Interview preparation')">🎯 Interview prep</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Chat Toggle Button -->
-    <button class="chat-toggle" id="chatToggle">
-        <i class="fas fa-comments"></i>
-        <span class="toggle-label">Ask AI Assistant</span>
-    </button>
+   
 
     <script src="./js/script.js"></script>
 </body>
