@@ -206,7 +206,7 @@ body {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg,0 var(--primary), var(--primary-dark));
     color: white;
 }
 
@@ -2682,7 +2682,7 @@ section {
     overflow: hidden;
     border-radius: 1rem;
 }
-
+/* 
 .story-card {
     display: none;
     opacity: 0;
@@ -2692,7 +2692,7 @@ section {
 .story-card.active {
     display: block;
     opacity: 1;
-}
+} */
 
 .story-content {
     background: var(--bg-primary);
@@ -2808,9 +2808,7 @@ section {
 
 /* Add these styles for the Success Stories carousel */
 .story-card {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    display: block;
 }
 
 .story-card.active {

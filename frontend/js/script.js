@@ -1,3 +1,31 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("achieversCarousel");
+    const cards = document.querySelectorAll(".achiever-card");
+    let index = 0;
+
+    function showNext() {
+        index = (index + 1) % cards.length;
+        updateSlider();
+    }
+
+    function showPrevious() {
+        index = (index - 1 + cards.length) % cards.length;
+        updateSlider();
+    }
+
+    function updateSlider() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById("nextAchiever").addEventListener("click", showNext);
+    document.getElementById("prevAchiever").addEventListener("click", showPrevious);
+
+    setInterval(showNext, 5000); // Auto-scroll every 5 seconds
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize theme
     const themeToggle = document.querySelector('.theme-toggle');
